@@ -1,0 +1,345 @@
+"use client";
+import React from "react";
+import { useEffect } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import hljs from "highlight.js";
+import styles from "./ReadySetGo.module.css";
+
+interface IProps {
+  htmlContent: Array<String>;
+}
+
+function ReadySetGo({ htmlContent }: IProps) {
+  htmlContent = [
+    `
+  # Create and access a directory for your app
+  
+  mkdir my_app
+  
+  cd my_app
+
+  # Clone your repository
+  
+  git clone <your-git-repository></your-git-repository
+  `,
+    `
+  # Stage all of your changes
+  
+  git add --all
+  
+  # Commit all of your changes and add a message"
+  
+  git commit -m "my_app - initial commit"
+  
+  # Push your code!
+  
+  git push
+  `,
+    `
+  # Create your product build
+  
+  npm run build
+  `,
+    `
+  # Deploy your build to gh-pages
+  
+  npm run deploy
+
+  😎
+  `,
+  ];
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [htmlContent]);
+
+  return (
+    <>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tomorrow-night-blue.min.css"
+        ></link>
+      </Head>{" "}
+      <section className={`${styles.section}`}>
+        {/* Title */}
+        <h1 id="top">Ready Set Go</h1>
+        <p className={`${styles.dateStamp}`}>June 8th, 2022</p>
+        <div className="divider"></div>
+        {/* Headline */}
+        <p className="headline">
+          So, you've dabbled with
+          <span>
+            {" "}
+            <a
+              href="https://create-react-app.dev/docs/getting-started"
+              className="link"
+            >
+              create-react-app
+            </a>{" "}
+          </span>
+          and you're ready to build and share something amazing with the world.
+          Now what? This post will walk you through creating a GitHub repository
+          to manage and back up your application as well as using GitHub Pages
+          to publish your app to the web.
+        </p>
+        {/* Divider */}
+        <div className="divider"></div>
+        {/* Table of Contents */}
+        <div>
+          <h2>Table of Contents</h2>
+          <ol className="orderedList">
+            <li>
+              <Link className="listItem" href="/ready_set_go/#register">
+                Create a GitHub Account
+              </Link>
+            </li>
+            <li>
+              <Link className="listItem" href="/ready_set_go/#create">
+                Create a GitHub Repository
+              </Link>
+            </li>
+            <li>
+              <Link className="listItem" href="/ready_set_go/#clone">
+                Clone Your GitHub Repository
+              </Link>
+            </li>
+            <li>
+              <Link className="listItem" href="/ready_set_go/#push">
+                Push Your Code to GitHub
+              </Link>
+            </li>
+            <li>
+              <Link className="listItem" href="/ready_set_go/#build">
+                Create a Production Build
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link className="listItem" href="/ready_set_go/#publish">
+                Publish Your App to GitHub Pages
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link className="listItem" href="/ready_set_go/#deploy">
+                Deploy Your Build to GitHub Pages
+              </Link>
+            </li>
+          </ol>
+          <div className="divider"></div>
+        </div>
+        {/* Create a GitHub Account */}
+        <div>
+          <div>
+            <h2 id="register">
+              Create a GitHub Account
+              <span>
+                <Link scroll={true} href="/ready_set_go/#top" className="link">
+                  {" "}
+                  #{" "}
+                </Link>
+              </span>
+            </h2>
+          </div>
+          <p>
+            You need a place to store your code and GitHub is pretty much the
+            defacto code repository on the web. You'll use the git version
+            control system to manage your code repositories—repositories which
+            you'll store in GitHub. Let's sign up at{""}
+            <span>
+              {" "}
+              <a href="https://github.com/signup" className="link">
+                GitHub Signup
+              </a>{" "}
+            </span>
+            and follow the steps to set up an account.
+          </p>
+        </div>
+        {/* Create a GitHub Repository */}
+        <div>
+          <div>
+            <h2 id="create">
+              Create a GitHub Repository
+              <Link scroll={true} href="/ready_set_go/#top" className="link">
+                {" "}
+                #{" "}
+              </Link>
+            </h2>
+          </div>
+          <p>
+            Let's create our first GitHub repository! There should be a green
+            button on your GitHub homepage labeled "New". Click it to create a
+            new repository or
+            <span>
+              {" "}
+              <a href="https://github.com/new" className="link">
+                click here
+              </a>{" "}
+            </span>
+            to save a few keyboard strokes. Give your repository a name and set
+            it to "public". No need to bother with any of the other settings for
+            now.
+          </p>
+        </div>
+        {/* Clone Your GitHub Repository */}
+        <div>
+          <div>
+            <h2 id="clone">
+              Clone Your GitHub Repository
+              <Link scroll={true} href="/ready_set_go/#top" className="link">
+                {" "}
+                #{" "}
+              </Link>
+            </h2>
+          </div>
+          <p>
+            You'll want to save your app to your computer and sync it to GitHub.
+            So, we'll create a folder for our app and we'll clone our GitHub
+            repository to the same folder.
+          </p>
+          <p>
+            To clone your repository, go to your repository on GitHub and, on
+            the "Code" page there's a green "Code" button. Clicking it will
+            present a dropdown menu with a "copy to clipboard" button for your
+            repository's GitHub URL. We'll use this URL, along with the "git
+            clone" command, to clone our repository locally so we can develop
+            our changes locally using all of the wonderful capabilities provided
+            by a version control system known as git. To learn more about git,
+            check out their{" "}
+            <span>
+              <a href="https://git-scm.com/" className="link">
+                documentation.
+              </a>
+            </span>
+          </p>
+          <div className="hljs">
+            <pre>
+              <code className="language-bash">{htmlContent[0]}</code>
+            </pre>
+          </div>
+        </div>
+        {/* Push Your Code to GitHub */}
+        <div>
+          <div>
+            <h2 id="push">
+              Push Your Code to GitHub
+              <Link scroll={true} href="/ready_set_go/#top" className="link">
+                {" "}
+                #{" "}
+              </Link>
+            </h2>
+          </div>
+          <p>
+            Refer to the{" "}
+            <a
+              href="https://create-react-app.dev/docs/getting-started"
+              className="link"
+            >
+              Create React App
+            </a>{" "}
+            tutorial for creating your new React app. Make sure you're still in
+            your "my_app" directory when creating your new React application.
+            Once you're ready to save your changes, save them locally and then
+            push your code to GitHub. See below for example code you can use to
+            stage, commit, and push your changes to GitHub.
+          </p>
+          <div className="hljs">
+            <pre>
+              <code className="language-bash">{htmlContent[1]}</code>
+            </pre>
+          </div>
+        </div>
+        {/* Create a Production Build */}
+        <div>
+          <div>
+            <h2 id="build">
+              Create a Production Build
+              <Link scroll={true} href="/ready_set_go/#top" className="link">
+                {" "}
+                #{" "}
+              </Link>
+            </h2>
+          </div>
+          <p>
+            The production build is an web optimized version of our app. This is
+            the version we'll post to GitHub Pages. Production builds improve
+            load time which makes for happier users. So run that build and get
+            ready to deploy your app.
+          </p>
+          <div>
+            <pre>
+              <code className="language-bash">{htmlContent[2]}</code>
+            </pre>
+          </div>
+        </div>
+        {/* Publish Your App to GitHub Pages */}
+        <div>
+          <div>
+            <h2 id="publish">
+              Publish Your App to GitHub Pages
+              <Link scroll={true} href="/ready_set_go/#top" className="link">
+                {" "}
+                #{" "}
+              </Link>
+            </h2>
+          </div>
+          <p>
+            For a more in-depth understanding of GitHub Pages,{" "}
+            <span>
+              <a
+                href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site"
+                className="px-1 link"
+              >
+                please read the documentation,
+              </a>
+            </span>
+            but if you're looking for the TL;DR, then you should know that
+            deploying your application from a GitHub repository to GitHub Pages
+            is, as you should expect, very easy. Simply go to "Settings" and
+            "Pages" page, select "Deploy from a branch" as your "Source" and
+            pick a branch from the "Branch" dropdown which will be used to build
+            your application.
+          </p>
+        </div>
+        {/* Deploy Your Build to GitHub Pages */}
+        <div>
+          <div>
+            <h2 id="deploy">
+              Deploy Your Build to GitHub Pages
+              <Link scroll={true} href="/ready_set_go/#top" className="link">
+                {" "}
+                #{" "}
+              </Link>
+            </h2>
+          </div>
+          <p>
+            From here on out, to deploy your changes to GitHub Pages, just
+            follow the previous steps (i.e., stage, commit, push, build) and if
+            you'd like to publish updates to your GitHub Pages page from the
+            comfort of your terminal, just install the NPM package called
+            <span>
+              <a
+                href="https://www.npmjs.com/package/gh-pages#command-line-utility"
+                className="link"
+              >
+                gh-pages
+              </a>
+            </span>
+            and set up a package.json "deploy" script to push your code to your
+            GitHub Pages page as is illustrated below. Godspeed!
+          </p>
+          <div className="hljs">
+            <pre>
+              <code className="language-bash">{htmlContent[3]}</code>
+            </pre>
+          </div>
+        </div>
+        {/* <Footer></Footer> */}
+      </section>
+    </>
+  );
+}
+
+export default ReadySetGo;

@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "highlight.js": "^11.10.0",
+    "isomorphic-dompurify": "^2.15.0",
+    "next": "^14.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@builder.io/partytown": "^0.10.2",
+    "@types/node": "22.5.4",
+    "@types/react": "18.3.5",
+    "typescript": "5.5.4"
+  }
+}
