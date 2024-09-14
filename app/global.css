@@ -1,5 +1,5 @@
 h1 {
-  font-size: 3rem;
+  font-size: 48px;
   margin: 1rem 1rem 0 0;
 }
 
@@ -11,13 +11,66 @@ section {
   padding-top: 4rem;
 }
 
+p {
+  line-height: 2.5rem;
+}
+
+ol {
+  line-height: 2.5rem;
+}
+
 .codeWrapper {
   border-radius: 1rem;
 }
 
 .headline {
   line-height: 2rem;
+  font-weight: 1rem;
   font-style: italic;
+}
+
+.author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #bad32c;
+  padding: 4rem 2rem 4rem 2rem;
+  margin-top: 8rem;
+}
+
+.headshot {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+.contact {
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.authorName {
+  color: white;
+}
+
+.postList {
+  list-style-type: none;
+}
+
+.postTitle {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.postLink {
+  color: #bad32c;
+  text-decoration: none;
+}
+
+.postData {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dark {
@@ -36,11 +89,6 @@ section {
 
   p {
     color: white;
-    line-height: 2.5rem;
-  }
-
-  ol {
-    line-height: 2.5rem;
   }
 
   .orderedList {
@@ -72,6 +120,72 @@ section {
     border-bottom-width: 1px;
     border-bottom-color: #bad32c;
     border-style: solid;
+  }
+}
+
+/* Responsive Design */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+  }
+
+  p {
+    line-height: 2rem;
+    color: red;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .section {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    line-height: 2.5rem;
+    color: red;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 1024px) {
+  .section {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Large devices (laptops/desktops, 1440px and up) */
+@media only screen and (min-width: 1439px) {
+  .section {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1920px and up) */
+@media only screen and (min-width: 1920px) {
+  .section {
+    width: 28%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -112,7 +226,7 @@ SOFTWARE.
   color: #d6deeb;
   display: block;
   overflow-x: auto;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 /* General Purpose */
@@ -121,7 +235,7 @@ SOFTWARE.
   font-style: italic;
 }
 .hljs-built_in {
-  color: #addb67;
+  color: #bad32c;
   font-style: italic;
 }
 .hljs-type {

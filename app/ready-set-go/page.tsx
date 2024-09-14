@@ -21,7 +21,7 @@ function ReadySetGo({ htmlContent }: IProps) {
 
   # Clone your repository
   
-  git clone <your-git-repository></your-git-repository
+  git clone <your-git-repository>
   `,
     `
   # Stage all of your changes
@@ -62,7 +62,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tomorrow-night-blue.min.css"
         ></link>
       </Head>{" "}
-      <section className={`${styles.section}`}>
+      <section className="section">
         {/* Title */}
         <h1 id="top">Ready Set Go</h1>
         <p className={`${styles.dateStamp}`}>June 8th, 2022</p>
@@ -91,39 +91,39 @@ function ReadySetGo({ htmlContent }: IProps) {
           <h2>Table of Contents</h2>
           <ol className="orderedList">
             <li>
-              <Link className="listItem" href="/ready_set_go/#register">
+              <Link className="listItem" href="/ready-set-go/#register">
                 Create a GitHub Account
               </Link>
             </li>
             <li>
-              <Link className="listItem" href="/ready_set_go/#create">
+              <Link className="listItem" href="/ready-set-go/#create">
                 Create a GitHub Repository
               </Link>
             </li>
             <li>
-              <Link className="listItem" href="/ready_set_go/#clone">
+              <Link className="listItem" href="/ready-set-go/#clone">
                 Clone Your GitHub Repository
               </Link>
             </li>
             <li>
-              <Link className="listItem" href="/ready_set_go/#push">
+              <Link className="listItem" href="/ready-set-go/#push">
                 Push Your Code to GitHub
               </Link>
             </li>
             <li>
-              <Link className="listItem" href="/ready_set_go/#build">
+              <Link className="listItem" href="/ready-set-go/#build">
                 Create a Production Build
               </Link>
             </li>
             <li>
               {" "}
-              <Link className="listItem" href="/ready_set_go/#publish">
+              <Link className="listItem" href="/ready-set-go/#publish">
                 Publish Your App to GitHub Pages
               </Link>
             </li>
             <li>
               {" "}
-              <Link className="listItem" href="/ready_set_go/#deploy">
+              <Link className="listItem" href="/ready-set-go/#deploy">
                 Deploy Your Build to GitHub Pages
               </Link>
             </li>
@@ -136,7 +136,7 @@ function ReadySetGo({ htmlContent }: IProps) {
             <h2 id="register">
               Create a GitHub Account
               <span>
-                <Link scroll={true} href="/ready_set_go/#top" className="link">
+                <Link scroll={true} href="/ready-set-go/#top" className="link">
                   {" "}
                   #{" "}
                 </Link>
@@ -162,7 +162,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           <div>
             <h2 id="create">
               Create a GitHub Repository
-              <Link scroll={true} href="/ready_set_go/#top" className="link">
+              <Link scroll={true} href="/ready-set-go/#top" className="link">
                 {" "}
                 #{" "}
               </Link>
@@ -188,7 +188,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           <div>
             <h2 id="clone">
               Clone Your GitHub Repository
-              <Link scroll={true} href="/ready_set_go/#top" className="link">
+              <Link scroll={true} href="/ready-set-go/#top" className="link">
                 {" "}
                 #{" "}
               </Link>
@@ -212,7 +212,7 @@ function ReadySetGo({ htmlContent }: IProps) {
               <a href="https://git-scm.com/" className="link">
                 documentation.
               </a>
-            </span>
+            </span>{" "}
           </p>
           <div className="hljs">
             <pre>
@@ -225,7 +225,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           <div>
             <h2 id="push">
               Push Your Code to GitHub
-              <Link scroll={true} href="/ready_set_go/#top" className="link">
+              <Link scroll={true} href="/ready-set-go/#top" className="link">
                 {" "}
                 #{" "}
               </Link>
@@ -256,7 +256,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           <div>
             <h2 id="build">
               Create a Production Build
-              <Link scroll={true} href="/ready_set_go/#top" className="link">
+              <Link scroll={true} href="/ready-set-go/#top" className="link">
                 {" "}
                 #{" "}
               </Link>
@@ -279,7 +279,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           <div>
             <h2 id="publish">
               Publish Your App to GitHub Pages
-              <Link scroll={true} href="/ready_set_go/#top" className="link">
+              <Link scroll={true} href="/ready-set-go/#top" className="link">
                 {" "}
                 #{" "}
               </Link>
@@ -294,7 +294,7 @@ function ReadySetGo({ htmlContent }: IProps) {
               >
                 please read the documentation,
               </a>
-            </span>
+            </span>{" "}
             but if you're looking for the TL;DR, then you should know that
             deploying your application from a GitHub repository to GitHub Pages
             is, as you should expect, very easy. Simply go to "Settings" and
@@ -308,7 +308,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           <div>
             <h2 id="deploy">
               Deploy Your Build to GitHub Pages
-              <Link scroll={true} href="/ready_set_go/#top" className="link">
+              <Link scroll={true} href="/ready-set-go/#top" className="link">
                 {" "}
                 #{" "}
               </Link>
@@ -320,12 +320,13 @@ function ReadySetGo({ htmlContent }: IProps) {
             you'd like to publish updates to your GitHub Pages page from the
             comfort of your terminal, just install the NPM package called
             <span>
+              {" "}
               <a
                 href="https://www.npmjs.com/package/gh-pages#command-line-utility"
                 className="link"
               >
                 gh-pages
-              </a>
+              </a>{" "}
             </span>
             and set up a package.json "deploy" script to push your code to your
             GitHub Pages page as is illustrated below. Godspeed!
