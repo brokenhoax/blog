@@ -5,6 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import hljs from "highlight.js";
 import styles from "./ReadySetGo.module.css";
+import NavBar from "../components/navbar/NavBar";
 
 interface IProps {
   htmlContent: Array<String>;
@@ -62,6 +63,7 @@ function ReadySetGo({ htmlContent }: IProps) {
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tomorrow-night-blue.min.css"
         ></link>
       </Head>{" "}
+      <NavBar></NavBar>
       <section className="section">
         {/* Title */}
         <h1 id="top">Ready Set Go</h1>
@@ -90,38 +92,38 @@ function ReadySetGo({ htmlContent }: IProps) {
         <div>
           <h2>Table of Contents</h2>
           <ol className="orderedList">
-            <li>
+            <li key="1">
               <Link className="listItem" href="/ready-set-go/#register">
                 Create a GitHub Account
               </Link>
             </li>
-            <li>
+            <li key="2">
               <Link className="listItem" href="/ready-set-go/#create">
                 Create a GitHub Repository
               </Link>
             </li>
-            <li>
+            <li key="3">
               <Link className="listItem" href="/ready-set-go/#clone">
                 Clone Your GitHub Repository
               </Link>
             </li>
-            <li>
+            <li key="4">
               <Link className="listItem" href="/ready-set-go/#push">
                 Push Your Code to GitHub
               </Link>
             </li>
-            <li>
+            <li key="5">
               <Link className="listItem" href="/ready-set-go/#build">
                 Create a Production Build
               </Link>
             </li>
-            <li>
+            <li key="6">
               {" "}
               <Link className="listItem" href="/ready-set-go/#publish">
                 Publish Your App to GitHub Pages
               </Link>
             </li>
-            <li>
+            <li key="7">
               {" "}
               <Link className="listItem" href="/ready-set-go/#deploy">
                 Deploy Your Build to GitHub Pages

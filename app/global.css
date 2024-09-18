@@ -4,11 +4,16 @@ h1 {
 }
 
 body {
-  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  font-size: 20px;
 }
 
 section {
-  padding-top: 4rem;
+  padding-top: 8rem;
 }
 
 p {
@@ -19,13 +24,19 @@ ol {
   line-height: 2.5rem;
 }
 
+h2 {
+  font-size: 12px;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
 .codeWrapper {
   border-radius: 1rem;
 }
 
 .headline {
   line-height: 2rem;
-  font-weight: 1rem;
+  font-weight: 400;
   font-style: italic;
 }
 
@@ -54,12 +65,21 @@ ol {
 }
 
 .postList {
+  padding: 1rem 0 2rem 2rem;
+  width: 100%;
+}
+
+.posts {
+  margin-top: 12rem;
+}
+
+.posts > li {
   list-style-type: none;
 }
 
 .postTitle {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 40px;
+  color: white;
 }
 
 .postLink {
@@ -69,8 +89,49 @@ ol {
 
 .postData {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.postLength {
+  font-weight: 600;
+}
+
+.postNumber {
+  display: flex;
+  flex: none;
   align-items: center;
+  justify-content: center;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-color: #011627;
+}
+
+.postIndex {
+  color: #bad32c;
+  font-weight: 100;
+  font-size: 64px;
+  padding-bottom: 8px;
+}
+
+.postsWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  opacity: 0.5;
+}
+
+.postsWrapper:hover {
+  opacity: 1;
+}
+
+.postDate {
+  padding-top: 0.5rem;
+}
+
+.postsWrapper:hover .postIndex {
+  font-weight: 300;
 }
 
 .dark {
@@ -121,6 +182,12 @@ ol {
     border-bottom-color: #bad32c;
     border-style: solid;
   }
+
+  .faintDivider {
+    border-bottom-width: 1px;
+    border-bottom-color: #011627;
+    border-style: solid;
+  }
 }
 
 /* Responsive Design */
@@ -153,12 +220,12 @@ ol {
   }
 
   p {
-    line-height: 2.5rem;
+    line-height: 2rem;
     color: red;
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -183,7 +250,7 @@ ol {
 /* Extra large devices (large laptops and desktops, 1920px and up) */
 @media only screen and (min-width: 1920px) {
   .section {
-    width: 28%;
+    width: 33%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -322,7 +389,7 @@ SOFTWARE.
 }
 .hljs-strong {
   color: #addb67;
-  font-weight: bold;
+  font-weight: 500;
 }
 .hljs-formula {
   color: #c792ea;
