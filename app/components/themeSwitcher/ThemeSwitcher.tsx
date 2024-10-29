@@ -8,7 +8,7 @@ const ThemeSwitcher = () => {
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => setHasMounted(true));
   useEffect(() => {
-    if (theme === "dark" || theme === "light") {
+    if (theme === "dark" || theme === "light" || !theme) {
       setTheme("darkOwl");
     }
   }, []);
