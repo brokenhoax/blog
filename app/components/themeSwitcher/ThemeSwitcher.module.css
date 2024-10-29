@@ -1,0 +1,32 @@
+/* Toggle */
+.toggleBtnWrapper {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.toggleBtn {
+  border-radius: 99px;
+  position: relative;
+  border-radius: 2rem;
+  width: 54px;
+  height: 32px;
+  cursor: pointer;
+  transition: background-color 0.1s ease, border-color 0.2s ease;
+}
+
+.toggleBtn .thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 99px;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+}
+
+.toggleBtn.toggled .thumb {
+  left: calc(54px - 26px);
+}

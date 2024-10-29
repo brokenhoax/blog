@@ -1,14 +1,9 @@
-"use client";
 import React from "react";
-import { useEffect } from "react";
-import Head from "next/head";
 import Link from "next/link";
-import hljs from "highlight.js";
-import styles from "./ReadySetGo.module.css";
-import NavBar from "../components/navbar/NavBar";
+import CodeBlock from "../../components/codeblock/CodeBlock";
 
 interface IProps {
-  htmlContent: Array<String>;
+  htmlContent: string[];
 }
 
 function ReadySetGo({ htmlContent }: IProps) {
@@ -51,24 +46,16 @@ function ReadySetGo({ htmlContent }: IProps) {
   `,
   ];
 
-  useEffect(() => {
-    hljs.highlightAll();
-  }, [htmlContent]);
-
   return (
-    <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tomorrow-night-blue.min.css"
-        ></link>
-      </Head>{" "}
-      <NavBar></NavBar>
+    <div>
       <section className="section">
         {/* Title */}
-        <h1 id="top">Ready Set Go</h1>
-        <p className={`${styles.dateStamp}`}>June 8th, 2022</p>
-        <div className="divider"></div>
+        <h1 id="top" className="text-accent">
+          Ready Set Go
+        </h1>
+        <p className="dateStamp">June 8th, 2022</p>
+        {/* Divider */}
+        <div className="divider darkOwl:border-b border-accent"></div>
         {/* Headline */}
         <p className="headline">
           So, you've dabbled with
@@ -87,58 +74,63 @@ function ReadySetGo({ htmlContent }: IProps) {
           to publish your app to the web.
         </p>
         {/* Divider */}
-        <div className="divider"></div>
+        <div className="divider border-b border-accent"></div>
         {/* Table of Contents */}
         <div>
-          <h2>Table of Contents</h2>
-          <ol className="orderedList">
-            <li key="1">
-              <Link className="listItem" href="/ready-set-go/#register">
+          <h2 className="text-accent">Table of Contents</h2>
+          <ol className="orderedList ">
+            <li key="1" className="hover:text-accent">
+              <Link href="/pages/ready-set-go#register">
                 Create a GitHub Account
               </Link>
             </li>
             <li key="2">
-              <Link className="listItem" href="/ready-set-go/#create">
+              <Link className="listItem" href="/pages/ready-set-go#create">
                 Create a GitHub Repository
               </Link>
             </li>
             <li key="3">
-              <Link className="listItem" href="/ready-set-go/#clone">
+              <Link className="listItem" href="/pages/ready-set-go#clone">
                 Clone Your GitHub Repository
               </Link>
             </li>
             <li key="4">
-              <Link className="listItem" href="/ready-set-go/#push">
+              <Link className="listItem" href="/pages/ready-set-go#push">
                 Push Your Code to GitHub
               </Link>
             </li>
             <li key="5">
-              <Link className="listItem" href="/ready-set-go/#build">
+              <Link className="listItem" href="/pages/ready-set-go#build">
                 Create a Production Build
               </Link>
             </li>
             <li key="6">
               {" "}
-              <Link className="listItem" href="/ready-set-go/#publish">
+              <Link className="listItem" href="/pages/ready-set-go#publish">
                 Publish Your App to GitHub Pages
               </Link>
             </li>
             <li key="7">
               {" "}
-              <Link className="listItem" href="/ready-set-go/#deploy">
+              <Link className="listItem" href="/pages/ready-set-go#deploy">
                 Deploy Your Build to GitHub Pages
               </Link>
             </li>
           </ol>
-          <div className="divider"></div>
+          {/* Divider */}
+          <div className="divider darkOwl:border-b border-accent"></div>
         </div>
         {/* Create a GitHub Account */}
         <div>
           <div>
-            <h2 id="register">
+            <h2 id="register" className="text-accent">
               Create a GitHub Account
               <span>
-                <Link scroll={true} href="/ready-set-go/#top" className="link">
+                <Link
+                  scroll={true}
+                  href="/pages/ready-set-go#top"
+                  className="link"
+                >
                   {" "}
                   #{" "}
                 </Link>
@@ -162,9 +154,13 @@ function ReadySetGo({ htmlContent }: IProps) {
         {/* Create a GitHub Repository */}
         <div>
           <div>
-            <h2 id="create">
+            <h2 id="create" className="text-accent">
               Create a GitHub Repository
-              <Link scroll={true} href="/ready-set-go/#top" className="link">
+              <Link
+                scroll={true}
+                href="/pages/ready-set-go#top"
+                className="link"
+              >
                 {" "}
                 #{" "}
               </Link>
@@ -188,9 +184,13 @@ function ReadySetGo({ htmlContent }: IProps) {
         {/* Clone Your GitHub Repository */}
         <div>
           <div>
-            <h2 id="clone">
+            <h2 id="clone" className="text-accent">
               Clone Your GitHub Repository
-              <Link scroll={true} href="/ready-set-go/#top" className="link">
+              <Link
+                scroll={true}
+                href="/pages/ready-set-go#top"
+                className="link"
+              >
                 {" "}
                 #{" "}
               </Link>
@@ -216,18 +216,19 @@ function ReadySetGo({ htmlContent }: IProps) {
               </a>
             </span>{" "}
           </p>
-          <div className="hljs">
-            <pre>
-              <code className="language-bash">{htmlContent[0]}</code>
-            </pre>
-          </div>
+          {/* Code Snippet */}
+          <CodeBlock props={htmlContent[0]}></CodeBlock>
         </div>
         {/* Push Your Code to GitHub */}
         <div>
           <div>
-            <h2 id="push">
+            <h2 id="push" className="text-accent">
               Push Your Code to GitHub
-              <Link scroll={true} href="/ready-set-go/#top" className="link">
+              <Link
+                scroll={true}
+                href="/pages/ready-set-go#top"
+                className="link"
+              >
                 {" "}
                 #{" "}
               </Link>
@@ -247,18 +248,19 @@ function ReadySetGo({ htmlContent }: IProps) {
             push your code to GitHub. See below for example code you can use to
             stage, commit, and push your changes to GitHub.
           </p>
-          <div className="hljs">
-            <pre>
-              <code className="language-bash">{htmlContent[1]}</code>
-            </pre>
-          </div>
+          {/* Code Snippet */}
+          <CodeBlock props={htmlContent[1]}></CodeBlock>
         </div>
         {/* Create a Production Build */}
         <div>
           <div>
-            <h2 id="build">
+            <h2 id="build" className="text-accent">
               Create a Production Build
-              <Link scroll={true} href="/ready-set-go/#top" className="link">
+              <Link
+                scroll={true}
+                href="/pages/ready-set-go#top"
+                className="link"
+              >
                 {" "}
                 #{" "}
               </Link>
@@ -270,18 +272,19 @@ function ReadySetGo({ htmlContent }: IProps) {
             load time which makes for happier users. So run that build and get
             ready to deploy your app.
           </p>
-          <div>
-            <pre>
-              <code className="language-bash">{htmlContent[2]}</code>
-            </pre>
-          </div>
+          {/* Code Snippet */}
+          <CodeBlock props={htmlContent[2]}></CodeBlock>
         </div>
         {/* Publish Your App to GitHub Pages */}
         <div>
           <div>
-            <h2 id="publish">
+            <h2 id="publish" className="text-accent">
               Publish Your App to GitHub Pages
-              <Link scroll={true} href="/ready-set-go/#top" className="link">
+              <Link
+                scroll={true}
+                href="/pages/ready-set-go#top"
+                className="link"
+              >
                 {" "}
                 #{" "}
               </Link>
@@ -308,9 +311,13 @@ function ReadySetGo({ htmlContent }: IProps) {
         {/* Deploy Your Build to GitHub Pages */}
         <div>
           <div>
-            <h2 id="deploy">
+            <h2 id="deploy" className="text-accent">
               Deploy Your Build to GitHub Pages
-              <Link scroll={true} href="/ready-set-go/#top" className="link">
+              <Link
+                scroll={true}
+                href="/pages/ready-set-go#top"
+                className="link"
+              >
                 {" "}
                 #{" "}
               </Link>
@@ -333,15 +340,11 @@ function ReadySetGo({ htmlContent }: IProps) {
             and set up a package.json "deploy" script to push your code to your
             GitHub Pages page as is illustrated below. Godspeed!
           </p>
-          <div className="hljs">
-            <pre>
-              <code className="language-bash">{htmlContent[3]}</code>
-            </pre>
-          </div>
+          {/* Code Snippet */}
+          <CodeBlock props={htmlContent[3]}></CodeBlock>
         </div>
-        {/* <Footer></Footer> */}
       </section>
-    </>
+    </div>
   );
 }
 

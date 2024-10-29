@@ -1,0 +1,117 @@
+.postMain {
+  padding-left: 32px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: max-content;
+}
+
+.posts > li {
+  list-style-type: none;
+}
+
+.postTitle {
+  font-size: 40px;
+}
+
+.postLink {
+  text-decoration: none;
+}
+
+.postData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.postLength {
+  font-weight: 600;
+}
+
+.postNumber {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.postIndex {
+  font-weight: 100;
+  font-size: 46px;
+  padding-bottom: 8px;
+}
+
+.postWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+}
+
+.postDate {
+  padding-top: 0.5rem;
+}
+
+.postsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.postBackground {
+  z-index: 10;
+  position: absolute;
+  top: 12px;
+  right: 0.75rem;
+  height: 128px;
+  width: 100%;
+  opacity: 0%;
+}
+
+.postsContainer:hover .postBackground {
+  opacity: 100%;
+  /* transition the background-color over 1s with a linear animation */
+  transition: opacity 0.3s linear;
+  color: white;
+}
+
+.postsContainer:hover .postLevel,
+.postsContainer:hover .postTitle,
+.postsContainer:hover .postTagline,
+.postsContainer:hover .postDate {
+  color: white;
+}
+
+.postImageContainer {
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.postLevel {
+  display: flex;
+  align-items: end;
+  justify-items: baseline;
+}
+
+.postDateLengthSpacer {
+  padding: 0 0.5rem 0 0.5rem;
+  color: #011627;
+  position: relative;
+  top: 5px;
+}
+
+.postsMessage {
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+}
