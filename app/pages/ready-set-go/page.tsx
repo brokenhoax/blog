@@ -4,6 +4,7 @@ import CodeBlock from "../../components/codeblock/CodeBlock";
 
 interface IProps {
   htmlContent: string[];
+  type: string;
 }
 
 function ReadySetGo({ htmlContent }: IProps) {
@@ -217,7 +218,7 @@ function ReadySetGo({ htmlContent }: IProps) {
             </span>{" "}
           </p>
           {/* Code Snippet */}
-          <CodeBlock props={htmlContent[0]}></CodeBlock>
+          <CodeBlock props={htmlContent[0]} type="bash"></CodeBlock>
         </div>
         {/* Push Your Code to GitHub */}
         <div>
@@ -249,7 +250,7 @@ function ReadySetGo({ htmlContent }: IProps) {
             stage, commit, and push your changes to GitHub.
           </p>
           {/* Code Snippet */}
-          <CodeBlock props={htmlContent[1]}></CodeBlock>
+          <CodeBlock props={htmlContent[1]} type="bash"></CodeBlock>
         </div>
         {/* Create a Production Build */}
         <div>
@@ -273,7 +274,7 @@ function ReadySetGo({ htmlContent }: IProps) {
             ready to deploy your app.
           </p>
           {/* Code Snippet */}
-          <CodeBlock props={htmlContent[2]}></CodeBlock>
+          <CodeBlock props={htmlContent[2]} type="bash"></CodeBlock>
         </div>
         {/* Publish Your App to GitHub Pages */}
         <div>
@@ -337,11 +338,11 @@ function ReadySetGo({ htmlContent }: IProps) {
                 gh-pages
               </a>{" "}
             </span>
-            and set up a package.json "deploy" script to push your code to your
+            and set up a package.bash "deploy" script to push your code to your
             GitHub Pages page as is illustrated below. Godspeed!
           </p>
           {/* Code Snippet */}
-          <CodeBlock props={htmlContent[3]}></CodeBlock>
+          <CodeBlock props={htmlContent[3]} type="bash"></CodeBlock>
         </div>
       </section>
     </div>

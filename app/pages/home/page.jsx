@@ -9,6 +9,21 @@ import styles from "./Home.module.css";
 function Home() {
   const posts = [
     {
+      id: "5",
+      title: "Step 1 - Lab Components",
+      date: "10-31-2024",
+      length: {
+        minutes: "10",
+        seconds: "00",
+      },
+      icon: "fas fa-mug-hot",
+      mugs: 2,
+      tagline: "Build a home lab. Here's what you need.",
+      path: "/pages/lab-components",
+      imagePath: "/images/beaker.png",
+      imageAltText: "Lab beaker",
+    },
+    {
       id: "4",
       title: "Ready Set Go",
       date: "6-3-2021",

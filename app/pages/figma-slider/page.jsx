@@ -1,7 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import styles from "./FigmaSlider.module.css";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 
 function FigmaSlider() {

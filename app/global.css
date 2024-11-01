@@ -105,9 +105,17 @@ h2 {
 }
 
 .orderedList {
-  padding-bottom: 2rem;
   padding-left: 2rem;
   list-style-type: decimal;
+}
+
+.tableOfContents {
+  padding-bottom: 2rem;
+}
+
+.unorderedList {
+  padding-left: 2rem;
+  list-style-type: disc;
 }
 
 .dateStamp {

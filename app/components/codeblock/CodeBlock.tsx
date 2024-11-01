@@ -1,11 +1,13 @@
 import hljs from "highlight.js";
 import DOMPurify from "isomorphic-dompurify";
 
-function CodeBlock({ props }: { props: string }) {
+function CodeBlock({ props, type }: { props: string; type: string }) {
   // Sanitize our inputs for better security
   const sanitizedCode = DOMPurify.sanitize(props);
   // Will have to add other languages to the array for future support
-  const highlightedCode = hljs.highlightAuto(sanitizedCode, ["bash"]).value;
+  const highlightedCode = hljs.highlight(sanitizedCode, {
+    language: type,
+  }).value;
 
   return (
     <div className="codeWrapper">
