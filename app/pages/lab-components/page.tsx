@@ -35,34 +35,35 @@ function LabContents({ htmlContent }: IProps) {
     <div>
       <section className="section">
         {/* Title */}
-        <h1 id="top" className="text-accent">
-          Lab: Components
+        <h1 id="top" className="flex text-accent">
+          Lab<span className="pl-4">🧪</span>
         </h1>
-        <p className="dateStamp">October 31st, 2024</p>
+        <h2>Components & Requirements</h2>
+        <p className="dateStamp text-accent">October 31st, 2024</p>
         {/* Divider */}
-        <div className="divider darkOwl:border-b border-accent"></div>
+        <div className="divider border-b border-accent"></div>
         {/* Headline */}
-        <div className="headline space-y-2">
-          <p>
+        <div className="headlineWrapper">
+          <p className="headline">
             The lab environment is something anybody with a fairly modern
             computer, ~$1K, a home internet connection and some
             stick-to-itiveness can build for themselves in about a weekend.
           </p>
-          <p>
+          <p className="headline">
             In this lab, we will set up a personal, on-site cloud that hosts one
             public-facing web server and one private web server. No static
             private IP address is required for the public-facing web server
-            since we'll be using the Cloudflare API and Dynamic DNS (DDNS) on
-            the Netgate firewall to automatically update our Cloudflare DNS zone
-            with our dynamic private IP address.
+            since we'll be using the Cloudflare API and Dynamic DNS (DDNS), on
+            our Netgate firewall, to automatically update our Cloudflare DNS
+            zone with our dynamic private IP address.
           </p>
         </div>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
         {/* Table of Contents */}
         <div>
-          <h2 className="text-accent">Table of Contents</h2>
-          <ol className="orderedList tableOfContents">
+          <h3 className="text-accent">Table of Contents</h3>
+          <ol className="orderedList">
             <li key="1" className="hover:text-accent">
               <Link href="/pages/lab-components#hardware-used">
                 Hardware Used
@@ -88,12 +89,12 @@ function LabContents({ htmlContent }: IProps) {
             </li>
           </ol>
           {/* Divider */}
-          <div className="divider darkOwl:border-b border-accent"></div>
+          <div className="divider border-b border-accent"></div>
         </div>
         {/* Hardware Used */}
         <div>
           <div>
-            <h2 id="hardware-used" className="text-accent">
+            <h3 id="hardware-used" className="text-accent">
               Hardware Used
               <span>
                 <Link
@@ -105,7 +106,7 @@ function LabContents({ htmlContent }: IProps) {
                   #{" "}
                 </Link>
               </span>
-            </h2>
+            </h3>
           </div>
           <p>
             The following hardware requirements must be met or exceeded to
@@ -116,14 +117,14 @@ function LabContents({ htmlContent }: IProps) {
             <li>Wireless Router</li>
             <li>Netgate Firewall</li>
             <li>Server</li>
-            <li>Personal Computer</li>
+            <li>Personal Computer (with Ethernet Port)</li>
             <li>8GB+ USB Flash Drive</li>
           </ul>
         </div>
         {/* Software Used */}
         <div>
           <div>
-            <h2 id="software-used" className="text-accent">
+            <h3 id="software-used" className="text-accent">
               Software Used
               <span>
                 <Link
@@ -135,7 +136,7 @@ function LabContents({ htmlContent }: IProps) {
                   #{" "}
                 </Link>
               </span>
-            </h2>
+            </h3>
           </div>
           <p>
             The following software requirements must be met or exceeded to
@@ -154,7 +155,7 @@ function LabContents({ htmlContent }: IProps) {
         {/* Services Used */}
         <div>
           <div>
-            <h2 id="services-used" className="text-accent">
+            <h3 id="services-used" className="text-accent">
               Services Used
               <span>
                 <Link
@@ -166,7 +167,7 @@ function LabContents({ htmlContent }: IProps) {
                   #{" "}
                 </Link>
               </span>
-            </h2>
+            </h3>
           </div>
           <p>
             The following service provided requirements must be met or exceeded
@@ -183,7 +184,7 @@ function LabContents({ htmlContent }: IProps) {
         {/* Static IPs */}
         <div>
           <div>
-            <h2 id="static-ips" className="text-accent">
+            <h3 id="static-ips" className="text-accent">
               Static IPs
               <span>
                 <Link
@@ -195,7 +196,7 @@ function LabContents({ htmlContent }: IProps) {
                   #{" "}
                 </Link>
               </span>
-            </h2>
+            </h3>
           </div>
           {/* Code Snippet */}
           <CodeBlock props={htmlContent[0]} type="JSON"></CodeBlock>
@@ -203,7 +204,7 @@ function LabContents({ htmlContent }: IProps) {
         {/* Network Diagram */}
         <div>
           <div>
-            <h2 id="network-diagram" className="text-accent">
+            <h3 id="network-diagram" className="text-accent">
               Network Diagram
               <span>
                 <Link
@@ -215,7 +216,7 @@ function LabContents({ htmlContent }: IProps) {
                   #{" "}
                 </Link>
               </span>
-            </h2>
+            </h3>
           </div>
           <ToggleImage params={images["0"]}></ToggleImage>
         </div>
