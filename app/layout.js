@@ -1,9 +1,12 @@
 import "./global.css";
-import { IBM_Plex_Mono } from "next/font/google";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
+import { IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "./providers";
-import "./global.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@fortawesome/free-brands-svg-icons";
+config.autoAddCss = false;
 
 // If loading a variable font, you don't need to specify the font weight
 const font = IBM_Plex_Mono({

@@ -9,8 +9,23 @@ import styles from "./Home.module.css";
 function Home() {
   const posts = [
     {
-      id: "5",
-      title: "Step 1 - Lab Components",
+      id: "4",
+      title: "Lab 2 - pfSense",
+      date: "11-15-2024",
+      length: {
+        minutes: "20",
+        seconds: "00",
+      },
+      icon: "fas fa-mug-hot",
+      mugs: 4,
+      tagline: "More than just a firewall.",
+      path: "/pages/pfsense",
+      imagePath: "/images/doomsday-dood.jpg",
+      imageAltText: "Comic book characters",
+    },
+    {
+      id: "3",
+      title: "Lab 1 - Gear Up",
       date: "10-31-2024",
       length: {
         minutes: "10",
@@ -18,13 +33,13 @@ function Home() {
       },
       icon: "fas fa-mug-hot",
       mugs: 2,
-      tagline: "Build a home lab. Here's what you need.",
+      tagline: "Building a home lab? Let's gear up.",
       path: "/pages/lab-components",
       imagePath: "/images/beaker.png",
       imageAltText: "Lab beaker",
     },
     {
-      id: "4",
+      id: "2",
       title: "Ready Set Go",
       date: "6-3-2021",
       length: {
@@ -39,7 +54,7 @@ function Home() {
       imageAltText: "Code wallpaper",
     },
     {
-      id: "3",
+      id: "1",
       title: "Figma Slider",
       date: "7-14-2022",
       length: {
@@ -51,37 +66,6 @@ function Home() {
       tagline: "Create a slider in Figma.",
       path: "/pages/figma-slider",
       imagePath: "/images/doomsday-dood.jpg",
-      imageAltText: "Comic book characters",
-    },
-    {
-      id: "2",
-      title: "React Components",
-      date: "5-5-2021",
-      length: {
-        minutes: "5",
-        seconds: "00",
-      },
-      icon: "fas fa-mug-hot",
-      mugs: 1,
-      tagline: "DRY your code with React components.",
-      path: "/pages/react-components",
-      imagePath: "/images/code-photo.png",
-      imageAltText: "Comic book characters",
-    },
-
-    {
-      id: "1",
-      title: "Dark Mode",
-      date: "5-5-2021",
-      length: {
-        minutes: "5",
-        seconds: "00",
-      },
-      icon: "fas fa-mug-hot",
-      mugs: 1,
-      tagline: "Dark mode is stupid easy.",
-      path: "/pages/dark-mode",
-      imagePath: "/images/dark-mode-monkey.png",
       imageAltText: "Comic book characters",
     },
   ];

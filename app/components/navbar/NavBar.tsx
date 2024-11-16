@@ -40,7 +40,7 @@ function NavBar() {
               onClick={setNavbarstatus}
               className={`${styles.navbarMinimalButton}`}
             >
-              🎃
+              🦃
             </button>
             <ul className={`${styles.navbarLinks}`}>
               {navLinks.map((link, index) => (

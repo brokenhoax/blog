@@ -6,8 +6,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
+  line-height: 1.6rem;
+  font-size: 16px;
 }
 
 * {
@@ -135,7 +135,7 @@ img {
   --tw-contain-style:  ;
 }
 
-/* ! tailwindcss v3.4.12 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -577,7 +577,7 @@ video {
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
-[hidden] {
+[hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
 
@@ -1761,10 +1761,10 @@ video {
   margin-left: calc(0.125rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1985,8 +1985,16 @@ video {
   border-bottom-width: 1px;
 }
 
+.border-b-\[1px\] {
+  border-bottom-width: 1px;
+}
+
 .border-b-medium {
   border-bottom-width: var(--nextui-border-width-medium);
+}
+
+.border-t-\[1px\] {
+  border-top-width: 1px;
 }
 
 .border-solid {
@@ -2121,7 +2129,7 @@ video {
 
 .border-b-white {
   --tw-border-opacity: 1;
-  border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
+  border-bottom-color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-border-opacity)));
 }
 
 .border-l-transparent {
@@ -2290,6 +2298,10 @@ video {
   background-color: hsl(var(--nextui-primary) / 0.2);
 }
 
+.bg-primary\/50 {
+  background-color: hsl(var(--nextui-primary) / 0.5);
+}
+
 .bg-secondary {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-secondary) / var(--nextui-secondary-opacity, var(--tw-bg-opacity)));
@@ -2348,7 +2360,7 @@ video {
 
 .bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-bg-opacity)));
 }
 
 .bg-stripe-gradient {
@@ -2536,6 +2548,10 @@ video {
   padding-left: 0.25rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .pr-0\.5 {
   padding-right: 0.125rem;
 }
@@ -2637,6 +2653,10 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .font-medium {
@@ -2766,6 +2786,11 @@ video {
   color: hsl(var(--nextui-foreground) / 0.5);
 }
 
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
 .text-inherit {
   color: inherit;
 }
@@ -2848,7 +2873,7 @@ video {
 
 .text-white {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-text-opacity)));
 }
 
 .underline {
@@ -3124,6 +3149,12 @@ video {
 
 .backdrop-blur-xl {
   --tw-backdrop-blur: blur(24px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.backdrop-opacity-90 {
+  --tw-backdrop-opacity: opacity(0.9);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -3522,6 +3553,7 @@ video {
   --nextui-accent: 68.98000000000002 65.49% 50%;
   --nextui-subtle: 206.84000000000003 95% 7.84%;
   --nextui-tertiary: 206.84000000000003 95% 7.84%;
+  --nextui-white: 0 0% 100%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
   --nextui-font-size-tiny: 0.75rem;
@@ -3622,6 +3654,7 @@ video {
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
   --nextui-accent: 248.56999999999994 63.64% 6.47%;
   --nextui-subtle: 25.379999999999995 11.02% 46.27%;
+  --nextui-white: 0 0% 100%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
   --nextui-font-size-tiny: 0.75rem;
@@ -3775,8 +3808,19 @@ video {
 
 h1 {
   font-size: 48px;
-  margin: 1rem 1rem 0 0;
   font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 1.5rem;
 }
 
 body {
@@ -3790,18 +3834,24 @@ body {
 }
 
 p {
-  line-height: 2.5rem;
+  padding: 0.25rem 0rem 0.25rem 0rem;
+  font-weight: 300;
+  line-height: 1rem;
 }
 
-ol {
-  line-height: 2.5rem;
+ol,
+ul {
+  line-height: 2rem;
 }
 
-h2 {
-  font-size: 12px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
+.david-libre-medium {
+  font-family: "David Libre", serif;
+}
+
+.fenix-regular {
+  font-family: "Fenix", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .section {
@@ -3815,10 +3865,13 @@ h2 {
 }
 
 .headline {
-  line-height: 2rem;
-  font-weight: 400;
+  line-height: 1.8rem;
   font-style: italic;
-  padding: 1rem 0 1rem 0;
+  font-weight: 300;
+}
+
+.headlineWrapper {
+  padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
 .author {
@@ -3847,22 +3900,22 @@ h2 {
 }
 
 .orderedList {
-  padding-left: 2rem;
+  padding-left: 2.5rem;
+  padding-bottom: 1rem;
   list-style-type: decimal;
+}
+
+.unorderedList {
+  padding-left: 2.5rem;
+  list-style-type: disc;
 }
 
 .tableOfContents {
   padding-bottom: 2rem;
 }
 
-.unorderedList {
-  padding-left: 2rem;
-  list-style-type: disc;
-}
-
 .dateStamp {
   font-style: italic;
-  margin: 1rem 0 1rem 0;
 }
 
 .divider {
@@ -4216,6 +4269,17 @@ SOFTWARE.
   color: hsl(
     var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-text-opacity))
   );
+}
+
+/* Sandbox */
+
+.callout {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0.5rem 0 0.5rem 0;
+  font-size: 18px;
 }
 
 .file\:cursor-pointer::file-selector-button {
@@ -5247,6 +5311,10 @@ SOFTWARE.
   background-color: hsl(var(--nextui-warning-100) / var(--nextui-warning-100-opacity, var(--tw-bg-opacity)));
 }
 
+.hover\:bg-white\/5:hover {
+  background-color: hsl(var(--nextui-white) / 0.05);
+}
+
 .hover\:text-accent:hover {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-text-opacity)));
@@ -5254,7 +5322,7 @@ SOFTWARE.
 
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-text-opacity)));
 }
 
 .hover\:underline:hover {
@@ -5398,6 +5466,10 @@ SOFTWARE.
 .active\:bg-default-300:active {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-default-300) / var(--nextui-default-300-opacity, var(--tw-bg-opacity)));
+}
+
+.active\:bg-white\/10:active {
+  background-color: hsl(var(--nextui-white) / 0.1);
 }
 
 .active\:underline:active {
@@ -7915,17 +7987,9 @@ SOFTWARE.
   opacity: 0.7;
 }
 
-.darkOwl\:border-b.darkOwl {
-  border-bottom-width: 1px;
-}
-
 .darkOwl\:text-accent.darkOwl {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-text-opacity)));
-}
-
-.darkOwl\:border-b[data-theme='darkOwl'] {
-  border-bottom-width: 1px;
 }
 
 .darkOwl\:text-accent[data-theme='darkOwl'] {
@@ -7961,6 +8025,11 @@ SOFTWARE.
 .dark\:bg-default:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-default) / var(--nextui-default-opacity, var(--tw-bg-opacity)));
+}
+
+.dark\:bg-primary:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--nextui-primary) / var(--nextui-primary-opacity, var(--tw-bg-opacity)));
 }
 
 .dark\:bg-transparent:is(.dark *) {
