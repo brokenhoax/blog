@@ -63,6 +63,7 @@ module.exports = {
             primary: "#09061b",
             secondary: "#FFFFFF",
             tertiary: "#011627",
+            white: "#FFFFFF",
           },
           layout: {
             disabledOpacity: "0.3",
@@ -85,6 +86,7 @@ module.exports = {
             subtle: "#837469",
             primary: "#dccdbf",
             secondary: "#09061b",
+            white: "#FFFFFF",
           },
           layout: {
             disabledOpacity: "0.3",
