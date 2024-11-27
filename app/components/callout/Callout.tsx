@@ -12,7 +12,7 @@ function Callout(callout: { icon: IconProp; text: string }) {
     <div className={`${styles.callout} bg-subtle`}>
       <FontAwesomeIcon
         icon={callout.icon}
-        className="text-white"
+        className={`${styles.calloutIcon} text-white`}
         fixedWidth
       ></FontAwesomeIcon>
       <div className="pl-4 text-white">{callout.text}</div>
