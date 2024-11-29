@@ -1,4 +1,5 @@
 .navbar {
+  display: flex;
   overflow: hidden;
   border-bottom-width: 1px;
   border-bottom-color: #011627;
@@ -49,4 +50,46 @@
 
 .navbarLink {
   height: 100%;
+}
+
+/* Responsive Design */
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+  .navbarControls {
+    width: 90%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {
+  .navbarControls {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 1024px) {
+  .navbarControls {
+    width: 50%;
+  }
+}
+
+/* Large devices (laptops/desktops, 1440px and up) */
+
+@media only screen and (min-width: 1439px) {
+  .navbarControls {
+    width: 50%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1920px and up) */
+
+@media only screen and (min-width: 1920px) {
+  .navbarControls {
+    width: 33%;
+  }
 }

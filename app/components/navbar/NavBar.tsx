@@ -10,7 +10,7 @@ function NavBar() {
   const navLinks = [
     {
       title: "Home",
-      path: "/pages/home",
+      path: "/",
     },
     {
       title: "About",
