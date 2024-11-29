@@ -37,7 +37,9 @@ function ToggleImage({ params }) {
         {" "}
         <span className={`${styles.toggleStyles}`}>
           <FontAwesomeIcon icon={faCaretRight} fixedWidth></FontAwesomeIcon>
-          <div className={`${styles.toggleText}`}>Image</div>
+          <div className={`${styles.toggleText}`}>
+            Image — {params.imageAltText}
+          </div>
         </span>
       </div>
     );
@@ -51,7 +53,9 @@ function ToggleImage({ params }) {
           className={`${styles.toggleStyles}`}
         >
           <FontAwesomeIcon icon={faCaretDown} fixedWidth></FontAwesomeIcon>
-          <div className={`${styles.toggleText}`}>Image</div>
+          <div className={`${styles.toggleText}`}>
+            Image — {params.imageAltText}
+          </div>
         </span>
         <Image
           onClick={() => handleMaximize()}
