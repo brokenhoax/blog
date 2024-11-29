@@ -45,9 +45,17 @@ function LabContents({ htmlContent }: IProps) {
         {/* Headline */}
         <div className="headlineWrapper">
           <p className="headline">
-            The lab environment is something anybody with a fairly modern
-            computer, ~$1K, a home internet connection and some
-            stick-to-itiveness can build for themselves in about a weekend.
+            The lab environment is something anybody can build in a few
+            weekends. All it takes is a bit of sticktuitivness, a fairly-modern
+            computer, a home internet connection, and about $1K for
+            hardware/software. :)
+          </p>
+          <p className="headline">
+            Keep in mind that many bootcamps, certifications, and degrees cost
+            at least as much if not significantly more. Another benefit of
+            building a home lab is that you own the environment and, therefore,
+            can use it in any way you wish. Build yourself a lab. It'll be good
+            for you!
           </p>
           <p className="headline">
             In this lab, we will set up a personal, on-site cloud that hosts one
@@ -115,7 +123,7 @@ function LabContents({ htmlContent }: IProps) {
           <ul className="unorderedList pt-4">
             <li>Modem</li>
             <li>Wireless Router</li>
-            <li>Netgate Firewall</li>
+            <li>Netgate Appliance</li>
             <li>Server</li>
             <li>Personal Computer (with Ethernet Port)</li>
             <li>8GB+ USB Flash Drive</li>
@@ -147,7 +155,7 @@ function LabContents({ htmlContent }: IProps) {
             <li>Proxmox</li>
             <li>Ubuntu Desktop</li>
             <li>Red Hat Enterprise Linux Server</li>
-            <li>Netgate Firewall</li>
+            <li>pfSense (on Netgate Appliance)</li>
             <li>React (create-react-app)</li>
             <li>Nginx </li>
           </ul>

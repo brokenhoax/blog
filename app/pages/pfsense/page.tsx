@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { faWifiStrong } from "@fortawesome/free-solid-svg-icons";
+import { faWifiStrong, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import Callout from "../../components/callout/Callout";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 
@@ -12,6 +12,7 @@ interface IProps {
 function PfSense({ htmlContent }: IProps) {
   const calloutContent = [
     "While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab. Also, if your computer does not have an ethernet port, then consider connecting a wireless router to port 2/4 and configure the wireless router (and any client devices connected to it) receive their IP addresses via DHCP from the Netgate firewall. On my router, this requires setting the router's DHCP setting to bridge mode. Once that's done, you can connect to the wireless router in order to connect to the management interface. ",
+    `You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.`,
   ];
   htmlContent = [
     `
@@ -22,6 +23,132 @@ function PfSense({ htmlContent }: IProps) {
       id: "1",
       imagePath: "/images/pfsense_aliases.png",
       imageAltText: "pfSense aliases creation wizard",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "2",
+      imagePath: "/images/pfsense_nginx_nat.png",
+      imageAltText: "pfSense NGINX NAT policy",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "3",
+      imagePath: "/images/pfsense_dns_resolver_nat.png",
+      imageAltText: "pfSense DNS Resolver NAT rule",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "4",
+      imagePath: "/images/pfsense_dns_resolver_configuration.png",
+      imageAltText: "pfSense DNS Resolver configuration",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "5",
+      imagePath: "/images/pfsense_sys_general_setup.png",
+      imageAltText: "pfSense DNS server settings for forwarding mode support",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "6",
+      imagePath: "/images/pfsense_dns_host_overrides.png",
+      imageAltText: "pfSense DNS Resolver host overrides",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "7",
+      imagePath: "/images/pfsense_interfaces_PORT1WAN.png",
+      imageAltText: "pfSense interface for PORT1WAN",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "8",
+      imagePath: "/images/pfsense_interfaces_PORT2LAN.png",
+      imageAltText: "pfSense interface for PORT2LAN",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "9",
+      imagePath: "/images/pfsense_interfaces_PORT3.png",
+      imageAltText: "pfSense interface for PORT3",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "10",
+      imagePath: "/images/pfsense_interfaces_VLAN_USERS.png",
+      imageAltText: "pfSense interface for VLAN_USERS",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "11",
+      imagePath: "/images/pfsense_interfaces_VLAN_SERVICES.png",
+      imageAltText: "pfSense interface for VLAN_SERVICES",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "12",
+      imagePath: "/images/pfsense_interfaces_VLAN_STORAGE.png",
+      imageAltText: "pfSense interface for VLAN_STORAGE",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "13",
+      imagePath: "/images/pfsense_interfaces_VLAN_MANAGEMENT.png",
+      imageAltText: "pfSense interface for VLAN_MANAGEMENT",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "14",
+      imagePath: "/images/pfsense_interfaces_VLAN_DEFAULT.png",
+      imageAltText: "pfSense interface for VLAN_DEFAULT",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "15",
+      imagePath: "/images/pfsense_interfaces_PORT4.png",
+      imageAltText: "pfSense interface for PORT4",
       width: 0,
       height: 0,
       sizes: "33vw",
@@ -79,30 +206,40 @@ function PfSense({ htmlContent }: IProps) {
             </li>
             <li key="2" className="hover:text-accent">
               <Link href="/pages/pfsense#wan-interface">
-                WAN Interface (igc3)
+                Port 1 — WAN Interface (igc3)
               </Link>
             </li>
             <li key="3" className="hover:text-accent">
               <Link href="/pages/pfsense#management-interface">
-                Management Interface (igc2)
+                Port 2 — Management Interface (igc2)
               </Link>
             </li>
             <li key="4" className="hover:text-accent">
               <Link href="/pages/pfsense#lan-interface">
-                LAN Interface (igc1)
-              </Link>
-            </li>
-            <li key="4" className="hover:text-accent">
-              <Link href="/pages/pfsense#guest-interface">
-                Guest Interface (igc0)
+                Port 3 — LAN Interface (igc1)
               </Link>
             </li>
             <li key="5" className="hover:text-accent">
+              <Link href="/pages/pfsense#guest-interface">
+                Port 4 — Guest Interface (igc0)
+              </Link>
+            </li>
+            <li key="6" className="hover:text-accent">
               <Link href="/pages/pfsense#aliases">Aliases</Link>
             </li>
-            <li key="5" className="hover:text-accent">
+            <li key="7" className="hover:text-accent">
               <Link href="/pages/pfsense#nat-nginx">
                 NAT for Nginx Web Server
+              </Link>
+            </li>
+            <li key="8" className="hover:text-accent">
+              <Link href="/pages/pfsense#nat-dns-resolver">
+                NAT for DNS Resolver
+              </Link>
+            </li>
+            <li key="9" className="hover:text-accent">
+              <Link href="/pages/pfsense#configure-firewall-rules">
+                Configure Firewall Rules
               </Link>
             </li>
           </ol>
@@ -140,7 +277,7 @@ function PfSense({ htmlContent }: IProps) {
         {/* WAN Interface */}
         <div>
           <h3 id="wan-interface" className="text-accent">
-            WAN Interface (igc3)
+            Port 1 — WAN Interface (igc3)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
                 {" "}
@@ -160,11 +297,12 @@ function PfSense({ htmlContent }: IProps) {
             WAN interface with a static IP address), then feel free to deviate
             from this lab guide to suit your requirements.
           </p>
+          <ToggleImage params={images["6"]}></ToggleImage>
         </div>
         {/* Management Interface */}
         <div>
           <h3 id="management-interface" className="text-accent">
-            MGT Interface (igc2)
+            Port 2 — MGT Interface (igc2)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
                 {" "}
@@ -183,12 +321,13 @@ function PfSense({ htmlContent }: IProps) {
             forget to assign your computer with a static IP address within the
             same subnet as the management interface (e.g., 192.168.1.38).
           </p>
+          <Callout icon={faWifiStrong} text={calloutContent[0]}></Callout>
+          <ToggleImage params={images["7"]}></ToggleImage>
         </div>
-        <Callout icon={faWifiStrong} text={calloutContent[0]}></Callout>
         {/* LAN Interface */}
         <div>
           <h3 id="lan-interface" className="text-accent">
-            LAN Interface (igc1)
+            Port 3 — LAN Interface (igc1)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
                 {" "}
@@ -214,10 +353,10 @@ function PfSense({ htmlContent }: IProps) {
             <li key="3">
               VLAN 20: <span className="text-accent">Users VLAN</span>
             </li>
-            <li key="3">
+            <li key="4">
               VLAN 30: <span className="text-accent">Storage VLAN</span>
             </li>
-            <li key="4">
+            <li key="5">
               VLAN 40: <span className="text-accent">Management VLAN</span>
             </li>
           </ul>
@@ -229,11 +368,17 @@ function PfSense({ htmlContent }: IProps) {
             things easy, we'll choose 192.168.2.1. Ensure the interface is
             enabled and save your changes.
           </p>
+          <ToggleImage params={images["8"]}></ToggleImage>
+          <ToggleImage params={images["9"]}></ToggleImage>
+          <ToggleImage params={images["10"]}></ToggleImage>
+          <ToggleImage params={images["11"]}></ToggleImage>
+          <ToggleImage params={images["12"]}></ToggleImage>
+          <ToggleImage params={images["13"]}></ToggleImage>
         </div>
         {/* Guest Interface */}
         <div>
           <h3 id="guest-interface" className="text-accent">
-            Guest Interface (igc0)
+            Port 4 — Guest Interface (igc0)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
                 {" "}
@@ -253,6 +398,7 @@ function PfSense({ htmlContent }: IProps) {
             of this lab, but it should be simple enough to implement using the
             concepts you'll learn here as we build out our lab.
           </p>
+          <ToggleImage params={images["14"]}></ToggleImage>
         </div>
         {/* Aliases */}
         <div>
@@ -272,8 +418,11 @@ function PfSense({ htmlContent }: IProps) {
             pfSense aliases make it easier to implement our configurations.
             Instead of having to remember IP addresses and type out URLs, we can
             simply create aliases which we can later select from dropdown menus
-            as we create policies in the administration portal. In preparation
-            for deploying our Nginx web server, we'll configure an alias for our
+            as we create policies in the administration portal. Furthermore,
+            updating an IP address requires only one corresponding update to the
+            firewall-the alias.Imagine how difficult managing your pfSense
+            policies would be without aliases! That said, and in preparation for
+            deploying our Nginx web server, we'll configure an alias for our
             Nginx web server. We'll use this later when configuring policies to
             allow. Don't forget to save your changes!
           </p>
@@ -315,10 +464,112 @@ function PfSense({ htmlContent }: IProps) {
           <p>
             As is typical of a web server, our Nginx web server will be
             listening on port 80 and port 443, so we'll want to forward port 80
-            and port 443 to our Nginx web server. We'll also need to forward
-            those ports on our home router (in my case, my Amplifi home router).
-            Please refer to the "Amplifi" blog post to review those steps.
+            and port 443 to our Nginx web server. Using our new alias for our
+            Nginx web server, we'll create a port-forwarding NAT rule to forward
+            those ports. We'll also need to forward those ports on our home
+            router (in my case, my Amplifi home router) so that we're not
+            blocking those connections further up in our network. Please refer
+            to the "Amplifi" blog post to review those steps.
           </p>
+          <ToggleImage params={images["1"]}></ToggleImage>
+        </div>
+        {/* NAT for DNS Resolver */}
+        <div>
+          <h3 id="nat-dns-resolver" className="text-accent">
+            NAT for DNS Resolver
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall <span className="text-accent">{">"}</span> NAT{" "}
+            <span className="text-accent">{">"}</span> Port Forward
+          </div>
+          <p>
+            Another amazing capability built in to pfSense is its ability to act
+            as both a DNS Forwarder or DNS Resolver. Having a DNS resolver give
+            us more control over DNS by providing the ability to serve resources
+            using easy to remember Fully-Qualified Domain Names (FQDNs) instead
+            of IP addresses. For example,{" "}
+            <span className="text-accent">fw.krauscloud.com</span> vs{" "}
+            <span className="text-accent">192.168.1.2</span> is pretty much a
+            super power for our home lab purposes.
+          </p>
+          <p>
+            With that in mind, we want to forward all DNS traffic on all
+            interfaces (both physical and virtual) to our loopback address in
+            order to use our Netgate appliance for DNS resolution. Don't worry
+            about the VLAN interfaces as we haven't configured those yet. We'll
+            configure VLANs when we set up our switch. For now, just focus on
+            the physical interfaces.
+          </p>
+          <p>
+            Once in place, these NAT port-forwarding rules will redirect all DNS
+            (port 53) requests from local clients destined to any external IP
+            address. Those requests will be redirected to the Netgate appliance
+            itself and, in the next section, we will configure pfSense to either
+            resolve those requests or forward them to another DNS provider.
+          </p>
+          <ToggleImage params={images["2"]}></ToggleImage>
+        </div>
+        {/* Configure DNS Resolver */}
+        <div>
+          <h3 id="configure-dns-resolver" className="text-accent">
+            Configure DNS Resolver
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Services <span className="text-accent">{">"}</span> DNS Resolver{" "}
+            <span className="text-accent">{">"}</span> General Settings
+          </div>
+          <p>
+            As was mentioned earlier, having a DNS resolver gives us more
+            control over DNS such as the ability to serve resources using domain
+            names instead of IP addresses (e.g., fw.krauscloud.com vs
+            192.168.1.2). If you want to make life easier for yourself and your
+            users, then having your own DNS Resolver is the way to go. We'll be
+            specifying two “Host Overrides” which will effectively swap an IP
+            address for a hostname. Since domain names are easier for humans to
+            remember, this is a no-brainer.
+          </p>
+          <p>
+            With that in mind, you'll need to register your own domain because
+            "krauscloud.com" is my domain. Also, feel free to choose subdomains
+            that make sense for you. Lastly, there's no need to add all of these
+            host overrides at once. If you don't plan on following the Zscaler
+            Private Service Edge lab course, then there's no need to add a host
+            override since it won't exist on your network. So, for starters,
+            let's just add host overrides for our Netgate appliance (pfSense),
+            our Proxmox server (the MS-01), and our web app (Next.js app).
+          </p>
+          <Callout icon={faLightbulb} text={calloutContent[1]}></Callout>
+          <ToggleImage params={images["3"]}></ToggleImage>
+          <ToggleImage params={images["4"]}></ToggleImage>
+          <ToggleImage params={images["5"]}></ToggleImage>
+        </div>
+        {/* Configure Firewall Rules */}
+        <div>
+          <h3 id="configure-firewall-rules" className="text-accent">
+            Configure Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall <span className="text-accent">{">"}</span> Rules{" "}
+          </div>
+          <p>TBD</p>
         </div>
       </section>
     </div>
