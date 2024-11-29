@@ -154,6 +154,87 @@ function PfSense({ htmlContent }: IProps) {
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
     },
+    {
+      id: "16",
+      imagePath: "/images/pfsense_rules_PORT1WAN.png",
+      imageAltText: "pfSense rules for PORT1WAN",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "17",
+      imagePath: "/images/pfsense_rules_PORT2LAN.png",
+      imageAltText: "pfSense rules for PORT2LAN",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "18",
+      imagePath: "/images/pfsense_rules_PORT3.png",
+      imageAltText: "pfSense rules for PORT3",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "19",
+      imagePath: "/images/pfsense_rules_PORT4.png",
+      imageAltText: "pfSense rules for PORT4",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "20",
+      imagePath: "/images/pfsense_rules_VLAN_DEFAULT.png",
+      imageAltText: "pfSense rules for VLAN_DEFAULT",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "21",
+      imagePath: "/images/pfsense_rules_VLAN_MANAGEMENT.png",
+      imageAltText: "pfSense rules for VLAN_MANAGEMENT",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "22",
+      imagePath: "/images/pfsense_rules_VLAN_SERVICES.png",
+      imageAltText: "pfSense rules for VLAN_SERVICES",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "23",
+      imagePath: "/images/pfsense_rules_VLAN_STORAGE.png",
+      imageAltText: "pfSense rules for VLAN_STORAGE",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
+      id: "24",
+      imagePath: "/images/pfsense_rules_VLAN_USERS.png",
+      imageAltText: "pfSense rules for VLAN_USERS",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
   ];
   return (
     <div>
@@ -570,6 +651,15 @@ function PfSense({ htmlContent }: IProps) {
             Firewall <span className="text-accent">{">"}</span> Rules{" "}
           </div>
           <p>TBD</p>
+          <ToggleImage params={images["15"]}></ToggleImage>
+          <ToggleImage params={images["16"]}></ToggleImage>
+          <ToggleImage params={images["17"]}></ToggleImage>
+          <ToggleImage params={images["18"]}></ToggleImage>
+          <ToggleImage params={images["19"]}></ToggleImage>
+          <ToggleImage params={images["20"]}></ToggleImage>
+          <ToggleImage params={images["21"]}></ToggleImage>
+          <ToggleImage params={images["22"]}></ToggleImage>
+          <ToggleImage params={images["23"]}></ToggleImage>
         </div>
       </section>
     </div>
