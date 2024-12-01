@@ -11,8 +11,9 @@ interface IProps {
 
 function PfSense({ htmlContent }: IProps) {
   const calloutContent = [
-    "While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab. Also, if your computer does not have an ethernet port, then consider connecting a wireless router to port 2/4 and configure the wireless router (and any client devices connected to it) receive their IP addresses via DHCP from the Netgate firewall. On my router, this requires setting the router's DHCP setting to bridge mode. Once that's done, you can connect to the wireless router in order to connect to the management interface. ",
-    `You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.`,
+    "While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab. Also, if your computer does not have an ethernet port, then consider connecting a wireless router to port 2/4 and configure the wireless router (and any client devices connected to it) receive their IP addresses via DHCP from the Netgate firewall. On my router, this requires setting the router's DHCP setting to bridge mode. Once that's done, you can connect to the wireless router in order to connect to the management interface.",
+    "You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.",
+    "Make sure to select 'Add Associated Filter Rule' from the dropdown within the 'Filter Rule Association' option. This will save you a step by creating a firewall rule that will pass the matching traffic on the interface selected.",
   ];
   htmlContent = [
     `
@@ -192,8 +193,8 @@ function PfSense({ htmlContent }: IProps) {
     },
     {
       id: "20",
-      imagePath: "/images/pfsense_rules_VLAN_DEFAULT.png",
-      imageAltText: "pfSense rules for VLAN_DEFAULT",
+      imagePath: "/images/pfsense_rules_VLAN_USERS.png",
+      imageAltText: "pfSense rules for VLAN_USERS",
       width: 0,
       height: 0,
       sizes: "33vw",
@@ -201,15 +202,6 @@ function PfSense({ htmlContent }: IProps) {
     },
     {
       id: "21",
-      imagePath: "/images/pfsense_rules_VLAN_MANAGEMENT.png",
-      imageAltText: "pfSense rules for VLAN_MANAGEMENT",
-      width: 0,
-      height: 0,
-      sizes: "33vw",
-      style: { width: "100%", height: "auto" },
-    },
-    {
-      id: "22",
       imagePath: "/images/pfsense_rules_VLAN_SERVICES.png",
       imageAltText: "pfSense rules for VLAN_SERVICES",
       width: 0,
@@ -218,7 +210,7 @@ function PfSense({ htmlContent }: IProps) {
       style: { width: "100%", height: "auto" },
     },
     {
-      id: "23",
+      id: "22",
       imagePath: "/images/pfsense_rules_VLAN_STORAGE.png",
       imageAltText: "pfSense rules for VLAN_STORAGE",
       width: 0,
@@ -227,9 +219,18 @@ function PfSense({ htmlContent }: IProps) {
       style: { width: "100%", height: "auto" },
     },
     {
+      id: "23",
+      imagePath: "/images/pfsense_rules_VLAN_MANAGEMENT.png",
+      imageAltText: "pfSense rules for VLAN_MANAGEMENT",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
+    {
       id: "24",
-      imagePath: "/images/pfsense_rules_VLAN_USERS.png",
-      imageAltText: "pfSense rules for VLAN_USERS",
+      imagePath: "/images/pfsense_rules_VLAN_DEFAULT.png",
+      imageAltText: "pfSense rules for VLAN_DEFAULT",
       width: 0,
       height: 0,
       sizes: "33vw",
@@ -319,8 +320,48 @@ function PfSense({ htmlContent }: IProps) {
               </Link>
             </li>
             <li key="9" className="hover:text-accent">
-              <Link href="/pages/pfsense#configure-firewall-rules">
-                Configure Firewall Rules
+              <Link href="/pages/pfsense#port1wan-rules">
+                PORT1WAN - Firewall Rules
+              </Link>
+            </li>
+            <li key="10" className="hover:text-accent">
+              <Link href="/pages/pfsense#port2lan-rules">
+                PORT2LAN - Firewall Rules
+              </Link>
+            </li>
+            <li key="11" className="hover:text-accent">
+              <Link href="/pages/pfsense#port3-rules">
+                PORT3 - Firewall Rules
+              </Link>
+            </li>
+            <li key="12" className="hover:text-accent">
+              <Link href="/pages/pfsense#port4-rules">
+                PORT4 - Firewall Rules
+              </Link>
+            </li>
+            <li key="13" className="hover:text-accent">
+              <Link href="/pages/pfsense#vlan-users-rules">
+                VLAN_USERS - Firewall Rules
+              </Link>
+            </li>
+            <li key="14" className="hover:text-accent">
+              <Link href="/pages/pfsense#vlan-services-rules">
+                VLAN_SERVICES - Firewall Rules
+              </Link>
+            </li>
+            <li key="15" className="hover:text-accent">
+              <Link href="/pages/pfsense#vlan-storage-rules">
+                VLAN_STORAGE - Firewall Rules
+              </Link>
+            </li>
+            <li key="16" className="hover:text-accent">
+              <Link href="/pages/pfsense#vlan-management-rules">
+                VLAN_MANAGEMENT - Firewall Rules
+              </Link>
+            </li>
+            <li key="17" className="hover:text-accent">
+              <Link href="/pages/pfsense#vlan-default-rules">
+                VLAN_DEFAULT - Firewall Rules
               </Link>
             </li>
           </ol>
@@ -477,7 +518,8 @@ function PfSense({ htmlContent }: IProps) {
             that no traffic is allowed to pass between the Home Network and the
             Lab Network. This is an optional step that is outside of the scope
             of this lab, but it should be simple enough to implement using the
-            concepts you'll learn here as we build out our lab.
+            concepts you'll learn here as we build out our lab. For now, we'll
+            leave this interface disabled.
           </p>
           <ToggleImage params={images["14"]}></ToggleImage>
         </div>
@@ -594,6 +636,7 @@ function PfSense({ htmlContent }: IProps) {
             itself and, in the next section, we will configure pfSense to either
             resolve those requests or forward them to another DNS provider.
           </p>
+          <Callout icon={faLightbulb} text={calloutContent[2]}></Callout>
           <ToggleImage params={images["2"]}></ToggleImage>
         </div>
         {/* Configure DNS Resolver */}
@@ -636,10 +679,10 @@ function PfSense({ htmlContent }: IProps) {
           <ToggleImage params={images["4"]}></ToggleImage>
           <ToggleImage params={images["5"]}></ToggleImage>
         </div>
-        {/* Configure Firewall Rules */}
+        {/* PORT1WAN - Firewall Rules */}
         <div>
-          <h3 id="configure-firewall-rules" className="text-accent">
-            Configure Firewall Rules
+          <h3 id="port1wan-rules" className="text-accent">
+            PORT1WAN - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
                 {" "}
@@ -648,18 +691,179 @@ function PfSense({ htmlContent }: IProps) {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Firewall <span className="text-accent">{">"}</span> Rules{" "}
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> PORT1WAN
           </div>
-          <p>TBD</p>
+          <p>
+            For port 1/4, our WAN port, we want to ensure that our NAT
+            auto-generated rule was created to forward any port 80 traffic to
+            our Nginx server. Here, we're using an alias for our Nginx server,
+            the details of which you can see when you hover over the alias. My
+            alias of nginx_server is simply an alias for the IP address of my
+            Nginx Web server (Ubuntu Desktop virtual machine).
+          </p>
           <ToggleImage params={images["15"]}></ToggleImage>
+        </div>
+        {/* PORT2LAN - Firewall Rules */}
+        <div>
+          <h3 id="port2lan-rules" className="text-accent">
+            PORT2LAN - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> PORT2LAN
+          </div>
+          <p>
+            For port 2/4, we will need four rules in place. The first rule
+            should already be created for you and we'll call this the
+            “Anti-Lockout Rule”. This rule helps to ensure that you do not get
+            locked out of your pfSense firewall should you make a
+            misconfiguration. In the event that you make a misconfiguration, you
+            should be able to make a wired connection to port 2/4 to access the
+            web user interface.
+          </p>
+          <p>
+            The second rule is to redirect DNS traffic to the firewall itself
+            (it's loopback address) because, as was detailed in the prior step
+            “Configure DNS Resolver”, we are using our Netgate appliance as a
+            DNS resolver. Considering the fact that I only have a PC hard wired
+            to this port, I have set the source to the IP address of my PC. The
+            loopback address is the destination, and we're only concerned with
+            port 53 (i.e., DNS) traffic.
+          </p>
+          <p>
+            The third and fourth rule are not ideal for a production
+            environment. They effectively let all IPv4 and IPv6 traffic from any
+            subnets on port 2/4 to go to any reachable destination on the
+            network known to pfSense. Obviously, we would be much more granular
+            in on policy on production networks.
+          </p>
           <ToggleImage params={images["16"]}></ToggleImage>
+        </div>
+        {/* PORT3 - Firewall Rules */}
+        <div>
+          <h3 id="port3-rules" className="text-accent">
+            PORT3 - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> PORT3
+          </div>
+          <p>
+            At this point, there are no rules to configure on port 3/4. The only
+            rule required on this interface is the one that was created when we
+            configured port forwarding on all interfaces for DNS Resolution
+            (i.e., by selecting 'Add Associated Filter Rule').
+          </p>
           <ToggleImage params={images["17"]}></ToggleImage>
-          <ToggleImage params={images["18"]}></ToggleImage>
+        </div>
+        {/* PORT4 - Firewall Rules */}
+        <div>
+          <h3 id="port4-rules" className="text-accent">
+            PORT4 - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> PORT4
+          </div>
+          <p>
+            For now, this port is disabled, so, you shouldn't even see an option
+            to configure firewall rules for this interface. In the future,
+            consider enabling this interface and adding a wireless access point.
+            You could then apply what you've learned in this lab and build out
+            additional use cases with wireless devices (guest network, IoT/OT,
+            etc.).
+          </p>
+        </div>
+        {/* VLAN_USERS - Firewall Rules */}
+        <div>
+          <h3 id="vlan-users-rules" className="text-accent">
+            VLAN_USERS - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> VLAN_USERS
+          </div>
+          <p></p>
           <ToggleImage params={images["19"]}></ToggleImage>
+        </div>
+        {/* VLAN_SERVICES - Firewall Rules */}
+        <div>
+          <h3 id="vlan-services-rules" className="text-accent">
+            VLAN_SERVICES - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> VLAN_SERVICES
+          </div>
+          <p></p>
           <ToggleImage params={images["20"]}></ToggleImage>
+        </div>
+        {/* VLAN_STORAGE - Firewall Rules */}
+        <div>
+          <h3 id="vlan-storage-rules" className="text-accent">
+            VLAN_STORAGE - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> VLAN_STORAGE
+          </div>
+          <p></p>
           <ToggleImage params={images["21"]}></ToggleImage>
+        </div>
+        {/* VLAN_MANAGEMENT - Firewall Rules */}
+        <div>
+          <h3 id="vlan-management-rules" className="text-accent">
+            VLAN_MANAGEMENT - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                {" "}
+                #{" "}
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> VLAN_MANAGEMENT
+          </div>
+          <p></p>
           <ToggleImage params={images["22"]}></ToggleImage>
-          <ToggleImage params={images["23"]}></ToggleImage>
         </div>
       </section>
     </div>
