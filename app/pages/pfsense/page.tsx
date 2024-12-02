@@ -4,20 +4,11 @@ import { faWifiStrong, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import Callout from "../../components/callout/Callout";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 
-interface IProps {
-  htmlContent: string[];
-  type: string;
-}
-
-function PfSense({ htmlContent }: IProps) {
-  const calloutContent = [
+function PfSense() {
+  const calloutContent: string[] = [
     "While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab. Also, if your computer does not have an ethernet port, then consider connecting a wireless router to port 2/4 and configure the wireless router (and any client devices connected to it) receive their IP addresses via DHCP from the Netgate firewall. On my router, this requires setting the router's DHCP setting to bridge mode. Once that's done, you can connect to the wireless router in order to connect to the management interface.",
     "You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.",
     "Make sure to select 'Add Associated Filter Rule' from the dropdown within the 'Filter Rule Association' option. This will save you a step by creating a firewall rule that will pass the matching traffic on the interface selected.",
-  ];
-  htmlContent = [
-    `
-    Interfaces > PORT1WAN`,
   ];
   const images = [
     {
@@ -262,10 +253,10 @@ function PfSense({ htmlContent }: IProps) {
             budget, but want extra ethernet interfaces.
           </p>
           <p className="headline">
-            You could save even more mula by running pfSense in a VM on your
-            server, but part of the home lab experience is working with
-            hardware. Plus, those extra interfaces on the Netgate appliance I'm
-            suggesting (Netgate 4200) will come in handy as your lab grows.
+            You could save even more by running pfSense in a VM on your server,
+            but part of the home lab experience is working with hardware. Plus,
+            those extra interfaces on the Netgate appliance I'm suggesting
+            (Netgate 4200) will come in handy as your lab grows.
           </p>
           <p className="headline">
             Whatver you decide, it's important to know that our Netgate

@@ -2,13 +2,8 @@ import React from "react";
 import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 
-interface IProps {
-  htmlContent: string[];
-  type: string;
-}
-
-function ReadySetGo({ htmlContent }: IProps) {
-  htmlContent = [
+function ReadySetGo() {
+  const htmlContent: string[] = [
     `
   # Create and access a directory for your app
   

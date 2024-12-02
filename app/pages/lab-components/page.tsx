@@ -3,13 +3,8 @@ import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 
-interface IProps {
-  htmlContent: string[];
-  type: string;
-}
-
-function LabContents({ htmlContent }: IProps) {
-  htmlContent = [
+function LabContents() {
+  const htmlContent: string[] = [
     `
     staticIPs = {
       "ubuntuWebServer": "192.168.10.4",

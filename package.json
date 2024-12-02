@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
     "build:css": "npx tailwindcss -i ./app/global.css -o ./app/tailwind.css",
     "watch:css": "npx tailwindcss -i ./app/global.css -o ./app/tailwind.css --watch"
   },
