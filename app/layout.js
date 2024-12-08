@@ -16,11 +16,11 @@ config.autoAddCss = false;
 //   display: "swap",
 // });
 
-// const font = Noto_Sans({
-//   subsets: ["latin"],
-//   style: ["italic", "normal"],
-//   display: "swap",
-// });
+const font = Noto_Sans({
+  subsets: ["latin"],
+  style: ["italic", "normal"],
+  display: "swap",
+});
 
 // const font = PT_Serif({
 //   subsets: ["latin"],
@@ -29,12 +29,12 @@ config.autoAddCss = false;
 //   display: "swap",
 // });
 
-const font = Bitter({
-  subsets: ["latin"],
-  style: ["italic", "normal"],
-  weight: ["400", "700"],
-  display: "swap",
-});
+// const font = Bitter({
+//   subsets: ["latin"],
+//   style: ["italic", "normal"],
+//   weight: ["400", "700"],
+//   display: "swap",
+// });
 
 export const metadata = {
   title: "Kraus Cloud Blog",

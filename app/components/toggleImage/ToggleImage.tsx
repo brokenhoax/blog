@@ -12,8 +12,9 @@ import {
   useDisclosure,
 } from "@nextui-org/modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 function ToggleImage({ params }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -32,80 +33,87 @@ function ToggleImage({ params }) {
     return (
       <div
         onClick={() => handleClick()}
-        className={`${styles.imageToggle} text-accent`}
+        className={`${styles.imageCollapsed} text-accent bg-subtle`}
       >
-        {" "}
-        <span className={`${styles.toggleStyles}`}>
-          <FontAwesomeIcon icon={faCaretRight} fixedWidth></FontAwesomeIcon>
-          <div className={`${styles.toggleText}`}>
-            Image — {params.imageAltText}
+        <div className={`${styles.imageHeader}`}>
+          <FontAwesomeIcon icon={faImage} fixedWidth></FontAwesomeIcon>
+          <div className={`${styles.toggleText} text-white`}>
+            {params.imageAltText}
           </div>
-        </span>
+        </div>
+        <FontAwesomeIcon icon={faCaretLeft} fixedWidth></FontAwesomeIcon>
       </div>
     );
   }
 
   if (toggled) {
     return (
-      <div className={`${styles.imageToggle} text-accent`}>
+      <div className={`text-accent`}>
+        {/* Image Header */}
         <span
           onClick={() => handleClick()}
-          className={`${styles.toggleStyles}`}
+          className={`${styles.imageCollapsed} bg-subtle`}
         >
-          <FontAwesomeIcon icon={faCaretDown} fixedWidth></FontAwesomeIcon>
-          <div className={`${styles.toggleText}`}>
-            Image — {params.imageAltText}
+          <div className={`${styles.imageHeader}`}>
+            <FontAwesomeIcon icon={faImage} fixedWidth></FontAwesomeIcon>
+            <div className={`${styles.toggleText} text-white`}>
+              {params.imageAltText}
+            </div>
           </div>
+          <FontAwesomeIcon icon={faCaretDown} fixedWidth></FontAwesomeIcon>
         </span>
-        <Image
-          onClick={() => handleMaximize()}
-          className={`${styles.imageStyles}`}
-          src={params.imagePath}
-          width={params.width}
-          height={params.height}
-          sizes={params.sizes}
-          style={params.style}
-          alt={params.imageAltText}
-          decoding="sync"
-        ></Image>
-        <Modal
-          isOpen={isOpen}
-          onOpenChange={onOpenChange}
-          size="5xl"
-          scrollBehavior="inside"
-          backdrop="blur"
-          classNames={{
-            backdrop: "bg-primary/50 backdrop-opacity-90",
-            base: "border-accent bg-primary dark:bg-primary text-accent",
-            header: "border-b-[1px] border-accent",
-            footer: "border-t-[1px] border-accent",
-            closeButton: "hover:bg-white/5 active:bg-white/10",
-          }}
-        >
-          <ModalContent>
-            {(onClose) => (
-              <>
-                <ModalHeader className="flex flex-col gap-1">
-                  {params.imageAltText}
-                </ModalHeader>
-                <ModalBody>
-                  <Image
-                    onClick={() => handleMaximize()}
-                    className={`${styles.imageStyles}`}
-                    src={params.imagePath}
-                    width={params.width}
-                    height={params.height}
-                    sizes={params.sizes}
-                    style={params.style}
-                    alt={params.imageAltText}
-                    decoding="sync"
-                  ></Image>
-                </ModalBody>
-                <ModalFooter></ModalFooter>
-              </>
-            )}
-          </ModalContent>
-        </Modal>
+        {/* Image */}
+        <div className={`text-accent`}>
+          <Image
+            onClick={() => handleMaximize()}
+            className={`${styles.imageStyles}`}
+            src={params.imagePath}
+            width={params.width}
+            height={params.height}
+            sizes={params.sizes}
+            style={params.style}
+            alt={params.imageAltText}
+            decoding="sync"
+          ></Image>
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            size="5xl"
+            scrollBehavior="inside"
+            backdrop="blur"
+            classNames={{
+              backdrop: "bg-primary/50 backdrop-opacity-90",
+              base: "border-accent bg-primary dark:bg-primary text-accent",
+              header: "border-b-[1px] border-accent",
+              footer: "border-t-[1px] border-accent",
+              closeButton: "hover:bg-white/5 active:bg-white/10",
+            }}
+          >
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1">
+                    {params.imageAltText}
+                  </ModalHeader>
+                  <ModalBody>
+                    <Image
+                      onClick={() => handleMaximize()}
+                      className={`${styles.imageStyles}`}
+                      src={params.imagePath}
+                      width={params.width}
+                      height={params.height}
+                      sizes={params.sizes}
+                      style={params.style}
+                      alt={params.imageAltText}
+                      decoding="sync"
+                    ></Image>
+                  </ModalBody>
+                  <ModalFooter></ModalFooter>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
+        </div>
       </div>
     );
   }
