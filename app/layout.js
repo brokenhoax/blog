@@ -19,6 +19,7 @@ config.autoAddCss = false;
 const font = Noto_Sans({
   subsets: ["latin"],
   style: ["italic", "normal"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -48,7 +49,7 @@ export default function RootLayout({ children }) {
       style={{ scrollBehavior: "smooth" }}
       suppressHydrationWarning
     >
-      <body className={`${font.className} bg-primary`}>
+      <body className={`${font.className} bg-primary text-secondary`}>
         <Providers>
           <NavBar></NavBar>
           {children}

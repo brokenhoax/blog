@@ -32,9 +32,9 @@ const ThemeSwitcher = () => {
           onClick={handleToggle}
           className={`${styles.toggleBtn} ${
             theme === "lightOwl" ? styles.toggled : ""
-          } bg-subtle`}
+          } bg-subtle border-2 border-accent`}
         >
-          <div className={`${styles.thumb} bg-primary`}>
+          <div className={`${styles.thumb} bg-primary border-2 border-accent`}>
             <i
               className={`${
                 theme === "lightOwl"

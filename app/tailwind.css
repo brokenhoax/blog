@@ -4,10 +4,18 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6rem;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
 }
 
 * {
@@ -3618,8 +3626,8 @@ video {
   --nextui-default-900: 240 5.88% 10%;
   --nextui-default-foreground: 0 0% 0%;
   --nextui-default: 240 4.88% 83.92%;
-  --nextui-primary: 28.970000000000027 29.29% 80.59%;
-  --nextui-secondary: 248.56999999999994 63.64% 6.47%;
+  --nextui-primary: 0 0% 5.1%;
+  --nextui-secondary: 0 0% 100%;
   --nextui-success-50: 146.66999999999996 64.29% 94.51%;
   --nextui-success-100: 145.71000000000004 61.4% 88.82%;
   --nextui-success-200: 146.2 61.74% 77.45%;
@@ -3656,8 +3664,9 @@ video {
   --nextui-danger-900: 340 84.91% 10.39%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 248.56999999999994 63.64% 6.47%;
-  --nextui-subtle: 25.379999999999995 11.02% 46.27%;
+  --nextui-accent: 300 100% 50%;
+  --nextui-subtle: 206.84000000000003 95% 7.84%;
+  --nextui-tertiary: 206.84000000000003 95% 7.84%;
   --nextui-white: 0 0% 100%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
@@ -3823,8 +3832,8 @@ h2 {
 
 h3 {
   font-size: 28px;
-  font-weight: 500;
-  margin: 1rem 0 0.5rem 0;
+  font-weight: 800;
+  margin: 2rem 0 0.5rem 0;
 }
 
 h4 {
@@ -3839,7 +3848,6 @@ body {
   border: 0;
   outline: 0;
   vertical-align: baseline;
-  font-size: 20px;
   min-height: 100vh;
 }
 
@@ -3854,18 +3862,8 @@ ul {
   line-height: 2rem;
 }
 
-.david-libre-medium {
-  font-family: "David Libre", serif;
-}
-
-.fenix-regular {
-  font-family: "Fenix", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 .section {
-  padding-top: 156px;
+  padding-top: 128px;
   min-height: 100vh;
 }
 
@@ -3976,7 +3974,7 @@ ul {
   }
 
   p {
-    line-height: 2rem;
+    line-height: 1.7rem;
   }
 
   h2 {

@@ -39,9 +39,7 @@ function NavBar() {
             <button
               onClick={setNavbarstatus}
               className={`${styles.navbarMinimalButton}`}
-            >
-              🎄
-            </button>
+            ></button>
             <ul className={`${styles.navbarLinks}`}>
               {navLinks.map((link, index) => (
                 <li className={`${styles.navbarLinkItem}`} key={index}>
@@ -73,9 +71,7 @@ function NavBar() {
             <button
               onClick={setNavbarstatus}
               className={`${styles.navbarMinimalButton}`}
-            >
-              🎄
-            </button>
+            ></button>
           </div>
           {/* Right */}
           <ThemeSwitcher />

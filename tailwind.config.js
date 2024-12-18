@@ -82,10 +82,11 @@ module.exports = {
         lightOwl: {
           extend: "light",
           colors: {
-            accent: "#09061b",
-            subtle: "#837469",
-            primary: "#dccdbf",
-            secondary: "#09061b",
+            accent: "#FF00FF",
+            subtle: "#011627",
+            primary: "#0D0D0D",
+            secondary: "#FFFFFF",
+            tertiary: "#011627",
             white: "#FFFFFF",
           },
           layout: {
