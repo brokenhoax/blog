@@ -8,16 +8,6 @@ body {
   font-size: 18px;
 }
 
-html {
-  overflow: hidden;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  overflow: auto;
-}
-
 * {
   box-sizing: border-box;
 }

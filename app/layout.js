@@ -48,6 +48,7 @@ export default function RootLayout({ children }) {
       lang="en"
       style={{ scrollBehavior: "smooth" }}
       suppressHydrationWarning
+      className={`bg-primary`}
     >
       <body className={`${font.className} bg-primary text-secondary`}>
         <Providers>

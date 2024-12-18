@@ -8,16 +8,6 @@ body {
   font-size: 18px;
 }
 
-html {
-  overflow: hidden;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  overflow: auto;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -3363,7 +3353,6 @@ video {
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
   --nextui-accent: 68.98000000000002 65.49% 50%;
   --nextui-subtle: 206.84000000000003 95% 7.84%;
-  --nextui-tertiary: 0 0% 100%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
   --nextui-font-size-tiny: 0.75rem;
