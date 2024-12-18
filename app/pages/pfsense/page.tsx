@@ -6,7 +6,7 @@ import ToggleImage from "../../components/toggleImage/ToggleImage";
 
 function PfSense() {
   const calloutContent: string[] = [
-    "While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab. Also, if your computer does not have an ethernet port, then consider connecting a wireless router to port 2/4 and configure the wireless router (and any client devices connected to it) receive their IP addresses via DHCP from the Netgate firewall. On my router, this requires setting the router's DHCP setting to bridge mode. Once that's done, you can connect to the wireless router in order to connect to the management interface.",
+    "This lab requires a personal computer equipped with a wired Network Interface Card (NIC). While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab.",
     "You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.",
     "Make sure to select 'Add Associated Filter Rule' from the dropdown within the 'Filter Rule Association' option. This will save you a step by creating a firewall rule that will pass the matching traffic on the interface selected.",
   ];
@@ -256,12 +256,12 @@ function PfSense() {
             You could save even more by running pfSense in a VM on your server,
             but part of the home lab experience is working with hardware. Plus,
             those extra interfaces on the Netgate appliance I'm suggesting
-            (Netgate 4200) will come in handy as your lab grows.
+            (i.e., the Netgate 4200) will come in handy as your lab grows.
           </p>
           <p className="headline">
             Whatver you decide, it's important to know that our Netgate
             appliance is more than just a firewall. We'll be using it for
-            Dynamic DNS for hosting our website as well as for routing, DNS
+            Dynamic DNS to host our website as well as for local routing, DNS
             resolution, Network Address Translation, and so much more as our use
             cases grow (NTP, DHCP, etc.).
           </p>
@@ -384,7 +384,7 @@ function PfSense() {
             </a>
             from pfSense's documentation to change the default administrator
             password. Once that's taken care of, we'll start configuring our
-            firewall policies to support our lab requirements.
+            firewall to support our lab requirements.
           </p>
         </div>
         {/* WAN Interface */}
@@ -408,7 +408,7 @@ function PfSense() {
             Configuration Protocol (DHCP). If your network requirements are
             different (e.g., perhaps, you'd like to assign your Netgate firewall
             WAN interface with a static IP address), then feel free to deviate
-            from this lab guide to suit your requirements.
+            from this guide to suit your needs.
           </p>
           <ToggleImage params={images["6"]}></ToggleImage>
         </div>
@@ -459,29 +459,42 @@ function PfSense() {
           <ul className="unorderedList">
             <li key="1">
               VLAN 01: <span className="text-accent">Default VLAN</span>
+              <span>, 192.168.1.1</span>
             </li>
             <li key="2">
               VLAN 10: <span className="text-accent">Services VLAN</span>
+              <span>, 192.168.10.1</span>
             </li>
             <li key="3">
               VLAN 20: <span className="text-accent">Users VLAN</span>
+              <span>, 192.168.20.1</span>
             </li>
             <li key="4">
               VLAN 30: <span className="text-accent">Storage VLAN</span>
+              <span>, 192.168.30.1</span>
             </li>
             <li key="5">
               VLAN 40: <span className="text-accent">Management VLAN</span>
+              <span>, 192.168.40.1</span>
             </li>
           </ul>
           <p>
-            We will discuss the switch configuration in a separeate blog post,
+            We will discuss the switch configuration in a separate blog post,
             but suffice it to say that the majority of our lab components will
-            be connected to this switch. We'll be using static IP address
-            assignment for this interface, so we'll need a new subnet. To keep
-            things easy, we'll choose 192.168.2.1. Ensure the interface is
-            enabled and save your changes.
+            be connected to this switch and will be tagged to specific VLANs
+            (e.g., Proxmox Server on VLAN 20 "Services VLAN"). We'll be setting
+            a static IP address assignment for this interface and we'll need a
+            new subnet. To keep things easy, we'll choose 192.168.2.0/24 for our
+            subnet and our IP address for this interface will be 192.168.2.1.
+            Ensure the interface is enabled and save your changes.
           </p>
           <ToggleImage params={images["8"]}></ToggleImage>
+          <p>
+            To support VLANs in routing and policy, we'll need to configure some
+            VLAN interfaces within pfSense. Feel free to use the IP addressing
+            shared above if you'd like to keep your lab consistent with this
+            guide.
+          </p>
           <ToggleImage params={images["9"]}></ToggleImage>
           <ToggleImage params={images["10"]}></ToggleImage>
           <ToggleImage params={images["11"]}></ToggleImage>
@@ -799,7 +812,17 @@ function PfSense() {
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_USERS
           </div>
-          <p></p>
+          <p>
+            Our first rule for the Users VLAN is to redirect all DNS traffic to
+            the firewall for resolution. Since we've already configured that
+            rule when creating the NAT redirect policy, that should already be
+            created for us. Our second rule can be skipped for now, but it will
+            come in handy when we implement a Zscaler Branch Connector in a
+            future lab. The remaining four rules allow access from our lab PC to
+            various applications and resources. We can set those rules up at a
+            later date when we go through hardening our firewall. For now, all
+            you should have to do is create an "allow all" rule for your lab PC.
+          </p>
           <ToggleImage params={images["19"]}></ToggleImage>
         </div>
         {/* VLAN_SERVICES - Firewall Rules */}
@@ -817,7 +840,13 @@ function PfSense() {
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_SERVICES
           </div>
-          <p></p>
+          <p>
+            For now, we don't need any rules for the Services VLAN, because we
+            we've already configured the DNS redirect rule when creating our NAT
+            redirect policy. The other three rules are to allow access from our
+            Zscaler App Connector to other resources on our network. We will
+            cover Zscaler App Connectors in a future lab.
+          </p>
           <ToggleImage params={images["20"]}></ToggleImage>
         </div>
         {/* VLAN_STORAGE - Firewall Rules */}
@@ -835,7 +864,13 @@ function PfSense() {
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_STORAGE
           </div>
-          <p></p>
+          <p>
+            We won't be configuring our Storage VLAN in this lab; however, if
+            you'd like to take a sneak peek then feel free! In a future lab,
+            we'll cover not only implementing a Terramaster NAS, but providing
+            secure remote access to it using our Zscaler App Connector—a
+            component of Zscaler Private Access.
+          </p>
           <ToggleImage params={images["21"]}></ToggleImage>
         </div>
         {/* VLAN_MANAGEMENT - Firewall Rules */}
@@ -853,7 +888,17 @@ function PfSense() {
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_MANAGEMENT
           </div>
-          <p></p>
+          <p>
+            Our Management VLAN is critical—especially when we've locked
+            ourselves out of our switch, but it also comes with a risk. With the
+            "allow any" firewall rule in place, anybody who connects to the
+            Management VLAN will have full access. We'll cover steps we can take
+            to harden our lab in a future post. Finally, so as to not introduce
+            confusion, the Management VLAN will be used to manage our network
+            Switch and not our Firewall. As was mentioned in a previous step,
+            the PORT2LAN interface is our management interface for our pfSense
+            firewall.
+          </p>
           <ToggleImage params={images["22"]}></ToggleImage>
         </div>
       </section>
