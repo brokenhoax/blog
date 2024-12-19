@@ -133,7 +133,7 @@ img {
   --tw-contain-style:  ;
 }
 
-/* ! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -2708,7 +2708,7 @@ video {
 
 .text-black {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-current {
@@ -2790,7 +2790,7 @@ video {
 
 .text-gray-700 {
   --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-inherit {
@@ -2876,6 +2876,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-text-opacity)));
+}
+
+.text-subtle {
+  --tw-text-opacity: 1;
+  color: hsl(var(--nextui-subtle) / var(--nextui-subtle-opacity, var(--tw-text-opacity)));
 }
 
 .underline {

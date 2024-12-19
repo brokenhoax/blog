@@ -1,7 +1,13 @@
 import "./global.css";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
-import { Bitter, IBM_Plex_Mono, Noto_Sans, PT_Serif } from "next/font/google";
+import {
+  Bitter,
+  IBM_Plex_Mono,
+  Noto_Sans,
+  PT_Serif,
+  Ubuntu,
+} from "next/font/google";
 import { Providers } from "./providers";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -34,6 +40,13 @@ const font = Noto_Sans({
 //   subsets: ["latin"],
 //   style: ["italic", "normal"],
 //   weight: ["400", "700"],
+//   display: "swap",
+// });
+
+// const font = Ubuntu({
+//   subsets: ["latin"],
+//   style: ["italic", "normal"],
+//   weight: ["300", "400", "500", "700"],
 //   display: "swap",
 // });
 
