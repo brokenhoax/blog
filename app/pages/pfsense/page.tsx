@@ -1,6 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { faWifiStrong, faLightbulb } from "@fortawesome/free-solid-svg-icons";
+import {
+  faWifiStrong,
+  faLightbulb,
+  faNetworkWired,
+} from "@fortawesome/free-solid-svg-icons";
 import Callout from "../../components/callout/Callout";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 
@@ -9,6 +13,7 @@ function PfSense() {
     "This lab requires a personal computer equipped with a wired Network Interface Card (NIC). While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab.",
     "You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.",
     "Make sure to select 'Add Associated Filter Rule' from the dropdown within the 'Filter Rule Association' option. This will save you a step by creating a firewall rule that will pass the matching traffic on the interface selected.",
+    "Make these IP addresses / VLAN mappings easy to remember and have them readily accessible. It helps to build a network diagram.",
   ];
   const images = [
     {
@@ -293,64 +298,89 @@ function PfSense() {
               </Link>
             </li>
             <li key="5" className="hover:text-accent">
+              <Link href="/pages/pfsense#lan-interface">
+                VLAN 1 — Default VLAN — Interface
+              </Link>
+            </li>
+            <li key="6" className="hover:text-accent">
+              <Link href="/pages/pfsense#lan-interface">
+                VLAN 10 — Services VLAN — Interface
+              </Link>
+            </li>
+            <li key="7" className="hover:text-accent">
+              <Link href="/pages/pfsense#lan-interface">
+                VLAN 20 — Users VLAN — Interface
+              </Link>
+            </li>
+            <li key="8" className="hover:text-accent">
+              <Link href="/pages/pfsense#lan-interface">
+                VLAN 30 — Storage VLAN — Interface
+              </Link>
+            </li>
+            <li key="9" className="hover:text-accent">
+              <Link href="/pages/pfsense#lan-interface">
+                VLAN 40 — Management VLAN — Interface
+              </Link>
+            </li>
+            <li key="10" className="hover:text-accent">
               <Link href="/pages/pfsense#guest-interface">
                 Port 4 — Guest Interface (igc0)
               </Link>
             </li>
-            <li key="6" className="hover:text-accent">
+            <li key="11" className="hover:text-accent">
               <Link href="/pages/pfsense#aliases">Aliases</Link>
             </li>
-            <li key="7" className="hover:text-accent">
+            <li key="12" className="hover:text-accent">
               <Link href="/pages/pfsense#nat-nginx">
                 NAT for Nginx Web Server
               </Link>
             </li>
-            <li key="8" className="hover:text-accent">
+            <li key="13" className="hover:text-accent">
               <Link href="/pages/pfsense#nat-dns-resolver">
                 NAT for DNS Resolver
               </Link>
             </li>
-            <li key="9" className="hover:text-accent">
+            <li key="14" className="hover:text-accent">
               <Link href="/pages/pfsense#port1wan-rules">
                 PORT1WAN - Firewall Rules
               </Link>
             </li>
-            <li key="10" className="hover:text-accent">
+            <li key="15" className="hover:text-accent">
               <Link href="/pages/pfsense#port2lan-rules">
                 PORT2LAN - Firewall Rules
               </Link>
             </li>
-            <li key="11" className="hover:text-accent">
+            <li key="16" className="hover:text-accent">
               <Link href="/pages/pfsense#port3-rules">
                 PORT3 - Firewall Rules
               </Link>
             </li>
-            <li key="12" className="hover:text-accent">
+            <li key="17" className="hover:text-accent">
               <Link href="/pages/pfsense#port4-rules">
                 PORT4 - Firewall Rules
               </Link>
             </li>
-            <li key="13" className="hover:text-accent">
+            <li key="18" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-users-rules">
                 VLAN_USERS - Firewall Rules
               </Link>
             </li>
-            <li key="14" className="hover:text-accent">
+            <li key="19" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-services-rules">
                 VLAN_SERVICES - Firewall Rules
               </Link>
             </li>
-            <li key="15" className="hover:text-accent">
+            <li key="20" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-storage-rules">
                 VLAN_STORAGE - Firewall Rules
               </Link>
             </li>
-            <li key="16" className="hover:text-accent">
+            <li key="21" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-management-rules">
                 VLAN_MANAGEMENT - Firewall Rules
               </Link>
             </li>
-            <li key="17" className="hover:text-accent">
+            <li key="22" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-default-rules">
                 VLAN_DEFAULT - Firewall Rules
               </Link>
@@ -454,40 +484,55 @@ function PfSense() {
           <p>
             Port 3/4 is reserved for our LAN network interface. Off of this
             interface, we will connect a small switch which we will configure
-            with four Virtual Local Area Networks (VLANs):
+            with four Virtual Local Area Networks (VLANs). We will discuss the
+            switch configuration in a separate blog post, but suffice it to say
+            that the majority of our lab components will be connected to this
+            switch and will be tagged to specific VLANs (e.g., Proxmox Server on
+            VLAN 20 "Services VLAN"). We'll be setting a static IP address
+            assignment for this interface and we'll need a new subnet. To keep
+            things easy, we'll choose 192.168.2.0/24 for our subnet and our IP
+            address for this interface will be 192.168.2.1. Ensure the interface
+            is enabled and save your changes.
           </p>
+          {/* VLAN / IP Mappings */}
           <ul className="unorderedList">
             <li key="1">
-              VLAN 01: <span className="text-accent">Default VLAN</span>
-              <span>, 192.168.1.1</span>
+              VLAN 01 <span className="text-subtle">—</span>{" "}
+              <span className="text-accent">192.168.5.1</span>
+              <span>
+                <span className="text-subtle">—</span> Default VLAN
+              </span>
             </li>
             <li key="2">
-              VLAN 10: <span className="text-accent">Services VLAN</span>
-              <span>, 192.168.10.1</span>
+              VLAN 10 <span className="text-subtle">—</span>{" "}
+              <span className="text-accent">192.168.10.1</span>
+              <span>
+                <span className="text-subtle">—</span> Services VLAN
+              </span>
             </li>
             <li key="3">
-              VLAN 20: <span className="text-accent">Users VLAN</span>
-              <span>, 192.168.20.1</span>
+              VLAN 20 <span className="text-subtle">—</span>{" "}
+              <span className="text-accent">192.168.20.1</span>
+              <span>
+                <span className="text-subtle">—</span> Users VLAN
+              </span>
             </li>
             <li key="4">
-              VLAN 30: <span className="text-accent">Storage VLAN</span>
-              <span>, 192.168.30.1</span>
+              VLAN 30 <span className="text-subtle">—</span>{" "}
+              <span className="text-accent">192.168.30.1</span>
+              <span>
+                <span className="text-subtle">—</span> Storage VLAN
+              </span>
             </li>
             <li key="5">
-              VLAN 40: <span className="text-accent">Management VLAN</span>
-              <span>, 192.168.40.1</span>
+              VLAN 40 <span className="text-subtle">—</span>{" "}
+              <span className="text-accent">192.168.40.1</span>
+              <span>
+                <span className="text-subtle">—</span> Management VLAN
+              </span>
             </li>
           </ul>
-          <p>
-            We will discuss the switch configuration in a separate blog post,
-            but suffice it to say that the majority of our lab components will
-            be connected to this switch and will be tagged to specific VLANs
-            (e.g., Proxmox Server on VLAN 20 "Services VLAN"). We'll be setting
-            a static IP address assignment for this interface and we'll need a
-            new subnet. To keep things easy, we'll choose 192.168.2.0/24 for our
-            subnet and our IP address for this interface will be 192.168.2.1.
-            Ensure the interface is enabled and save your changes.
-          </p>
+          <Callout icon={faNetworkWired} text={calloutContent[3]}></Callout>
           <ToggleImage params={images["8"]}></ToggleImage>
           <p>
             To support VLANs in routing and policy, we'll need to configure some
