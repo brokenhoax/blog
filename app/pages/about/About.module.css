@@ -1,0 +1,14 @@
+.socialLinksWrapper {
+  display: flex;
+  justify-items: space-between;
+  padding: 1rem 0 1rem 0;
+}
+
+.socialLinks {
+  padding: 0 0.5rem 0 0;
+  cursor: pointer;
+}
+
+.aboutTheWriter {
+  padding: 1rem 0 1rem 0;
+}

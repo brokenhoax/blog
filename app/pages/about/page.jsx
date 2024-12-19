@@ -1,23 +1,25 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import styles from "./About.module.css";
 
 function About() {
   return (
     <section className="section">
       <h1>About</h1>
-
-      <p className="dateStamp text-accent">June 5th, 2022</p>
-      <FontAwesomeIcon icon={faXTwitter} />
+      <div className={`${styles.socialLinksWrapper}`}>
+        <FontAwesomeIcon
+          icon={faXTwitter}
+          className={`${styles.socialLinks}`}
+        />
+        <FontAwesomeIcon
+          icon={faLinkedin}
+          className={`${styles.socialLinks}`}
+        />
+      </div>
       <div className="border-b border-accent"></div>
       {/* Headline */}
       <div className="headlineWrapper">
-        <p className="headline">
-          My name is Andrew Kraus and I enjoy all things tech and design. I have
-          learned most of what I know on those subjects from strangers on the
-          internet and mostly for free. To return the favor, I've built out my
-          own corner of the web to share what I've learned.
-        </p>
         <p className="headline">
           Kraus Cloud is meant to be educational, is designed for readers, and
           its content will include subjects such as web development, web design,
@@ -25,8 +27,17 @@ function About() {
         </p>
       </div>
       <div className="block border-b border-accent"></div>
-      <h3 className="text-accent">About the Writer</h3>
-      <h4 className="font-bold ">Andrew Kraus</h4>
+      <div className={`${styles.aboutTheWriter}`}>
+        <h2 className="text-accent">About the Writer</h2>
+        <p>
+          My name is Andrew Kraus and I enjoy all things tech and design. I have
+          learned most of what I know on those subjects from strangers on the
+          internet and mostly for free. To return the favor, I've built out my
+          own corner of the web to share what I've learned.
+        </p>
+      </div>
+      {/* <h2 className="text-accent">About the Writer</h2>
+      <h3 className="font-bold ">Andrew Kraus</h3>
       <p>
         Understanding the intersection of business, people, and technology
         requires a good mix of hard and soft skills and a lot of practice.
@@ -41,7 +52,7 @@ function About() {
         throughout are my desire to problem solve, the satisfaction I get from
         helping others, and, of course, my love of technology. Thanks for
         stopping by!
-      </p>
+      </p> */}
       {/* Contact Details */}
       <div className="">
         <div className="flex flex-col">
