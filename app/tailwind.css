@@ -133,7 +133,7 @@ img {
   --tw-contain-style:  ;
 }
 
-/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -2657,10 +2657,6 @@ video {
   line-height: 1rem;
 }
 
-.font-bold {
-  font-weight: 700;
-}
-
 .font-medium {
   font-weight: 500;
 }
@@ -2708,7 +2704,7 @@ video {
 
 .text-black {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .text-current {
@@ -2790,7 +2786,7 @@ video {
 
 .text-gray-700 {
   --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 
 .text-inherit {
@@ -2813,6 +2809,11 @@ video {
 
 .text-secondary\/80 {
   color: hsl(var(--nextui-secondary) / 0.8);
+}
+
+.text-subtle {
+  --tw-text-opacity: 1;
+  color: hsl(var(--nextui-subtle) / var(--nextui-subtle-opacity, var(--tw-text-opacity)));
 }
 
 .text-success {
@@ -2876,11 +2877,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-text-opacity)));
-}
-
-.text-subtle {
-  --tw-text-opacity: 1;
-  color: hsl(var(--nextui-subtle) / var(--nextui-subtle-opacity, var(--tw-text-opacity)));
 }
 
 .underline {
@@ -3831,8 +3827,8 @@ h3 {
 }
 
 h4 {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
   margin: 1rem 0 0.5rem 0;
 }
 
@@ -3873,7 +3869,7 @@ ul {
 }
 
 .headlineWrapper {
-  padding: 0.5rem 0rem 0.5rem 0rem;
+  padding: 2rem 0rem 0.5rem 0rem;
 }
 
 .author {
@@ -3903,7 +3899,6 @@ ul {
 
 .orderedList {
   padding-left: 2.5rem;
-  padding-bottom: 1rem;
   list-style-type: decimal;
 }
 
@@ -3912,8 +3907,9 @@ ul {
   list-style-type: disc;
 }
 
-.tableOfContents {
-  padding-bottom: 2rem;
+.secondOrderedList {
+  padding-left: 1rem;
+  list-style-type: lower-alpha;
 }
 
 .dateStamp {
@@ -3923,10 +3919,11 @@ ul {
 .divider {
   border-bottom-width: 1px;
   border-style: solid;
+  padding-top: 2rem;
 }
 
 .faintDivider {
-  border-bottom-width: 1px;
+  border-bottom-width: 0.5px;
   border-style: solid;
 }
 

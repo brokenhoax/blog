@@ -4,6 +4,7 @@ import {
   faWifiStrong,
   faLightbulb,
   faNetworkWired,
+  faFlask,
 } from "@fortawesome/free-solid-svg-icons";
 import Callout from "../../components/callout/Callout";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
@@ -13,7 +14,9 @@ function PfSense() {
     "This lab requires a personal computer equipped with a wired Network Interface Card (NIC). While it is possible to configure our Netgate firewall over a wireless (Wi-Fi) connection, that is outside of the scope of this lab.",
     "You may choose to deviate from my IP addressing scheme, but it will be easier to follow the documentation if you use the same IP addresses.",
     "Make sure to select 'Add Associated Filter Rule' from the dropdown within the 'Filter Rule Association' option. This will save you a step by creating a firewall rule that will pass the matching traffic on the interface selected.",
-    "Make these IP addresses / VLAN mappings easy to remember and have them readily accessible. It helps to build a network diagram.",
+    "Make these IP addresses / VLAN mappings easy to remember and have them readily accessible. It helps to build a network diagram to better visualize your lab, to aid in discussion when collaborating with others, and for overall ease of reference. I used LucidChart to diagram my home lab and included a screenshot of it below.",
+    "We will not be using IPv6 in this lab, so you may disable/disregard all IPv6 settings.",
+    "In the following section, you'll be able to review each interface configuration along with an explanation of how we'll be using that interface in our lab. ",
   ];
   const images = [
     {
@@ -232,6 +235,15 @@ function PfSense() {
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
     },
+    {
+      id: "25",
+      imagePath: "/images/network_diagram.png",
+      imageAltText: "Network Diagram",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+    },
   ];
   return (
     <div>
@@ -282,51 +294,67 @@ function PfSense() {
                 Update the Default Password
               </Link>
             </li>
+            {/* Configuring Physical Interfaces */}
             <li key="2" className="hover:text-accent">
-              <Link href="/pages/pfsense#wan-interface">
-                Port 1 — WAN Interface (igc3)
+              <Link href="/pages/pfsense#configuring-physical-interfaces">
+                Configuring Physical Interfaces
               </Link>
             </li>
+            <ol className="secondOrderedList">
+              <li key="1" className="hover:text-accent">
+                <Link href="/pages/pfsense#wan-interface">
+                  Port 1 (igc3) — WAN Interface
+                </Link>
+              </li>
+              <li key="2" className="hover:text-accent">
+                <Link href="/pages/pfsense#lan-interface">
+                  Port 2 (igc2) — LAN Interface
+                </Link>
+              </li>
+              <li key="3" className="hover:text-accent">
+                <Link href="/pages/pfsense#lab-interface">
+                  Port 3 (igc1) — Lab Interface
+                </Link>
+              </li>
+              <li key="4" className="hover:text-accent">
+                <Link href="/pages/pfsense#guest-interface">
+                  Port 4 (igc0) — Guest Interface
+                </Link>
+              </li>
+            </ol>
+            {/* Configuring Virtual Interfaces */}
             <li key="3" className="hover:text-accent">
-              <Link href="/pages/pfsense#management-interface">
-                Port 2 — Management Interface (igc2)
+              <Link href="/pages/pfsense#configuring-virtual-interfaces">
+                Configuring Virtual Interfaces
               </Link>
             </li>
-            <li key="4" className="hover:text-accent">
-              <Link href="/pages/pfsense#lan-interface">
-                Port 3 — LAN Interface (igc1)
-              </Link>
-            </li>
-            <li key="5" className="hover:text-accent">
-              <Link href="/pages/pfsense#lan-interface">
-                VLAN 1 — Default VLAN — Interface
-              </Link>
-            </li>
-            <li key="6" className="hover:text-accent">
-              <Link href="/pages/pfsense#lan-interface">
-                VLAN 10 — Services VLAN — Interface
-              </Link>
-            </li>
-            <li key="7" className="hover:text-accent">
-              <Link href="/pages/pfsense#lan-interface">
-                VLAN 20 — Users VLAN — Interface
-              </Link>
-            </li>
-            <li key="8" className="hover:text-accent">
-              <Link href="/pages/pfsense#lan-interface">
-                VLAN 30 — Storage VLAN — Interface
-              </Link>
-            </li>
-            <li key="9" className="hover:text-accent">
-              <Link href="/pages/pfsense#lan-interface">
-                VLAN 40 — Management VLAN — Interface
-              </Link>
-            </li>
-            <li key="10" className="hover:text-accent">
-              <Link href="/pages/pfsense#guest-interface">
-                Port 4 — Guest Interface (igc0)
-              </Link>
-            </li>
+            <ol className="secondOrderedList">
+              <li key="5" className="hover:text-accent">
+                <Link href="/pages/pfsense#default-vlan-interface">
+                  VLAN 1 — Default VLAN — Interface
+                </Link>
+              </li>
+              <li key="6" className="hover:text-accent">
+                <Link href="/pages/pfsense#services-vlan-interface">
+                  VLAN 10 — Services VLAN — Interface
+                </Link>
+              </li>
+              <li key="7" className="hover:text-accent">
+                <Link href="/pages/pfsense#users-vlan-interface">
+                  VLAN 20 — Users VLAN — Interface
+                </Link>
+              </li>
+              <li key="8" className="hover:text-accent">
+                <Link href="/pages/pfsense#storage-vlan-interface">
+                  VLAN 30 — Storage VLAN — Interface
+                </Link>
+              </li>
+              <li key="9" className="hover:text-accent">
+                <Link href="/pages/pfsense#management-vlan-interface">
+                  VLAN 40 — Management VLAN — Interface
+                </Link>
+              </li>
+            </ol>
             <li key="11" className="hover:text-accent">
               <Link href="/pages/pfsense#aliases">Aliases</Link>
             </li>
@@ -340,51 +368,67 @@ function PfSense() {
                 NAT for DNS Resolver
               </Link>
             </li>
-            <li key="14" className="hover:text-accent">
-              <Link href="/pages/pfsense#port1wan-rules">
-                PORT1WAN - Firewall Rules
+            {/* Configuring Physical Interface Firewall Rules */}
+            <li key="13" className="hover:text-accent">
+              <Link href="/pages/pfsense#configuring-physical-interface-firewall-rules">
+                Configuring Physical Interface Firewall Rules
               </Link>
             </li>
-            <li key="15" className="hover:text-accent">
-              <Link href="/pages/pfsense#port2lan-rules">
-                PORT2LAN - Firewall Rules
+            <ol className="secondOrderedList">
+              <li key="14" className="hover:text-accent">
+                <Link href="/pages/pfsense#port1wan-rules">
+                  Port 1 (igc3) — Firewall Rules
+                </Link>
+              </li>
+              <li key="15" className="hover:text-accent">
+                <Link href="/pages/pfsense#port2lan-rules">
+                  Port 2 (igc2) — Firewall Rules
+                </Link>
+              </li>
+              <li key="16" className="hover:text-accent">
+                <Link href="/pages/pfsense#port3-rules">
+                  Port 3 (igc1) — Firewall Rules
+                </Link>
+              </li>
+              <li key="17" className="hover:text-accent">
+                <Link href="/pages/pfsense#port4-rules">
+                  Port 4 (igc0) — Firewall Rules
+                </Link>
+              </li>
+            </ol>
+            {/* Configuring Virtual Interface Firewall Rules */}
+            <li key="13" className="hover:text-accent">
+              <Link href="/pages/pfsense#configuring-virtual-interface-firewall-rules">
+                Configuring Virtual Interface Firewall Rules
               </Link>
             </li>
-            <li key="16" className="hover:text-accent">
-              <Link href="/pages/pfsense#port3-rules">
-                PORT3 - Firewall Rules
-              </Link>
-            </li>
-            <li key="17" className="hover:text-accent">
-              <Link href="/pages/pfsense#port4-rules">
-                PORT4 - Firewall Rules
-              </Link>
-            </li>
-            <li key="18" className="hover:text-accent">
-              <Link href="/pages/pfsense#vlan-users-rules">
-                VLAN_USERS - Firewall Rules
-              </Link>
-            </li>
-            <li key="19" className="hover:text-accent">
-              <Link href="/pages/pfsense#vlan-services-rules">
-                VLAN_SERVICES - Firewall Rules
-              </Link>
-            </li>
-            <li key="20" className="hover:text-accent">
-              <Link href="/pages/pfsense#vlan-storage-rules">
-                VLAN_STORAGE - Firewall Rules
-              </Link>
-            </li>
-            <li key="21" className="hover:text-accent">
-              <Link href="/pages/pfsense#vlan-management-rules">
-                VLAN_MANAGEMENT - Firewall Rules
-              </Link>
-            </li>
-            <li key="22" className="hover:text-accent">
-              <Link href="/pages/pfsense#vlan-default-rules">
-                VLAN_DEFAULT - Firewall Rules
-              </Link>
-            </li>
+            <ol className="secondOrderedList">
+              <li key="18" className="hover:text-accent">
+                <Link href="/pages/pfsense#vlan-default-rules">
+                  VLAN 1 — Default VLAN — Firewall Rules
+                </Link>
+              </li>
+              <li key="19" className="hover:text-accent">
+                <Link href="/pages/pfsense#vlan-services-rules">
+                  VLAN 10 — Services VLAN — Firewall Rules
+                </Link>
+              </li>
+              <li key="20" className="hover:text-accent">
+                <Link href="/pages/pfsense#vlan-users-rules">
+                  VLAN 20 — Users VLAN — Firewall Rules
+                </Link>
+              </li>
+              <li key="20" className="hover:text-accent">
+                <Link href="/pages/pfsense#vlan-storage-rules">
+                  VLAN 30 — Storage VLAN — Firewall Rules
+                </Link>
+              </li>
+              <li key="21" className="hover:text-accent">
+                <Link href="/pages/pfsense#vlan-management-rules">
+                  VLAN 30 — Management VLAN — Firewall Rules
+                </Link>
+              </li>
+            </ol>
           </ol>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
@@ -395,15 +439,31 @@ function PfSense() {
             Update the Default Password
             <span>
               <Link scroll={true} href="/pages/pfsense#top" className="link">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
           <p>
-            {" "}
-            The first change to make to our Netgate (pfSense) firewall is to
-            change the default administrator password.
+            This lab guide assumes that you've reviewed Netgate's{" "}
+            <a
+              href="https://docs.netgate.com/pfsense/en/latest/solutions/netgate-4200/getting-started.html"
+              className="text-accent"
+              target="_blank"
+            >
+              {" "}
+              "Getting Started" guide{" "}
+            </a>{" "}
+            for the 4200 appliance and that you're able to access the
+            adminstrative web interface. Once we're logged in using the default
+            credentials of "admin" for the username and "pfsense" for the
+            password, the first change to make to our Netgate (pfSense) firewall
+            is to change the default administrator password to something more
+            complex.
+          </p>
+          <p>
+            I suggest using setting a much longer password (twelve or more
+            characters) consisting of upper and lower case letters as well as
+            numbers and symbols.
             <a
               href="https://docs.netgate.com/pfsense/en/latest/recipes/changing-credentials.html#user-manager-accounts"
               className="text-accent"
@@ -417,72 +477,140 @@ function PfSense() {
             firewall to support our lab requirements.
           </p>
         </div>
-        {/* WAN Interface */}
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
+        {/* Configuring Physical Interfaces */}
         <div>
-          <h3 id="wan-interface" className="text-accent">
-            Port 1 — WAN Interface (igc3)
+          <h3 id="configuring-physical-interfaces" className="text-accent">
+            Configuring Physical Interfaces
             <span>
-              <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+              <Link scroll={true} href="/pages/pfsense#top" className="link">
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
+          <p>
+            Before we begin, it couldn't hurt to remind ourselves of what we're
+            building by reviewing the network diagram that was shared in the{" "}
+            <a
+              href="http://localhost:3000/pages/lab-components"
+              className="text-accent"
+              target="_blank"
+            >
+              "Gear Up"
+            </a>{" "}
+            blog post that kicked off this series:
+          </p>
+          <ToggleImage params={images["24"]}></ToggleImage>
+          <p>
+            Now that we're ready, let's configure the Netgate appliance's
+            physical interfaces (ports). There are only a few changes we need to
+            make to our physical interfaces and most of these configurations
+            will be repetitive with only a few deviations along the way.
+          </p>
+          <p>
+            In general, when configuring a physical interface, our first step
+            will be to enable the interface. Next, we'll want to choose whether
+            or not the interface will receive its IP address via Dynamic Host
+            Configuration Protocol (DHCP) or if we will set the interface's IP
+            address statically. For this exercise, we will always give our
+            interfaces a static IP address. We then may or may not need to
+            assign an upstream IPv4 gateway and that should pretty much cover
+            it.
+          </p>
+          <Callout icon={faLightbulb} text={calloutContent[4]}></Callout>
+          <Callout icon={faFlask} text={calloutContent[5]}></Callout>
+        </div>
+        {/* WAN Interface */}
+        <div>
+          <h4 id="wan-interface" className="text-accent">
+            Port 1 — WAN Interface (igc3)
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
           <div className="text-white bg-subtle path">
             Interfaces <span className="text-accent">{">"}</span> PORT1WAN
           </div>
           <p>
-            Port 1/4 is reserved for our WAN interface and it should be directly
-            connected to our internet modem. Furthermore, this interface should
-            be configured to receive it's IP address assignment via Dynamic Host
-            Configuration Protocol (DHCP). If your network requirements are
-            different (e.g., perhaps, you'd like to assign your Netgate firewall
-            WAN interface with a static IP address), then feel free to deviate
-            from this guide to suit your needs.
+            Port 1/4 is our WAN interface and now is the time, if you haven't
+            already, to physically connect it to an open port on your internet
+            modem or wireless router in order to get Internet access for
+            anything behind our firewall. By default, Port 1/4 should be
+            configured to receive it's IP address assignment via Dynamic Host
+            Configuration Protocol (DHCP); however, I suggest you set a static
+            IP address on this interface if you can.
+          </p>
+          <p>
+            On my Amplifi home router, I have the ability to reserve a portion
+            of the IP addresses issued from the router's DHCP pool for static IP
+            address assignment. In my lab, I have configured my Amplifi router
+            to reserve 192.168.132.1 through 192.168.132.99 for static IP
+            address assignement, leaving 192.168.132.100 through 192.168.132.254
+            for DHCP to use on other devices—connected either wirelessly or
+            hardwired to the Amplifi router. If your network requirements are
+            different, then feel free to deviate from this guide to suit your
+            needs. I will be setting a static IP address of 192.168.132.7 for my
+            PORT1WAN interface.
           </p>
           <ToggleImage params={images["6"]}></ToggleImage>
         </div>
-        {/* Management Interface */}
+        {/* LAN Interface */}
         <div>
-          <h3 id="management-interface" className="text-accent">
-            Port 2 — MGT Interface (igc2)
+          <h4 id="lan-interface" className="text-accent">
+            Port 2 — LAN Interface (igc2)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Interfaces <span className="text-accent">{">"}</span> PORT2LAN
           </div>
           <p>
-            Port 2/4 is reserved for our management interface and should be
-            configured out of the box with a static IP address of 192.168.1.1.
-            This interface is effectively our management interface and we will
-            hardwire our computer to this port on our Netgate firewall. Don't
-            forget to assign your computer with a static IP address within the
-            same subnet as the management interface (e.g., 192.168.1.38).
+            Port 2/4 is reserved for our LAN interface and should be configured
+            out of the box with a static IP address of 192.168.1.1. For our lab
+            purposes, this interface is our Netgate appliance's primary
+            management interface and we will hardwire our computer to this port
+            in order to manage our Netgate appliance. In a subsequent lab, we
+            will configure secure remote management using Zscaler Private Access
+            (ZPA).
           </p>
-          <Callout icon={faWifiStrong} text={calloutContent[0]}></Callout>
+          <p>
+            Don't forget to assign your computer with a static IP address within
+            the same subnet as the management interface (e.g., 192.168.1.2). You
+            should know this already, though, since you've gone through the
+            Netgate 4200{" "}
+            <a
+              href="https://docs.netgate.com/pfsense/en/latest/solutions/netgate-4200/getting-started.html"
+              className="text-accent"
+              target="_blank"
+            >
+              Getting Started guide
+            </a>{" "}
+            and it's likely the port you're connected to right now!
+          </p>
+          {/* <Callout icon={faWifiStrong} text={calloutContent[0]}></Callout> */}
           <ToggleImage params={images["7"]}></ToggleImage>
         </div>
-        {/* LAN Interface */}
+        {/* Lab Interface */}
         <div>
-          <h3 id="lan-interface" className="text-accent">
-            Port 3 — LAN Interface (igc1)
+          <h4 id="lab-interface" className="text-accent">
+            Port 3 — Lab Interface (igc1)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Interfaces <span className="text-accent">{">"}</span> PORT3
           </div>
           <p>
-            Port 3/4 is reserved for our LAN network interface. Off of this
+            Port 3/4 is reserved for our Lab network interface. Off of this
             interface, we will connect a small switch which we will configure
             with four Virtual Local Area Networks (VLANs). We will discuss the
             switch configuration in a separate blog post, but suffice it to say
@@ -494,6 +622,70 @@ function PfSense() {
             address for this interface will be 192.168.2.1. Ensure the interface
             is enabled and save your changes.
           </p>
+          <ToggleImage params={images["8"]}></ToggleImage>
+        </div>
+        {/* Guest Interface */}
+        <div>
+          <h4 id="guest-interface" className="text-accent">
+            Port 4 — Guest Interface (igc0)
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Interfaces <span className="text-accent">{">"}</span> PORT4
+          </div>
+          <p>
+            Port 4/4 is reserved for our Guest network interface. You'll likely
+            want to plug your home wireless router into this port and completely
+            isolate it from the rest of the network by ensuring, with pfSense,
+            that no traffic is allowed to pass between the Home Network and the
+            Lab Network. This is an optional step that is outside of the scope
+            of this lab, but it should be simple enough to implement using the
+            concepts you'll learn here as we build out our lab. For now, we'll
+            leave this interface disabled.
+          </p>
+          <ToggleImage params={images["14"]}></ToggleImage>
+        </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
+        {/* Configuring Virtual Interfaces */}
+        <div>
+          <h3 id="configuring-virtual-interfaces" className="text-accent">
+            Configuring Virtual Interfaces
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h3>
+          <div className="text-white bg-subtle path">
+            Interfaces <span className="text-accent">{">"}</span> VLANs
+          </div>
+          <p>
+            In a later lab, we'll map our VLANs to physical interfaces on our
+            lab's switch. Then, we'll physically connect our switch to Port 3 on
+            our Netgate appliance and we'll configure what's called a "trunk"
+            port. Our trunk port will include all of our VLANs and it's
+            effectively how we get our VLAN traffic passed between our pfSense
+            firewall and our switch. We'll use our pfSense firewall to create
+            routing and firewall rules to allow only the appropriate
+            communications between VLANs. These communications are considered
+            east/west traffic (as opposed to north/south traffic to/from our LAN
+            to/from the Internet.)
+          </p>
+          <p>
+            So, all traffic from our switch goes up to our pfSense firewall
+            where policy is applied and devices connected to the switch cannot
+            communicate to one another without passing through the pfSense
+            firewall. That said, now is a good time to configure our VLAN
+            interfaces within pfSense. Feel free to use the IP addressing shared
+            below if you'd like to keep your lab consistent with this guide:
+          </p>
+          <Callout icon={faNetworkWired} text={calloutContent[3]}></Callout>
+          <ToggleImage params={images["24"]}></ToggleImage>
           {/* VLAN / IP Mappings */}
           <ul className="unorderedList">
             <li key="1">
@@ -532,54 +724,100 @@ function PfSense() {
               </span>
             </li>
           </ul>
-          <Callout icon={faNetworkWired} text={calloutContent[3]}></Callout>
-          <ToggleImage params={images["8"]}></ToggleImage>
-          <p>
-            To support VLANs in routing and policy, we'll need to configure some
-            VLAN interfaces within pfSense. Feel free to use the IP addressing
-            shared above if you'd like to keep your lab consistent with this
-            guide.
-          </p>
-          <ToggleImage params={images["9"]}></ToggleImage>
-          <ToggleImage params={images["10"]}></ToggleImage>
-          <ToggleImage params={images["11"]}></ToggleImage>
-          <ToggleImage params={images["12"]}></ToggleImage>
-          <ToggleImage params={images["13"]}></ToggleImage>
         </div>
-        {/* Guest Interface */}
+        {/* Default VLAN Interface */}
         <div>
-          <h3 id="guest-interface" className="text-accent">
-            Port 4 — Guest Interface (igc0)
+          <h4 id="default-vlan-interface" className="text-accent">
+            VLAN 01 - Default VLAN - Interface
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> PORT4
+            Interfaces <span className="text-accent">{">"}</span> VLAN_DEFAULT
+            (igc1.1)
           </div>
-          <p>
-            Port 4/4 is reserved for our Guest network interface. You'll likely
-            want to plug your home wireless router into this port and completely
-            isolate it from the rest of the network by ensuring, with pfSense,
-            that no traffic is allowed to pass between the Home Network and the
-            Lab Network. This is an optional step that is outside of the scope
-            of this lab, but it should be simple enough to implement using the
-            concepts you'll learn here as we build out our lab. For now, we'll
-            leave this interface disabled.
-          </p>
-          <ToggleImage params={images["14"]}></ToggleImage>
+          <ToggleImage params={images["13"]}></ToggleImage>
         </div>
+        {/* Services VLAN Interface */}
+        <div>
+          <h4 id="services-vlan-interface" className="text-accent">
+            VLAN 10 - Services VLAN - Interface
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Interfaces <span className="text-accent">{">"}</span> VLAN_SERVICES
+            (igc1.10)
+          </div>
+          <p>VLAN 10 - Services VLAN - Interface</p>
+          <ToggleImage params={images["10"]}></ToggleImage>
+        </div>
+        {/* Users VLAN Interface */}
+        <div>
+          <h4 id="users-vlan-interface" className="text-accent">
+            VLAN 20 - Users VLAN - Interface
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Interfaces <span className="text-accent">{">"}</span> VLAN_USERS
+            (igc1.20)
+          </div>
+          <p>VLAN 20 - Users VLAN - Interface</p>
+          <ToggleImage params={images["9"]}></ToggleImage>
+        </div>
+        {/* Storage VLAN Interface */}
+        <div>
+          <h4 id="storage-vlan-interface" className="text-accent">
+            VLAN 30 - Storage VLAN - Interface
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Interfaces <span className="text-accent">{">"}</span> VLAN_STORAGE
+            (igc1.30)
+          </div>
+          <p>VLAN 30 - Storage VLAN - Interface</p>
+          <ToggleImage params={images["11"]}></ToggleImage>
+        </div>
+        {/* Management VLAN Interface */}
+        <div>
+          <h4 id="management-vlan-interface" className="text-accent">
+            VLAN 40 - Management VLAN - Interface
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Interfaces <span className="text-accent">{">"}</span>{" "}
+            VLAN_MANAGEMENT (igc1.40)
+          </div>
+          <p>VLAN 40 - Management VLAN - Interface</p>
+          <ToggleImage params={images["12"]}></ToggleImage>
+        </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* Aliases */}
         <div>
           <h3 id="aliases" className="text-accent">
             Aliases
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
@@ -618,14 +856,15 @@ function PfSense() {
           </ul>
           <ToggleImage params={images["0"]}></ToggleImage>
         </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* NAT for Nginx */}
         <div>
           <h3 id="nat-nginx" className="text-accent">
             NAT for Nginx Web Server
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
@@ -645,14 +884,15 @@ function PfSense() {
           </p>
           <ToggleImage params={images["1"]}></ToggleImage>
         </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* NAT for DNS Resolver */}
         <div>
           <h3 id="nat-dns-resolver" className="text-accent">
             NAT for DNS Resolver
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
@@ -688,14 +928,15 @@ function PfSense() {
           <Callout icon={faLightbulb} text={calloutContent[2]}></Callout>
           <ToggleImage params={images["2"]}></ToggleImage>
         </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* Configure DNS Resolver */}
         <div>
           <h3 id="configure-dns-resolver" className="text-accent">
             Configure DNS Resolver
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
@@ -728,17 +969,37 @@ function PfSense() {
           <ToggleImage params={images["4"]}></ToggleImage>
           <ToggleImage params={images["5"]}></ToggleImage>
         </div>
-        {/* PORT1WAN - Firewall Rules */}
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
+        {/* Configuring Physical Interface Firewall Rules */}
         <div>
-          <h3 id="port1wan-rules" className="text-accent">
-            PORT1WAN - Firewall Rules
+          <h3
+            id="configuring-physical-interface-firewall-rules"
+            className="text-accent"
+          >
+            Configuring Physical Interface Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> TBD{" "}
+            <span className="text-accent">{">"}</span> TBD
+          </div>
+          <p>TBD...</p>
+        </div>
+        {/* PORT1WAN - Firewall Rules */}
+        <div>
+          <h4 id="port1wan-rules" className="text-accent">
+            PORT1WAN - Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> PORT1WAN
@@ -755,15 +1016,14 @@ function PfSense() {
         </div>
         {/* PORT2LAN - Firewall Rules */}
         <div>
-          <h3 id="port2lan-rules" className="text-accent">
+          <h4 id="port2lan-rules" className="text-accent">
             PORT2LAN - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> PORT2LAN
@@ -797,15 +1057,14 @@ function PfSense() {
         </div>
         {/* PORT3 - Firewall Rules */}
         <div>
-          <h3 id="port3-rules" className="text-accent">
+          <h4 id="port3-rules" className="text-accent">
             PORT3 - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> PORT3
@@ -820,15 +1079,14 @@ function PfSense() {
         </div>
         {/* PORT4 - Firewall Rules */}
         <div>
-          <h3 id="port4-rules" className="text-accent">
+          <h4 id="port4-rules" className="text-accent">
             PORT4 - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> PORT4
@@ -842,17 +1100,75 @@ function PfSense() {
             etc.).
           </p>
         </div>
-        {/* VLAN_USERS - Firewall Rules */}
+        {/* Configuring Virtual Interface Firewall Rules */}
         <div>
-          <h3 id="vlan-users-rules" className="text-accent">
-            VLAN_USERS - Firewall Rules
+          <h3
+            id="configuring-virtual-interface-firewall-rules"
+            className="text-accent"
+          >
+            Configuring Virtual Interface Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
           </h3>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> TBD{" "}
+            <span className="text-accent">{">"}</span> TBD
+          </div>
+          <p>TBD...</p>
+        </div>
+        {/* VLAN 1 — Default VLAN — Firewall Rules */}
+        <div>
+          <h4 id="vlan-default-rules" className="text-accent">
+            VLAN 1 — Default VLAN — Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> VLAN_DEFAULT
+          </div>
+          <p>TBD...</p>
+          <ToggleImage params={images["22"]}></ToggleImage>
+        </div>
+        {/* VLAN 10 — Services VLAN — Firewall Rules */}
+        <div>
+          <h4 id="vlan-services-rules" className="text-accent">
+            VLAN 10 — Services VLAN — Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
+          <div className="text-white bg-subtle path">
+            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
+            <span className="text-accent">{">"}</span> VLAN_SERVICES
+          </div>
+          <p>
+            For now, we don't need any rules for the Services VLAN, because we
+            we've already configured the DNS redirect rule when creating our NAT
+            redirect policy. The other three rules are to allow access from our
+            Zscaler App Connector to other resources on our network. We will
+            cover Zscaler App Connectors in a future lab.
+          </p>
+          <ToggleImage params={images["20"]}></ToggleImage>
+        </div>
+        {/* VLAN 20 — Users VLAN — Firewall Rules */}
+        <div>
+          <h4 id="vlan-users-rules" className="text-accent">
+            VLAN 20 — Users VLAN — Firewall Rules
+            <span>
+              <Link scroll={true} href="/pages/pfsense#top">
+                <span className="text-subtle"> # </span>
+              </Link>
+            </span>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_USERS
@@ -870,41 +1186,16 @@ function PfSense() {
           </p>
           <ToggleImage params={images["19"]}></ToggleImage>
         </div>
-        {/* VLAN_SERVICES - Firewall Rules */}
+        {/* VLAN 30 — Storage VLAN — Firewall Rules */}
         <div>
-          <h3 id="vlan-services-rules" className="text-accent">
-            VLAN_SERVICES - Firewall Rules
+          <h4 id="vlan-storage-rules" className="text-accent">
+            VLAN 30 — Storage VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
-          <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> VLAN_SERVICES
-          </div>
-          <p>
-            For now, we don't need any rules for the Services VLAN, because we
-            we've already configured the DNS redirect rule when creating our NAT
-            redirect policy. The other three rules are to allow access from our
-            Zscaler App Connector to other resources on our network. We will
-            cover Zscaler App Connectors in a future lab.
-          </p>
-          <ToggleImage params={images["20"]}></ToggleImage>
-        </div>
-        {/* VLAN_STORAGE - Firewall Rules */}
-        <div>
-          <h3 id="vlan-storage-rules" className="text-accent">
-            VLAN_STORAGE - Firewall Rules
-            <span>
-              <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
-              </Link>
-            </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_STORAGE
@@ -918,17 +1209,16 @@ function PfSense() {
           </p>
           <ToggleImage params={images["21"]}></ToggleImage>
         </div>
-        {/* VLAN_MANAGEMENT - Firewall Rules */}
+        {/* VLAN 40 — Management VLAN — Firewall Rules */}
         <div>
-          <h3 id="vlan-management-rules" className="text-accent">
-            VLAN_MANAGEMENT - Firewall Rules
+          <h4 id="vlan-management-rules" className="text-accent">
+            VLAN 40 — Management VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                {" "}
-                #{" "}
+                <span className="text-subtle"> # </span>
               </Link>
             </span>
-          </h3>
+          </h4>
           <div className="text-white bg-subtle path">
             Firewall<span className="text-accent"> {">"}</span> Rules{" "}
             <span className="text-accent">{">"}</span> VLAN_MANAGEMENT

@@ -31,7 +31,7 @@ function LabContents() {
       <section className="section">
         {/* Title */}
         <h1 id="top" className="flex text-accent">
-          Lab<span className="pl-4">🧪</span>
+          Gear Up<span className="pl-4">🧪</span>
         </h1>
         <h2>Components & Requirements</h2>
         <p className="dateStamp text-accent">October 31st, 2024</p>
