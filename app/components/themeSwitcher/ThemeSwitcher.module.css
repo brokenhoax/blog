@@ -1,5 +1,5 @@
-/* Toggle */
-.toggleBtnWrapper {
+/* Original Toggle */
+/* .toggleBtnWrapper {
   display: flex;
   justify-items: center;
   align-items: center;
@@ -29,4 +29,4 @@
 
 .toggleBtn.toggled .thumb {
   left: calc(54px - 26px);
-}
+} */

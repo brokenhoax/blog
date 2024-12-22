@@ -133,7 +133,7 @@ img {
   --tw-contain-style:  ;
 }
 
-/* ! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -2080,6 +2080,11 @@ video {
   border-color: hsl(var(--nextui-warning) / var(--nextui-warning-opacity, var(--tw-border-opacity)));
 }
 
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-border-opacity)));
+}
+
 .border-x-transparent {
   border-left-color: transparent;
   border-right-color: transparent;
@@ -2363,6 +2368,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-bg-opacity)));
+}
+
+.bg-accent {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-bg-opacity)));
 }
 
 .bg-stripe-gradient {
@@ -2704,7 +2714,7 @@ video {
 
 .text-black {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-current {
@@ -2786,7 +2796,7 @@ video {
 
 .text-gray-700 {
   --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-inherit {
@@ -3823,7 +3833,7 @@ h2 {
 h3 {
   font-size: 28px;
   font-weight: 800;
-  margin: 2rem 0 0.5rem 0;
+  padding: 2rem 0 0.5rem 0;
 }
 
 h4 {
@@ -3853,8 +3863,8 @@ ul {
 }
 
 .section {
-  padding-top: 128px;
   min-height: 100vh;
+  padding-top: 64px;
 }
 
 .codeWrapper {
@@ -3943,15 +3953,44 @@ ul {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 1rem;
+  }
+
+  .divider {
+    padding-top: 1rem;
+  }
+
+  .headline {
+    line-height: 1.6rem;
+  }
+
+  .headlineWrapper {
+    padding: 1rem 0rem 0rem 0rem;
   }
 
   p {
-    line-height: 2rem;
+    line-height: 1.5rem;
+  }
+
+  h1 {
+    font-size: 28px;
+    padding: 1rem 0 1rem 0;
   }
 
   h2 {
-    font-size: 32px;
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 2.25rem;
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  h4 {
+    font-size: 18px;
+    line-height: 1.5rem;
   }
 }
 

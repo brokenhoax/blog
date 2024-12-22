@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  faMugHot,
-  faXTwitter,
-  faLinkedin,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./About.module.css";
 
