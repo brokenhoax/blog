@@ -43,7 +43,7 @@ function NavBar() {
           onClick={setNavbarstatus}
           className={`${styles.navButtonContols}`}
         >
-          <FontAwesomeIcon icon={faBars} size="xl" />
+          <FontAwesomeIcon icon={faBars} size="lg" />
         </button>
       </div>
     );
@@ -57,7 +57,11 @@ function NavBar() {
             {navLinks.map((link, index) => (
               <li key={index}>
                 <Link href={link.path} className={`${styles.navMenuLink}`}>
-                  <FontAwesomeIcon icon={link.awesomeIcon} size="xl" />
+                  <FontAwesomeIcon
+                    icon={link.awesomeIcon}
+                    size="lg"
+                    fixedWidth={true}
+                  />
                 </Link>
               </li>
             ))}
@@ -67,7 +71,8 @@ function NavBar() {
             <li>
               <FontAwesomeIcon
                 icon={faBars}
-                size="xl"
+                size="lg"
+                fixedWidth={true}
                 className={`${styles.navMenuLink}`}
                 onClick={setNavbarstatus}
               />

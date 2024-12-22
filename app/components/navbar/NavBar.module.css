@@ -5,7 +5,7 @@
   border-bottom-color: #011627;
   border-style: solid;
   position: fixed; /* Set the navbar to fixed position */
-  bottom: 0; /* Position the navbar at the top of the page */
+  top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   height: 64px;
   z-index: 100;
@@ -28,7 +28,7 @@
   right: 33%;
   width: 64px;
   height: 64px;
-  border-width: 2px;
+  border-width: 1px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -46,7 +46,7 @@
   right: 33%;
   height: 64px;
   width: auto;
-  border-width: 2px;
+  border-width: 1px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -64,15 +64,14 @@
   display: flex;
   justify-items: center;
   align-items: center;
-  width: 100%;
 }
 
 .navMenuLink {
-  margin-left: 2rem;
+  padding-left: 2rem;
 }
 
 .navbarMinimalButton {
-  margin-left: 0.5rem;
+  padding-left: 0.5rem;
   font-size: 32px;
 }
 
@@ -80,11 +79,11 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 1rem, 1rem, 1rem, 1rem;
+  padding: 1rem, 0, 0, 1rem;
 }
 
 .navItem {
-  margin-left: 1rem;
+  padding-left: 1rem;
 }
 
 .navbarLinks {
@@ -155,20 +154,39 @@
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 1024px) {
+  .navButton {
+    border-radius: 10px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 1rem; /* Position the navbar at the top of the page */
+    right: 25%;
+    width: 64px;
+    height: 64px;
+    border-width: 1px;
+    border-color: black;
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
+      drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  }
+
+  .navMenu {
+    z-index: 100;
+    border-radius: 10px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 1rem; /* Position the navbar at the top of the page */
+    right: 25%;
+    height: 64px;
+    width: auto;
+    border-width: 1px;
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
+      drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  }
 }
 
 /* Large devices (laptops/desktops, 1440px and up) */
 
 @media only screen and (min-width: 1439px) {
-  .navbarControls {
-    width: 50%;
-  }
 }
 
 /* Extra large devices (large laptops and desktops, 1920px and up) */
 
 @media only screen and (min-width: 1920px) {
-  .navbarControls {
-    width: 33%;
-  }
 }

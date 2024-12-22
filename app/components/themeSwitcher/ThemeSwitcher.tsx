@@ -76,7 +76,7 @@ const ThemeSwitcher = () => {
   if (theme === "lightOwl") {
     return (
       <button onClick={handleToggle}>
-        <FontAwesomeIcon icon={faPalette} size="xl" />
+        <FontAwesomeIcon fixedWidth={true} icon={faPalette} size="lg" />
       </button>
     );
   }
@@ -84,7 +84,7 @@ const ThemeSwitcher = () => {
   if (theme === "darkOwl") {
     return (
       <button onClick={handleToggle}>
-        <FontAwesomeIcon icon={faPalette} size="xl" />
+        <FontAwesomeIcon fixedWidth={true} icon={faPalette} size="lg" />
       </button>
     );
   }
