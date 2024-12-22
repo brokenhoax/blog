@@ -3854,7 +3854,7 @@ ul {
 
 .section {
   min-height: 100vh;
-  padding-top: 64px;
+  padding-top: 32px;
 }
 
 .codeWrapper {
@@ -3943,7 +3943,7 @@ ul {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1rem;
   }
 
@@ -3981,6 +3981,10 @@ ul {
   h4 {
     font-size: 18px;
     line-height: 1.5rem;
+  }
+
+  li {
+    line-height: 1.75rem;
   }
 }
 
