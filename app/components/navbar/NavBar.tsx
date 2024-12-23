@@ -52,7 +52,7 @@ function NavBar() {
   if (toggle) {
     return (
       <div className={`${styles.navMenu} bg-subtle text-accent border-accent`}>
-        <div className={`${styles.navMenuContols}`}>
+        <div className={`${styles.navMenuControls}`}>
           <ul className={`${styles.navMenuLinks}`}>
             {navLinks.map((link, index) => (
               <li key={index}>

@@ -3829,7 +3829,7 @@ h3 {
 h4 {
   font-size: 24px;
   font-weight: 600;
-  margin: 1rem 0 0.5rem 0;
+  margin: 2rem 0 0.5rem 0;
 }
 
 body {
@@ -3854,7 +3854,7 @@ ul {
 
 .section {
   min-height: 100vh;
-  padding-top: 32px;
+  padding-top: 64px;
 }
 
 .codeWrapper {
