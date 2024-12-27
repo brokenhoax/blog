@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ThemeSwitcher.module.css";
 
 const ThemeSwitcher = () => {
+  const themesArray = ["darkOwl", "lightOwl", "orangeOwl"];
   const { theme, setTheme } = useTheme();
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => setHasMounted(true));
@@ -22,61 +23,24 @@ const ThemeSwitcher = () => {
     if (theme === "lightOwl") {
       setTheme("darkOwl");
     }
+
+    // Find current place in line in array
+
+    // Increment by one
   }
 
   // this line is the key to avoid the error.
   if (!hasMounted) return null;
 
-  // if (theme === "lightOwl") {
-  //   return (
-  //     <div className={`${styles.toggleBtnWrapper}`}>
-  //       <button
-  //         onClick={handleToggle}
-  //         className={`${styles.toggleBtn} ${
-  //           theme === "lightOwl" ? styles.toggled : ""
-  //         } bg-subtle border-2 border-accent`}
-  //       >
-  //         <div className={`${styles.thumb} bg-primary border-2 border-accent`}>
-  //           <i
-  //             className={`${
-  //               theme === "lightOwl"
-  //                 ? "fas fa-moon darkOwl:text-accent text-xs"
-  //                 : "fas fa-sun darkOwl:text-accent text-xs"
-  //             }`}
-  //           ></i>
-  //         </div>
-  //       </button>
-  //     </div>
-  //   );
-  // }
-
-  // if (theme === "darkOwl") {
-  //   return (
-  //     <div className={`${styles.toggleBtnWrapper}`}>
-  //       <button
-  //         onClick={handleToggle}
-  //         className={`${styles.toggleBtn} ${
-  //           theme === "darkOwl" ? "" : styles.toggled
-  //         } bg-subtle border-2 border-accent`}
-  //       >
-  //         <div className={`${styles.thumb} bg-primary border-2 border-accent`}>
-  //           <i
-  //             className={`${
-  //               theme === "darkOwl"
-  //                 ? "fas fa-moon darkOwl:text-accent text-xs"
-  //                 : "fas fa-sun darkOwl:text-accent text-xs"
-  //             }`}
-  //           ></i>
-  //         </div>
-  //       </button>
-  //     </div>
-  //   );
-  // }
-
   if (theme === "lightOwl") {
     return (
       <button onClick={handleToggle}>
-        <FontAwesomeIcon fixedWidth={true} icon={faPalette} size="lg" />
+        <FontAwesomeIcon
+          fixedWidth={true}
+          icon={faPalette}
+          size="lg"
+          className={`${styles.themeSwitcherIcon}`}
+        />
       </button>
     );
   }
@@ -84,7 +48,12 @@ const ThemeSwitcher = () => {
   if (theme === "darkOwl") {
     return (
       <button onClick={handleToggle}>
-        <FontAwesomeIcon fixedWidth={true} icon={faPalette} size="lg" />
+        <FontAwesomeIcon
+          fixedWidth={true}
+          icon={faPalette}
+          size="lg"
+          className={`${styles.themeSwitcherIcon}`}
+        />
       </button>
     );
   }

@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
-import { faBars, faHome, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faHome,
+  faCircleQuestion,
+} from "@fortawesome/free-solid-svg-icons";
+import {} from "@fortawesome/free-regular-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NavBar.module.css";
 
@@ -18,7 +24,7 @@ function NavBar() {
     {
       title: "About",
       path: "/pages/about",
-      awesomeIcon: faQuestion,
+      awesomeIcon: faCircleQuestion,
     },
     // {
     //   title: "Login",
@@ -43,7 +49,7 @@ function NavBar() {
           onClick={setNavbarstatus}
           className={`${styles.navButtonContols}`}
         >
-          <FontAwesomeIcon icon={faBars} size="lg" />
+          <FontAwesomeIcon icon={faBars} size="lg" className={`opacity-100`} />
         </button>
       </div>
     );
@@ -51,7 +57,9 @@ function NavBar() {
 
   if (toggle) {
     return (
-      <div className={`${styles.navMenu} bg-subtle text-accent border-accent`}>
+      <div
+        className={`${styles.navMenu} bg-primary text-accent border border-accent`}
+      >
         <div className={`${styles.navMenuControls}`}>
           <ul className={`${styles.navMenuLinks}`}>
             {navLinks.map((link, index) => (
@@ -61,6 +69,7 @@ function NavBar() {
                     icon={link.awesomeIcon}
                     size="lg"
                     fixedWidth={true}
+                    className={`${styles.navMenuIcon}`}
                   />
                 </Link>
               </li>
@@ -68,12 +77,12 @@ function NavBar() {
             <li className={`${styles.navMenuLink}`}>
               <ThemeSwitcher />
             </li>
-            <li>
+            <li className={`${styles.navMenuLink}`}>
               <FontAwesomeIcon
                 icon={faBars}
                 size="lg"
                 fixedWidth={true}
-                className={`${styles.navMenuLink}`}
+                className={`${styles.navMenuIcon}`}
                 onClick={setNavbarstatus}
               />
             </li>
@@ -82,38 +91,6 @@ function NavBar() {
       </div>
     );
   }
-
-  // if (toggle) {
-  //   return (
-  //     <div className={`${styles.navbar} bg-primary text-accent`}>
-  //       <div className={`${styles.navbarControls}`}>
-  //         {/* Left */}
-  //         <div className={`${styles.navbarControlsLeft}`}>
-  //           <button
-  //             onClick={setNavbarstatus}
-  //             className={`${styles.navbarMinimalButton}`}
-  //           ></button>
-  //           <ul className={`${styles.navbarLinks}`}>
-  //             {navLinks.map((link, index) => (
-  //               <li className={`${styles.navbarLinkItem}`} key={index}>
-  //                 <button>
-  //                   <Link
-  //                     className={`${styles.navbarLink} hover:border-b hover:border-b-accent`}
-  //                     href={link.path}
-  //                   >
-  //                     {link.title}
-  //                   </Link>
-  //                 </button>
-  //               </li>
-  //             ))}
-  //           </ul>
-  //         </div>
-  //         {/* Right */}
-  //         <ThemeSwitcher />
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
 
 export default NavBar;

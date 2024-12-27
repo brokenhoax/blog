@@ -30,3 +30,11 @@
 .toggleBtn.toggled .thumb {
   left: calc(54px - 26px);
 } */
+
+.themeSwitcherIcon {
+  opacity: 50%;
+}
+
+.themeSwitcherIcon:hover {
+  opacity: 100%;
+}
