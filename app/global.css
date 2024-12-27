@@ -132,6 +132,11 @@ ul {
   list-style-type: lower-alpha;
 }
 
+.topScroller {
+  -webkit-text-stroke: white 1px;
+  padding-left: 0.5rem;
+}
+
 .dateStamp {
   font-style: italic;
 }
@@ -143,6 +148,7 @@ ul {
 }
 
 .faintDivider {
+  padding-top: 1rem;
   border-bottom-width: 0.5px;
   border-style: solid;
 }
