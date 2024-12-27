@@ -118,7 +118,7 @@
 
 .postsMessage {
   font-weight: 200;
-  padding: 2rem 0 2rem 0;
+  padding-bottom: 2rem;
   font-size: 1.25rem;
 }
 
@@ -126,7 +126,7 @@
   .postBackground {
     z-index: 10;
     position: absolute;
-    top: 32px;
+    top: 16px;
     right: 0.75rem;
     height: 92px;
     width: 100%;
@@ -141,7 +141,7 @@
   }
 
   .postLink {
-    padding-top: 2rem;
+    padding-top: 1rem;
     line-height: 2rem;
   }
 
