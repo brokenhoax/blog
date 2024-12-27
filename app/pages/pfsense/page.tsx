@@ -261,26 +261,27 @@ function PfSense() {
           <p className="headline">
             A core component of our lab will be our Netgate appliance running
             pfSense. Netgate is the official sponsor of the pfSense open-source
-            project, so why not use their hardware?
+            project, so why not use their hardware? Well, you could save some
+            money by running pfSense on a dedicated and less expensive (but not
+            purpose-built) piece of hardware. This might be a good middle ground
+            if your keeping a close eye on your budget, but still want extra
+            ethernet ports.
           </p>
           <p className="headline">
-            Well, you could save some money by running pfSnense on a dedicated
-            and less expensive (but not purpose-built) piece of hardware. This
-            might be a good middle ground if your keeping a close eye on your
-            budget, but want extra ethernet interfaces.
+            You could save even more by running pfSense in a virtual machine on
+            your Proxmox server, but part of the home lab experience is working
+            with hardware. Plus, those extra ports on the Netgate appliance I'm
+            suggesting (i.e., the Netgate 4200) will come in handy as your lab
+            grows.
           </p>
           <p className="headline">
-            You could save even more by running pfSense in a VM on your server,
-            but part of the home lab experience is working with hardware. Plus,
-            those extra interfaces on the Netgate appliance I'm suggesting
-            (i.e., the Netgate 4200) will come in handy as your lab grows.
-          </p>
-          <p className="headline">
-            Whatver you decide, it's important to know that our Netgate
+            Whatver you decide, it's important to know that your Netgate
             appliance is more than just a firewall. We'll be using it for
             Dynamic DNS to host our website as well as for local routing, DNS
             resolution, Network Address Translation, and so much more as our use
-            cases grow (NTP, DHCP, etc.).
+            cases grow (NTP, DHCP, etc.). So, while this portion of the lab is a
+            bit on the lengthy side, it's packed full of valuable learnings and
+            is truly fundamental to the creation of our lab.
           </p>
         </div>
         {/* Divider */}
@@ -425,7 +426,7 @@ function PfSense() {
               </li>
               <li key="26" className="hover:text-accent">
                 <Link href="/pages/pfsense#vlan-management-rules">
-                  VLAN 30 — Management VLAN — Firewall Rules
+                  VLAN 40 — Management VLAN — Firewall Rules
                 </Link>
               </li>
             </ol>
@@ -439,7 +440,7 @@ function PfSense() {
             Update the Default Password
             <span>
               <Link scroll={true} href="/pages/pfsense#top" className="link">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -458,12 +459,12 @@ function PfSense() {
             credentials of "admin" for the username and "pfsense" for the
             password, the first change to make to our Netgate (pfSense) firewall
             is to change the default administrator password to something more
-            complex.
+            complex and, therefore, secure.
           </p>
           <p>
-            I suggest using setting a much longer password (twelve or more
-            characters) consisting of upper and lower case letters as well as
-            numbers and symbols.
+            I suggest setting a much longer password (twelve or more characters)
+            consisting of upper and lower case letters as well as numbers and
+            symbols.
             <a
               href="https://docs.netgate.com/pfsense/en/latest/recipes/changing-credentials.html#user-manager-accounts"
               className="text-accent"
@@ -485,7 +486,7 @@ function PfSense() {
             Configuring Physical Interfaces
             <span>
               <Link scroll={true} href="/pages/pfsense#top" className="link">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -527,7 +528,7 @@ function PfSense() {
             Port 1 — WAN Interface (igc3)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -537,8 +538,8 @@ function PfSense() {
           <p>
             Port 1/4 is our WAN interface and now is the time, if you haven't
             already, to physically connect it to an open port on your internet
-            modem or wireless router in order to get Internet access for
-            anything behind our firewall. By default, Port 1/4 should be
+            modem or router in order to provide Internet access to our firewall
+            and anything else downstream from it. By default, Port 1/4 should be
             configured to receive it's IP address assignment via Dynamic Host
             Configuration Protocol (DHCP); however, I suggest you set a static
             IP address on this interface if you can.
@@ -563,7 +564,7 @@ function PfSense() {
             Port 2 — LAN Interface (igc2)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -602,7 +603,7 @@ function PfSense() {
             Port 3 — Lab Interface (igc1)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -610,17 +611,19 @@ function PfSense() {
             Interfaces <span className="text-accent">{">"}</span> PORT3
           </div>
           <p>
-            Port 3/4 is reserved for our Lab network interface. Off of this
-            interface, we will connect a small switch which we will configure
-            with four Virtual Local Area Networks (VLANs). We will discuss the
-            switch configuration in a separate blog post, but suffice it to say
-            that the majority of our lab components will be connected to this
-            switch and will be tagged to specific VLANs (e.g., Proxmox Server on
-            VLAN 20 "Services VLAN"). We'll be setting a static IP address
-            assignment for this interface and we'll need a new subnet. To keep
-            things easy, we'll choose 192.168.2.0/24 for our subnet and our IP
-            address for this interface will be 192.168.2.1. Ensure the interface
-            is enabled and save your changes.
+            Port 3/4 is reserved for our Lab network interface. We will
+            eventually physically connect our switch to this interface and we
+            will also configure four Virtual Local Area Networks (VLANs) to
+            virtually segment our switch into different virtual networks. We
+            will discuss the switch configuration in a separate blog post, but
+            suffice it to say that the majority of our lab components will be
+            connected to this switch and all traffic traversing the switch will
+            be tagged to a specific VLAN (e.g., Proxmox Server on VLAN 10
+            "Services VLAN"). We will give this interface a static IP address
+            and, so, we'll need a new subnet. To keep things easy, we'll choose
+            192.168.2.0/24 for our subnet and our IP address for this interface
+            will be 192.168.2.1. Ensure the interface is enabled and save your
+            changes.
           </p>
           <ToggleImage params={images["8"]}></ToggleImage>
         </div>
@@ -630,7 +633,7 @@ function PfSense() {
             Port 4 — Guest Interface (igc0)
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -657,7 +660,7 @@ function PfSense() {
             Configuring Virtual Interfaces
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}> # </span>
               </Link>
             </span>
           </h3>
@@ -673,7 +676,7 @@ function PfSense() {
             firewall and our switch. We'll use our pfSense firewall to create
             routing and firewall rules to allow only the appropriate
             communications between VLANs. These communications are considered
-            east/west traffic (as opposed to north/south traffic to/from our LAN
+            east/west traffic (as opposed to north/south traffic from/to our LAN
             to/from the Internet.)
           </p>
           <p>
@@ -731,7 +734,7 @@ function PfSense() {
             VLAN 01 - Default VLAN - Interface
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}> # </span>
               </Link>
             </span>
           </h4>
@@ -747,7 +750,7 @@ function PfSense() {
             VLAN 10 - Services VLAN - Interface
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -764,7 +767,7 @@ function PfSense() {
             VLAN 20 - Users VLAN - Interface
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -781,7 +784,7 @@ function PfSense() {
             VLAN 30 - Storage VLAN - Interface
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -798,7 +801,7 @@ function PfSense() {
             VLAN 40 - Management VLAN - Interface
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -817,7 +820,7 @@ function PfSense() {
             Aliases
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -825,16 +828,22 @@ function PfSense() {
             Firewall <span className="text-accent">{">"}</span> Aliases
           </div>
           <p>
-            pfSense aliases make it easier to implement our configurations.
-            Instead of having to remember IP addresses and type out URLs, we can
-            simply create aliases which we can later select from dropdown menus
-            as we create policies in the administration portal. Furthermore,
-            updating an IP address requires only one corresponding update to the
-            firewall-the alias.Imagine how difficult managing your pfSense
-            policies would be without aliases! That said, and in preparation for
-            deploying our Nginx web server, we'll configure an alias for our
-            Nginx web server. We'll use this later when configuring policies to
-            allow. Don't forget to save your changes!
+            pfSense aliases make it easier to configure our firewall. Instead of
+            having to remember and type out IP addresses and FQDNs, we can
+            simply create aliases which reference those IP addresses and FQDNs
+            which we can later select from dropdown menus as we configure
+            pfSense. For instance, what if you need to change an IP address
+            assigned to a resource that you have 10+ policies written for within
+            pfSesnse. With aliases, updating an IP address requires only one
+            corresponding update to the firewall-the alias. Without aliases,
+            you'd have to locate and change that IP address in your policies
+            across pfSense. This is obviously very prone to human error. Imagine
+            how difficult managing your pfSense policies would be without
+            aliases! That said, and in preparation for deploying our Nginx web
+            server, we'll configure an alias for our Nginx web server. We'll use
+            this later when configuring policies to allow access to our website
+            from outside our network (i.e., from the Internet). Don't forget to
+            save your changes.
           </p>
           <h4>Example Alias Configuration</h4>
           <ul className="unorderedList">
@@ -864,7 +873,7 @@ function PfSense() {
             NAT for Nginx Web Server
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -879,8 +888,8 @@ function PfSense() {
             Nginx web server, we'll create a port-forwarding NAT rule to forward
             those ports. We'll also need to forward those ports on our home
             router (in my case, my Amplifi home router) so that we're not
-            blocking those connections further up in our network. Please refer
-            to the "Amplifi" blog post to review those steps.
+            blocking those connections further upstream in our network. Please
+            refer to the "Amplifi" blog post to review those steps.
           </p>
           <ToggleImage params={images["1"]}></ToggleImage>
         </div>
@@ -892,7 +901,7 @@ function PfSense() {
             NAT for DNS Resolver
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -936,7 +945,7 @@ function PfSense() {
             Configure DNS Resolver
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -980,7 +989,7 @@ function PfSense() {
             Configuring Physical Interface Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -996,7 +1005,7 @@ function PfSense() {
             PORT1WAN - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1020,7 +1029,7 @@ function PfSense() {
             PORT2LAN - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1061,7 +1070,7 @@ function PfSense() {
             PORT3 - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1083,7 +1092,7 @@ function PfSense() {
             PORT4 - Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1109,7 +1118,7 @@ function PfSense() {
             Configuring Virtual Interface Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
@@ -1125,7 +1134,7 @@ function PfSense() {
             VLAN 1 — Default VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1142,7 +1151,7 @@ function PfSense() {
             VLAN 10 — Services VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1165,7 +1174,7 @@ function PfSense() {
             VLAN 20 — Users VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1192,7 +1201,7 @@ function PfSense() {
             VLAN 30 — Storage VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
@@ -1215,7 +1224,7 @@ function PfSense() {
             VLAN 40 — Management VLAN — Firewall Rules
             <span>
               <Link scroll={true} href="/pages/pfsense#top">
-                <span className="text-subtle"> # </span>
+                <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h4>
