@@ -17,14 +17,14 @@ function NavBar() {
   const [toggle, setToggle] = useState<boolean>(false);
   const navLinks = [
     {
-      title: "Home",
-      path: "/",
-      awesomeIcon: faHome,
-    },
-    {
       title: "About",
       path: "/pages/about",
       awesomeIcon: faCircleQuestion,
+    },
+    {
+      title: "Home",
+      path: "/",
+      awesomeIcon: faHome,
     },
     // {
     //   title: "Login",
@@ -62,6 +62,9 @@ function NavBar() {
       >
         <div className={`${styles.navMenuControls}`}>
           <ul className={`${styles.navMenuLinks}`}>
+          <li className={`${styles.navMenuLink}`}>
+              <ThemeSwitcher />
+            </li>
             {navLinks.map((link, index) => (
               <li key={index}>
                 <Link href={link.path} className={`${styles.navMenuLink}`}>
@@ -74,9 +77,6 @@ function NavBar() {
                 </Link>
               </li>
             ))}
-            <li className={`${styles.navMenuLink}`}>
-              <ThemeSwitcher />
-            </li>
             <li className={`${styles.navMenuLink}`}>
               <FontAwesomeIcon
                 icon={faBars}
