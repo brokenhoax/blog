@@ -10,10 +10,10 @@ function Home() {
   const posts = [
     {
       id: "4",
-      title: "Lab 2 - pfSense",
+      title: "Lab 2 — pfSense",
       date: "11-15-2024",
       length: {
-        minutes: "20",
+        minutes: "60",
         seconds: "00",
       },
       icon: "fas fa-mug-hot",
@@ -25,7 +25,7 @@ function Home() {
     },
     {
       id: "3",
-      title: "Lab 1 - Gear Up",
+      title: "Lab 1 — Gear Up",
       date: "10-31-2024",
       length: {
         minutes: "10",
@@ -103,46 +103,53 @@ function Home() {
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
           <li key={index} className={`${styles.postsContainer}`}>
-            {/* Hover Background */}
-            <div className={`${styles.postBackground} bg-subtle`}></div>
-            {/* Post Detail */}
-            <div
-              id={`post${index}`}
-              className={`${styles.postWrapper} hover:text-white`}
-            >
-              {/* Post Image */}
-              <div className={`${styles.postImageContainer}`}>
-                <Image
-                  src={post.imagePath}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="100px"
-                  alt={post.imageAltText}
-                ></Image>
-              </div>
-              {/* Post Body */}
-              <div className={`${styles.postMain}`}>
-                <Link href={post.path} className="postLink">
-                  <div className={`${styles.postLevel}`}>
-                    {/* Date */}
-                    <div className={`${styles.postDate} text-accent`}>
-                      {post.date}
+            <Link href={post.path}>
+              {/* Hover Background */}
+              <div
+                className={`${styles.postBackground} bg-subtle border border-accent`}
+              ></div>
+              {/* Post Detail */}
+              <div
+                id={`post${index}`}
+                className={`${styles.postWrapper} hover:text-white`}
+              >
+                {/* Post Image */}
+                <div className={`${styles.postImageContainer}`}>
+                  <Image
+                    src={post.imagePath}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="100px"
+                    alt={post.imageAltText}
+                    className={`${styles.postImage}`}
+                  ></Image>
+                </div>
+                {/* Post Body */}
+                <div href={post.path} className={`${styles.postMain}`}>
+                  <div className={`${styles.postLink}`}>
+                    {/* Title */}
+                    <div className={`${styles.postTitle} text-secondary`}>
+                      {post.title}
                     </div>
-                    <span className={`${styles.postDateLengthSpacer}`}>|</span>
-                    {/* Minutes */}
-                    <div>{post.length.minutes} mins</div>
+                    {/* Tagline */}
+                    <div className={`${styles.postTagline} text-accent italic`}>
+                      {post.tagline}
+                    </div>
+                    <div className={`${styles.postLevel}`}>
+                      {/* Date */}
+                      <div className={`${styles.postDate}`}>{post.date}</div>
+                      <span
+                        className={`${styles.postDateLengthSpacer} text-accent`}
+                      >
+                        |
+                      </span>
+                      {/* Minutes */}
+                      <div>{post.length.minutes} mins</div>
+                    </div>
                   </div>
-                  {/* Title */}
-                  <div className={`${styles.postTitle} text-secondary`}>
-                    {post.title}
-                  </div>
-                  {/* Tagline */}
-                  <div className={`${styles.postTagline} text-accent`}>
-                    {post.tagline}
-                  </div>
-                </Link>
+                </div>
               </div>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>

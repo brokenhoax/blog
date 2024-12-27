@@ -5,7 +5,7 @@
 .posts {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   height: max-content;
 }
 
@@ -13,12 +13,28 @@
   list-style-type: none;
 }
 
+.postWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+}
+
 .postTitle {
-  font-size: 40px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.postTagline {
+  margin-top: -6px;
 }
 
 .postLink {
   text-decoration: none;
+  padding-top: 1.25rem;
+  line-height: 2rem;
 }
 
 .postData {
@@ -48,19 +64,6 @@
   padding-bottom: 8px;
 }
 
-.postWrapper {
-  display: flex;
-  align-items: center;
-  flex: 1 1 0%;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-}
-
-.postDate {
-  padding-top: 0.5rem;
-}
-
 .postsContainer {
   position: relative;
   display: flex;
@@ -74,7 +77,8 @@
   right: 0.75rem;
   height: 128px;
   width: 100%;
-  opacity: 0%;
+  opacity: 30%;
+  border-radius: 10px;
 }
 
 .postsContainer:hover .postBackground {
@@ -97,21 +101,82 @@
   height: 125px;
 }
 
+.postImage {
+  border-radius: 10px;
+}
+
 .postLevel {
   display: flex;
-  align-items: end;
-  justify-items: baseline;
+  line-height: 1rem;
+  font-size: 14px;
 }
 
 .postDateLengthSpacer {
   padding: 0 0.5rem 0 0.5rem;
-  color: #011627;
   position: relative;
-  top: 5px;
 }
 
 .postsMessage {
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  font-size: 1.5rem;
+  font-weight: 200;
+  padding: 2rem 0 2rem 0;
+  font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .postBackground {
+    z-index: 10;
+    position: absolute;
+    top: 32px;
+    right: 0.75rem;
+    height: 92px;
+    width: 100%;
+    opacity: 30%;
+    border-radius: 10px;
+  }
+
+  .postImageContainer {
+    position: relative;
+    width: 92px;
+    height: 92px;
+  }
+
+  .postLink {
+    padding-top: 2rem;
+    line-height: 2rem;
+  }
+
+  .postTagline {
+    margin-top: -12px;
+    font-size: 14px;
+  }
+
+  .postTitle {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .postLevel {
+    line-height: 0.5rem;
+    font-size: 12px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 1024px) {
+}
+
+/* Large devices (laptops/desktops, 1440px and up) */
+
+@media only screen and (min-width: 1439px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1920px and up) */
+
+@media only screen and (min-width: 1920px) {
 }
