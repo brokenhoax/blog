@@ -2,10 +2,12 @@
 
 html,
 body {
+  position: relative;
   padding: 0;
   margin: 0;
   line-height: 1.6rem;
   font-size: 18px;
+  height: 100vh;
 }
 
 * {
@@ -35,7 +37,7 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 600;
   font-style: italic;
 }
@@ -52,15 +54,6 @@ h4 {
   margin: 2rem 0 0.5rem 0;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  vertical-align: baseline;
-  min-height: 100vh;
-}
-
 p {
   padding: 0.25rem 0rem 0.25rem 0rem;
   font-weight: 300;
@@ -73,8 +66,8 @@ ul {
 }
 
 .section {
-  min-height: 100%;
-  padding-top: 1rem;
+  overflow-y: scroll;
+  padding: 4rem .5rem 8rem .5rem;
 }
 
 .codeWrapper {
@@ -165,11 +158,9 @@ ul {
 
 @media only screen and (max-width: 600px) {
   .section {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
     font-size: 16px;
     line-height: 1rem;
+    padding-top: 2rem;
   }
 
   .divider {
@@ -195,6 +186,7 @@ ul {
 
   h2 {
     font-size: 24px;
+    line-height: 1.5rem
   }
 
   h3 {
@@ -218,7 +210,6 @@ ul {
 @media only screen and (min-width: 600px) {
   h2 {
     line-height: 1.7rem;
-    font-size: 8rem;
   }
 
   .section {
