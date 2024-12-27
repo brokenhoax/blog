@@ -28,7 +28,7 @@
   right: 33%;
   width: 64px;
   height: 64px;
-  border-width: 1px;
+  border-bottom-width: 1px;
   opacity: 50%;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
@@ -44,14 +44,13 @@
 }
 
 .navMenu {
+  opacity: 100%;
   z-index: 100;
-  border-radius: 10px;
   position: fixed; /* Set the navbar to fixed position */
   bottom: 32px; /* Position the navbar at the top of the page */
   right: 33%;
   height: 64px;
-  border-width: 1px;
-  opacity: 50%;
+  border-bottom-width: 1px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -69,6 +68,7 @@
 }
 
 .navMenuLink {
+  cursor: pointer;
   padding: 0 1rem 0 1rem;
 }
 
@@ -132,19 +132,19 @@
 @media only screen and (max-width: 600px) {
   .navButton {
     position: fixed; /* Set the navbar to fixed position */
-    bottom: 2rem; /* Position the navbar at the bottom of the page */
-    right: 8%;
-    width: 48px;
-    height: 48px;
+    bottom: .8rem; /* Position the navbar at the bottom of the page */
+    right: 2rem;
+    width: 40px;
+    height: 40px;
   }
 
   .navMenu {
     position: fixed; /* Set the navbar to fixed position */
-    bottom: 2rem; /* Position the navbar at the bottom of the page */
+    bottom: .6rem; /* Position the navbar at the bottom of the page */
     left: 0px;
     right: 0px;
-    margin: 0 32px 0 32px;
-    width: auto;
+    margin: auto;
+    width: 90%;
     height: 48px;
   }
 }
@@ -167,12 +167,11 @@
 
   .navMenu {
     z-index: 100;
-    border-radius: 10px;
     position: fixed; /* Set the navbar to fixed position */
     top: 32px; /* Position the navbar at the top of the page */
     right: 33%;
     height: 50px;
-    border-width: 1px;
+    border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }
@@ -191,12 +190,11 @@
 
   .navMenu {
     z-index: 100;
-    border-radius: 10px;
     position: fixed; /* Set the navbar to fixed position */
     top: 32px; /* Position the navbar at the top of the page */
     right: 26%;
     height: 50px;
-    border-width: 1px;
+    border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }
@@ -215,12 +213,11 @@
 
   .navMenu {
     z-index: 100;
-    border-radius: 10px;
     position: fixed; /* Set the navbar to fixed position */
     top: 32px; /* Position the navbar at the top of the page */
     right: 33%;
     height: 50px;
-    border-width: 1px;
+  border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }

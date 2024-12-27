@@ -49,7 +49,7 @@ function NavBar() {
           onClick={setNavbarstatus}
           className={`${styles.navButtonContols}`}
         >
-          <FontAwesomeIcon icon={faBars} size="lg" className={`opacity-100`} />
+          <FontAwesomeIcon icon={faBars} size="lg"/>
         </button>
       </div>
     );
@@ -58,7 +58,7 @@ function NavBar() {
   if (toggle) {
     return (
       <div
-        className={`${styles.navMenu} bg-primary text-accent border border-accent`}
+        className={`${styles.navMenu} bg-primary text-accent border-b border-accent`}
       >
         <div className={`${styles.navMenuControls}`}>
           <ul className={`${styles.navMenuLinks}`}>
