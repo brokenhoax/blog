@@ -12,15 +12,17 @@ function Footer() {
     style: { width: "100%", height: "100%" },
   };
   return (
-    <div className={`${styles.footer}`}>
-      <Image
-        src={logo.imagePath}
-        width="10"
-        height={logo.height}
-        alt={logo.imageAltText}
-        decoding="sync"
-        className={`${styles.logo}`}
-      ></Image>
+    <div className={`${styles.footerWrapper} bg-primary`}>
+      <div className={`${styles.footer} bg-primary`}>
+        <Image
+          src={logo.imagePath}
+          width="10"
+          height={logo.height}
+          alt={logo.imageAltText}
+          decoding="sync"
+          className={`${styles.logo}`}
+        ></Image>
+      </div>
     </div>
   );
 }
