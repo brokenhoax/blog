@@ -15,3 +15,12 @@
   font-weight: 800;
   font-style: normal;
 }
+
+.logo {
+  float: left;
+  padding: 0 1rem 0.5rem 0;
+}
+
+.logoWrapper {
+  padding: 2rem 2rem 0 0;
+}
