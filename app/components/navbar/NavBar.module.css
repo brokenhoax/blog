@@ -44,13 +44,13 @@
 }
 
 .navMenu {
-  opacity: 100%;
   z-index: 100;
+  border-radius: 10px;
   position: fixed; /* Set the navbar to fixed position */
   bottom: 32px; /* Position the navbar at the top of the page */
   right: 33%;
   height: 64px;
-  border-bottom-width: 1px;
+  border-width: 1px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -132,7 +132,7 @@
 @media only screen and (max-width: 600px) {
   .navButton {
     position: fixed; /* Set the navbar to fixed position */
-    bottom: .8rem; /* Position the navbar at the bottom of the page */
+    bottom: 0.8rem; /* Position the navbar at the bottom of the page */
     right: 2rem;
     width: 40px;
     height: 40px;
@@ -140,7 +140,7 @@
 
   .navMenu {
     position: fixed; /* Set the navbar to fixed position */
-    bottom: .6rem; /* Position the navbar at the bottom of the page */
+    bottom: 0.6rem; /* Position the navbar at the bottom of the page */
     left: 0px;
     right: 0px;
     margin: auto;
@@ -217,7 +217,7 @@
     top: 32px; /* Position the navbar at the top of the page */
     right: 33%;
     height: 50px;
-  border-bottom-width: 1px;
+    border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }
