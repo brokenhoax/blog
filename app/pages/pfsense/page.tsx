@@ -249,7 +249,7 @@ function PfSense() {
     <div>
       <section className="section">
         {/* Title */}
-        <h1 id="top" className="flex text-accent">
+        <h1 id="top" className="text-accent">
           pfSense<span className="pl-4">🧪</span>
         </h1>
         <h2>More than just a firewall</h2>
