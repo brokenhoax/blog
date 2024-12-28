@@ -7,7 +7,7 @@ body {
   margin: 0;
   line-height: 1.6rem;
   font-size: 18px;
-  height: 100vh;
+  height: 100%;
 }
 
 * {
@@ -66,8 +66,10 @@ ul {
 }
 
 .section {
+  display: flex;
+  flex-direction: column;
   overflow-y: scroll;
-  padding: 4rem .5rem 8rem .5rem;
+  padding: 4rem 0.5rem 8rem 0.5rem;
 }
 
 .codeWrapper {
@@ -186,7 +188,7 @@ ul {
 
   h2 {
     font-size: 24px;
-    line-height: 1.5rem
+    line-height: 1.5rem;
   }
 
   h3 {
@@ -263,7 +265,6 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
 */
 
 /* General Purpose */
-
 
 .hljs {
   border-radius: 10px;
