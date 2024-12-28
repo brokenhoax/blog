@@ -1,7 +1,6 @@
 .navbar {
   display: flex;
   overflow: hidden;
-  border-bottom-width: 1px;
   border-bottom-color: #011627;
   border-style: solid;
   position: fixed; /* Set the navbar to fixed position */
@@ -50,7 +49,6 @@
   bottom: 32px; /* Position the navbar at the top of the page */
   right: 33%;
   height: 64px;
-  border-width: 1px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -172,7 +170,6 @@
     top: 32px; /* Position the navbar at the top of the page */
     right: 33%;
     height: 50px;
-    border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }
@@ -195,7 +192,6 @@
     top: 32px; /* Position the navbar at the top of the page */
     right: 26%;
     height: 50px;
-    border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }
@@ -218,7 +214,6 @@
     top: 32px; /* Position the navbar at the top of the page */
     right: 33%;
     height: 50px;
-    border-bottom-width: 1px;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   }

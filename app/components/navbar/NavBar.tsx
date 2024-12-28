@@ -58,7 +58,7 @@ function NavBar() {
   if (toggle) {
     return (
       <div
-        className={`${styles.navMenu} bg-primary text-accent border-b border-accent`}
+        className={`${styles.navMenu} bg-primary text-accent border border-accent`}
       >
         <div className={`${styles.navMenuControls}`}>
           <ul className={`${styles.navMenuLinks}`}>
