@@ -5,6 +5,14 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "./Home.module.css";
+import { Permanent_Marker } from "next/font/google";
+
+const font = Permanent_Marker({
+  subsets: ["latin"],
+  style: ["normal"],
+  weight: ["400"],
+  display: "swap",
+});
 
 function Home() {
   const posts = [
@@ -78,7 +86,7 @@ function Home() {
   // }, []);
 
   return (
-    <div className="section">
+    <div className={`${styles.homepage} section`}>
       <Head>
         <link
           rel="apple-touch-icon"
@@ -99,7 +107,9 @@ function Home() {
         ></link>
         <link rel="manifest" href="/favicons/site.webmanifest"></link>
       </Head>
-      <p className={`${styles.postsMessage} text-accent`}>Latest posts...</p>
+      <p className={`${font.className} ${styles.postsMessage} text-accent`}>
+        Latest posts...
+      </p>
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
           <li key={index} className={`${styles.postsContainer}`}>

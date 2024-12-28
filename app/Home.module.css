@@ -1,3 +1,7 @@
+.homepage {
+  padding-top: 6rem;
+}
+
 .postMain {
   padding-left: 32px;
 }
@@ -119,10 +123,13 @@
 .postsMessage {
   font-weight: 200;
   padding-bottom: 2rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
+  .homepage {
+    padding-top: 2rem;
+  }
   .postBackground {
     top: 16px;
     height: 92px;
