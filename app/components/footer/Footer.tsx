@@ -3,19 +3,11 @@ import Image from "next/image";
 import styles from "./Footer.module.css";
 
 function Footer() {
-  const logo = {
-    id: "1",
-    imagePath: "/images/kraus-cloud-logo.svg",
-    imageAltText: "Kraus Cloud logo",
-    width: 100,
-    height: 0,
-    style: { width: "100%", height: "100%" },
-  };
   return (
     <div className={`${styles.footerWrapper} bg-primary`}>
-      <div className={`${styles.footer} bg-primary`}>
+      <div className={`${styles.footer}`}>
         <svg
-          width="40"
+          width="50"
           viewBox="0 0 585 423"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

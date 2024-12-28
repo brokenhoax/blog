@@ -17,10 +17,6 @@
   height: 100%;
 }
 
-.logo {
-  width: 64px;
-}
-
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
