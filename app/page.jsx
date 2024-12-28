@@ -107,7 +107,7 @@ function Home() {
         ></link>
         <link rel="manifest" href="/favicons/site.webmanifest"></link>
       </Head>
-      <p className={`${font.className} ${styles.postsMessage} text-accent`}>
+      <p className={`${font.className} ${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text inline-block`}>
         Latest posts...
       </p>
       <ul className={`${styles.posts}`}>
