@@ -43,7 +43,7 @@ function LabContents() {
             The lab environment is something anybody can build in a few
             weekends. All it takes is a bit of sticktuitivness, a fairly-modern
             computer, a home internet connection, and about $1K for
-            hardware/software. :)
+            hardware/software.
           </p>
           <p className="headline">
             Keep in mind that many bootcamps, certifications, and degrees cost
