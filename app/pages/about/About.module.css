@@ -10,7 +10,7 @@
 }
 
 .aboutTheWriter {
-  padding: 1rem 0 0 0;
+  padding: 2rem 0 1.5rem 0;
 }
 
 .logo {
@@ -19,7 +19,7 @@
 }
 
 .logoWrapper {
-  padding: 1rem 2rem 0 0;
+  padding: 2rem 0 0 1rem;
 }
 
 @media only screen and (max-width: 600px) {
