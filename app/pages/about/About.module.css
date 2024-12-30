@@ -9,11 +9,11 @@
   cursor: pointer;
 }
 
-.aboutTheWriterHeader {
+.subHeader {
   padding: 2rem 0 1rem 0;
 }
 
-.aboutTheWriterWrapper {
+.subHeaderWrapper {
   flex: auto;
   padding: 0;
   margin: 0;
@@ -35,16 +35,45 @@
 
 .headshot {
   float: left;
-  padding: 1rem 2rem 0 0;
+  padding: 1rem 1rem 0 0;
   margin-bottom: 0;
   width: "33%";
   height: "auto";
 }
 
+.socialIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.socialIconsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem 0 1rem 0;
+}
+
+.socialTracker {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.socialTrackerMessage {
+  padding-left: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
   .headshot {
     float: left;
-    padding: 1rem 1rem 0 0;
+    padding: 1rem 0.75rem 0 0;
     margin-bottom: 0;
     width: "33%";
     height: "auto";
