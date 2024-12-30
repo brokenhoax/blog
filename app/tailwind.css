@@ -134,7 +134,7 @@ img {
   --tw-contain-style:  ;
 }
 
-/* ! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -2065,6 +2065,11 @@ video {
   border-color: hsl(var(--nextui-secondary) / var(--nextui-secondary-opacity, var(--tw-border-opacity)));
 }
 
+.border-subtle {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nextui-subtle) / var(--nextui-subtle-opacity, var(--tw-border-opacity)));
+}
+
 .border-success {
   --tw-border-opacity: 1;
   border-color: hsl(var(--nextui-success) / var(--nextui-success-opacity, var(--tw-border-opacity)));
@@ -2721,7 +2726,7 @@ video {
 
 .text-black {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-current {
@@ -2893,6 +2898,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-text-opacity)));
+}
+
+.text-opacity-0 {
+  --tw-text-opacity: 0;
 }
 
 .underline {
@@ -5395,6 +5404,11 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
   border-color: hsl(var(--nextui-default-400) / var(--nextui-default-400-opacity, var(--tw-border-opacity)));
 }
 
+.hover\:border-subtle:hover {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nextui-subtle) / var(--nextui-subtle-opacity, var(--tw-border-opacity)));
+}
+
 .hover\:\!bg-foreground:hover {
   --tw-bg-opacity: 1 !important;
   background-color: hsl(var(--nextui-foreground) / var(--nextui-foreground-opacity, var(--tw-bg-opacity))) !important;
@@ -5413,6 +5427,11 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
 .hover\:bg-default-200:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-default-200) / var(--nextui-default-200-opacity, var(--tw-bg-opacity)));
+}
+
+.hover\:bg-subtle:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--nextui-subtle) / var(--nextui-subtle-opacity, var(--tw-bg-opacity)));
 }
 
 .hover\:bg-success-100:hover {
@@ -5525,6 +5544,11 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
   background-color: hsl(var(--nextui-default-100) / var(--nextui-default-100-opacity, var(--tw-bg-opacity)));
 }
 
+.focus\:border-accent:focus {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-border-opacity)));
+}
+
 .focus\:bg-danger-400\/50:focus {
   background-color: hsl(var(--nextui-danger-400) / 0.5);
 }
@@ -5570,6 +5594,11 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
 
 .focus-visible\:outline-focus:focus-visible {
   outline-color: hsl(var(--nextui-focus) / var(--nextui-focus-opacity, 1));
+}
+
+.active\:border-accent:active {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-border-opacity)));
 }
 
 .active\:bg-default-200:active {
