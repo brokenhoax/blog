@@ -42,51 +42,59 @@ function NavBar() {
 
   if (!toggle) {
     return (
-      <div
-        className={`${styles.navButton} bg-subtle text-accent border-accent`}
-      >
-        <button
-          onClick={setNavbarstatus}
-          className={`${styles.navButtonContols}`}
-        >
-          <FontAwesomeIcon icon={faBars} size="lg"/>
-        </button>
+      <div className={`${styles.navAnchor}`}>
+        <div className={`${styles.navWrapper}`}>
+          <div
+            className={`${styles.navButton} text-accent`}
+          >
+            <button
+              onClick={setNavbarstatus}
+              className={`${styles.navButtonContols}`}
+            >
+              <FontAwesomeIcon icon={faBars} size="lg"/>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (toggle) {
     return (
-      <div
-        className={`${styles.navMenu} bg-primary text-accent border border-accent`}
-      >
-        <div className={`${styles.navMenuControls}`}>
-          <ul className={`${styles.navMenuLinks}`}>
-          <li className={`${styles.navMenuLink}`}>
-              <ThemeSwitcher />
-            </li>
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <Link href={link.path} className={`${styles.navMenuLink}`}>
+      <div className={`${styles.navAnchor}`}>
+        <div className={`${styles.navWrapper}`}>
+          <div
+            className={`${styles.navMenu} bg-primary text-accent`}
+          >
+            <div className={`${styles.navMenuControls}`}>
+              <ul className={`${styles.navMenuLinks}`}>
+                <li className={`${styles.navMenuLink}`}>
+                  <ThemeSwitcher />
+                </li>
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link href={link.path} className={`${styles.navMenuLink}`}>
+                      <FontAwesomeIcon
+                        icon={link.awesomeIcon}
+                        size="lg"
+                        fixedWidth={true}
+                        className={`${styles.navMenuIcon}`}
+                      />
+                    </Link>
+                  </li>
+                ))}
+                <li className={`${styles.navMenuLink}`}>
                   <FontAwesomeIcon
-                    icon={link.awesomeIcon}
+                    icon={faBars}
                     size="lg"
                     fixedWidth={true}
                     className={`${styles.navMenuIcon}`}
+                    onClick={setNavbarstatus}
                   />
-                </Link>
-              </li>
-            ))}
-            <li className={`${styles.navMenuLink}`}>
-              <FontAwesomeIcon
-                icon={faBars}
-                size="lg"
-                fixedWidth={true}
-                className={`${styles.navMenuIcon}`}
-                onClick={setNavbarstatus}
-              />
-            </li>
-          </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     );

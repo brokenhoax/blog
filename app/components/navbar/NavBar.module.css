@@ -1,34 +1,9 @@
-.navbar {
-  display: flex;
-  overflow: hidden;
-  border-bottom-color: #011627;
-  border-style: solid;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  height: 64px;
-  z-index: 100;
-}
-
-.navbarControls {
-  display: flex;
-  align-content: center;
-  justify-items: space-between;
-  margin: auto;
-  width: 33%;
-  height: 100%;
-}
-
 .navButton {
-  z-index: 100;
-  border-radius: 10px;
-  position: fixed; /* Set the navbar to fixed position */
-  bottom: 32px; /* Position the navbar at the top of the page */
-  right: 33%;
-  width: 64px;
+  position: fixed;
+  display: flex;
+  justify-items: end;
   height: 64px;
-  border-bottom-width: 1px;
-  opacity: 50%;
+  z-index: 100;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -38,17 +13,21 @@
 }
 
 .navButtonContols {
+  display: flex;
+  justify-content: end;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
 
 .navMenu {
+  position: fixed;
+  display: flex;
+  justify-items: end;
+  align-content: center;
   z-index: 100;
-  border-radius: 10px;
-  position: fixed; /* Set the navbar to fixed position */
-  bottom: 32px; /* Position the navbar at the top of the page */
-  right: 33%;
   height: 64px;
+  margin-right: -1.25rem;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
     drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
@@ -59,8 +38,8 @@
 
 .navMenuControls {
   display: flex;
-  justify-content: space-evenly;
-  align-content: center;
+  justify-content: end;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -80,47 +59,20 @@
 
 .navMenuLinks {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 0 1rem 0 1rem;
 }
 
-.navbarMinimalButton {
-  padding-left: 0.5rem;
-  font-size: 32px;
-}
-
-.navbarControlsLeft {
+.navWrapper {
   display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 1rem, 0, 0, 1rem;
-}
-
-.navItem {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.navbarLinks {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  width: 100%;
-  font-weight: 700;
-}
-
-.navbarLinkItem {
-  height: 100%;
-  margin-right: 2.5rem;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.navbarLink {
-  height: 100%;
+  justify-content: end;
+  align-content: center;
+  width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1rem;
 }
 
 /* Responsive Design */
@@ -128,93 +80,64 @@
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
-  .navButton {
-    position: fixed; /* Set the navbar to fixed position */
-    bottom: 0.8rem; /* Position the navbar at the bottom of the page */
-    right: 2rem;
-    width: 40px;
-    height: 40px;
+  .navWrapper {
+    width: 80%;
+    display: flex;
+    align-content:  center;
+    padding-top: 1rem;
   }
 
   .navMenu {
-    position: fixed; /* Set the navbar to fixed position */
-    bottom: 0.6rem; /* Position the navbar at the bottom of the page */
-    left: 0px;
-    right: 0px;
-    margin: auto;
-    width: 90%;
-    height: 48px;
-    border: 0;
+    position: fixed;
+    padding-top: 0;
+    bottom: .5rem;
+    right: 0;
+    padding-right: 1rem;
+  }
+
+  .navButton {
+    position: fixed;
+    padding-top: 0;
+    bottom: .5rem;
+    right: 0;
+    padding-right: 1rem;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
+  .navWrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 1024px) {
-  .navButton {
-    position: fixed; /* Set the navbar to fixed position */
-    top: 32px; /* Position the navbar at the top of the page */
-    right: 33%;
-    width: 50px;
-    height: 50px;
-  }
-
-  .navMenu {
-    z-index: 100;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 32px; /* Position the navbar at the top of the page */
-    right: 33%;
-    height: 50px;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
-      drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+ .navWrapper {
+    width: 50%;
   }
 }
 
 /* Large devices (laptops/desktops, 1440px and up) */
 
 @media only screen and (min-width: 1439px) {
-  .navButton {
-    position: fixed; /* Set the navbar to fixed position */
-    top: 32px; /* Position the navbar at the top of the page */
-    right: 26%;
-    width: 50px;
-    height: 50px;
-  }
-
-  .navMenu {
-    z-index: 100;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 32px; /* Position the navbar at the top of the page */
-    right: 26%;
-    height: 50px;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
-      drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  .navWrapper {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1920px and up) */
 
 @media only screen and (min-width: 1920px) {
-  .navButton {
-    position: fixed; /* Set the navbar to fixed position */
-    top: 32px; /* Position the navbar at the top of the page */
-    right: 33%;
-    width: 50px;
-    height: 50px;
-  }
-
-  .navMenu {
-    z-index: 100;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 32px; /* Position the navbar at the top of the page */
-    right: 33%;
-    height: 50px;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
-      drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  .navWrapper {
+    width: 33%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
