@@ -18,6 +18,7 @@ module.exports = {
             subtle: "#011627",
             primary: "#000000",
             secondary: "#FFFFFF",
+            white: "#FFFFFF"
           },
           layout: {
             disabledOpacity: "0.3",
