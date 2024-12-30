@@ -687,8 +687,6 @@ function PfSense() {
             interfaces within pfSense. Feel free to use the IP addressing shared
             below if you'd like to keep your lab consistent with this guide:
           </p>
-          <Callout icon={faNetworkWired} text={calloutContent[3]}></Callout>
-          <ToggleImage params={images["24"]}></ToggleImage>
           {/* VLAN / IP Mappings */}
           <ul className="unorderedList">
             <li key="1">
@@ -727,6 +725,8 @@ function PfSense() {
               </span>
             </li>
           </ul>
+          <Callout icon={faNetworkWired} text={calloutContent[3]}></Callout>
+          <ToggleImage params={images["24"]}></ToggleImage>
         </div>
         {/* Default VLAN Interface */}
         <div>
