@@ -47,27 +47,95 @@
   align-items: center;
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
 }
 
 .socialIconsWrapper {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
   padding: 1rem 0 1rem 0;
 }
 
 .socialTracker {
+  position: relative;
   display: flex;
   justify-content: start;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: auto;
+  border-radius: 0.25rem;
+  padding: 0 0.25rem 0 0.25rem;
+  z-index: 10;
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+    drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
 }
 
 .socialTrackerMessage {
-  padding-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 64px;
+}
+
+.socialTrackerMessageReviewed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 64px;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.socialTrackerStatusMessage {
+  padding: 0 2rem 0 2rem;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.socialTrackerMessageReviewed::after,
+.socialTrackerMessageReviewed::before {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  padding: 36px;
+  border-radius: 0.25rem;
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff00ff,
+    #bad32c,
+    #008473,
+    #4783de,
+    #ff00ff
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  animation: 3s spin linear infinite;
+}
+
+.socialTracker::before {
+  filter: blur(0.25rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
 
 @media only screen and (max-width: 600px) {

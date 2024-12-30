@@ -42,13 +42,17 @@ function About() {
   const linkedInMessage = () => {
     if (linkedInReviewed) {
       return (
-        <div className={`${styles.socialTrackerMessage}`}>
-          LinkedIn Reviewed
+        <div className={`${styles.socialTrackerMessageReviewed} bg-subtle`}>
+          <div className={`${styles.socialTrackerStatusMessage}`}>Reviewed</div>
         </div>
       );
     } else {
       return (
-        <div className={`${styles.socialTrackerMessage}`}>Review Linkedin</div>
+        <div className={`${styles.socialTrackerMessage} bg-subtle`}>
+          <div className={`${styles.socialTrackerStatusMessage}`}>
+            Review Linkedin
+          </div>
+        </div>
       );
     }
   };
@@ -56,11 +60,17 @@ function About() {
   const gitHubMessage = () => {
     if (gitHubReviewed) {
       return (
-        <div className={`${styles.socialTrackerMessage}`}>GitHub Reviewed</div>
+        <div className={`${styles.socialTrackerMessageReviewed} bg-subtle`}>
+          <div className={`${styles.socialTrackerStatusMessage}`}>Reviewed</div>
+        </div>
       );
     } else {
       return (
-        <div className={`${styles.socialTrackerMessage}`}>Review GitHub</div>
+        <div className={`${styles.socialTrackerMessage} bg-subtle`}>
+          <div className={`${styles.socialTrackerStatusMessage}`}>
+            Review GitHub
+          </div>
+        </div>
       );
     }
   };
@@ -96,7 +106,7 @@ function About() {
       <h2>About Kraus Cloud</h2>
       {/* Divider */}
       <div className="divider border-b border-accent"></div>
-      {/* Headline */}
+      {/* About Kraus Cloud */}
       <div className={`${styles.aboutKrausCloud}`}>
         <div className={`${styles.logoWrapper}`}>
           <svg
@@ -126,6 +136,7 @@ function About() {
       </div>
       {/* Divider */}
       <div className="divider border-b border-accent"></div>
+      {/* About the Writer */}
       <h2 className={`${styles.subHeader}`}>About the Writer</h2>
       <div className={`${styles.subHeaderWrapper}`}>
         <Image
@@ -155,43 +166,50 @@ function About() {
           Next.js, TailwindCSS, Node, pfSense, Proxmox, Red Hat to name a few.
           Oh, yeah, and a lot of coffee and late nights.
         </p>
-        {/* Divider */}
-        <div className="divider border-b border-accent"></div>
-        <h2 className={`${styles.subHeader}`}>Let's Connect</h2>
-        <div className={`${styles.socialIconsWrapper}`}>
-          <Link
-            href="https://www.linkedin.com/in/andrewkraus/"
-            target="_blank"
-            className={`${styles.socialTracker}`}
-            onClick={() => trackSocial("linkedin")}
+      </div>
+      {/* Divider */}
+      <div className="divider border-b border-accent"></div>
+      {/* Let's Connect */}
+      <h2 className={`${styles.subHeader}`}>Let's Connect</h2>
+      <div className={`${styles.socialIconsWrapper}`}>
+        <Link
+          href="https://www.linkedin.com/in/andrewkraus/"
+          target="_blank"
+          className={`${styles.socialTracker} ${
+            linkedInReviewed ? "text-accent" : "text-secondary"
+          } bg-subtle border-2 border-subtle hover:border-subtle hover:bg-subtle hover:text-accent`}
+          onClick={() => trackSocial("linkedin")}
+        >
+          <div
+            className={`${styles.socialIcon} bg-subtle active:border-accent focus:border-accent`}
           >
-            <div className={`${styles.socialIcon} bg-subtle`}>
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                size="xl"
-                className={`${styles.navMenuIcon}`}
-                fixedWidth={true}
-              ></FontAwesomeIcon>
-            </div>
-            {linkedInMessage()}
-          </Link>
-          <Link
-            href="https://github.com/brokenhoax"
-            target="_blank"
-            className={`${styles.socialTracker}`}
-            onClick={() => trackSocial("github")}
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              size="xl"
+              fixedWidth={true}
+            ></FontAwesomeIcon>
+          </div>
+          {linkedInMessage()}
+        </Link>
+        <Link
+          href="https://github.com/brokenhoax"
+          target="_blank"
+          className={`${styles.socialTracker} ${
+            gitHubReviewed ? "text-accent" : "text-secondary"
+          } bg-subtle border-2 border-subtle hover:border-subtle hover:bg-subtle hover:text-accent`}
+          onClick={() => trackSocial("github")}
+        >
+          <div
+            className={`${styles.socialIcon} bg-subtle active:border-accent focus:border-accent`}
           >
-            <div className={`${styles.socialIcon} bg-subtle`}>
-              <FontAwesomeIcon
-                icon={faGithub}
-                size="xl"
-                className={`${styles.navMenuIcon}`}
-                fixedWidth={true}
-              ></FontAwesomeIcon>
-            </div>
-            {gitHubMessage()}
-          </Link>
-        </div>
+            <FontAwesomeIcon
+              icon={faGithub}
+              size="xl"
+              fixedWidth={true}
+            ></FontAwesomeIcon>
+          </div>
+          {gitHubMessage()}
+        </Link>
       </div>
     </section>
   );
