@@ -20,18 +20,22 @@
   max-height: max-content;
 }
 
+.aboutKrausCloud {
+  padding-top: 2rem;
+}
+
 .logo {
-  margin: auto;
-  padding: 2rem 0 1rem 1rem;
+  float: left;
+  padding: 16px 32px 0 0;
 }
 
 .logoWrapper {
-  padding: 2rem 0 0 0;
+  margin: auto;
 }
 
 .headshot {
   float: left;
-  padding: 1rem 1rem 0 0;
+  padding: 1rem 2rem 0 0;
   margin-bottom: 0;
   width: "33%";
   height: "auto";
@@ -47,6 +51,11 @@
   }
 
   .logo {
-    width: 112px;
+    float: left;
+    padding-right: 16px;
+  }
+
+  .aboutKrausCloud {
+    padding-top: 1rem;
   }
 }
