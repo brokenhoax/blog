@@ -51,7 +51,7 @@ function NavBar() {
               onClick={setNavbarstatus}
               className={`${styles.navButtonContols}`}
             >
-              <FontAwesomeIcon icon={faBars} size="lg"/>
+              <FontAwesomeIcon icon={faBars} size="lg" className={`${styles.navMenuIcon}`}/>
             </button>
           </div>
         </div>
@@ -72,12 +72,11 @@ function NavBar() {
                   <ThemeSwitcher />
                 </li>
                 {navLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link href={link.path} className={`${styles.navMenuLink}`}>
+                  <li key={index} className={`${styles.navMenuLink}`}>
+                    <Link href={link.path}>
                       <FontAwesomeIcon
                         icon={link.awesomeIcon}
                         size="lg"
-                        fixedWidth={true}
                         className={`${styles.navMenuIcon}`}
                       />
                     </Link>
@@ -87,7 +86,6 @@ function NavBar() {
                   <FontAwesomeIcon
                     icon={faBars}
                     size="lg"
-                    fixedWidth={true}
                     className={`${styles.navMenuIcon}`}
                     onClick={setNavbarstatus}
                   />
