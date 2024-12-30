@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <div className={`${styles.footerWrapper} bg-primary`}>
+    <div className={`${styles.footerWrapper} bg-primary border-t border-t-subtle`}>
       <div className={`${styles.footer}`}>
         <svg
           width="50"
