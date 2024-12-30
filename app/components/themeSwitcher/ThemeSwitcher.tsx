@@ -6,57 +6,44 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ThemeSwitcher.module.css";
 
 const ThemeSwitcher = () => {
-  const themesArray = ["darkOwl", "lightOwl", "orangeOwl"];
   const { theme, setTheme } = useTheme();
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => setHasMounted(true));
-  useEffect(() => {
-    if (theme === "dark" || theme === "light" || !theme) {
-      setTheme("darkOwl");
-    }
-  }, []);
+
+  const themes = ["darkOwl", "lightOwl", "dark", "light"];
 
   function handleToggle() {
-    if (theme === "darkOwl") {
-      setTheme("lightOwl");
-    }
-    if (theme === "lightOwl") {
-      setTheme("darkOwl");
-    }
-
     // Find current place in line in array
-
-    // Increment by one
+    themes.forEach((currentTheme, idx) => {
+      if (theme == currentTheme) {
+        // Increment by one
+        idx = idx + 1;
+        if (idx > themes.length - 1) {
+          idx = 0;
+          setTheme(themes[idx]);
+          console.log(themes[idx]);
+          return;
+        } else {
+          setTheme(themes[idx]);
+          console.log(themes[idx]);
+        }
+      }
+    });
   }
 
   // this line is the key to avoid the error.
   if (!hasMounted) return null;
 
-  if (theme === "lightOwl") {
-    return (
-      <button onClick={handleToggle}>
-        <FontAwesomeIcon
-          fixedWidth={true}
-          icon={faPalette}
-          size="lg"
-          className={`${styles.themeSwitcherIcon}`}
-        />
-      </button>
-    );
-  }
-
-  if (theme === "darkOwl") {
-    return (
-      <button onClick={handleToggle}>
-        <FontAwesomeIcon
-          fixedWidth={true}
-          icon={faPalette}
-          size="lg"
-          className={`${styles.themeSwitcherIcon}`}
-        />
-      </button>
-    );
-  }
+  return (
+    <button onClick={handleToggle}>
+      <FontAwesomeIcon
+        fixedWidth={true}
+        icon={faPalette}
+        size="lg"
+        className={`${styles.themeSwitcherIcon}`}
+      />
+    </button>
+  );
 };
 
 export default ThemeSwitcher;
