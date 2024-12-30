@@ -155,4 +155,12 @@
   .aboutKrausCloud {
     padding-top: 1rem;
   }
+
+  .socialIconsWrapper {
+    flex-direction: column;
+  }
+
+  .socialTracker {
+    padding: 0 0 1rem 0;
+  }
 }
