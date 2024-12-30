@@ -44,14 +44,17 @@ function NavBar() {
     return (
       <div className={`${styles.navAnchor}`}>
         <div className={`${styles.navWrapper}`}>
-          <div
-            className={`${styles.navButton} text-accent`}
-          >
+          <div className={`${styles.navButton} text-accent`}>
             <button
               onClick={setNavbarstatus}
               className={`${styles.navButtonContols}`}
             >
-              <FontAwesomeIcon icon={faBars} size="lg" className={`${styles.navMenuIcon}`}/>
+              <FontAwesomeIcon
+                icon={faBars}
+                size="lg"
+                className={`${styles.navMenuIcon}`}
+                fixedWidth={true}
+              />
             </button>
           </div>
         </div>
@@ -63,9 +66,7 @@ function NavBar() {
     return (
       <div className={`${styles.navAnchor}`}>
         <div className={`${styles.navWrapper}`}>
-          <div
-            className={`${styles.navMenu} bg-primary text-accent`}
-          >
+          <div className={`${styles.navMenu} bg-primary text-accent`}>
             <div className={`${styles.navMenuControls}`}>
               <ul className={`${styles.navMenuLinks}`}>
                 <li className={`${styles.navMenuLink}`}>
@@ -83,12 +84,18 @@ function NavBar() {
                   </li>
                 ))}
                 <li className={`${styles.navMenuLink}`}>
-                  <FontAwesomeIcon
-                    icon={faBars}
-                    size="lg"
-                    className={`${styles.navMenuIcon}`}
+                  <button
                     onClick={setNavbarstatus}
-                  />
+                    className={`${styles.navButtonContols}`}
+                  >
+                    <FontAwesomeIcon
+                      icon={faBars}
+                      size="lg"
+                      className={`${styles.navMenuIcon}`}
+                      onClick={setNavbarstatus}
+                      fixedWidth={true}
+                    />
+                  </button>
                 </li>
               </ul>
             </div>
