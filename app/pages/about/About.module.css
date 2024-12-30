@@ -22,7 +22,7 @@
 
 .logo {
   margin: auto;
-  padding: 1rem 0 1rem 1rem;
+  padding: 2rem 0 1rem 1rem;
 }
 
 .logoWrapper {
@@ -47,7 +47,6 @@
   }
 
   .logo {
-    padding: 2rem 0 1rem 1rem;
     width: 112px;
   }
 }
