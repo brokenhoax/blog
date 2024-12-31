@@ -54,7 +54,7 @@ h4 {
 }
 
 p {
-  padding: 0.25rem 0rem 0.25rem 0rem;
+  padding: 0.5rem 0rem 0rem 0rem;
   font-weight: 300;
   line-height: 1rem;
 }
@@ -137,7 +137,7 @@ ul {
 .divider {
   border-bottom-width: 1px;
   border-style: solid;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .faintDivider {
