@@ -176,8 +176,8 @@ function About() {
         </p>
         <p>
           If you'd like to connect professionally, please reach out using the
-          link provided below and if you're just here out of curiousity, then
-          check out{" "}
+          link provided below but, if you're just here out of curiousity, be
+          sure to check out{" "}
           <Link href="/" target="_blank" className="text-accent">
             our latest blogs
           </Link>{" "}
