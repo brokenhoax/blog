@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Callout from "../../components/callout/Callout";
+import { faLightbulb } from "@fortawesome/free-regular-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./About.module.css";
@@ -49,9 +51,7 @@ function About() {
     } else {
       return (
         <div className={`${styles.socialTrackerMessage} bg-subtle`}>
-          <div className={`${styles.socialTrackerStatusMessage}`}>
-            Review Linkedin
-          </div>
+          <div className={`${styles.socialTrackerStatusMessage}`}>Linkedin</div>
         </div>
       );
     }
@@ -67,9 +67,7 @@ function About() {
     } else {
       return (
         <div className={`${styles.socialTrackerMessage} bg-subtle`}>
-          <div className={`${styles.socialTrackerStatusMessage}`}>
-            Review GitHub
-          </div>
+          <div className={`${styles.socialTrackerStatusMessage}`}>GitHub</div>
         </div>
       );
     }
@@ -125,14 +123,20 @@ function About() {
         </div>
         <p className="italic">
           Kraus Cloud is an educational tech blog designed for readers. It
-          explores topics such as web development, web design, user experience,
-          home labs, cyberscurity, networking, linux, and more. Our content is
-          written to be accessible and practical. If you're looking to get some
-          hands-on experience with any of these topics, then you've come to the
-          right place no matter what your level of experience. If there's
-          something you see that needs fixing, or some content you were hoping
-          to find, let me know. Thanks for stopping by!
+          explores topics such as home labs, web development, web design, user
+          experience, cyberscurity, networking, linux, and other similar
+          subjects. Our content is written to be approachable and practical, so
+          if you're interested in gaining hands-on experience with any of these
+          topics, no matter what your skill level, then you've come to the right
+          place. Thank you for stopping by and your feedback is welcomed!
         </p>
+        <Callout
+          icon={faLightbulb}
+          text={`You'll need to know the
+          very basics of Bash, JavaScript, HTML and CSS, but even if you don't
+          have any exposure to coding, you'll be able to copy/paste and Google
+          your way through any project shared here.`}
+        ></Callout>
       </div>
       {/* Divider */}
       <div className="divider border-b border-accent"></div>
@@ -150,21 +154,31 @@ function About() {
           decoding="sync"
         ></Image>
         <p>
-          My name is Andrew Kraus and I enjoy all things tech and design.
-          Eighteen years into my career and I've worked in tech as a reseller, a
-          network architect, a manufacturer representative, a software engineer
-          and, most recently, a systems engineer. My employers have been some of
-          the largest and most storied in the business (IBM) to some of the
-          smaller/more niche players vying to make their mark (Convr).
+          My name is Andrew Kraus and I enjoy all things tech and design. Almost
+          twenty years in to my career and I've worn many hats. I've been a tech
+          seller, a tech buyer, a creator and a user. My employers have been
+          some of the largest and most storied in the business (IBM) to some of
+          the smaller/more niche players vying to make their mark (Convr).
         </p>
         <p>
-          I have learned most of what I know on those subjects from strangers on
-          the internet and mostly for free. To return the favor, I've built out
-          my own corner of the web to share what I've learned. Kraus Cloud is
-          self-hosted and, by following the free courses on this site, you, too,
-          can build your own home lab and website. Kraus Cloud was built using
-          Next.js, TailwindCSS, Node, pfSense, Proxmox, Red Hat to name a few.
-          Oh, yeah, and a lot of coffee and late nights.
+          That said, most of what I know I've learned from strangers on the
+          internet and mostly for free. To return the favor and to share what
+          I've learned, I've built my own Cloud. Kraus Cloud is self-hosted and
+          serves as a guide for you to build your own Cloud. By following the
+          free content on this site, you can build your own home lab and website
+          and learn a lot of valuable skills along the way. Kraus Cloud was
+          built using Next.js (React), TailwindCSS, NodeJS, pfSense, Proxmox,
+          Red Hat, and Nginx to name a few. Also, and perhaps it goes without
+          mentioning, a lot of coffee and late nights.
+        </p>
+        <p>
+          If you'd like to connect professionally, please reach out using the
+          link provided below and if you're just here out of curiousity, then
+          check out{" "}
+          <Link href="/" target="_blank" className="text-accent">
+            our latest blogs
+          </Link>{" "}
+          before you go.
         </p>
       </div>
       {/* Divider */}
@@ -185,7 +199,7 @@ function About() {
           >
             <FontAwesomeIcon
               icon={faLinkedin}
-              size="xl"
+              size="2xl"
               fixedWidth={true}
             ></FontAwesomeIcon>
           </div>
@@ -204,7 +218,7 @@ function About() {
           >
             <FontAwesomeIcon
               icon={faGithub}
-              size="xl"
+              size="2xl"
               fixedWidth={true}
             ></FontAwesomeIcon>
           </div>
