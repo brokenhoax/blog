@@ -175,7 +175,7 @@ function Home() {
         <link rel="manifest" href="/favicons/site.webmanifest"></link>
       </Head>
       <h1
-        className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth`}
+        className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-preset-confetti`}
       >
         Latest posts...
       </h1>
