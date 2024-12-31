@@ -2,10 +2,10 @@
   display: flex;
   justify-items: between;
   align-items: center;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   cursor: pointer;
   border-radius: 10px;
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 0.5rem 0rem 0rem 0rem;
 }
 
 .imageHeader {
@@ -17,4 +17,10 @@
 
 .toggleText {
   padding-left: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .imageCollapsed {
+    line-height: 1.25rem;
+  }
 }

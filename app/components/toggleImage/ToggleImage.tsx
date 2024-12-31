@@ -36,7 +36,7 @@ function ToggleImage({ params }) {
         className={`${styles.imageCollapsed} text-accent bg-subtle`}
       >
         <div className={`${styles.imageHeader}`}>
-          <FontAwesomeIcon icon={faImage} fixedWidth></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faImage} fixedWidth={true}></FontAwesomeIcon>
           <div className={`${styles.toggleText} text-white`}>
             {params.imageAltText}
           </div>
