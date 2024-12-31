@@ -124,7 +124,7 @@ function About() {
         <p className="italic">
           Kraus Cloud is an educational tech blog designed for readers. It
           explores topics such as home labs, web development, web design, user
-          experience, cyberscurity, networking, linux, and other similar
+          experience, cybersecurity, networking, linux, and other similar
           subjects. Our content is written to be approachable and practical, so
           if you're interested in gaining hands-on experience with any of these
           topics, no matter what your skill level, then you've come to the right

@@ -26,5 +26,6 @@
 @media only screen and (max-width: 600px) {
   .imageCollapsed {
     line-height: 1.25rem;
+    font-size: 15px;
   }
 }
