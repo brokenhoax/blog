@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Callout from "../../components/callout/Callout";
-import { faLightbulb } from "@fortawesome/free-regular-svg-icons";
+import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./About.module.css";
@@ -128,14 +128,16 @@ function About() {
           subjects. Our content is written to be approachable and practical, so
           if you're interested in gaining hands-on experience with any of these
           topics, no matter what your skill level, then you've come to the right
-          place. Thank you for stopping by and your feedback is welcomed!
+          place.
         </p>
         <Callout
-          icon={faLightbulb}
-          text={`You'll need to know the
-          very basics of Bash, JavaScript, HTML and CSS, but even if you don't
-          have any exposure to coding, you'll be able to copy/paste and Google
-          your way through any project shared here.`}
+          icon={faBullhorn}
+          text={`You'll need to know the very basics of Bash, JavaScript, HTML
+          and CSS, but I will link to supporting documentation when I reference
+          technologies, concepts, etc., that I feel might not be fairly common
+          knowledge. So, if you don't have any exposure to coding, don't sweat
+          it. You'll be able to copy/paste and Google/YouTube your way through
+          any project shared here.`}
         ></Callout>
       </div>
       {/* Divider */}
@@ -167,9 +169,10 @@ function About() {
           serves as a guide for you to build your own Cloud. By following the
           free content on this site, you can build your own home lab and website
           and learn a lot of valuable skills along the way. Kraus Cloud was
-          built using Next.js (React), TailwindCSS, NodeJS, pfSense, Proxmox,
-          Red Hat, and Nginx to name a few. Also, and perhaps it goes without
-          mentioning, a lot of coffee and late nights.
+          built using technologies including Next.js (React), NodeJS,
+          TailwindCSS, pfSense, Proxmox, Red Hat, and Nginx to name a few. Also,
+          and perhaps it goes without mentioning, a lot of coffee and late
+          nights.
         </p>
         <p>
           If you'd like to connect professionally, please reach out using the
