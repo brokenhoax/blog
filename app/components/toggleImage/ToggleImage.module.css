@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+.imageWrapper {
+  margin-top: 0.5rem;
+}
+
 .toggleText {
   padding-left: 0.5rem;
 }

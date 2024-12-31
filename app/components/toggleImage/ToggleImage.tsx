@@ -63,7 +63,7 @@ function ToggleImage({ params }) {
           <FontAwesomeIcon icon={faCaretDown} fixedWidth></FontAwesomeIcon>
         </span>
         {/* Image */}
-        <div className={`text-accent`}>
+        <div className={`${styles.imageWrapper} text-accent`}>
           <Image
             onClick={() => handleMaximize()}
             className={`${styles.imageStyles}`}
