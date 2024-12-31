@@ -153,7 +153,7 @@ function Home() {
   // }, []);
 
   return (
-    <section className="section motion-preset-focus motion-duration-2000">
+    <section className="section">
       <Head>
         <link
           rel="apple-touch-icon"

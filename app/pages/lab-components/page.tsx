@@ -28,7 +28,7 @@ function LabContents() {
   ];
   return (
     <div>
-      <section className="section motion-preset-focus motion-duration-2000">
+      <section className="section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="flex text-accent">
           Gear Up<span className="pl-4">🧪</span>

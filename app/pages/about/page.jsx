@@ -98,7 +98,7 @@ function About() {
   }
 
   return (
-    <section className="section motion-preset-focus motion-duration-2000">
+    <section className="section motion-preset-focus">
       {/* Title */}
       <h1 className="text-accent">About</h1>
       <h2>About Kraus Cloud</h2>
