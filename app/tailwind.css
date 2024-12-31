@@ -944,19 +944,21 @@ video {
   }
 }
 
+.motion-preset-blur-right {
+  --motion-origin-blur: 5px;
+  --motion-origin-translate-x: -5%;
+  --motion-origin-opacity: 0;
+  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
+  --motion-filter-in-animation: motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both;
+  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
+  animation: var(--motion-all-loop-and-enter-animations);
+}
+
 .motion-preset-focus {
   --motion-origin-blur: 5px;
   --motion-origin-opacity: 0;
   --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
   --motion-filter-in-animation: motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
-.motion-preset-slide-right {
-  --motion-origin-translate-x: -25%;
-  --motion-origin-opacity: 0;
-  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
-  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
   animation: var(--motion-all-loop-and-enter-animations);
 }
 
@@ -976,17 +978,6 @@ video {
   --motion-scale-perceptual-duration-multiplier: 2.035;
   --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
   --motion-scale-in-animation: motion-scale-in calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
-.motion-preset-shake {
-  --motion-duration: 300ms;
-  --motion-origin-rotate: 15deg;
-  --motion-origin-opacity: 0;
-  --motion-rotate-timing: var(--motion-spring-bounciest);
-  --motion-rotate-perceptual-duration-multiplier: 5.285;
-  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
-  --motion-rotate-in-animation: motion-rotate-in calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both;
   animation: var(--motion-all-loop-and-enter-animations);
 }
 
@@ -1050,146 +1041,6 @@ video {
   100% {
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
-
-.motion-preset-typewriter-\[24\] {
-  --motion-duration: 2000ms;
-  --motion-typewriter-value: 24ch;
-  animation: typing var(--motion-duration) steps(24) var(--motion-loop-count), blink 0.4s step-end infinite alternate;
-  white-space: nowrap;
-  border-right: 2px solid;
-  font-family: monospace;
-  overflow: hidden;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-  @keyframes typing {
-    10%, 90% {
-      width: 0;
-    }
-
-    40%, 60% {
-      width: calc(var(--motion-typewriter-value) + 1px);
-    }
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.motion-preset-typewriter-\[2\] {
-  --motion-duration: 2000ms;
-  --motion-typewriter-value: 2ch;
-  animation: typing var(--motion-duration) steps(2) var(--motion-loop-count), blink 0.4s step-end infinite alternate;
-  white-space: nowrap;
-  border-right: 2px solid;
-  font-family: monospace;
-  overflow: hidden;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-  @keyframes typing {
-    10%, 90% {
-      width: 0;
-    }
-
-    40%, 60% {
-      width: calc(var(--motion-typewriter-value) + 1px);
-    }
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.motion-preset-typewriter-\[15\] {
-  --motion-duration: 2000ms;
-  --motion-typewriter-value: 15ch;
-  animation: typing var(--motion-duration) steps(15) var(--motion-loop-count), blink 0.4s step-end infinite alternate;
-  white-space: nowrap;
-  border-right: 2px solid;
-  font-family: monospace;
-  overflow: hidden;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-  @keyframes typing {
-    10%, 90% {
-      width: 0;
-    }
-
-    40%, 60% {
-      width: calc(var(--motion-typewriter-value) + 1px);
-    }
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.motion-preset-typewriter-\[6\] {
-  --motion-duration: 2000ms;
-  --motion-typewriter-value: 6ch;
-  animation: typing var(--motion-duration) steps(6) var(--motion-loop-count), blink 0.4s step-end infinite alternate;
-  white-space: nowrap;
-  border-right: 2px solid;
-  font-family: monospace;
-  overflow: hidden;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-  @keyframes typing {
-    10%, 90% {
-      width: 0;
-    }
-
-    40%, 60% {
-      width: calc(var(--motion-typewriter-value) + 1px);
-    }
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.motion-preset-typewriter-\[16\] {
-  --motion-duration: 2000ms;
-  --motion-typewriter-value: 16ch;
-  animation: typing var(--motion-duration) steps(16) var(--motion-loop-count), blink 0.4s step-end infinite alternate;
-  white-space: nowrap;
-  border-right: 2px solid;
-  font-family: monospace;
-  overflow: hidden;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-  @keyframes typing {
-    10%, 90% {
-      width: 0;
-    }
-
-    40%, 60% {
-      width: calc(var(--motion-typewriter-value) + 1px);
-    }
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
   }
 }
 
@@ -2982,12 +2833,12 @@ video {
   background-color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-bg-opacity)));
 }
 
-.bg-stripe-gradient {
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-stripe-gradient {
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
 }
 
 .from-accent {
@@ -3470,6 +3321,10 @@ video {
   color: hsl(var(--nextui-success) / 0.8);
 }
 
+.text-transparent {
+  color: transparent;
+}
+
 .text-warning {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-warning) / var(--nextui-warning-opacity, var(--tw-text-opacity)));
@@ -3502,10 +3357,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-white) / var(--nextui-white-opacity, var(--tw-text-opacity)));
-}
-
-.text-transparent {
-  color: transparent;
 }
 
 .underline {
@@ -4284,7 +4135,7 @@ video {
   --nextui-danger-900: 340 84.91% 10.39%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 300 100% 50%;
+  --nextui-accent: 333.03999999999996 100% 55.49%;
   --nextui-subtle: 206.84000000000003 95% 7.84%;
   --nextui-tertiary: 206.84000000000003 95% 7.84%;
   --nextui-white: 0 0% 100%;
@@ -4510,86 +4361,14 @@ video {
   display: block;
 }
 
-.motion-translate-x-in-100 {
-  --motion-origin-translate-x: 100%;
-  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
-.motion-translate-y-in-100 {
-  --motion-origin-translate-y: 100%;
-  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
-.motion-translate-y-out-100 {
-  --motion-end-translate-y: 100%;
-  --motion-translate-out-animation: motion-translate-out calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-  animation: var(--motion-all-exit-animations);
-}
-
-.motion-translate-x-out-100 {
-  --motion-end-translate-x: 100%;
-  --motion-translate-out-animation: motion-translate-out calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-  animation: var(--motion-all-exit-animations);
-}
-
-.motion-rotate-in-45 {
-  --motion-origin-rotate: 45deg;
-  --motion-rotate-in-animation: motion-rotate-in calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
 .motion-opacity-in-0 {
   --motion-origin-opacity: 0.001;
   --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
   animation: var(--motion-all-loop-and-enter-animations);
 }
 
-.motion-duration-75 {
-  --motion-duration: 75ms;
-}
-
 .motion-duration-2000 {
   --motion-duration: 2000ms;
-}
-
-.motion-duration-\[4s\] {
-  --motion-duration: 4s;
-}
-
-.motion-duration-\[2s\] {
-  --motion-duration: 2s;
-}
-
-.motion-delay-1000 {
-  --motion-delay: 1000ms;
-}
-
-.motion-delay-\[index\+100\] {
-  --motion-delay: index+100;
-}
-
-.motion-delay-100 {
-  --motion-delay: 100ms;
-}
-
-.motion-delay-300 {
-  --motion-delay: 300ms;
-}
-
-.motion-ease-in-out {
-  --motion-timing: cubic-bezier(0.4, 0, 0.2, 1);
-  --motion-perceptual-duration-multiplier: 1;
-}
-
-.motion-ease-spring-smooth {
-  --motion-timing: var(--motion-spring-smooth);
-  --motion-perceptual-duration-multiplier: 1.66;
-}
-
-.motion-loop-once {
-  --motion-loop-count: 1;
 }
 
 .\[--picker-height\:224px\] {
@@ -4647,7 +4426,7 @@ h4 {
 }
 
 p {
-  padding: 0.25rem 0rem 0.25rem 0rem;
+  padding: 0.5rem 0rem 0rem 0rem;
   font-weight: 300;
   line-height: 1rem;
 }
@@ -4730,7 +4509,7 @@ ul {
 .divider {
   border-bottom-width: 1px;
   border-style: solid;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .faintDivider {
@@ -4828,7 +4607,7 @@ ul {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 

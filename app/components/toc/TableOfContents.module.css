@@ -4,7 +4,17 @@
   align-items: center;
   padding: 1rem 1rem 1rem 1rem;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 0.5rem;
+  margin: 1rem 0rem 0rem 0rem;
+}
+
+.tocExpanded {
+  display: flex;
+  justify-items: between;
+  align-items: center;
+  padding: 1rem 1rem 1rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
   margin: 1rem 0rem 0rem 0rem;
 }
 
@@ -17,10 +27,18 @@
 }
 
 .tocWrapper {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
 }
 
 .toc {
   padding: 1rem 0rem 0rem 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .toc {
+    font-size: 16px;
+  }
 }

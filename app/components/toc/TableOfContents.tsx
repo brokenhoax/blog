@@ -44,11 +44,11 @@ function TableOfContents({ params }) {
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
         {/* TOC Toggle */}
-        <div className={`tocWrapper text-accent`}>
+        <div className={`${styles.tocWrapper} text-accent relative`}>
           {/* Image Header */}
           <span
             onClick={() => handleClick()}
-            className={`${styles.tocCollapsed} bg-subtle`}
+            className={`${styles.tocExpanded} bg-subtle`}
           >
             <div className={`${styles.tocHeader}`}>
               <FontAwesomeIcon icon={faList} fixedWidth></FontAwesomeIcon>
