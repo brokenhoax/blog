@@ -215,6 +215,7 @@ ul {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 16px;
   }
 
   h2 {
@@ -233,6 +234,7 @@ ul {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 16px;
   }
 }
 
