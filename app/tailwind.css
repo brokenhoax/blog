@@ -134,7 +134,7 @@ img {
   --tw-contain-style:  ;
 }
 
-/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -2726,7 +2726,7 @@ video {
 
 .text-black {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .text-current {
@@ -4066,7 +4066,7 @@ ul {
     margin-left: auto;
     margin-right: auto;
     padding-top: 0;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1rem;
   }
 
@@ -4116,10 +4116,10 @@ ul {
 
 @media only screen and (min-width: 600px) {
   .section {
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   h2 {
@@ -4127,24 +4127,24 @@ ul {
   }
 
   p {
-    line-height: 1.7rem;
+    line-height: 1.6rem;
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (landscape tablets, 1024px and up) */
 
 @media only screen and (min-width: 1024px) {
   .section {
-    width: 50%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
 /* Large devices (laptops/desktops, 1440px and up) */
 
-@media only screen and (min-width: 1439px) {
+@media only screen and (min-width: 1440px) {
   .section {
     width: 50%;
     margin-left: auto;
