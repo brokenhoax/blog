@@ -115,11 +115,11 @@
   border-radius: 0.25rem;
   background-image: conic-gradient(
     from var(--angle),
-    #ff00ff,
+    #ff1c82,
     #bad32c,
     #008473,
     #4783de,
-    #ff00ff
+    #ff1c82
   );
   top: 50%;
   left: 50%;
