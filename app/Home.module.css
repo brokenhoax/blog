@@ -72,6 +72,8 @@
   height: 128px;
   width: 100%;
   opacity: 30%;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .postsContainer:hover .postBackground {
@@ -92,6 +94,10 @@
   position: relative;
   width: 125px;
   height: 125px;
+}
+
+.postImage {
+  border-radius: 0.5rem;
 }
 
 .postLevel {
@@ -161,7 +167,6 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
-
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
