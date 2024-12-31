@@ -4,14 +4,16 @@ import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <div className={`${styles.footerWrapper} bg-primary border-t border-t-subtle`}>
+    <div
+      className={`${styles.footerWrapper} bg-primary border-t border-t-subtle`}
+    >
       <div className={`${styles.footer}`}>
         <svg
           width="50"
           viewBox="0 0 585 423"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="fill-accent"
+          className="fill-accent hover:motion-preset-shake motion-opacity-in-0 motion-duration-2000"
         >
           <path
             fillRule="evenodd"

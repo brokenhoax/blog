@@ -153,7 +153,7 @@ function Home() {
   // }, []);
 
   return (
-    <section className="section">
+    <section className="section motion-preset-focus motion-duration-2000">
       <Head>
         <link
           rel="apple-touch-icon"
@@ -174,12 +174,18 @@ function Home() {
         ></link>
         <link rel="manifest" href="/favicons/site.webmanifest"></link>
       </Head>
-      <h1 className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text inline-block`}>
+      <h1
+        className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth`}
+      >
         Latest posts...
       </h1>
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
-          <li key={index} className={`${styles.postsContainer}`}>
+          <li
+            key={index}
+            className={`${styles.postsContainer}  
+`}
+          >
             <Link href={post.path}>
               {/* Hover Background */}
               <div
@@ -191,7 +197,9 @@ function Home() {
                 className={`${styles.postWrapper} hover:text-white`}
               >
                 {/* Post Image */}
-                <div className={`${styles.postImageContainer}`}>
+                <div
+                  className={`${styles.postImageContainer} hover:motion-preset-shake`}
+                >
                   <Image
                     src={post.imagePath}
                     fill

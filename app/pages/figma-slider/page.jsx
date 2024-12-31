@@ -69,7 +69,7 @@ function FigmaSlider() {
     },
   ];
   return (
-    <section className="section">
+    <section className="section motion-preset-focus motion-duration-2000">
       {/* Title */}
       <h1 id="top" className="text-accent">
         Figma Slider

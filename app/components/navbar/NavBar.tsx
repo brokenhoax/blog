@@ -44,7 +44,7 @@ function NavBar() {
     return (
       <div className={`${styles.navAnchor}`}>
         <div className={`${styles.navWrapper}`}>
-          <div className={`${styles.navButton} text-accent`}>
+          <div className={`${styles.navButton} text-accent motion-preset-pop`}>
             <button
               onClick={setNavbarstatus}
               className={`${styles.navButtonContols}`}
@@ -67,13 +67,18 @@ function NavBar() {
       <div className={`${styles.navAnchor}`}>
         <div className={`${styles.navWrapper}`}>
           <div className={`${styles.navMenu} bg-primary text-accent`}>
-            <div className={`${styles.navMenuControls}`}>
+            <div
+              className={`${styles.navMenuControls} motion-preset-slide-left`}
+            >
               <ul className={`${styles.navMenuLinks}`}>
                 <li className={`${styles.navMenuLink}`}>
                   <ThemeSwitcher />
                 </li>
                 {navLinks.map((link, index) => (
-                  <li key={index} className={`${styles.navMenuLink}`}>
+                  <li
+                    key={index}
+                    className={`${styles.navMenuLink} motion-preset-slide-left`}
+                  >
                     <Link href={link.path}>
                       <FontAwesomeIcon
                         icon={link.awesomeIcon}
@@ -83,7 +88,9 @@ function NavBar() {
                     </Link>
                   </li>
                 ))}
-                <li className={`${styles.navMenuLink}`}>
+                <li
+                  className={`${styles.navMenuLink} motion-preset-slide-left`}
+                >
                   <button
                     onClick={setNavbarstatus}
                     className={`${styles.navButtonContols}`}

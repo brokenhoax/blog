@@ -1,4 +1,5 @@
 const { nextui } = require("@nextui-org/react");
+import tailwindcssMotion from "tailwindcss-motion";
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
             subtle: "#011627",
             primary: "#000000",
             secondary: "#FFFFFF",
-            white: "#FFFFFF"
+            white: "#FFFFFF",
           },
           layout: {
             disabledOpacity: "0.3",
@@ -129,5 +130,6 @@ module.exports = {
         },
       },
     }),
+    tailwindcssMotion,
   ],
 };
