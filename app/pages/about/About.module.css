@@ -21,16 +21,12 @@
 }
 
 .aboutKrausCloud {
-  padding-top: 2rem;
+  padding: 1rem 0rem 0.5rem 0rem;
 }
 
 .logo {
   float: left;
-  padding: 16px 32px 0 0;
-}
-
-.logoWrapper {
-  margin: auto;
+  padding: 0.75rem 1rem 0.5rem 0;
 }
 
 .headshot {
