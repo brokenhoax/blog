@@ -43,21 +43,23 @@ function NavBar() {
   if (!toggle) {
     return (
       <div className={`${styles.navAnchor}`}>
-        <div className={`${styles.navWrapper}`}>
-          <div className={`${styles.navButton} text-accent motion-preset-pop`}>
-            <button
-              onClick={setNavbarstatus}
-              className={`${styles.navButtonContols}`}
-            >
+        <button
+          className={`${styles.navWrapper} group`}
+          onClick={setNavbarstatus}
+        >
+          <div
+            className={`${styles.navButton} group-hover:opacity-100 text-accent motion-preset-pop bg-primary border border-dashed border-accent`}
+          >
+            <span className={`${styles.navButtonContols}`}>
               <FontAwesomeIcon
                 icon={faBars}
                 size="lg"
-                className={`${styles.navMenuIcon}`}
+                className={`${styles.navMenuIcon} group-hover:opacity-100`}
                 fixedWidth={true}
               />
-            </button>
+            </span>
           </div>
-        </div>
+        </button>
       </div>
     );
   }

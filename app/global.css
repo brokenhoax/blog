@@ -44,13 +44,13 @@ h2 {
 h3 {
   font-size: 28px;
   font-weight: 800;
-  padding: 2rem 0 0.5rem 0;
+  padding: 2rem 0rem 0.5rem 0rem;
 }
 
 h4 {
   font-size: 24px;
   font-weight: 600;
-  margin: 2rem 0 0.5rem 0;
+  padding: 1rem 0.5rem 0.5rem 0rem;
 }
 
 p {
@@ -85,6 +85,11 @@ ul {
   padding: 1rem 0rem 0.5rem 0rem;
 }
 
+.label {
+  padding-top: 1rem;
+  font-weight: 500;
+}
+
 .author {
   display: flex;
   flex-direction: row;
@@ -116,8 +121,8 @@ ul {
 }
 
 .unorderedList {
-  padding-left: 2rem;
   list-style-type: disc;
+  padding: 0.5rem 0rem 0.5rem 2rem;
 }
 
 .secondOrderedList {
