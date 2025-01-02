@@ -594,6 +594,17 @@ function PfSense() {
             Interfaces <span className="text-accent">{">"}</span> VLAN_DEFAULT
             (igc1.1)
           </div>
+          <p>
+            The default VLAN on our HP switch is VLAN 1 which is common across
+            networking manufacturers, but be sure to consult your switch's
+            documentation. We configure the default VLAN interface by giving it
+            a static IP addresses and checking the "enable interface" checkbox.
+            In a later lab, when configuring our switch, we'll configure the
+            opposite end of this connection when configuring the VLAN interfaces
+            on our switch. In short, here we are creating VLANs, assigning VLANs
+            to virtual interfaces, and giving those virtual interfaces an IP
+            addresses so that they are reachable on the network.
+          </p>
           <ToggleImage params={images["13"]}></ToggleImage>
         </div>
         {/* Services VLAN Interface */}
@@ -610,7 +621,16 @@ function PfSense() {
             Interfaces <span className="text-accent">{">"}</span> VLAN_SERVICES
             (igc1.10)
           </div>
-          <p>VLAN 10 - Services VLAN - Interface</p>
+          <p>
+            The Services VLAN, which we can also refer to as "VLAN 10", is where
+            our servers live. Let's enablet this interface. Next, we'll decide
+            on a subnet to reserve for the services VLAN. How about
+            192.168.10.0/24 for our Services VLAN IP addressing scheme? Next,
+            let's take one of those IP addresses from the 192.168.10.0/24
+            network and assign it to our VLAN interface. For consistency's sake
+            and to stay with convention, we'll use 192.168.10.1 for our Services
+            VLAN inteface IP assignment.
+          </p>
           <ToggleImage params={images["10"]}></ToggleImage>
         </div>
         {/* Users VLAN Interface */}
@@ -627,7 +647,13 @@ function PfSense() {
             Interfaces <span className="text-accent">{">"}</span> VLAN_USERS
             (igc1.20)
           </div>
-          <p>VLAN 20 - Users VLAN - Interface</p>
+          <p>
+            VLAN 20 is our users VLAN so we'll definitely want to enable this
+            VLAN interface. We've reserved 192.168.20.0/24 for the users VLAN.
+            Therefore, we'll assign the Users VLAN (VLAN 20's) virtual interface
+            an IP address of 192.168.20.1. Not much else to configure here, so,
+            we'll save our changes and continue.
+          </p>
           <ToggleImage params={images["9"]}></ToggleImage>
         </div>
         {/* Storage VLAN Interface */}
@@ -644,7 +670,12 @@ function PfSense() {
             Interfaces <span className="text-accent">{">"}</span> VLAN_STORAGE
             (igc1.30)
           </div>
-          <p>VLAN 30 - Storage VLAN - Interface</p>
+          <p>
+            Similar configuration for our Storage VLAN, VLAN 30. We'll use
+            192.168.30.0/24 for our IP addressing scheme for this VLAN and we'll
+            assing this VLAN interface on our pfSense Netgate appliance an IP
+            address of 192.168.30.1.
+          </p>
           <ToggleImage params={images["11"]}></ToggleImage>
         </div>
         {/* Management VLAN Interface */}
@@ -661,7 +692,12 @@ function PfSense() {
             Interfaces <span className="text-accent">{">"}</span>{" "}
             VLAN_MANAGEMENT (igc1.40)
           </div>
-          <p>VLAN 40 - Management VLAN - Interface</p>
+          <p>
+            And, as you could have guessed, we'll be configuring our management
+            VLAN, VLAN 40, as we have the others. The subnet we'll reserve is
+            192.168.40.0/24 and we'll give this VLAN interface a predictable IP
+            address of 192.168.40.1.
+          </p>
           <ToggleImage params={images["12"]}></ToggleImage>
         </div>
         {/* Divider */}
