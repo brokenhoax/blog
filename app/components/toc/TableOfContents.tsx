@@ -62,6 +62,11 @@ function TableOfContents({ params }) {
         </div>
         {/* Table of Contents */}
         <ol className={`orderedList ${styles.toc}`}>
+          <li key="0" className="hover:text-accent">
+            <Link href="/pages/pfsense#choose-your-hardware">
+              Choose Your Hardware
+            </Link>
+          </li>
           <li key="1" className="hover:text-accent">
             <Link href="/pages/pfsense#update-default-password">
               Update the Default Password
@@ -141,67 +146,76 @@ function TableOfContents({ params }) {
               NAT for DNS Resolver
             </Link>
           </li>
-          {/* Configuring Physical Interface Firewall Rules */}
           <li key="16" className="hover:text-accent">
+            <Link href="/pages/pfsense#configure-dns-resolver">
+              Configure DNS Resolver
+            </Link>
+          </li>
+          {/* Configuring Physical Interface Firewall Rules */}
+          <li key="17" className="hover:text-accent">
             <Link href="/pages/pfsense#configuring-physical-interface-firewall-rules">
               Configuring Physical Interface Firewall Rules
             </Link>
           </li>
           <ol className="secondOrderedList">
-            <li key="17" className="hover:text-accent">
+            <li key="18" className="hover:text-accent">
               <Link href="/pages/pfsense#port1wan-rules">
                 Port 1 (igc3) — Firewall Rules
               </Link>
             </li>
-            <li key="18" className="hover:text-accent">
+            <li key="19" className="hover:text-accent">
               <Link href="/pages/pfsense#port2lan-rules">
                 Port 2 (igc2) — Firewall Rules
               </Link>
             </li>
-            <li key="19" className="hover:text-accent">
+            <li key="20" className="hover:text-accent">
               <Link href="/pages/pfsense#port3-rules">
                 Port 3 (igc1) — Firewall Rules
               </Link>
             </li>
-            <li key="20" className="hover:text-accent">
+            <li key="21" className="hover:text-accent">
               <Link href="/pages/pfsense#port4-rules">
                 Port 4 (igc0) — Firewall Rules
               </Link>
             </li>
           </ol>
           {/* Configuring Virtual Interface Firewall Rules */}
-          <li key="21" className="hover:text-accent">
+          <li key="22" className="hover:text-accent">
             <Link href="/pages/pfsense#configuring-virtual-interface-firewall-rules">
               Configuring Virtual Interface Firewall Rules
             </Link>
           </li>
           <ol className="secondOrderedList">
-            <li key="22" className="hover:text-accent">
+            <li key="23" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-default-rules">
                 VLAN 1 — Default VLAN — Firewall Rules
               </Link>
             </li>
-            <li key="23" className="hover:text-accent">
+            <li key="24" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-services-rules">
                 VLAN 10 — Services VLAN — Firewall Rules
               </Link>
             </li>
-            <li key="24" className="hover:text-accent">
+            <li key="25" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-users-rules">
                 VLAN 20 — Users VLAN — Firewall Rules
               </Link>
             </li>
-            <li key="25" className="hover:text-accent">
+            <li key="26" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-storage-rules">
                 VLAN 30 — Storage VLAN — Firewall Rules
               </Link>
             </li>
-            <li key="26" className="hover:text-accent">
+            <li key="27" className="hover:text-accent">
               <Link href="/pages/pfsense#vlan-management-rules">
                 VLAN 40 — Management VLAN — Firewall Rules
               </Link>
             </li>
           </ol>
+          {/* Conclusion */}
+          <li key="28" className="hover:text-accent">
+            <Link href="/pages/pfsense#conclusion">Conclusion</Link>
+          </li>
         </ol>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
