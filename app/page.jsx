@@ -33,10 +33,10 @@ function Home() {
       },
       icon: "fas fa-mug-hot",
       mugs: 4,
-      tagline: "More than just a firewall.",
+      tagline: "The head of your home lab.",
       path: "/pages/pfsense",
-      imagePath: "/images/blue-flame.jpg",
-      imageAltText: "Comic book characters",
+      imagePath: "/images/fire.jpg",
+      imageAltText: "Flame",
     },
     {
       id: "3",
@@ -51,7 +51,7 @@ function Home() {
       tagline: "Building a home lab? Let's gear up.",
       path: "/pages/lab-components",
       imagePath: "/images/sparkle.jpg",
-      imageAltText: "Lab beaker",
+      imageAltText: "Sparkle",
     },
     {
       id: "2",
@@ -65,8 +65,8 @@ function Home() {
       mugs: 2,
       tagline: "Publish your app with GitHub Pages.",
       path: "/pages/ready-set-go",
-      imagePath: "/images/fire.jpg",
-      imageAltText: "Code wallpaper",
+      imagePath: "/images/code.jpg",
+      imageAltText: "Code",
     },
     {
       id: "1",
@@ -81,7 +81,7 @@ function Home() {
       tagline: "Create a slider in Figma.",
       path: "/pages/figma-slider",
       imagePath: "/images/spring.jpg",
-      imageAltText: "Comic book characters",
+      imageAltText: "Spring",
     },
   ];
 

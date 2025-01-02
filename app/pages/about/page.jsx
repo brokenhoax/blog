@@ -171,12 +171,11 @@ function About() {
           and learn a lot of valuable skills along the way. Kraus Cloud was
           built using technologies including Next.js (React), NodeJS,
           TailwindCSS, pfSense, Proxmox, Red Hat, and Nginx to name a few. Also,
-          and perhaps it goes without mentioning, a lot of coffee and late
-          nights.
+          and perhaps it goes without saying, a lot of coffee and late nights.
         </p>
         <p>
           If you'd like to connect professionally, please reach out using the
-          link provided below but, if you're just here out of curiousity, be
+          link provided below and, if you're just here out of curiousity, be
           sure to check out{" "}
           <Link href="/" target="_blank" className="text-accent">
             our latest blogs
