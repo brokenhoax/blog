@@ -73,6 +73,7 @@ function ToggleImage({ params }) {
             sizes={params.sizes}
             style={params.style}
             alt={params.imageAltText}
+            quality={100}
             decoding="sync"
           ></Image>
           <Modal
