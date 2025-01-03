@@ -25,6 +25,7 @@ function LabContents() {
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
   ];
   const toc = (
