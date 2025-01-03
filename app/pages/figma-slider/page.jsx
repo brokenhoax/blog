@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
+import TableOfContents from "../../components/toc/TableOfContents";
 
 function FigmaSlider() {
   const images = [
@@ -68,16 +69,49 @@ function FigmaSlider() {
       style: { width: "100%", height: "auto" },
     },
   ];
+  const toc = (
+    <ol className="orderedList">
+      <li className="hover:text-accent">
+        <Link scroll={true} href="/pages/figma-slider#components-and-variants">
+          Components and Variants
+        </Link>
+      </li>
+      <li className="hover:text-accent">
+        <Link scroll={true} href="/pages/figma-slider#slider-handle">
+          Slider Handle
+        </Link>
+      </li>
+      <li className="hover:text-accent">
+        <Link scroll={true} href="/pages/figma-slider#slider-bar">
+          Slider Bar
+        </Link>
+      </li>
+      <li className="hover:text-accent">
+        <Link scroll={true} href="/pages/figma-slider#interactions">
+          Interactions
+        </Link>
+      </li>
+      <li className="hover:text-accent">
+        <Link scroll={true} href="/pages/figma-slider#constraints">
+          Constraints
+        </Link>
+      </li>
+    </ol>
+  );
   return (
     <section className="section motion-preset-focus">
       {/* Title */}
       <h1 id="top" className="text-accent">
         Figma Slider
       </h1>
-      <h2>Create a slider in Figma</h2>
-      <p className="dateStamp text-accent">June 8th, 2022</p>
-      {/* Divider */}
-      <div className="divider border-b border-accent"></div>
+      {/* Subtitle */}
+      <div>
+        <h2>Create a slider in Figma</h2>
+        <p className="dateStamp text-accent">June 8th, 2022</p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
+      </div>
+      {/* Headline */}
       <div className="headlineWrapper">
         <p className="headline">
           I'm working on a mockup for a new feature at work and I've been asked
@@ -90,44 +124,8 @@ function FigmaSlider() {
       </div>
       {/* Slider Image */}
       <ToggleImage params={images["0"]}></ToggleImage>
-      {/* Divider */}
-      <div className="divider border-b border-accent"></div>
       {/* Table of Contents */}
-      <div>
-        <h3 className="text-accent">Table of Contents</h3>
-        <ol className="orderedList">
-          <li className="hover:text-accent">
-            <Link
-              scroll={true}
-              href="/pages/figma-slider#components-and-variants"
-            >
-              Components and Variants
-            </Link>
-          </li>
-          <li className="hover:text-accent">
-            <Link scroll={true} href="/pages/figma-slider#slider-handle">
-              Slider Handle
-            </Link>
-          </li>
-          <li className="hover:text-accent">
-            <Link scroll={true} href="/pages/figma-slider#slider-bar">
-              Slider Bar
-            </Link>
-          </li>
-          <li className="hover:text-accent">
-            <Link scroll={true} href="/pages/figma-slider#interactions">
-              Interactions
-            </Link>
-          </li>
-          <li className="hover:text-accent">
-            <Link scroll={true} href="/pages/figma-slider#constraints">
-              Constraints
-            </Link>
-          </li>
-        </ol>
-        {/* Divider */}
-        <div className="divider border-b border-accent"></div>
-      </div>
+      <TableOfContents params={toc}></TableOfContents>
       {/* Components and Variants */}
       <div>
         <h3 id="components-and-variants" className="text-accent">
@@ -160,32 +158,38 @@ function FigmaSlider() {
           slider, let's give it a home to live within Figma. Let's create a new
           frame and call it “slider”.
         </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Slider Handle */}
-      <h3 id="slider-handle" className="text-accent">
-        Slider Handle{" "}
-        <span className="">
-          {" "}
-          <Link href="/pages/figma-slider#title">#</Link>
-        </span>
-      </h3>
-      <p>
-        Now that we know what we're building and where it should live, let's
-        work on the first piece of our slider—the slider handle:
-      </p>
-      {/* Slider Handle Image */}
-      <ToggleImage params={images["1"]}></ToggleImage>
-      <p>
-        Our handle will be a simple circle shape handle consisting of two
-        circles: a big, outer circle and a smaller, inner circle for added
-        style. We'll kick things off in Figma by creating a circle shape with a
-        width and height of 32 x 32 pixels and a color of dark blue. Our inner
-        circle will be white with a measurement of 16 x 16 pixels. We'll place
-        the inner circle directly in the center of the larger circle and we'll
-        frame them together by selecting both and clicking “Frame Selection”.
-        Let's name that frame “handle”, drag it into our “slider” frame, and we
-        can move on to adding our slider bar.
-      </p>
+      <div>
+        <h3 id="slider-handle" className="text-accent">
+          Slider Handle{" "}
+          <span className="">
+            {" "}
+            <Link href="/pages/figma-slider#title">#</Link>
+          </span>
+        </h3>
+        <p>
+          Now that we know what we're building and where it should live, let's
+          work on the first piece of our slider—the slider handle:
+        </p>
+        {/* Slider Handle Image */}
+        <ToggleImage params={images["1"]}></ToggleImage>
+        <p>
+          Our handle will be a simple circle shape handle consisting of two
+          circles: a big, outer circle and a smaller, inner circle for added
+          style. We'll kick things off in Figma by creating a circle shape with
+          a width and height of 32 x 32 pixels and a color of dark blue. Our
+          inner circle will be white with a measurement of 16 x 16 pixels. We'll
+          place the inner circle directly in the center of the larger circle and
+          we'll frame them together by selecting both and clicking “Frame
+          Selection”. Let's name that frame “handle”, drag it into our “slider”
+          frame, and we can move on to adding our slider bar.
+        </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
+      </div>
       {/* Slider Bar */}
       <div className="space-y-4">
         <h3 id="slider-bar" className="text-accent">
@@ -233,6 +237,8 @@ function FigmaSlider() {
           respective states. Don't forget to add two slider bars for our “half”
           state!
         </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Interactions */}
       <div className="space-y-4">
@@ -275,6 +281,8 @@ function FigmaSlider() {
           increments of .10 ranging from 0 to 1. For the purposes of this
           tutorial, we'll keep things simple.
         </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Constraints */}
       <div>

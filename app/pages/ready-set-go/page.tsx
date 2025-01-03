@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
+import TableOfContents from "../../components/toc/TableOfContents";
 
 function ReadySetGo() {
   const htmlContent: string[] = [
@@ -42,6 +43,46 @@ function ReadySetGo() {
   `,
   ];
 
+  const toc = (
+    <ol className="orderedList">
+      <li key="1" className="hover:text-accent">
+        <Link href="/pages/ready-set-go#register">Create a GitHub Account</Link>
+      </li>
+      <li key="2" className="hover:text-accent">
+        <Link className="listItem" href="/pages/ready-set-go#create">
+          Create a GitHub Repository
+        </Link>
+      </li>
+      <li key="3" className="hover:text-accent">
+        <Link className="listItem" href="/pages/ready-set-go#clone">
+          Clone Your GitHub Repository
+        </Link>
+      </li>
+      <li key="4" className="hover:text-accent">
+        <Link className="listItem" href="/pages/ready-set-go#push">
+          Push Your Code to GitHub
+        </Link>
+      </li>
+      <li key="5" className="hover:text-accent">
+        <Link className="listItem" href="/pages/ready-set-go#build">
+          Create a Production Build
+        </Link>
+      </li>
+      <li key="6" className="hover:text-accent">
+        {" "}
+        <Link className="listItem" href="/pages/ready-set-go#publish">
+          Publish Your App to GitHub Pages
+        </Link>
+      </li>
+      <li key="7" className="hover:text-accent">
+        {" "}
+        <Link className="listItem" href="/pages/ready-set-go#deploy">
+          Deploy Your Build to GitHub Pages
+        </Link>
+      </li>
+    </ol>
+  );
+
   return (
     <section className="section motion-preset-focus">
       {/* Title */}
@@ -72,53 +113,8 @@ function ReadySetGo() {
           to publish your app to the web.
         </p>
       </div>
-      {/* Divider */}
-      <div className="divider border-b border-accent"></div>
       {/* Table of Contents */}
-      <div>
-        <h3 className="text-accent">Table of Contents</h3>
-        <ol className="orderedList">
-          <li key="1" className="hover:text-accent">
-            <Link href="/pages/ready-set-go#register">
-              Create a GitHub Account
-            </Link>
-          </li>
-          <li key="2" className="hover:text-accent">
-            <Link className="listItem" href="/pages/ready-set-go#create">
-              Create a GitHub Repository
-            </Link>
-          </li>
-          <li key="3" className="hover:text-accent">
-            <Link className="listItem" href="/pages/ready-set-go#clone">
-              Clone Your GitHub Repository
-            </Link>
-          </li>
-          <li key="4" className="hover:text-accent">
-            <Link className="listItem" href="/pages/ready-set-go#push">
-              Push Your Code to GitHub
-            </Link>
-          </li>
-          <li key="5" className="hover:text-accent">
-            <Link className="listItem" href="/pages/ready-set-go#build">
-              Create a Production Build
-            </Link>
-          </li>
-          <li key="6" className="hover:text-accent">
-            {" "}
-            <Link className="listItem" href="/pages/ready-set-go#publish">
-              Publish Your App to GitHub Pages
-            </Link>
-          </li>
-          <li key="7" className="hover:text-accent">
-            {" "}
-            <Link className="listItem" href="/pages/ready-set-go#deploy">
-              Deploy Your Build to GitHub Pages
-            </Link>
-          </li>
-        </ol>
-      </div>
-      {/* Divider */}
-      <div className="divider border-b border-accent"></div>
+      <TableOfContents params={toc}></TableOfContents>
       {/* Create a GitHub Account */}
       <div>
         <h3 id="register" className="text-accent">
@@ -143,6 +139,8 @@ function ReadySetGo() {
           </span>
           and follow the steps to set up an account.
         </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Create a GitHub Repository */}
       <div>
@@ -168,6 +166,8 @@ function ReadySetGo() {
           to save a few keyboard strokes. Give your repository a name and set it
           to "public". No need to bother with any of the other settings for now.
         </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Clone Your GitHub Repository */}
       <div>
@@ -201,6 +201,8 @@ function ReadySetGo() {
         </p>
         {/* Code Snippet */}
         <CodeBlock props={htmlContent[0]} type="bash"></CodeBlock>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Push Your Code to GitHub */}
       <div>
@@ -229,6 +231,8 @@ function ReadySetGo() {
         </p>
         {/* Code Snippet */}
         <CodeBlock props={htmlContent[1]} type="bash"></CodeBlock>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Create a Production Build */}
       <div>
@@ -249,6 +253,8 @@ function ReadySetGo() {
         </p>
         {/* Code Snippet */}
         <CodeBlock props={htmlContent[2]} type="bash"></CodeBlock>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Publish Your App to GitHub Pages */}
       <div>
@@ -278,6 +284,8 @@ function ReadySetGo() {
           a branch from the "Branch" dropdown which will be used to build your
           application.
         </p>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
       </div>
       {/* Deploy Your Build to GitHub Pages */}
       <div>

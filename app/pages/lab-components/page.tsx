@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
+import TableOfContents from "../../components/toc/TableOfContents";
 
 function LabContents() {
   const htmlContent: string[] = [
@@ -26,6 +27,28 @@ function LabContents() {
       style: { width: "100%", height: "auto" },
     },
   ];
+  const toc = (
+    <ol className="orderedList">
+      <li key="1" className="hover:text-accent">
+        <Link href="/pages/lab-components#hardware-used">Hardware Used</Link>
+      </li>
+      <li key="2" className="hover:text-accent">
+        <Link href="/pages/lab-components#software-used">Software Used</Link>
+      </li>
+      <li key="3" className="hover:text-accent">
+        <Link href="/pages/lab-components#services-used">Services Used</Link>
+      </li>
+      <li key="4" className="hover:text-accent">
+        <Link href="/pages/lab-components#static-ips">Static IPs</Link>
+      </li>
+      <li key="5" className="hover:text-accent">
+        <Link href="/pages/lab-components#network-diagram">
+          Network Diagram
+        </Link>
+      </li>
+    </ol>
+  );
+
   return (
     <div>
       <section className="section motion-preset-focus">
@@ -61,38 +84,9 @@ function LabContents() {
             zone with our dynamic private IP address.
           </p>
         </div>
-        {/* Divider */}
-        <div className="divider border-b border-accent"></div>
         {/* Table of Contents */}
         <div>
-          <h3 className="text-accent">Table of Contents</h3>
-          <ol className="orderedList">
-            <li key="1" className="hover:text-accent">
-              <Link href="/pages/lab-components#hardware-used">
-                Hardware Used
-              </Link>
-            </li>
-            <li key="2" className="hover:text-accent">
-              <Link href="/pages/lab-components#software-used">
-                Software Used
-              </Link>
-            </li>
-            <li key="3" className="hover:text-accent">
-              <Link href="/pages/lab-components#services-used">
-                Services Used
-              </Link>
-            </li>
-            <li key="4" className="hover:text-accent">
-              <Link href="/pages/lab-components#static-ips">Static IPs</Link>
-            </li>
-            <li key="5" className="hover:text-accent">
-              <Link href="/pages/lab-components#network-diagram">
-                Network Diagram
-              </Link>
-            </li>
-          </ol>
-          {/* Divider */}
-          <div className="divider border-b border-accent"></div>
+          <TableOfContents params={toc}></TableOfContents>
         </div>
         {/* Hardware Used */}
         <div>
@@ -124,6 +118,8 @@ function LabContents() {
             <li>8GB+ USB Flash Drive</li>
           </ul>
         </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* Software Used */}
         <div>
           <div>
@@ -155,6 +151,8 @@ function LabContents() {
             <li>Nginx </li>
           </ul>
         </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* Services Used */}
         <div>
           <div>
@@ -184,6 +182,8 @@ function LabContents() {
             <li>Zscaler Internet Access</li>
           </ul>
         </div>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* Static IPs */}
         <div>
           <div>
@@ -203,6 +203,8 @@ function LabContents() {
           </div>
           {/* Code Snippet */}
           <CodeBlock props={htmlContent[0]} type="JSON"></CodeBlock>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
         </div>
         {/* Network Diagram */}
         <div>
