@@ -75,6 +75,8 @@ function ToggleImage({ params }) {
             alt={params.imageAltText}
             quality={100}
             decoding="sync"
+            loading="eager"
+            priority={params.priority}
           ></Image>
           <Modal
             isOpen={isOpen}
@@ -107,6 +109,8 @@ function ToggleImage({ params }) {
                       style={params.style}
                       alt={params.imageAltText}
                       decoding="sync"
+                      priority={params.priority}
+                      loading="eager"
                     ></Image>
                   </ModalBody>
                   <ModalFooter></ModalFooter>

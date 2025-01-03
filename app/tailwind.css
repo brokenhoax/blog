@@ -1197,10 +1197,6 @@ video {
   top: var(--navbar-height);
 }
 
-.isolate {
-  isolation: isolate;
-}
-
 .-z-30 {
   z-index: -30;
 }
@@ -4426,7 +4422,7 @@ h3 {
 h4 {
   font-size: 24px;
   font-weight: 600;
-  padding: 1rem 0.5rem 0.5rem 0rem;
+  padding: 2rem 0rem 0.5rem 0rem;
 }
 
 p {

@@ -32,6 +32,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "2",
@@ -41,6 +42,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "3",
@@ -50,6 +52,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "4",
@@ -59,6 +62,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "5",
@@ -69,6 +73,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "6",
@@ -78,6 +83,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "7",
@@ -87,6 +93,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "8",
@@ -96,6 +103,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "9",
@@ -105,6 +113,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "10",
@@ -114,6 +123,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "11",
@@ -123,6 +133,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "12",
@@ -132,6 +143,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "13",
@@ -141,6 +153,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "14",
@@ -150,6 +163,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "15",
@@ -159,6 +173,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "16",
@@ -168,6 +183,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "17",
@@ -177,6 +193,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "18",
@@ -186,6 +203,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "19",
@@ -195,6 +213,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "20",
@@ -204,6 +223,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "21",
@@ -213,6 +233,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "22",
@@ -222,6 +243,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "23",
@@ -231,6 +253,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "24",
@@ -240,6 +263,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "25",
@@ -249,6 +273,7 @@ function PfSense() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
   ];
 

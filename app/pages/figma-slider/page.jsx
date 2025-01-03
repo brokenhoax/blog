@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import TableOfContents from "../../components/toc/TableOfContents";
@@ -13,24 +14,27 @@ function FigmaSlider() {
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "2",
-      imagePath: "/images/slider_bar.png",
-      imageAltText: "Figma slider bar",
+      imagePath: "/images/slider_handle.png",
+      imageAltText: "Figma slider handle",
       width: 0,
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "3",
-      imagePath: "/images/interactions.png",
-      imageAltText: "Figma slider interactions",
+      imagePath: "/images/slider_bar.png",
+      imageAltText: "Slider bar",
       width: 0,
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "4",
@@ -40,6 +44,7 @@ function FigmaSlider() {
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "5",
@@ -49,6 +54,7 @@ function FigmaSlider() {
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "6",
@@ -58,6 +64,7 @@ function FigmaSlider() {
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
     },
     {
       id: "7",
@@ -67,6 +74,27 @@ function FigmaSlider() {
       height: 0,
       sizes: "33vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "7",
+      imagePath: "/images/slider_mov.gif",
+      imageAltText: "Range slider in action",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "7",
+      imagePath: "/images/constraints.png",
+      imageAltText: "Constraints close up",
+      width: 0,
+      height: 0,
+      sizes: "33vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
     },
   ];
   const toc = (
@@ -114,16 +142,28 @@ function FigmaSlider() {
       {/* Headline */}
       <div className="headlineWrapper">
         <p className="headline">
-          I'm working on a mockup for a new feature at work and I've been asked
-          to include a slider that allows a user to change "synonym sensitivity"
-          on a scale from zero to one. I figured building a slider in Figma
-          would be a worthy challenge and one worth sharing. What's more, this
-          tutorial will expose you to the Figma concepts of components/variants,
-          constraints, interactions, and basic styling. Let's jump in!
+          I'm building a mockup in Figma for a new feature at work and I've been
+          asked to include a range slider that allows a user to change "synonym
+          sensitivity" on a scale from 1 to 100. I figured building a slider in
+          Figma would be a worthy challenge and one worth sharing. What's more,
+          this tutorial will expose you to highly useful Figma concepts such as
+          components/variants, constraints, interactions, and basic styling.
+          Let's jump in!
         </p>
       </div>
       {/* Slider Image */}
-      <ToggleImage params={images["0"]}></ToggleImage>
+      <Image
+        src={images[7].imagePath}
+        width={images[7].width}
+        height={images[7].height}
+        sizes={images[7].sizes}
+        style={images[7].style}
+        alt={images[7].imageAltText}
+        quality={100}
+        decoding="sync"
+        loading="eager"
+        priority={images[6].priority}
+      ></Image>
       {/* Table of Contents */}
       <TableOfContents params={toc}></TableOfContents>
       {/* Components and Variants */}
@@ -138,14 +178,15 @@ function FigmaSlider() {
           </span>
         </h3>
         <p>
-          If you think about where you've encountered a slider on the web, you
-          might recall that a typical slider consists of three parts: a handle,
-          a bar, and some scale indicators. Most sliders increment in single
-          digits or, at the most, no more than two decimal points, but to build
-          out such a granular slider in Figma wouldn't be practical because,
-          well, we don't build apps in Figma we build prototypes of apps (which
-          means they don't have to be perfect representations of the real
-          thing).
+          If you think about where you've encountered a slider in a user
+          interface, you might agree that a typical slider consists of three
+          parts: a handle, a bar upon which the handle slides, and some scale
+          indicator that increments and decrements as you adjust the slider.
+          Most sliders increment in single digits or, at the most, no more than
+          two decimal points, but to build out such a granular slider in Figma
+          wouldn't be practical. Luckily, we don't build apps in Figma we build
+          prototypes of apps (which means they don't have to be perfect
+          representations of the real thing).
         </p>
         <p>
           That said, we'll be building three sliders in this tutorial in order
@@ -155,8 +196,8 @@ function FigmaSlider() {
           and the third at full scale (1). We'll create a slider “Component”
           which has three “Variants” each representing one of our three slider
           states of “zero”, “half”, and “full”. Before we start building our
-          slider, let's give it a home to live within Figma. Let's create a new
-          frame and call it “slider”.
+          slider, let's give it a home to live in within Figma. Let's create a
+          new frame and call it “slider”.
         </p>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
@@ -316,6 +357,7 @@ function FigmaSlider() {
           object. Furthermore, the outer circle's parent object is the frame
           that it lives within.
         </p>
+        <ToggleImage params={images["8"]}></ToggleImage>
         <p>
           That said, for our empty state, our slider bar will have its
           horizontal constraint set to “left and right” and a vertical

@@ -37,6 +37,7 @@ function Home() {
       path: "/pages/pfsense",
       imagePath: "/images/fire.jpg",
       imageAltText: "Flame",
+      priority: true,
     },
     {
       id: "3",
@@ -52,6 +53,7 @@ function Home() {
       path: "/pages/lab-components",
       imagePath: "/images/sparkle.jpg",
       imageAltText: "Sparkle",
+      priority: true,
     },
     {
       id: "2",
@@ -67,6 +69,7 @@ function Home() {
       path: "/pages/ready-set-go",
       imagePath: "/images/code.jpg",
       imageAltText: "Code",
+      priority: true,
     },
     {
       id: "1",
@@ -78,10 +81,11 @@ function Home() {
       },
       icon: "fas fa-mug-hot",
       mugs: 3,
-      tagline: "Create a slider in Figma.",
+      tagline: "Create a range slider in Figma.",
       path: "/pages/figma-slider",
       imagePath: "/images/spring.jpg",
       imageAltText: "Spring",
+      priority: true,
     },
   ];
 

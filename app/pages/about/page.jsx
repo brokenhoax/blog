@@ -16,6 +16,7 @@ const headshot = {
   width: "3024",
   height: "4032",
   style: { width: "33%", height: "auto" },
+  priority: true,
 };
 
 function About() {
