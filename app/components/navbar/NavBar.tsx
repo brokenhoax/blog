@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 import {
   faBars,
@@ -14,6 +15,7 @@ import styles from "./NavBar.module.css";
 
 function NavBar() {
   // const toggle = true;
+  const pathname = usePathname();
   const [toggle, setToggle] = useState<boolean>(false);
   const navLinks = [
     {
@@ -85,7 +87,9 @@ function NavBar() {
                       <FontAwesomeIcon
                         icon={link.awesomeIcon}
                         size="lg"
-                        className={`${styles.navMenuIcon}`}
+                        className={`${styles.navMenuIcon} ${
+                          pathname === link.path ? "opacity-100" : ""
+                        }`}
                       />
                     </Link>
                   </li>
