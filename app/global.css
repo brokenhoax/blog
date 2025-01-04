@@ -105,6 +105,10 @@ ul {
   border-radius: 50%;
 }
 
+.imageWrapper {
+  padding-top: 0.5rem;
+}
+
 .contact {
   margin-left: 1rem;
   font-weight: 600;

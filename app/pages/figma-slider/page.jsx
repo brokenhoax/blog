@@ -152,18 +152,20 @@ function FigmaSlider() {
         </p>
       </div>
       {/* Slider Image */}
-      <Image
-        src={images[7].imagePath}
-        width={images[7].width}
-        height={images[7].height}
-        sizes={images[7].sizes}
-        style={images[7].style}
-        alt={images[7].imageAltText}
-        quality={100}
-        decoding="sync"
-        loading="eager"
-        priority={images[6].priority}
-      ></Image>
+      <div className="imageWrapper">
+        <Image
+          src={images[7].imagePath}
+          width={images[7].width}
+          height={images[7].height}
+          sizes={images[7].sizes}
+          style={images[7].style}
+          alt={images[7].imageAltText}
+          quality={100}
+          decoding="sync"
+          loading="eager"
+          priority={images[6].priority}
+        ></Image>
+      </div>
       {/* Table of Contents */}
       <TableOfContents params={toc}></TableOfContents>
       {/* Components and Variants */}
