@@ -230,7 +230,7 @@ function FigmaSlider() {
         <div className="divider border-b border-accent"></div>
       </div>
       {/* Slider Bar */}
-      <div className="space-y-4">
+      <div>
         <h3 id="slider-bar" className="text-accent">
           Slider Bar
           <span>
@@ -281,7 +281,7 @@ function FigmaSlider() {
         <div className="divider border-b border-accent"></div>
       </div>
       {/* Interactions */}
-      <div className="space-y-4">
+      <div>
         <h3 id="interactions" className="text-accent">
           Interactions{" "}
           <span>
