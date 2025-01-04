@@ -126,19 +126,23 @@ function About() {
           Kraus Cloud is an educational tech blog designed for readers. It
           explores topics such as home labs, web development, web design, user
           experience, cybersecurity, networking, linux, and other similar
-          subjects. Our content is written to be approachable and practical, so
-          if you're interested in gaining hands-on experience with any of these
+          subjects. Our content is written to be approachable and practical. If
+          you're interested in gaining hands-on experience with any of these
           topics, no matter what your skill level, then you've come to the right
           place.
         </p>
+      </div>
+      {/* Divider */}
+      <div className="divider border-b border-accent"></div>
+      <div className={`${styles.disclaimer}`}>
         <Callout
           icon={faBullhorn}
-          text={`You'll need to know the very basics of Bash, JavaScript, HTML
-          and CSS, but I will link to supporting documentation when I reference
-          technologies, concepts, etc., that I feel might not be fairly common
-          knowledge. So, if you don't have any exposure to coding, don't sweat
-          it. You'll be able to copy/paste and Google/YouTube your way through
-          any project shared here.`}
+          text={`It would help to know the very basics of Bash, JavaScript, HTML
+            and CSS, but I will link to supporting documentation when I reference
+            technologies, concepts, etc., that I feel might not be fairly common
+            knowledge. If you don't have any exposure to coding, don't sweat
+            it. You'll be able to copy/paste and Google/YouTube your way through
+            any project shared here.`}
         ></Callout>
       </div>
       {/* Divider */}
