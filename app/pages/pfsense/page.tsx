@@ -465,7 +465,7 @@ function PfSense() {
           <h3 id="choose-your-hardware" className="text-accent">
             Choose Your Hardware
             <span>
-              <Link scroll={true} href="/pages/pfsense#top" className="link">
+              <Link scroll={true} href="/pages/pfsense#top">
                 <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
@@ -491,7 +491,7 @@ function PfSense() {
           <h3 id="update-default-password" className="text-accent">
             Update the Default Password
             <span>
-              <Link scroll={true} href="/pages/pfsense#top" className="link">
+              <Link scroll={true} href="/pages/pfsense#top">
                 <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
@@ -537,7 +537,7 @@ function PfSense() {
           <h3 id="configuring-physical-interfaces" className="text-accent">
             Configuring Physical Interfaces
             <span>
-              <Link scroll={true} href="/pages/pfsense#top" className="link">
+              <Link scroll={true} href="/pages/pfsense#top">
                 <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>

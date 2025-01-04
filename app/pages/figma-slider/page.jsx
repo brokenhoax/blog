@@ -169,11 +169,10 @@ function FigmaSlider() {
       {/* Components and Variants */}
       <div>
         <h3 id="components-and-variants" className="text-accent">
-          Components and Variants{" "}
+          Components and Variants
           <span>
-            {" "}
             <Link scroll={true} href="/pages/figma-slider#title">
-              #
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </span>
         </h3>
@@ -205,11 +204,10 @@ function FigmaSlider() {
       {/* Slider Handle */}
       <div>
         <h3 id="slider-handle" className="text-accent">
-          Slider Handle{" "}
-          <span className="">
-            {" "}
-            <Link href="/pages/figma-slider#title">#</Link>
-          </span>
+          Slider Handle
+          <Link scroll={true} href="/pages/figma-slider#title">
+            <span className={`topScroller text-subtle`}>#</span>
+          </Link>
         </h3>
         <p>
           Now that we know what we're building and where it should live, let's
@@ -234,10 +232,11 @@ function FigmaSlider() {
       {/* Slider Bar */}
       <div className="space-y-4">
         <h3 id="slider-bar" className="text-accent">
-          Slider Bar{" "}
+          Slider Bar
           <span>
-            {" "}
-            <Link href="/pages/figma-slider#title">#</Link>
+            <Link scroll={true} href="/pages/figma-slider#title">
+              <span className={`topScroller text-subtle`}>#</span>
+            </Link>
           </span>
         </h3>
         <ToggleImage params={images["2"]}></ToggleImage>
@@ -286,8 +285,9 @@ function FigmaSlider() {
         <h3 id="interactions" className="text-accent">
           Interactions{" "}
           <span>
-            {" "}
-            <Link href="/pages/figma-slider#title">#</Link>
+            <Link scroll={true} href="/pages/figma-slider#title">
+              <span className={`topScroller text-subtle`}>#</span>
+            </Link>
           </span>
         </h3>
         <ToggleImage params={images["3"]}></ToggleImage>
@@ -328,11 +328,10 @@ function FigmaSlider() {
       {/* Constraints */}
       <div>
         <h3 id="constraints" className="text-accent">
-          Constraints{" "}
-          <span>
-            {" "}
-            <Link href="/pages/figma-slider#title">#</Link>
-          </span>
+          Constraints
+          <Link scroll={true} href="/pages/figma-slider#title">
+            <span className={`topScroller text-subtle`}>#</span>
+          </Link>
         </h3>
         <p>
           Our sliders look really good but there's a few problems we haven't

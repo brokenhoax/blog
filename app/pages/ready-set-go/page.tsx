@@ -101,7 +101,7 @@ function ReadySetGo() {
             {" "}
             <a
               href="https://create-react-app.dev/docs/getting-started"
-              className="link"
+              className="text-accent"
               target="_blank"
             >
               create-react-app
@@ -120,9 +120,8 @@ function ReadySetGo() {
         <h3 id="register" className="text-accent">
           Create a GitHub Account
           <span>
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </span>
         </h3>
@@ -133,7 +132,7 @@ function ReadySetGo() {
           store in GitHub. Let's sign up at{""}
           <span>
             {" "}
-            <a href="https://github.com/signup" className="link">
+            <a href="https://github.com/signup" className="text-accent">
               GitHub Signup
             </a>{" "}
           </span>
@@ -147,9 +146,8 @@ function ReadySetGo() {
         <div>
           <h3 id="create" className="text-accent">
             Create a GitHub Repository
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </h3>
         </div>
@@ -159,7 +157,7 @@ function ReadySetGo() {
           repository or
           <span>
             {" "}
-            <a href="https://github.com/new" className="link">
+            <a href="https://github.com/new" className="text-accent">
               click here
             </a>{" "}
           </span>
@@ -174,9 +172,8 @@ function ReadySetGo() {
         <div>
           <h3 id="clone" className="text-accent">
             Clone Your GitHub Repository
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </h3>
         </div>
@@ -194,7 +191,7 @@ function ReadySetGo() {
           using all of the wonderful capabilities provided by a version control
           system known as git. To learn more about git, check out their{" "}
           <span>
-            <a href="https://git-scm.com/" className="link">
+            <a href="https://git-scm.com/" className="text-accent">
               documentation.
             </a>
           </span>{" "}
@@ -209,9 +206,8 @@ function ReadySetGo() {
         <div>
           <h3 id="push" className="text-accent">
             Push Your Code to GitHub
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </h3>
         </div>
@@ -219,7 +215,7 @@ function ReadySetGo() {
           Refer to the{" "}
           <a
             href="https://create-react-app.dev/docs/getting-started"
-            className="link"
+            className="text-accent"
           >
             Create React App
           </a>{" "}
@@ -239,9 +235,8 @@ function ReadySetGo() {
         <div>
           <h3 id="build" className="text-accent">
             Create a Production Build
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </h3>
         </div>
@@ -261,9 +256,8 @@ function ReadySetGo() {
         <div>
           <h3 id="publish" className="text-accent">
             Publish Your App to GitHub Pages
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </h3>
         </div>
@@ -292,9 +286,8 @@ function ReadySetGo() {
         <div>
           <h3 id="deploy" className="text-accent">
             Deploy Your Build to GitHub Pages
-            <Link scroll={true} href="/pages/ready-set-go#top" className="link">
-              {" "}
-              #{" "}
+            <Link scroll={true} href="/pages/ready-set-go#top">
+              <span className={`topScroller text-subtle`}>#</span>
             </Link>
           </h3>
         </div>
@@ -307,7 +300,7 @@ function ReadySetGo() {
             {" "}
             <a
               href="https://www.npmjs.com/package/gh-pages#command-line-utility"
-              className="link"
+              className="text-accent"
             >
               gh-pages
             </a>{" "}

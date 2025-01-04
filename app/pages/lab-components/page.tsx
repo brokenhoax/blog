@@ -95,13 +95,8 @@ function LabContents() {
             <h3 id="hardware-used" className="text-accent">
               Hardware Used
               <span>
-                <Link
-                  scroll={true}
-                  href="/pages/lab-components#top"
-                  className="link"
-                >
-                  {" "}
-                  #{" "}
+                <Link scroll={true} href="/pages/lab-components#top">
+                  <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
@@ -127,13 +122,8 @@ function LabContents() {
             <h3 id="software-used" className="text-accent">
               Software Used
               <span>
-                <Link
-                  scroll={true}
-                  href="/pages/lab-components#top"
-                  className="link"
-                >
-                  {" "}
-                  #{" "}
+                <Link scroll={true} href="/pages/lab-components#top">
+                  <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
@@ -160,13 +150,8 @@ function LabContents() {
             <h3 id="services-used" className="text-accent">
               Services Used
               <span>
-                <Link
-                  scroll={true}
-                  href="/pages/lab-components#top"
-                  className="link"
-                >
-                  {" "}
-                  #{" "}
+                <Link scroll={true} href="/pages/lab-components#top">
+                  <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
@@ -191,13 +176,8 @@ function LabContents() {
             <h3 id="static-ips" className="text-accent">
               Static IPs
               <span>
-                <Link
-                  scroll={true}
-                  href="/pages/lab-components#top"
-                  className="link"
-                >
-                  {" "}
-                  #{" "}
+                <Link scroll={true} href="/pages/lab-components#top">
+                  <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
@@ -213,13 +193,8 @@ function LabContents() {
             <h3 id="network-diagram" className="text-accent">
               Network Diagram
               <span>
-                <Link
-                  scroll={true}
-                  href="/pages/lab-components#top"
-                  className="link"
-                >
-                  {" "}
-                  #{" "}
+                <Link scroll={true} href="/pages/lab-components#top">
+                  <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
