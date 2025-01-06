@@ -3,6 +3,7 @@ import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import TableOfContents from "../../components/toc/TableOfContents";
+import AmazonAssociateLink from "../../components/amazonAssociateLink/page";
 
 function LabContents() {
   const htmlContent: string[] = [
@@ -31,21 +32,21 @@ function LabContents() {
   const toc = (
     <ol className="orderedList">
       <li key="1" className="hover:text-accent">
-        <Link href="/pages/lab-components#hardware-used">Hardware Used</Link>
-      </li>
-      <li key="2" className="hover:text-accent">
-        <Link href="/pages/lab-components#software-used">Software Used</Link>
-      </li>
-      <li key="3" className="hover:text-accent">
-        <Link href="/pages/lab-components#services-used">Services Used</Link>
-      </li>
-      <li key="4" className="hover:text-accent">
-        <Link href="/pages/lab-components#static-ips">Static IPs</Link>
-      </li>
-      <li key="5" className="hover:text-accent">
         <Link href="/pages/lab-components#network-diagram">
           Network Diagram
         </Link>
+      </li>
+      <li key="2" className="hover:text-accent">
+        <Link href="/pages/lab-components#hardware-used">Hardware Used</Link>
+      </li>
+      <li key="3" className="hover:text-accent">
+        <Link href="/pages/lab-components#software-used">Software Used</Link>
+      </li>
+      <li key="4" className="hover:text-accent">
+        <Link href="/pages/lab-components#services-used">Services Used</Link>
+      </li>
+      <li key="5" className="hover:text-accent">
+        <Link href="/pages/lab-components#static-ips">Static IPs</Link>
       </li>
     </ol>
   );
@@ -86,8 +87,27 @@ function LabContents() {
           </p>
         </div>
         {/* Table of Contents */}
+        <TableOfContents params={toc}></TableOfContents>
+        {/* Network Diagram */}
         <div>
-          <TableOfContents params={toc}></TableOfContents>
+          <div>
+            <h3 id="network-diagram" className="text-accent">
+              Network Diagram
+              <span>
+                <Link
+                  scroll={true}
+                  href="/pages/lab-components#top"
+                  className="link"
+                >
+                  {" "}
+                  #{" "}
+                </Link>
+              </span>
+            </h3>
+          </div>
+          <ToggleImage params={images["0"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
         </div>
         {/* Hardware Used */}
         <div>
@@ -105,14 +125,112 @@ function LabContents() {
             The following hardware requirements must be met or exceeded to
             complete the lab:
           </p>
-          <ul className="unorderedList pt-4">
-            <li>Modem</li>
-            <li>Wireless Router</li>
+          <ul className="unorderedList">
+            <li>
+              <div className="">Cable Modem</div>
+            </li>
+            <li>Wireless/Wired Router</li>
             <li>Netgate Appliance</li>
             <li>Server</li>
             <li>Personal Computer (with Ethernet Port)</li>
             <li>8GB+ USB Flash Drive</li>
           </ul>
+          <h4>Amazon Links</h4>
+          {/* Cable Modem */}
+          <div>
+            <AmazonAssociateLink
+              link="https://amzn.to/4j7B0Ur"
+              productText="Cable Modem — Motorola — Multi-Gigabit"
+              hideMention={false}
+            ></AmazonAssociateLink>
+            <p>
+              The assumption is that you have what's most common in
+              housholds—internet provided over a broadband cable line. Why do we
+              even need a modem? Becuase something has to convert that analog
+              broadband signal into digital bits and bytes! Now, if you have
+              fiber to the home or something crazy like satelite, then you can
+              disregard all this modem talk; however, no matter what your
+              situation, you do need to ensure that you have an internet
+              connection and a router with one unused wired ethernet interface
+              available. This unused interface will be our connection to the
+              internet so it's sort of a big deal.
+            </p>
+            <p>
+              The good news is, you likely already have this base covered by
+              whatever your Internet Service Provider (ISP) has provided you;
+              however, I don't like renting this sort of equipment from my ISP,
+              so I always opt to bring my own modem and wireless router. This
+              gives me full control over all hardware on my premise and if you
+              want full control of your lab, then perhaps you should pick up
+              your own gear, too. Of course, bringing your own modem requires
+              some extra hoop jumping to register it with your ISP, but it will
+              save you a few bucks a month and give you some more hands-on
+              experience. Whatever you decide, if you do decide to purchase your
+              own modem, just make sure it supports DOCSIS 3.1 or greater.
+            </p>
+            <p>
+              Typically, your ISP will provide you with a single appliance
+              that's both a modem and a router. It's also very possible that
+              your ISP has provided two separate appliances—modem and,
+              separately, a router. Finally, it's also possible that your ISP
+              has provided you with an ethernet handoff and, therefore, you
+              don't need a modem, but you will{" "}
+              <span className="italic">still</span> need a router (if you want
+              to connect more than one device to your network).
+            </p>
+          </div>
+          {/* Home Router */}
+          <div>
+            <AmazonAssociateLink
+              link="https://amzn.to/422v1Kn"
+              productText="Wireless/Wired Router — Amplifi"
+              hideMention={false}
+            ></AmazonAssociateLink>
+            <p>
+              As we discussed when reviewing cable modems, you may have already
+              been provided with a router by your Internet Service Provider
+              (ISP). So long as you have the ability to configure port
+              forwarding on your router, and you have an unused ethernet
+              interface available, you're good-to-go for this lab; however, some
+              ISPs prevent you from being able to configure the gear they rent
+              you and that's a non-starter for home lab enthusiasts like you and
+              me.
+            </p>
+            <p>
+              That said, I really like the Amplifi home router that I picked up
+              back in 2019, but while it's still available on the market, it's a
+              bit long in the tooth. So, instead, I'm recommending the latest
+              version of Amplifi home router—the "Alien WiFi 6" router. You can
+              definitely find something that costs a lot less, but the quality,
+              performance, feature set, and ease of use is worth the extra
+              investment. If there were an area to save when picking out your
+              lab compenents, this might be it, but while there's a plethora of
+              cheap options to choose from out there, I wouldn't go less than
+              $100 for a decent modern home wireless router.
+            </p>
+          </div>
+          <AmazonAssociateLink
+            link="https://amzn.to/3W8sRVT"
+            productText="Netgate — 4200 appliance"
+            hideMention={false}
+          ></AmazonAssociateLink>
+          <AmazonAssociateLink
+            link="https://amzn.to/3PnHqB3"
+            productText="Minisforum — MS-01 Mini Server"
+            hideMention={false}
+          ></AmazonAssociateLink>
+          <AmazonAssociateLink
+            link="https://amzn.to/3PuuPvL"
+            productText="TP Link — USB to Ethernet Adapter"
+            hideMention={true}
+          ></AmazonAssociateLink>
+          <AmazonAssociateLink
+            link="https://amzn.to/4h4Nevg"
+            productText="SanDisk — 8GB USB Flash Drive"
+            hideMention={false}
+          ></AmazonAssociateLink>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
         </div>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
@@ -186,20 +304,6 @@ function LabContents() {
           <CodeBlock props={htmlContent[0]} type="JSON"></CodeBlock>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
-        </div>
-        {/* Network Diagram */}
-        <div>
-          <div>
-            <h3 id="network-diagram" className="text-accent">
-              Network Diagram
-              <span>
-                <Link scroll={true} href="/pages/lab-components#top">
-                  <span className={`topScroller text-subtle`}>#</span>
-                </Link>
-              </span>
-            </h3>
-          </div>
-          <ToggleImage params={images["0"]}></ToggleImage>
         </div>
       </section>
     </div>
