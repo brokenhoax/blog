@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactElement, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -8,26 +8,26 @@ import {
   faCaretDown,
   faCaretUp,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "../KcLink/KcLink.module.css";
+import styles from "../kclink/KcLink.module.css";
 
-type KcLink = {
+type KcProps = {
   link: string;
   productDescription: string;
-  productText: any;
-  hideMention: boolean;
+  hideAmazon: boolean;
+  children: ReactNode;
 };
 
-function KcLink(KcLink: {
-  link: string;
-  productDescription: string;
-  productText: any;
-  hideMention: boolean;
-}) {
+const KcLink = ({
+  link,
+  productDescription,
+  hideAmazon,
+  children,
+}: KcProps) => {
   const [toggled, setToggled] = useState(false);
-  let mention = "";
+  let amazon = "";
   let icon = faLink;
-  if (!KcLink.hideMention) {
-    mention = "(Amazon Associate)";
+  if (!hideAmazon) {
+    amazon = "";
     icon = faAmazon;
   }
 
@@ -40,7 +40,7 @@ function KcLink(KcLink: {
     return (
       <div className={`${styles.kcLinkWrapper}`}>
         <a
-          href={KcLink.link}
+          href={link}
           className={`${styles.kcLinkCollapsed} bg-subtle hover:text-accent`}
           target="_blank"
         >
@@ -50,8 +50,10 @@ function KcLink(KcLink: {
             size="lg"
             className={`${styles.kcLinkIcon}`}
           ></FontAwesomeIcon>
-          <span className="text-accent">{KcLink.productDescription}</span>
-          <span>&nbsp;{mention}</span>
+          <span className={`${styles.productDescription} text-accent`}>
+            {productDescription}
+          </span>
+          <span>&nbsp;{amazon}</span>
         </a>
         <button
           onClick={() => handleClick()}
@@ -72,7 +74,7 @@ function KcLink(KcLink: {
     return (
       <div className={`${styles.kcLinkWrapper}`}>
         <a
-          href={KcLink.link}
+          href={link}
           className={`${styles.kcLinkExpanded} bg-subtle hover:text-accent`}
           target="_blank"
         >
@@ -82,8 +84,8 @@ function KcLink(KcLink: {
             size="lg"
             className={`${styles.kcLinkIcon}`}
           ></FontAwesomeIcon>
-          <span className="text-accent">{KcLink.productDescription}</span>
-          <span>&nbsp;{mention}</span>
+          <span className="text-accent">{productDescription}</span>
+          <span>&nbsp;{amazon}</span>
         </a>
         <button
           onClick={() => handleClick()}
@@ -97,12 +99,10 @@ function KcLink(KcLink: {
             className={`${styles.teaserLinkIcon}`}
           ></FontAwesomeIcon>
         </button>
-        <div className={`${styles.teaserBody} text-tertiary`}>
-          {KcLink.productText}
-        </div>
+        <div className={`${styles.teaserBody} text-tertiary`}>{children}</div>
       </div>
     );
   }
-}
+};
 
 export default KcLink;
