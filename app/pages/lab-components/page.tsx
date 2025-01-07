@@ -2,8 +2,12 @@ import React from "react";
 import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
+import Callout from "../../components/callout/Callout";
 import TableOfContents from "../../components/toc/TableOfContents";
 import AmazonAssociateLink from "../../components/amazonAssociateLink/page";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAsterisk, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 
 function LabContents() {
   const htmlContent: string[] = [
@@ -24,7 +28,7 @@ function LabContents() {
       imageAltText: "Network Diagram",
       width: 0,
       height: 0,
-      sizes: "33vw",
+      sizes: "100vw",
       style: { width: "100%", height: "auto" },
       priority: true,
     },
@@ -65,10 +69,10 @@ function LabContents() {
         {/* Headline */}
         <div className="headlineWrapper">
           <p className="headline">
-            The lab environment is something anybody can build in a few
-            weekends. All it takes is a bit of sticktuitivness, a fairly-modern
-            computer, a home internet connection, and about $1K for
-            hardware/software.
+            The lab environment we're going to build in these next few posts is
+            something anybody can build in a few weekends. All it takes is a bit
+            of sticktuitivness, a fairly-new computer, an internet connection,
+            and about $1K for lab gear.
           </p>
           <p className="headline">
             Keep in mind that many bootcamps, certifications, and degrees cost
@@ -78,12 +82,14 @@ function LabContents() {
             for you!
           </p>
           <p className="headline">
-            In this lab, we will set up a personal, on-site cloud that hosts one
-            public-facing web server and one private web server. No static
-            private IP address is required for the public-facing web server
-            since we'll be using the Cloudflare API and Dynamic DNS (DDNS), on
-            our Netgate firewall, to automatically update our Cloudflare DNS
-            zone with our dynamic private IP address.
+            At the culmination of this lab, you will have built your own
+            personal cloud that includes a mini-server running a few virtual
+            servers, a security appliance to help ensure your network is locked
+            down, and a network switch configured with four Virtual networks
+            which we will use to segment our users and devices by various use
+            cases. It's not much of a cloud if you don't have a presence, so
+            this lab will include guidance on how to build a NextJS app and
+            deploy it on your own NGINX web server..
           </p>
         </div>
         {/* Table of Contents */}
@@ -232,8 +238,6 @@ function LabContents() {
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
-        {/* Divider */}
-        <div className="divider border-b border-accent"></div>
         {/* Software Used */}
         <div>
           <div>
@@ -279,13 +283,20 @@ function LabContents() {
             to complete the lab:
           </p>
           <ul className="unorderedList pt-4">
-            <li>Internet Access with a dynamic private IP address</li>
+            <li>Internet Access with a dynamic private IP address*</li>
             <li>Domain (registered with Cloudflare Registrar)</li>
             <li>Okta Developer Environment</li>
             <li>Zscaler Private Access</li>
             <li>Zscaler Internet Access</li>
           </ul>
         </div>
+        <Callout
+          icon={faAsterisk}
+          text="Don't worry! No static private IP address is required for the
+            public-facing web server! We'll be using the Cloudflare API, and
+            Dynamic DNS (DDNS) running on our Netgate firewall, to automatically
+            update our Cloudflare DNS zone with our dynamic private IP address. Neat!"
+        ></Callout>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
         {/* Static IPs */}
