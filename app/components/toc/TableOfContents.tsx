@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import styles from "./TableOfContents.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

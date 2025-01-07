@@ -1,21 +1,23 @@
 .tocCollapsed {
   display: flex;
-  justify-items: between;
+  justify-items: space-between;
   align-items: center;
   padding: 1rem 1rem 1rem 1rem;
   cursor: pointer;
   border-radius: 0.5rem;
   margin: 1rem 0rem 0rem 0rem;
+  height: 64px;
 }
 
 .tocExpanded {
   display: flex;
-  justify-items: between;
+  justify-items: space-between;
   align-items: center;
   padding: 1rem 1rem 1rem 1rem;
   cursor: pointer;
   border-radius: 0.5rem;
   margin: 1rem 0rem 0rem 0rem;
+  height: 64px;
 }
 
 .tocHeader {
