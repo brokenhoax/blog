@@ -20,6 +20,7 @@ module.exports = {
             primary: "#000000",
             secondary: "#FFFFFF",
             white: "#FFFFFF",
+            tertiary: "#000000",
           },
           layout: {
             disabledOpacity: "0.3",
