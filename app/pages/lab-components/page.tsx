@@ -4,9 +4,8 @@ import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import Callout from "../../components/callout/Callout";
 import TableOfContents from "../../components/toc/TableOfContents";
-import AmazonAssociateLink from "../../components/amazonAssociateLink/page";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAsterisk, faLink } from "@fortawesome/free-solid-svg-icons";
+import KcLink from "../../components/kclink/page";
+import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 
 function LabContents() {
@@ -54,6 +53,118 @@ function LabContents() {
       </li>
     </ol>
   );
+  const productText = [
+    <div>
+      <p>
+        My assumption is that you have what's most common in housholds—internet
+        provided over a broadband cable line. Why do we even need a modem? Well,
+        something has to convert that analog broadband signal into digital bits
+        and bytes! No matter what your situation, you do need to ensure that you
+        have an internet connection and a router with one unused wired ethernet
+        interface available.
+      </p>
+      <p>
+        The good news is, you likely already have this base covered by whatever
+        your Internet Service Provider (ISP) has provided you and by "provided"
+        I mean "rented". Typically, your ISP will provide you with a single
+        appliance that's both a modem and a router. It's also very possible that
+        your ISP has provided two separate appliances—a modem and a router.
+        Finally, it's also possible that your ISP has provided you with an
+        ethernet handoff and, therefore, you don't need a modem at all. No
+        matter the case, you will <span className="italic">still</span> need a
+        router, that is, if you want to connect more than one device to your
+        network and I know you do!
+      </p>
+      <Callout
+        text="I don't like renting hardware from my ISP, so I always opt to
+        bring my own modem and wireless router. This gives me full control
+        over all hardware on my premise and if you want full control of
+        your lab, then perhaps you should pick up your own gear, too. Of
+        course, bringing your own modem does require some extra hoop
+        jumping to register it with your ISP, but it will save you a few
+        bucks a month and give you some more hands-on experience. Whatever
+        you decide, if you do decide to purchase your own modem, just make
+        sure it supports DOCSIS 3.1 or greater."
+        icon={faBullhorn}
+      ></Callout>
+    </div>,
+    <div>
+      <p>
+        When reviewing cable modems, I mentioned that you may have already been
+        provided with a router by your Internet Service Provider (ISP). So long
+        as you have the ability to configure port forwarding on your router, and
+        you have at least one unused ethernet interface available on your
+        router, you'll be good-to-go for this lab; however, some ISPs prevent
+        you from being able to configure the gear they rent you and that's a
+        non-starter for home lab enthusiasts like you and me.
+      </p>
+      <p>
+        That said, I really like the Amplifi home router that I picked up back
+        in 2019, but while it's still available on the market, it's a bit long
+        in the tooth. So, instead, I'm recommending the latest version of
+        Amplifi home router—the "Alien WiFi 6" router. You can definitely find
+        something that costs a lot less, but the quality, performance, feature
+        set, and ease of use is worth the extra investment. If there were an
+        area to save when picking out your lab compenents, this might be it, but
+        while there's a plethora of cheap options to choose from out there, I
+        wouldn't go less than $100 for a decent modern home wireless router.
+      </p>
+    </div>,
+    <p>
+      Our Netgate appliance is a big part of our home lab. It's both our
+      firewall and our core router and that's just scratching the surface of how
+      we'll be using pfSense on our Netgate appliance. Netgate, being the
+      official sponsor of the pfSense open-source project, is the obvious choice
+      for an out of the box security appliance running pfSense. Yes, you could
+      always get something cheaper on Amazon and install pfSense on it yoursel,
+      but considering how much responsibility we put on pfSense in our home lab,
+      it makes sense to me to go with Netgate. The 4200, in particular, will
+      provide us with four routable interfaces supporting up to 2.5Gbps, giving
+      us plenty of room for growth as our lab expands.
+    </p>,
+    <p>
+      The other workhorse in your lab is your server. Keep in mind that the more
+      resources you have in your home server (i.e., processing power and memory
+      ) the more you'll be able to do in your lab simultaneously. That's why I
+      went with the new MS-01 by Minisforum. For starters, it has the home lab
+      community all abuzz because it packs a ton of capability in a very small
+      footprint. What's more, the expandability with 2.5Gpbs and 10Gbps
+      networking, three M.2 storage slots, and up to 92GB memory will give you
+      room to grow for quite some time. If stock is limited, consider buying
+      either pre-configured or bare-bones configurations and customizing with
+      more storage, memory, PCIe expansion, etc. This thing is awesome. Make it
+      your own!
+    </p>,
+    <p>
+      If your computer isn't equipped with an ethernet interface, then you'll
+      need pick up one of these adapters. Look at you with your "networking
+      gear" collection growing. Neat!
+    </p>,
+    <p>
+      Sometimes you have to make a serial connection, but modern computers no
+      longer come with serial interfaces. What a first-world problem! Still, the
+      good network engineer in you says you should probably pick up one of these
+      while you're at it, especially if you plan on using some refurbished
+      networking gear in your lab.
+    </p>,
+    <p>
+      You will need a flash drive or two for creating boot drives. We'll be
+      loading Proxmox on to our Minisforum MS-01 server in an upcoming course
+      and we'll need a spare flash drive with at least 2GB of room for the task.
+      I can't believe how much storage you can get for ~$11 these days. It
+      almost feels illegal!
+    </p>,
+    <p>
+      For those of you with less experience working with computer networks, I
+      strongly suggest you get yourself a copy of the Network+ exam guide. It
+      will teach you everything you need to know your way around your home lab's
+      network. Plus, if you take the exam you can add it to your resume and
+      that's never a bad thing! That said, I'm not going to teach concepts like
+      IP addressing, subnetting, etc., as it's assumed that you are familiar
+      with those already. However, I will make recommendations and provide
+      direction when we encounter new concepts along the way.
+    </p>,
+  ];
 
   return (
     <div>
@@ -144,97 +255,60 @@ function LabContents() {
           <h4>Amazon Links</h4>
           {/* Cable Modem */}
           <div>
-            <AmazonAssociateLink
+            <KcLink
               link="https://amzn.to/4j7B0Ur"
-              productText="Cable Modem — Motorola — Multi-Gigabit"
+              productDescription="Cable Modem — Motorola"
+              productText={productText[0]}
               hideMention={false}
-            ></AmazonAssociateLink>
-            <p>
-              The assumption is that you have what's most common in
-              housholds—internet provided over a broadband cable line. Why do we
-              even need a modem? Becuase something has to convert that analog
-              broadband signal into digital bits and bytes! Now, if you have
-              fiber to the home or something crazy like satelite, then you can
-              disregard all this modem talk; however, no matter what your
-              situation, you do need to ensure that you have an internet
-              connection and a router with one unused wired ethernet interface
-              available. This unused interface will be our connection to the
-              internet so it's sort of a big deal.
-            </p>
-            <p>
-              The good news is, you likely already have this base covered by
-              whatever your Internet Service Provider (ISP) has provided you;
-              however, I don't like renting this sort of equipment from my ISP,
-              so I always opt to bring my own modem and wireless router. This
-              gives me full control over all hardware on my premise and if you
-              want full control of your lab, then perhaps you should pick up
-              your own gear, too. Of course, bringing your own modem requires
-              some extra hoop jumping to register it with your ISP, but it will
-              save you a few bucks a month and give you some more hands-on
-              experience. Whatever you decide, if you do decide to purchase your
-              own modem, just make sure it supports DOCSIS 3.1 or greater.
-            </p>
-            <p>
-              Typically, your ISP will provide you with a single appliance
-              that's both a modem and a router. It's also very possible that
-              your ISP has provided two separate appliances—modem and,
-              separately, a router. Finally, it's also possible that your ISP
-              has provided you with an ethernet handoff and, therefore, you
-              don't need a modem, but you will{" "}
-              <span className="italic">still</span> need a router (if you want
-              to connect more than one device to your network).
-            </p>
+            ></KcLink>
           </div>
           {/* Home Router */}
           <div>
-            <AmazonAssociateLink
+            <KcLink
               link="https://amzn.to/422v1Kn"
-              productText="Wireless/Wired Router — Amplifi"
+              productDescription="Router — Amplifi"
+              productText={productText[1]}
               hideMention={false}
-            ></AmazonAssociateLink>
-            <p>
-              As we discussed when reviewing cable modems, you may have already
-              been provided with a router by your Internet Service Provider
-              (ISP). So long as you have the ability to configure port
-              forwarding on your router, and you have an unused ethernet
-              interface available, you're good-to-go for this lab; however, some
-              ISPs prevent you from being able to configure the gear they rent
-              you and that's a non-starter for home lab enthusiasts like you and
-              me.
-            </p>
-            <p>
-              That said, I really like the Amplifi home router that I picked up
-              back in 2019, but while it's still available on the market, it's a
-              bit long in the tooth. So, instead, I'm recommending the latest
-              version of Amplifi home router—the "Alien WiFi 6" router. You can
-              definitely find something that costs a lot less, but the quality,
-              performance, feature set, and ease of use is worth the extra
-              investment. If there were an area to save when picking out your
-              lab compenents, this might be it, but while there's a plethora of
-              cheap options to choose from out there, I wouldn't go less than
-              $100 for a decent modern home wireless router.
-            </p>
+            ></KcLink>
           </div>
-          <AmazonAssociateLink
-            link="https://amzn.to/3W8sRVT"
-            productText="Netgate — 4200 appliance"
-            hideMention={false}
-          ></AmazonAssociateLink>
-          <AmazonAssociateLink
+          <div>
+            <KcLink
+              link="https://amzn.to/3W8sRVT"
+              productDescription="Netgate — 4200 appliance"
+              productText={productText[2]}
+              hideMention={false}
+            ></KcLink>
+          </div>
+          <KcLink
             link="https://amzn.to/3PnHqB3"
-            productText="Minisforum — MS-01 Mini Server"
+            productDescription="Minisforum — MS-01 Server"
+            productText={productText[3]}
             hideMention={false}
-          ></AmazonAssociateLink>
-          <AmazonAssociateLink
-            link="https://amzn.to/3PuuPvL"
-            productText="TP Link — USB to Ethernet Adapter"
-            hideMention={true}
-          ></AmazonAssociateLink>
-          <AmazonAssociateLink
-            link="https://amzn.to/4h4Nevg"
-            productText="SanDisk — 8GB USB Flash Drive"
+          ></KcLink>
+          <KcLink
+            link="https://amzn.to/402G0kp"
+            productDescription="Ethernet Adapter - USB C to RJ-45 (F)"
+            productText={productText[4]}
             hideMention={false}
-          ></AmazonAssociateLink>
+          ></KcLink>
+          <KcLink
+            link="https://amzn.to/4gFo1rt"
+            productDescription="Console - USB C to RJ-45 (M) Serial"
+            productText={productText[5]}
+            hideMention={false}
+          ></KcLink>
+          <KcLink
+            link="https://amzn.to/3PpwUJG"
+            productDescription="SanDisk — 32GB Flash Drive"
+            productText={productText[6]}
+            hideMention={false}
+          ></KcLink>
+          <KcLink
+            link="https://amzn.to/3PogAc8"
+            productDescription="Network+ Exam Guide"
+            productText={productText[7]}
+            hideMention={false}
+          ></KcLink>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
@@ -291,7 +365,7 @@ function LabContents() {
           </ul>
         </div>
         <Callout
-          icon={faAsterisk}
+          icon={faBullhorn}
           text="Don't worry! No static private IP address is required for the
             public-facing web server! We'll be using the Cloudflare API, and
             Dynamic DNS (DDNS) running on our Netgate firewall, to automatically
