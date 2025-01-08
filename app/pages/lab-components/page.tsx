@@ -4,7 +4,7 @@ import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import Callout from "../../components/callout/Callout";
 import TableOfContents from "../../components/toc/TableOfContents";
-import KcLink from "../../components/kclink/page";
+import KcLink from "../../components/kclink/KcLink";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 
