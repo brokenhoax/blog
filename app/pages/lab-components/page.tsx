@@ -3,10 +3,11 @@ import Link from "next/link";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import Callout from "../../components/callout/Callout";
+import Image from "next/image";
 import TableOfContents from "../../components/toc/TableOfContents";
 import KcLink from "../../components/kclink/KcLink";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
-import { faAmazon } from "@fortawesome/free-brands-svg-icons";
+import styles from "../lab-components/LabComponents.module.css";
 
 function LabContents() {
   const htmlContent: string[] = [
@@ -29,6 +30,36 @@ function LabContents() {
       height: 0,
       sizes: "100vw",
       style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "2",
+      imagePath: "/images/motorola_modem.jpg",
+      imageAltText: "Modem — Motorola",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "auto", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "3",
+      imagePath: "/images/netgate.jpg",
+      imageAltText: "Security Appliance — Netgate 4200",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "33%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "4",
+      imagePath: "/images/ms01.jpg",
+      imageAltText: "MS-01 Minisforum Workstation",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "33%", height: "auto" },
       priority: true,
     },
   ];
@@ -92,7 +123,7 @@ function LabContents() {
           </p>
         </div>
         {/* Table of Contents */}
-        <TableOfContents params={toc}></TableOfContents>
+        <TableOfContents params={toc} length="5"></TableOfContents>
         {/* Network Diagram */}
         <div>
           <div>
@@ -148,9 +179,21 @@ function LabContents() {
               productDescription="Cable Modem — Motorola"
               hideAmazon={false}
             >
-              {" "}
               <div>
                 <p>
+                  <Image
+                    className={`${styles.productImage}`}
+                    src={images[1].imagePath}
+                    width={images[1].width}
+                    height={images[1].height}
+                    sizes={images[1].sizes}
+                    style={images[1].style}
+                    alt={images[1].imageAltText}
+                    priority={images[1].priority}
+                    quality={100}
+                    decoding="sync"
+                    loading="eager"
+                  ></Image>
                   My assumption is that you have what's most common in
                   housholds—internet provided over a broadband cable line. Why
                   do we even need a modem? Well, something has to convert that
@@ -175,14 +218,15 @@ function LabContents() {
                 </p>
                 <Callout
                   text="I don't like renting hardware from my ISP, so I always opt to
-              bring my own modem and wireless router. This gives me full control
-              over all hardware on my premise and if you want full control of
-              your lab, then perhaps you should pick up your own gear, too. Of
-              course, bringing your own modem does require some extra hoop
-              jumping to register it with your ISP, but it will save you a few
-              bucks a month and give you some more hands-on experience. Whatever
-              you decide, if you do decide to purchase your own modem, just make
-              sure it supports DOCSIS 3.1 or greater."
+                    bring my own modem and wireless router. This gives me full control
+                    over all hardware on my premise and if you want full control of
+                    your lab, then perhaps you should pick up your own gear, too. Of
+                    course, bringing your own modem does require some extra hoop
+                    jumping to register it with your ISP, but it will save you a few
+                    bucks a month and give you some more hands-on experience. Whatever
+                    you decide, if you do decide to purchase your own modem, just make
+                    sure it supports DOCSIS 3.1 or greater.
+                  "
                   icon={faBullhorn}
                 ></Callout>
               </div>
@@ -228,15 +272,27 @@ function LabContents() {
               productDescription="Netgate — 4200 appliance"
               hideAmazon={false}
             >
-              {" "}
               <p>
+                <Image
+                  className={`${styles.productImage}`}
+                  src={images[2].imagePath}
+                  width={images[2].width}
+                  height={images[2].height}
+                  sizes={images[2].sizes}
+                  style={images[2].style}
+                  alt={images[2].imageAltText}
+                  priority={images[3].priority}
+                  quality={100}
+                  decoding="sync"
+                  loading="eager"
+                ></Image>
                 Our Netgate appliance is a big part of our home lab. It's both
                 our firewall and our core router and that's just scratching the
                 surface of how we'll be using pfSense on our Netgate appliance.
                 Netgate, being the official sponsor of the pfSense open-source
                 project, is the obvious choice for an out of the box security
                 appliance running pfSense. Yes, you could always get something
-                cheaper on Amazon and install pfSense on it yoursel, but
+                cheaper on Amazon and install pfSense on it yourself, but
                 considering how much responsibility we put on pfSense in our
                 home lab, it makes sense to me to go with Netgate. The 4200, in
                 particular, will provide us with four routable interfaces
@@ -250,8 +306,20 @@ function LabContents() {
             productDescription="Minisforum — MS-01 Server"
             hideAmazon={false}
           >
-            {" "}
             <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[3].imagePath}
+                width={images[3].width}
+                height={images[3].height}
+                sizes={images[3].sizes}
+                style={images[3].style}
+                alt={images[3].imageAltText}
+                priority={images[3].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
               The other workhorse in your lab is your server. Keep in mind that
               the more resources you have in your home server (i.e., processing
               power and memory ) the more you'll be able to do in your lab

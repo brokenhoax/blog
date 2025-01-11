@@ -114,7 +114,7 @@ function ReadySetGo() {
         </p>
       </div>
       {/* Table of Contents */}
-      <TableOfContents params={toc}></TableOfContents>
+      <TableOfContents params={toc} length=""></TableOfContents>
       {/* Create a GitHub Account */}
       <div>
         <h3 id="register" className="text-accent">

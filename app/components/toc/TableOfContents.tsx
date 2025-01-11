@@ -8,8 +8,14 @@ import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 
-function TableOfContents({ params }) {
-  const [toggled, setToggled] = useState(false);
+function TableOfContents({ params, length }) {
+  let test = false;
+  if (length > 5) {
+    test = false;
+  } else {
+    test = true;
+  }
+  const [toggled, setToggled] = useState(test);
 
   function handleClick() {
     setToggled(!toggled);

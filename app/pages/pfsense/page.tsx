@@ -459,7 +459,7 @@ function PfSense() {
           </p>
         </div>
         {/* Table of Contents */}
-        <TableOfContents params={toc}></TableOfContents>
+        <TableOfContents params={toc} length="11"></TableOfContents>
         {/* Choose Your Hardware */}
         <div>
           <h3 id="choose-your-hardware" className="text-accent">
