@@ -11,19 +11,21 @@ import {
 import styles from "../kclink/KcLink.module.css";
 
 type KcProps = {
-  link: string;
+  webLink: string;
   productDescription: string;
   hideAmazon: boolean;
+  elementId: string;
   children: ReactNode;
 };
 
 const KcLink = ({
-  link,
+  webLink,
   productDescription,
   hideAmazon,
+  elementId,
   children,
 }: KcProps) => {
-  const [toggled, setToggled] = useState(false);
+  const [toggled, setToggled] = useState(true);
   let amazon = "";
   let icon = faLink;
   if (!hideAmazon) {
@@ -38,9 +40,9 @@ const KcLink = ({
 
   if (!toggled) {
     return (
-      <div className={`${styles.kcLinkWrapper}`}>
+      <div className={`${styles.kcLinkWrapper}`} id={elementId}>
         <a
-          href={link}
+          href={webLink}
           className={`${styles.kcLinkCollapsed} bg-subtle hover:text-accent`}
           target="_blank"
         >
@@ -72,9 +74,9 @@ const KcLink = ({
 
   if (toggled) {
     return (
-      <div className={`${styles.kcLinkWrapper}`}>
+      <div className={`${styles.kcLinkWrapper}`} id={elementId}>
         <a
-          href={link}
+          href={webLink}
           className={`${styles.kcLinkExpanded} bg-subtle hover:text-accent`}
           target="_blank"
         >

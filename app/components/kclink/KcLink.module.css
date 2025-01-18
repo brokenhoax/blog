@@ -1,5 +1,5 @@
 .kcLinkWrapper {
-  margin: 1.5rem 0rem 1.5rem 0rem;
+  margin: 1rem 0rem 1rem 0rem;
 }
 
 .kcLinkCollapsed {
@@ -37,16 +37,18 @@
 }
 
 .teaserLinkIcon {
-  margin-top: 2px;
+  text-align: center;
   width: 100%;
 }
 
 .teaserBody {
   display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: white;
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   padding: 0.5rem 1rem 1rem 1rem;
+  text-wrap: pretty;
 }
 
 @media only screen and (max-width: 600px) {
