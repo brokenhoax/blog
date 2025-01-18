@@ -50,7 +50,7 @@ function NavBar() {
           onClick={setNavbarstatus}
         >
           <div
-            className={`${styles.navButton} opacity-50 group-hover:opacity-100 text-accent motion-preset-pop bg-primary border border-dashed border-accent`}
+            className={`${styles.navButton} opacity-50 group-hover:opacity-100 text-accent motion-preset-pop bg-primary hover:border hover:border-dashed hover:border-accent`}
           >
             <span className={`${styles.navButtonContols}`}>
               <FontAwesomeIcon
