@@ -7,7 +7,8 @@
   font-size: 16px;
   line-height: 1.4rem;
   justify-items: start;
-  align-items: center;
+  align-content: top;
+  overflow-wrap: break-word;
 }
 
 .calloutIcon {
@@ -23,11 +24,14 @@
   .callout {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    justify-items: center;
+    align-content: center;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
   }
 
   .calloutIcon {
-    width: 100%;
     padding: 0.25rem 0rem 0.25rem 0rem;
+    margin: auto;
   }
 }
