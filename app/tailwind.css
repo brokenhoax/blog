@@ -8,6 +8,7 @@ body {
   line-height: 1.6rem;
   font-size: 20px;
   scroll-behavior: smooth;
+  text-wrap: pretty;
 }
 
 * {
@@ -2450,10 +2451,6 @@ video {
 
 .border-solid {
   border-style: solid;
-}
-
-.border-dashed {
-  border-style: dashed;
 }
 
 .border-dotted {
@@ -5884,6 +5881,19 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:border:hover {
+  border-width: 1px;
+}
+
+.hover\:border-dashed:hover {
+  border-style: dashed;
+}
+
+.hover\:border-accent:hover {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-border-opacity)));
 }
 
 .hover\:border-default:hover {
