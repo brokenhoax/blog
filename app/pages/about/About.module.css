@@ -25,8 +25,22 @@
 }
 
 .logo {
-  float: left;
+  /* float: left; */
   padding: 0.75rem 1rem 0.5rem 0;
+  opacity: 50%;
+}
+
+.writerWrapper {
+  display: flex;
+}
+
+.logoWrapper {
+  margin: auto;
+  padding: 1rem 0rem 1rem 0rem;
+}
+
+.imageWrapper {
+  width: 100%;
 }
 
 .disclaimer {
@@ -34,10 +48,9 @@
 }
 
 .headshot {
-  float: left;
   padding: 1rem 1rem 0 0;
   margin-bottom: 0;
-  width: "33%";
+  width: "100%";
   height: "auto";
 }
 
@@ -143,16 +156,25 @@
 
 @media only screen and (max-width: 600px) {
   .headshot {
-    float: left;
+    display: flex;
     padding: 1rem 0.75rem 0 0;
     margin-bottom: 0;
-    width: "33%";
+    width: "100%";
     height: "auto";
   }
 
   .logo {
     float: left;
     padding-right: 16px;
+  }
+
+  .logoWrapper {
+    width: 33;
+  }
+
+  .writerWrapper {
+    display: flex;
+    flex-direction: column;
   }
 
   .aboutKrausCloud {
