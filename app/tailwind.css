@@ -3081,6 +3081,10 @@ video {
   text-align: end;
 }
 
+.align-baseline {
+  vertical-align: baseline;
+}
+
 .align-middle {
   vertical-align: middle;
 }
@@ -4623,7 +4627,7 @@ ul {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
