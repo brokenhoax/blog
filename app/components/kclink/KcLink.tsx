@@ -7,6 +7,7 @@ import {
   faLink,
   faCaretDown,
   faCaretUp,
+  faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../kclink/KcLink.module.css";
 
@@ -26,10 +27,8 @@ const KcLink = ({
   children,
 }: KcProps) => {
   const [toggled, setToggled] = useState(true);
-  let amazon = "";
   let icon = faLink;
   if (!hideAmazon) {
-    amazon = "";
     icon = faAmazon;
   }
 
@@ -43,21 +42,29 @@ const KcLink = ({
       <div className={`${styles.kcLinkWrapper}`} id={elementId}>
         <a
           href={webLink}
-          className={`${styles.kcLinkCollapsed} bg-subtle hover:text-accent`}
+          className={`${styles.kcLinkCollapsed} bg-subtle`}
           target="_blank"
         >
-          <FontAwesomeIcon
-            icon={icon}
-            fixedWidth={true}
-            size="lg"
-            className={`${styles.kcLinkIcon}`}
-          ></FontAwesomeIcon>
-          <span className={`${styles.productDescription} text-accent`}>
-            {productDescription}
-          </span>
-          <span>&nbsp;{amazon}</span>
+          <div className={`${styles.kcLinkDescription} hover:text-accent`}>
+            <FontAwesomeIcon
+              icon={icon}
+              fixedWidth={true}
+              size="lg"
+              className={`${styles.kcLinkIcon}`}
+            ></FontAwesomeIcon>
+            <div className={`${styles.productDescription} text-accent`}>
+              {productDescription}
+            </div>
+          </div>
+          <button className={`${styles.kcLinkBtn} bg-accent hover:text-white`}>
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              fixedWidth={true}
+              size="sm"
+            ></FontAwesomeIcon>
+          </button>
         </a>
-        <button
+        {/* <button
           onClick={() => handleClick()}
           className={`${styles.teaser} bg-accent`}
         >
@@ -67,7 +74,7 @@ const KcLink = ({
             size="xs"
             className={`${styles.teaserLinkIcon} text-white`}
           ></FontAwesomeIcon>
-        </button>
+        </button> */}
       </div>
     );
   }
@@ -87,7 +94,6 @@ const KcLink = ({
             className={`${styles.kcLinkIcon}`}
           ></FontAwesomeIcon>
           <span className="text-accent">{productDescription}</span>
-          <span>&nbsp;{amazon}</span>
         </a>
         <button
           onClick={() => handleClick()}

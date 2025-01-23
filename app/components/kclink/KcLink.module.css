@@ -1,12 +1,13 @@
 .kcLinkWrapper {
   position: relative;
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 1rem 0rem 2rem 0rem;
 }
 
 .kcLinkCollapsed {
   display: flex;
   padding: 1rem 1rem 1rem 1rem;
-  justify-items: space-between;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -23,6 +24,18 @@
 
 .kcLinkIcon {
   padding-right: 1rem;
+}
+
+.kcLinkBtn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  /* font-size: 0.75rem; */
+}
+
+.kcLinkDescription {
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .teaser {
