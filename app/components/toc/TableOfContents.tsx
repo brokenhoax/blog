@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./TableOfContents.module.css";
-
+import KcButton from "../kcbutton/KcButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
@@ -35,7 +35,13 @@ function TableOfContents({ params, length }) {
             <FontAwesomeIcon icon={faList} fixedWidth={true}></FontAwesomeIcon>
             Table of Contents
           </div>
-          <FontAwesomeIcon icon={faCaretLeft} fixedWidth></FontAwesomeIcon>
+          {/* Open TOC */}
+          <KcButton
+            icon={faCaretLeft}
+            isToggled={toggled}
+            onToggle={handleClick}
+            type="toggle"
+          ></KcButton>
         </div>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
@@ -62,7 +68,13 @@ function TableOfContents({ params, length }) {
                 {params.imageAltText}
               </div>
             </div>
-            <FontAwesomeIcon icon={faCaretDown} fixedWidth></FontAwesomeIcon>
+            {/* Close TOC */}
+            <KcButton
+              icon={faCaretDown}
+              isToggled={toggled}
+              onToggle={handleClick}
+              type="toggle"
+            ></KcButton>
           </span>
         </div>
         {params}

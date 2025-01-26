@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import KcButton from "../kcbutton/KcButton";
 import styles from "./ToggleImage.module.css";
 import {
   Modal,
@@ -37,11 +38,14 @@ function ToggleImage({ params }) {
       >
         <div className={`${styles.imageHeader}`}>
           <FontAwesomeIcon icon={faImage} fixedWidth={true}></FontAwesomeIcon>
-          <div className={`${styles.toggleText} text-white`}>
-            {params.imageAltText}
-          </div>
+          <div className={`text-white`}>{params.imageAltText}</div>
         </div>
-        <FontAwesomeIcon icon={faCaretLeft} fixedWidth></FontAwesomeIcon>
+        <KcButton
+          icon={faCaretLeft}
+          isToggled={toggled}
+          onToggle={handleClick}
+          type="toggle"
+        ></KcButton>
       </div>
     );
   }
@@ -60,7 +64,12 @@ function ToggleImage({ params }) {
               {params.imageAltText}
             </div>
           </div>
-          <FontAwesomeIcon icon={faCaretDown} fixedWidth></FontAwesomeIcon>
+          <KcButton
+            icon={faCaretDown}
+            isToggled={toggled}
+            onToggle={handleClick}
+            type="toggle"
+          ></KcButton>
         </span>
         {/* Image */}
         <div className={`${styles.imageWrapper} text-accent`}>

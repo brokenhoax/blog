@@ -6,7 +6,6 @@
   cursor: pointer;
   border-radius: 0.5rem;
   margin: 1rem 0rem 0rem 0rem;
-  height: 64px;
 }
 
 .tocExpanded {
@@ -17,7 +16,6 @@
   cursor: pointer;
   border-radius: 0.5rem;
   margin: 1rem 0rem 0rem 0rem;
-  height: 64px;
 }
 
 .tocHeader {
