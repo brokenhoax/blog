@@ -3,6 +3,10 @@
   margin: 1rem 0rem 2rem 0rem;
 }
 
+.kcLinkButtons {
+  display: flex;
+}
+
 .kcLinkCollapsed {
   display: flex;
   padding: 1rem 1rem 1rem 1rem;
@@ -10,7 +14,13 @@
   width: 100%;
   align-items: center;
   border-radius: 0.5rem;
-  cursor: pointer;
+}
+
+.kcLinkDescription {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  font-weight: 700;
 }
 
 .kcLinkExpanded {
@@ -19,35 +29,10 @@
   justify-items: space-between;
   align-items: center;
   border-radius: 0.5rem 0.5rem 0rem 0rem;
-  cursor: pointer;
 }
 
 .kcLinkIcon {
   padding-right: 1rem;
-}
-
-.kcLinkBtn {
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  /* font-size: 0.75rem; */
-}
-
-.kcLinkDescription {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-}
-
-.teaser {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  right: 1.5rem;
-  width: 2.5rem;
-  height: 1rem;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-  cursor: pointer;
 }
 
 .teaserLinkIcon {
