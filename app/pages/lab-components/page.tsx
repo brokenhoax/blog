@@ -229,33 +229,26 @@ function LabContents() {
       {/* Headline */}
       <div className="headlineWrapper">
         <p className="headline">
-          The lab environment we're going to build in these next few posts is
-          something anybody can build in a few weekends. All it takes is a bit
-          of sticktuitivness, a fairly-new computer, an internet connection, and
-          about $1K for lab gear.
-        </p>
-        <p className="headline">
-          Keep in mind that many bootcamps, certifications, and degrees cost at
-          least as much if not significantly more. Another benefit of building a
-          home lab is that you own the environment and, therefore, can use it in
-          any way you wish. Build yourself a lab. It'll be good for you!
+          The lab environment we're going to build in this Home Lab series is
+          something anybody can build in a few weekends. All it takes is a
+          fairly-new computer, an internet connection, about $2K for lab gear
+          and some persistence. Building a home lab is, arguably, the most
+          affordable way to learn tech because bootcamps, certifications, and
+          degrees cost at least as much if not significantly more. Another
+          benefit of building a home lab is that you own the environment and can
+          use it in any way you wish. Build yourself a lab. It'll be good for
+          you!
         </p>
         <p className="headline">
           At the conclusion of this lab, you will have built your own personal
-          cloud that includes a mini-server running a few virtual servers, a
+          cloud consisting of a mini-server running a few virtual servers, a
           security appliance to help ensure your network is locked down, and a
-          network switch configured with four Virtual networks which we will use
-          to segment our users and devices by various use cases. It's not much
-          of a cloud if you don't have a presence, so this lab will include
-          guidance on how to build a NextJS app and deploy it on your own NGINX
-          web server.. At the conclusion of this lab, you will have built your
-          own personal cloud that includes a mini-server running a few virtual
-          servers, a security appliance to help ensure your network is locked
-          down, and a network switch configured with four Virtual networks which
-          we will use to segment our users and devices by various use cases.
-          It's not much of a cloud if you don't have a presence, so this lab
-          will include guidance on how to build a NextJS app and deploy it on
-          your own NGINX web server..
+          network switch virtualized in to four separate virtual networks. It's
+          not much of a cloud if you don't have a presence on the web, so this
+          lab will also include guidance on how to build a NextJS web app and
+          deploy it on your own NGINX web server. Start thinking of a name for
+          your cloud and review the rundown of required components listed below.
+          Let's gear up and go!
         </p>
       </div>
       {/* Table of Contents */}
@@ -277,26 +270,28 @@ function LabContents() {
         </h3>
         <ToggleImage params={images["0"]}></ToggleImage>
         <p>
-          Building a home lab is a lot of fun for you, but if you share a space
-          with others then you'll want to put your lab behind your shared Wi-Fi
-          so you're not bringing down the internet while you build out your lab.
-          Trust me, you will break your lab many times over as you build it out.
-          That's why I chose to place my home lab behind my home router. With
-          this design, I should never disrupt the home Wi-Fi because my Amplifi
-          home router sits in front of my home lab and the home router is all my
-          family needs to get online. The lion's share of work we'll be doing
-          will be on our Netgate appliance and everything connected downstream
-          from it. Plus, the only changes we'll have to make to the home router
-          are a few simple port-forwarding rules, and that doesn't even require
-          a reboot.
+          Above you'll find our Home Lab network diagram. Typical home internet
+          setups include the first two components closest to the internet: a
+          modem and a router. Oftentimes, those devices are collapsed into one
+          single modem/router appliance by your internet provider, but
+          everybody's situtation is different. Either way, the lion's share of
+          work we'll be working on will be our Netgate appliance and everything
+          connected downstream from it.
         </p>
         <p>
-          That said, there's nothing stopping you from connecting your Netgate
-          appliance directly to your modem or ethernet internet handoff and
-          placing your wireless router behind your firewall. Yes, that would be
-          a more secure design because of the security gains you can get from
-          your Netgate appliance, but for those of us sharing an internet
-          connection, you might want to keep things separate to keep the peace.
+          Building a home lab is a lot of fun for you, but if you share an
+          internet connection with others then you'll want to put your lab
+          <span className="italic"> behind</span> your shared Wi-Fi. Why? You
+          will break your lab many times over as you build it out. That's why I
+          chose to place my lab behind my router. With this design, I should
+          never disrupt the home Wi-Fi because my router sits at the front of my
+          lab and the router is all my family needs to get online. If I break
+          something in my lab, the home Wi-Fi keeps humming along. That said,
+          you can also connect your Netgate appliance directly to your modem or
+          ethernet internet handoff and place your wireless router behind your
+          firewall. That would be a more secure design after all but, for now,
+          let's focus on following the lab and being a good steward of the home
+          Wi-Fi.
         </p>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
@@ -398,7 +393,7 @@ function LabContents() {
             elementId="lab-components-modem"
             webLink="https://amzn.to/4j7B0Ur"
             productDescription="Cable Modem — Motorola"
-            hideAmazon={false}
+            hideLink={false}
           >
             <div>
               <p>
@@ -418,15 +413,28 @@ function LabContents() {
                 My assumption is that you have what's most common in
                 housholds—internet provided over a broadband cable line. Why do
                 we even need a modem? Well, something has to convert that analog
-                broadband signal into digital bits and bytes! No matter what
-                your situation, you do need to ensure that you have an internet
-                connection and a router with one unused wired ethernet interface
-                available.
+                broadband signal into digital bits and bytes!
               </p>
               <p>
                 The good news is, you likely already have this base covered by
                 whatever your Internet Service Provider (ISP) has provided you
-                and by "provided" I mean "rented". Typically, your ISP will
+                and by "provided" I mean rented. I don't like renting hardware
+                from my ISP, so I always opt to bring my own modem and wireless
+                router. This gives me full control over all hardware on my
+                premise and if you want full control of your lab, then perhaps
+                you should pick up your own gear, too.
+              </p>
+              <p>
+                Of course, bringing your own modem does require some extra hoop
+                jumping to register it with your ISP, but it will save you a few
+                bucks a month and give you some more hands-on experience.
+                Whatever you decide, if you do purchase your own modem, just
+                make sure it supports DOCSIS 3.1 or greater.
+              </p>
+              {/* <p>
+                The good news is, you likely already have this base covered by
+                whatever your Internet Service Provider (ISP) has provided you
+                and by "provided" I mean rented. Typically, your ISP will
                 provide you with a single appliance that's both a modem and a
                 router. It's also very possible that your ISP has provided two
                 separate appliances—a modem and a router. Finally, it's also
@@ -435,8 +443,8 @@ function LabContents() {
                 case, you will <span className="italic">still</span> need a
                 router, that is, if you want to connect more than one device to
                 your network and I know you do!
-              </p>
-              <Callout
+              </p> */}
+              {/* <Callout
                 text="I don't like renting hardware from my ISP, so I always opt to
                         bring my own modem and wireless router. This gives me full control
                         over all hardware on my premise and if you want full control of
@@ -447,7 +455,7 @@ function LabContents() {
                         you decide, if you do decide to purchase your own modem, just make
                         sure it supports DOCSIS 3.1 or greater."
                 icon={faBullhorn}
-              ></Callout>
+              ></Callout> */}
             </div>
           </KcLink>
           {/* Home Router */}
@@ -455,7 +463,7 @@ function LabContents() {
             elementId="lab-components-router"
             webLink="https://amzn.to/422v1Kn"
             productDescription="Router — Amplifi"
-            hideAmazon={false}
+            hideLink={false}
           >
             <div>
               <Image
@@ -473,25 +481,26 @@ function LabContents() {
               ></Image>
               <p>
                 When reviewing cable modems, I mentioned that you may have
-                already been provided with a router by your Internet Service
-                Provider (ISP). So long as you have the ability to configure
-                port forwarding on your router, and you have at least one unused
-                ethernet interface available on your router, you'll be
-                good-to-go for this lab; however, some ISPs prevent you from
-                being able to configure the gear they rent you and that's a
-                non-starter for home lab enthusiasts like you and me.
+                already been provided with a router by your ISP. So long as you
+                have the ability to configure port forwarding on your router,
+                and you have at least one unused ethernet interface available on
+                your router, you'll be good-to-go for this lab; however, some
+                ISPs prevent you from being able to configure the gear they rent
+                you and that's a non-starter for home lab enthusiasts like you
+                and me.
               </p>
               <p>
                 That said, I really like the Amplifi home router that I picked
-                up back in 2019, but while it's still available on the market,
-                it's a bit long in the tooth. So, instead, I'm recommending the
-                latest version of Amplifi home router—the "Alien WiFi 6" router.
-                You can definitely find something that costs a lot less, but the
-                quality, performance, feature set, and ease of use is worth the
-                extra investment. If there were an area to save when picking out
-                your lab compenents, this might be it, but while there's a
-                plethora of cheap options to choose from out there, I wouldn't
-                go less than $100 for a decent modern home wireless router.
+                up back in 2019 but, while it's still available on the market,
+                it's a bit long in the tooth and over-priced considering its
+                age. So, I'm recommending the latest version of Amplifi home
+                router—the "Alien WiFi 6" router. You can definitely find
+                something that costs a lot less, but the quality, performance,
+                feature set, and ease of use is worth the extra investment. If
+                there were an area to save when picking out your lab compenents,
+                this might be it, but while there's a plethora of cheap options
+                to choose from out there, I wouldn't go less than $100 for a
+                decent modern home wireless router.
               </p>
             </div>
           </KcLink>
@@ -500,7 +509,7 @@ function LabContents() {
             elementId="lab-components-firewall"
             webLink="https://amzn.to/3W8sRVT"
             productDescription="Netgate — 4200 appliance"
-            hideAmazon={false}
+            hideLink={false}
           >
             <p>
               <Image
@@ -535,7 +544,7 @@ function LabContents() {
             elementId="lab-components-server"
             webLink="https://amzn.to/3PnHqB3"
             productDescription="Minisforum — MS-01 Server"
-            hideAmazon={false}
+            hideLink={false}
           >
             <p>
               <Image
@@ -570,7 +579,7 @@ function LabContents() {
             elementId="lab-components-ethernet-adapter"
             webLink="https://amzn.to/402G0kp"
             productDescription="Ethernet Adapter - USB C to RJ-45 (F)"
-            hideAmazon={false}
+            hideLink={false}
           >
             <p>
               <Image
@@ -600,7 +609,7 @@ function LabContents() {
             elementId="lab-components-serial-cable"
             webLink="https://amzn.to/4gFo1rt"
             productDescription="Console - USB C to RJ-45 (M) Serial"
-            hideAmazon={false}
+            hideLink={false}
           >
             <p>
               <Image
@@ -629,7 +638,7 @@ function LabContents() {
             elementId="lab-components-flash-drive"
             webLink="https://amzn.to/3PpwUJG"
             productDescription="SanDisk — 32GB Flash Drive"
-            hideAmazon={false}
+            hideLink={false}
           >
             <p>
               <Image
@@ -657,7 +666,7 @@ function LabContents() {
             webLink="https://amzn.to/3PogAc8"
             productDescription="Exam Guide - Network+"
             elementId="lab-components-network-plus"
-            hideAmazon={false}
+            hideLink={false}
           >
             <p>
               <Image
@@ -765,7 +774,7 @@ function LabContents() {
           elementId="lab-components-rufus"
           webLink="https://rufus.ie/en/"
           productDescription="Rufus"
-          hideAmazon={true}
+          hideLink={true}
         >
           <div>
             <p>
@@ -793,7 +802,7 @@ function LabContents() {
           elementId="lab-components-proxmox"
           webLink="https://proxmox.com/en/"
           productDescription="Proxmox"
-          hideAmazon={true}
+          hideLink={true}
         >
           <p>
             <Image
@@ -829,7 +838,7 @@ function LabContents() {
           elementId="lab-components-ubuntu"
           webLink="https://ubuntu.com/desktop"
           productDescription="Ubuntu"
-          hideAmazon={true}
+          hideLink={true}
         >
           <p>
             <Image
@@ -859,7 +868,7 @@ function LabContents() {
           elementId="lab-components-rhel"
           webLink="https://developers.redhat.com/"
           productDescription="Red Hat Enterprise Linux"
-          hideAmazon={true}
+          hideLink={true}
         >
           <p>
             <Image
@@ -898,7 +907,7 @@ function LabContents() {
           elementId="lab-components-pfsense"
           webLink="https://docs.netgate.com/pfsense/en/latest/preface/index.html"
           productDescription="pfSense"
-          hideAmazon={true}
+          hideLink={true}
         >
           <p>
             <Image
@@ -931,7 +940,7 @@ function LabContents() {
           elementId="lab-components-next-js"
           webLink="https://nextjs.org/docs/app/getting-started/installation"
           productDescription="Next.js"
-          hideAmazon={true}
+          hideLink={true}
         >
           <p>
             <Image
@@ -968,7 +977,7 @@ function LabContents() {
           elementId="lab-components-nginx"
           webLink="https://nginx.org/"
           productDescription="Nginx"
-          hideAmazon={true}
+          hideLink={true}
         >
           <p>
             <Image
@@ -1018,7 +1027,7 @@ function LabContents() {
                 scroll={true}
                 href="/pages/lab-components#lab-components-internet"
               >
-                Internet Access with a static or dynamic private IP address
+                Internet Connection with a static or dynamic private IP address
               </Link>
             </li>
             <li>
@@ -1027,7 +1036,7 @@ function LabContents() {
                 scroll={true}
                 href="/pages/lab-components#lab-components-cloudflare"
               >
-                Domain (registered with Cloudflare Registrar)
+                Domain (registered with Cloudflare)
               </Link>
             </li>
             <li>
@@ -1036,7 +1045,7 @@ function LabContents() {
                 scroll={true}
                 href="/pages/lab-components#lab-components-okta"
               >
-                Okta Developer Account
+                Okta Developer Account (Optional)
               </Link>
             </li>
             <li>
@@ -1045,7 +1054,7 @@ function LabContents() {
                 scroll={true}
                 href="/pages/lab-components#lab-components-zpa"
               >
-                Zscaler Private Access
+                Zscaler Private Access (Optional)
               </Link>
             </li>
             <li>
@@ -1054,28 +1063,43 @@ function LabContents() {
                 scroll={true}
                 href="/pages/lab-components#lab-components-zia"
               >
-                Zscaler Internet Access
+                Zscaler Internet Access (Optional)
               </Link>
             </li>
           </ul>
         </div>
         {/* KcLinks */}
         <div>
-          {/* Internet Access */}
-          <KcLink
-            elementId="lab-components-internet"
-            webLink=""
-            productDescription="Internet Access"
-            hideAmazon={true}
-          >
-            <p></p>
-          </KcLink>
+          {/* Internet Connection */}
+          <div>
+            <p>
+              Obviously, you need an internet connection if you're building your
+              own cloud and want it to connect to something other than itself.
+              For this lab, the type of internet connection you have shouldn't
+              matter much, but what does matter is the type of IP address that
+              you're issued, be it Static or Dynamic. A Static IP address will
+              always be the same. A Dynamic IP address will eventually if not
+              frequently change. So, if you have a Dynamic IP address issued by
+              your Internet Service Provider, then you'll want to use Dynamic
+              Domain Name System (DDNS) to keep keep your IP address updated
+              with your web hosting provider. We will be using Cloudflare in
+              this lab. If you choose another web hosting provider, just make
+              sure that they have an API that allows you to use DDNS to update
+              your web host with your IP address.
+            </p>
+            <Callout
+              text="If you're not familiar with APIs, don't sweat it. pfSense 
+                has an integration with Cloudflare that uses the API for us and makes DDNS configuration 
+                stupid simple."
+              icon={faBullhorn}
+            ></Callout>
+          </div>
           {/* Registered Domain */}
           <KcLink
             elementId="lab-components-cloudflare"
             webLink=""
             productDescription="Registered Domain — Cloudflare"
-            hideAmazon={true}
+            hideLink={true}
           >
             <p></p>
           </KcLink>
@@ -1084,7 +1108,7 @@ function LabContents() {
             elementId="lab-components-okta"
             webLink=""
             productDescription="Identity Provider (IdP) — Okta"
-            hideAmazon={true}
+            hideLink={true}
           >
             <p></p>
           </KcLink>
@@ -1093,18 +1117,40 @@ function LabContents() {
             elementId="lab-components-zpa"
             webLink=""
             productDescription="Remote Access Solution — Zscaler Private Access"
-            hideAmazon={true}
+            hideLink={true}
           >
-            <p></p>
+            <p>
+              Zscaler Private Access (ZPA) provides secure remote access to your
+              private applications and resources. Sounds like a VPN, right?
+              Well, ZPA is a proxy-based approach to providing remote access
+              and, therefore, it's far more secure because of the underlying
+              architecture. Like ZIA, ZPA is an enterprise-level remote access
+              solution that you likely won't be able to get your hands on
+              outside of an enterprise agreement with Zscaler. We will explore
+              budget remote access solutions in a future post. For now, it's
+              just good to be aware of enterprise-grade security solutions that
+              are solving security problems at scale.
+            </p>
           </KcLink>
           {/* Zscaler Internet Access */}
           <KcLink
             elementId="lab-components-zia"
             webLink=""
-            productDescription="Internet Security — Zscaler Internet Access"
-            hideAmazon={true}
+            productDescription="Internet Security — Zscaler Internet Access"
+            hideLink={true}
           >
-            <p></p>
+            <p>
+              Zscaler Internet Access (ZIA) is how we'll secure our traffic
+              leaving our network, that is, traffic going out to the Internet.
+              While our Netgate security appliance provides us with internal
+              network security for our east/west traffic (i.e., at layers 3 and
+              4 of the OSI model), it doesn't do much for us as far as keeping
+              us safe on the web. Furthermore, ZIA is an enterprise-level
+              Security Service Edge (SSE) solution that most home labs won't be
+              able to implement unless you can get your hands on a Zscaler
+              tenant through your employer. In future posts, we'll explore how
+              we can best secure our internet access on a budget.
+            </p>
           </KcLink>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
@@ -1113,7 +1159,6 @@ function LabContents() {
             <h3 id="static-ips" className="text-accent">
               Static IPs
               <span>
-                <p className="text-white">Need Dialog Here</p>
                 <Link scroll={true} href="/pages/lab-components#top">
                   <span className={`topScroller text-subtle`}>#</span>
                 </Link>
