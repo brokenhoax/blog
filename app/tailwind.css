@@ -3081,10 +3081,6 @@ video {
   text-align: end;
 }
 
-.align-baseline {
-  vertical-align: baseline;
-}
-
 .align-middle {
   vertical-align: middle;
 }
@@ -3527,6 +3523,14 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.outline-dotted {
+  outline-style: dotted;
+}
+
+.outline-accent {
+  outline-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, 1));
 }
 
 .ring-1 {
@@ -5983,6 +5987,18 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
 
 .hover\:opacity-80:hover {
   opacity: 0.8;
+}
+
+.hover\:outline-dotted:hover {
+  outline-style: dotted;
+}
+
+.hover\:outline-1:hover {
+  outline-width: 1px;
+}
+
+.hover\:outline-2:hover {
+  outline-width: 2px;
 }
 
 .hover\:after\:bg-danger\/20:hover::after {
