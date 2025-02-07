@@ -2641,11 +2641,6 @@ video {
   background-color: hsl(var(--nextui-danger-50) / var(--nextui-danger-50-opacity, var(--tw-bg-opacity))) !important;
 }
 
-.bg-accent {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-bg-opacity)));
-}
-
 .bg-background {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-background) / var(--nextui-background-opacity, var(--tw-bg-opacity)));
@@ -3523,14 +3518,6 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.outline-dotted {
-  outline-style: dotted;
-}
-
-.outline-accent {
-  outline-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, 1));
 }
 
 .ring-1 {
@@ -5891,19 +5878,6 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:border:hover {
-  border-width: 1px;
-}
-
-.hover\:border-dashed:hover {
-  border-style: dashed;
-}
-
-.hover\:border-accent:hover {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, var(--tw-border-opacity)));
-}
-
 .hover\:border-default:hover {
   --tw-border-opacity: 1;
   border-color: hsl(var(--nextui-default) / var(--nextui-default-opacity, var(--tw-border-opacity)));
@@ -5993,12 +5967,12 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
   outline-style: dotted;
 }
 
-.hover\:outline-1:hover {
-  outline-width: 1px;
-}
-
 .hover\:outline-2:hover {
   outline-width: 2px;
+}
+
+.hover\:outline-accent:hover {
+  outline-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, 1));
 }
 
 .hover\:after\:bg-danger\/20:hover::after {

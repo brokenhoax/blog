@@ -54,18 +54,26 @@ function NavBar() {
     return (
       <nav>
         <div className={`${styles.navWrapper}`}>
-          <div className={`${styles.navMenu} bg-primary text-accent`}>
+          <div className={`${styles.navMenu} text-accent`}>
             <div
               className={`${styles.navMenuControls} motion-preset-slide-left`}
             >
               {/* Theme Switcher */}
               <ThemeSwitcher></ThemeSwitcher>
               {/* About */}
-              <KcButton icon={faCircleQuestion} type="path" path="/pages/about"></KcButton>
+              <KcButton
+                icon={faCircleQuestion}
+                type="path"
+                path="/pages/about"
+              ></KcButton>
               {/* Home */}
               <KcButton icon={faHome} type="path" path="/"></KcButton>
               {/* Menu Button */}
-              <KcButton icon={faBars} onToggle={setNavbarstatus} type="toggle"></KcButton>
+              <KcButton
+                icon={faBars}
+                onToggle={setNavbarstatus}
+                type="toggle"
+              ></KcButton>
             </div>
           </div>
         </div>

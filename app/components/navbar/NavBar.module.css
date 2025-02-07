@@ -8,7 +8,6 @@
   margin-top: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  margin-right: 1rem;
 }
 
 .navButtonContols {
@@ -27,16 +26,11 @@
   margin-top: 1rem;
   z-index: 100;
   border-radius: 0.5rem;
-  margin-right: 1rem;
-  width: 16%;
 }
 
 .navMenuControls {
   display: flex;
-  justify-items: space-between;
-  width: 100%;
-  height: 100%;
-  padding-right: 0.75rem;
+  justify-content: end;
 }
 
 .navMenuLink {
@@ -48,14 +42,10 @@
   cursor: pointer;
 }
 
-.navMenuIcon:hover {
-  opacity: 100%;
-}
-
 .navMenuLinks {
   display: flex;
   justify-content: end;
-  align-items: center;
+  align-content: center;
   width: 100%;
   padding: 0.75rem 0rem 0.75rem 0rem;
 }
@@ -65,8 +55,6 @@
   justify-content: end;
   align-content: center;
   width: 33%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Responsive Design */
