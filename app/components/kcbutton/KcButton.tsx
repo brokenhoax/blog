@@ -5,7 +5,6 @@ import styles from "./KcButton.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 
-
 type KcButtonProps = {
   icon: IconDefinition;
   url?: string; // Optional URL for the 'link' type button
@@ -28,8 +27,6 @@ const KcButton = ({
     if (type === "link" && url) {
       // Open the URL in a new tab
       window.open(url, "_blank");
-    } else if (type === "path" && path) {
-      console.log("Yo!")
     } else if (type === "toggle" && onToggle) {
       // Trigger the toggle in the parent component
       onToggle();
@@ -38,7 +35,7 @@ const KcButton = ({
   if (type === "path" && path) {
     return (
       <button
-        className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent`}
+        className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
         onClick={handleClick}
       >
         <Link href={path}>
@@ -53,7 +50,7 @@ const KcButton = ({
   } else {
     return (
       <button
-        className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent`}
+        className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
         onClick={handleClick}
       >
         <FontAwesomeIcon
@@ -64,7 +61,6 @@ const KcButton = ({
       </button>
     );
   }
-
 };
 
 export default KcButton;

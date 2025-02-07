@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import KcButton from "../kcbutton/KcButton";
-import { usePathname } from "next/navigation";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 import {
   faHome,
@@ -11,7 +9,6 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NavBar.module.css";
 
@@ -34,7 +31,7 @@ function NavBar() {
           onClick={setNavbarstatus}
         >
           <div
-            className={`${styles.navButton} opacity-50 group-hover:opacity-100 text-accent motion-preset-pop bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent`}
+            className={`${styles.navButton} opacity-50 group-hover:opacity-100 text-accent motion-preset-pop bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
           >
             <span className={`${styles.navButtonContols}`}>
               <FontAwesomeIcon
