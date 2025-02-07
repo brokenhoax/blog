@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import KcButton from "../kcbutton/KcButton";
 import { useTheme } from "next-themes";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,14 +36,11 @@ const ThemeSwitcher = () => {
   if (!hasMounted) return null;
 
   return (
-    <button onClick={handleToggle}>
-      <FontAwesomeIcon
-        fixedWidth={true}
-        icon={faPalette}
-        size="lg"
-        className={`${styles.themeSwitcherIcon}`}
-      />
-    </button>
+    <KcButton 
+      icon={faPalette}
+      onToggle={handleToggle} 
+      type="toggle"
+    ></KcButton>
   );
 };
 

@@ -28,7 +28,6 @@ const KcLink = ({
 
   function handleClick() {
     setToggled(!toggled);
-    console.log(toggled);
   }
 
   let AmazonLinkButton = <></>;
