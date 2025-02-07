@@ -173,6 +173,66 @@ function LabContents() {
       style: { width: "22%", height: "auto" },
       priority: true,
     },
+    {
+      id: "15",
+      imagePath: "/images/cisco-switch.jpg",
+      imageAltText: "Switch - Cisco 1200",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "33%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "16",
+      imagePath: "/images/echogear-rack.jpg",
+      imageAltText: "Network Rack - ECHOGEAR",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "33%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "17",
+      imagePath: "/images/ethernet-cables.jpg",
+      imageAltText: "Ethernet Cables",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "33%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "18",
+      imagePath: "/images/cloudflare-logo.png",
+      imageAltText: "Cloudflare Logo",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "25%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "19",
+      imagePath: "/images/zscaler-logo.png",
+      imageAltText: "Zscaler Logo",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "25%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "20",
+      imagePath: "/images/okta-developer-logo.png",
+      imageAltText: "Okta Developer Logo",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "25%", height: "auto" },
+      priority: true,
+    },
   ];
   const toc = (
     <ol className="orderedList">
@@ -190,28 +250,7 @@ function LabContents() {
       <li key="4" className="hover:text-accent">
         <Link href="/pages/lab-components#services-used">Services Used</Link>
       </li>
-      <li key="5" className="hover:text-accent">
-        <Link href="/pages/lab-components#static-ips">Static IPs</Link>
-      </li>
     </ol>
-  );
-  const staticIPs = (
-    <div>
-      <div>
-        <h3 id="static-ips" className="text-accent">
-          Static IPs
-          <span>
-            <Link scroll={true} href="/pages/lab-components#top">
-              <span className={`topScroller text-subtle`}>#</span>
-            </Link>
-          </span>
-        </h3>
-      </div>
-      {/* Code Snippet */}
-      <CodeBlock props={htmlContent[0]} type="JSON"></CodeBlock>
-      {/* Divider */}
-      <div className="divider border-b border-accent"></div>
-    </div>
   );
   return (
     <section className="section motion-preset-focus">
@@ -339,9 +378,33 @@ function LabContents() {
           <li className="hover:text-accent">
             <Link
               scroll={true}
+              href="/pages/lab-components#lab-components-switch"
+            >
+              Switch
+            </Link>
+          </li>
+          <li className="hover:text-accent">
+            <Link
+              scroll={true}
               href="/pages/lab-components#lab-components-server"
             >
               Server
+            </Link>
+          </li>
+          <li className="hover:text-accent">
+            <Link
+              scroll={true}
+              href="/pages/lab-components#lab-components-rack"
+            >
+              Rack
+            </Link>
+          </li>
+          <li className="hover:text-accent">
+            <Link
+              scroll={true}
+              href="/pages/lab-components#lab-components-cables"
+            >
+              Ethernet Cables
             </Link>
           </li>
           <li className="hover:text-accent">
@@ -539,6 +602,53 @@ function LabContents() {
               our lab expands.
             </p>
           </KcLink>
+          {/* Switch - HP 2910al */}
+          <KcLink
+            elementId="lab-components-switch"
+            webLink="https://amzn.to/4hDGBjv"
+            productDescription="Switch — HP 2910al"
+            hideLink={false}
+          >
+            <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[15].imagePath}
+                width={images[15].width}
+                height={images[15].height}
+                sizes={images[15].sizes}
+                style={images[15].style}
+                alt={images[15].imageAltText}
+                priority={images[15].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+              The switch I'm using in my home lab is a bit long in the
+              tooth—over ten years old at least. Luckily, I don't need anything
+              too sophisticated and the HP 2915al is more than up to the task.
+              Obviously, for anybody reading this in 2025 and beyond, you won't
+              likely be able to get your hands on the same switch, but you can
+              easily find a substitute for likely a lot less than you'd expect
+              (like the one I'm recommending here, by Cisco, for less than
+              $300).
+            </p>
+            <p>
+              What you'll need is an 8-port (i.e., eight ethernet interfaces)
+              gigabit ethernet switch. The 2915al has an extra two ports for
+              uplink ports, so, technically mine has 10 interfaces, but you
+              don't necessarily need that since we won't be using all of them to
+              build our our home lab. Your switch will need to support VLANs
+              (IEEE 802.1Q) and and it couldn't hurt to find one that is capable
+              of powering devices connected to it (devices like a wireless
+              access point that we'll be adding to our lab in a future post).
+              The 2915al is also capable of inter-VLAN routing, which means it
+              can route traffic between interfaces that are on separate VLANs,
+              but I disable that feature in our lab so you won't need it
+              anyways. All routing will be handled by our Netgate network
+              security appliance for better control and security of our network
+              traffic.
+            </p>
+          </KcLink>
           {/* Minisforum — MS-01 Server */}
           <KcLink
             elementId="lab-components-server"
@@ -572,6 +682,72 @@ function LabContents() {
               either pre-configured or bare-bones configurations and customizing
               with more storage, memory, PCIe expansion, etc. This thing is
               awesome. Make it your own!
+            </p>
+          </KcLink>
+          {/* Network Rack */}
+          <KcLink
+            elementId="lab-components-rack"
+            webLink="https://amzn.to/3CAbMxl"
+            productDescription="ECHOGEAR - Network Rack"
+            hideLink={false}
+          >
+            <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[16].imagePath}
+                width={images[16].width}
+                height={images[16].height}
+                sizes={images[16].sizes}
+                style={images[16].style}
+                alt={images[16].imageAltText}
+                priority={images[16].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+              You'll also need a place to put all of this fancy new gear of
+              yours, so it's time to invest in a network rack. You can go with a
+              floor rack or one that mounts to the wall, as is depicted in my
+              home lab. Choose whatever is best suited for your space; however,
+              an added benefit of a wall-mounted network rack is that the odds
+              of water frying your lab gear is far less likely if it's not
+              touching the floor. Plus, you'll have less dust sucked up by the
+              fans in your hardware when wall mounted. It's helpful to plan out
+              your rack layout ahead of time so that you can pick up the right
+              number of shelves and mix of Ethernet cables of various lengths to
+              make all of your connections.
+            </p>
+          </KcLink>
+          {/* Ethernet Cables */}
+          <KcLink
+            elementId="lab-components-cables"
+            webLink="https://amzn.to/3WI1jXD"
+            productDescription="Ethernet Cables"
+            hideLink={false}
+          >
+            <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[17].imagePath}
+                width={images[17].width}
+                height={images[17].height}
+                sizes={images[17].sizes}
+                style={images[17].style}
+                alt={images[17].imageAltText}
+                priority={images[17].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+              On the subject of ethernet cables and what's referred to as “cable
+              management”, my advice is to keep everything looking sharp by
+              using the same color Ethernet cables from the same manufacturer;
+              however, others may argue that different color cables should be
+              used for different connections for ease of identification. We're
+              not running a production environment here, and it's not going to
+              be that complex; however, good cable management will help keep
+              your hardware accessible and also improve airflow to your
+              components.
             </p>
           </KcLink>
           {/* Ethernet Adapter - USB C to RJ-45 (F) */}
@@ -1101,7 +1277,36 @@ function LabContents() {
             productDescription="Registered Domain — Cloudflare"
             hideLink={true}
           >
-            <p></p>
+            <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[18].imagePath}
+                width={images[18].width}
+                height={images[18].height}
+                sizes={images[18].sizes}
+                style={images[18].style}
+                alt={images[18].imageAltText}
+                priority={images[18].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+              The most exciting point that we'll reach throughout this lab will
+              be when we publish our very own self-hosted website. In order to
+              do that, we'll need to have our own domain (e.g., krauscloud.com)
+              and, so, we'll have to pick a registrar. Cloudflare is an
+              excellent choice, becuase they have an open API which we'll use in
+              conjunction with Dynamic Domain Name System (DDNS) on our Netgate
+              appliance. DDNS will help us maintain our presence on the web, by
+              regularly updating Cloudflare with our public IP address. For
+              those of us with a dynamic IP address issued to us by our Internet
+              Service Provider (ISP), this is a must have. Whomever you choose
+              as your registrar, if you have a dynamic IP address then either
+              you'll need a registrar like Cloudflare who will let you
+              programmatically update your DNS "A" record or you'll have to
+              inquire with your ISP for a static IP address. The latter will
+              surely come with a surcharge making Cloudflare an obvious choice.
+            </p>
           </KcLink>
           {/* Okta Developer Account */}
           <KcLink
@@ -1110,7 +1315,35 @@ function LabContents() {
             productDescription="Identity Provider (IdP) — Okta"
             hideLink={true}
           >
-            <p></p>
+            <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[20].imagePath}
+                width={images[20].width}
+                height={images[20].height}
+                sizes={images[20].sizes}
+                style={images[20].style}
+                alt={images[20].imageAltText}
+                priority={images[20].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+              No home lab is complete without users and networks are made up of
+              differnet types of users with different requirements. If you think
+              about a typical business, you have all sorts of different users
+              types demanding different things of your network. There are
+              administrators, employees, and even guests. Even within
+              "employees" there are various departments and groups that may
+              require differentiated access to various aspects of the network or
+              systems within it. As our lab matures, we'll want to experiement
+              with how we can provide differented access to our users, and in
+              order to do that we'll need an Identity Provider (IdP) like Okta
+              to help us manage our user accounts. Okta is the perfect IdP for
+              our home lab, because not only are they a leading enterprise-grade
+              player in the identity space, but they also provide free developer
+              accounts that we can use for our home lab. Nice!
+            </p>
           </KcLink>
           {/* Zscaler Private Access */}
           <KcLink
@@ -1120,6 +1353,19 @@ function LabContents() {
             hideLink={true}
           >
             <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[19].imagePath}
+                width={images[19].width}
+                height={images[19].height}
+                sizes={images[19].sizes}
+                style={images[19].style}
+                alt={images[19].imageAltText}
+                priority={images[19].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
               Zscaler Private Access (ZPA) provides secure remote access to your
               private applications and resources. Sounds like a VPN, right?
               Well, ZPA is a proxy-based approach to providing remote access
@@ -1140,6 +1386,19 @@ function LabContents() {
             hideLink={true}
           >
             <p>
+              <Image
+                className={`${styles.productImage}`}
+                src={images[19].imagePath}
+                width={images[19].width}
+                height={images[19].height}
+                sizes={images[19].sizes}
+                style={images[19].style}
+                alt={images[19].imageAltText}
+                priority={images[19].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
               Zscaler Internet Access (ZIA) is how we'll secure our traffic
               leaving our network, that is, traffic going out to the Internet.
               While our Netgate security appliance provides us with internal
@@ -1152,20 +1411,6 @@ function LabContents() {
               we can best secure our internet access on a budget.
             </p>
           </KcLink>
-          {/* Divider */}
-          <div className="divider border-b border-accent"></div>
-          {/* Static IPs */}
-          <div>
-            <h3 id="static-ips" className="text-accent">
-              Static IPs
-              <span>
-                <Link scroll={true} href="/pages/lab-components#top">
-                  <span className={`topScroller text-subtle`}>#</span>
-                </Link>
-              </span>
-            </h3>
-          </div>
-          <CodeBlock props={htmlContent[0]} type="JSON"></CodeBlock>
         </div>
       </div>
     </section>
