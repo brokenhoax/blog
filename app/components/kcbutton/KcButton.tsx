@@ -25,8 +25,9 @@ const KcButton = ({
   let test = <></>;
   const handleClick = () => {
     if (type === "link" && url) {
-      // Open the URL in a new tab
       window.open(url, "_blank");
+    } else if (type === "path" && path) {
+      // window.open(path, "_self");
     } else if (type === "toggle" && onToggle) {
       // Trigger the toggle in the parent component
       onToggle();
@@ -34,18 +35,16 @@ const KcButton = ({
   };
   if (type === "path" && path) {
     return (
-      <button
+      <Link
+        href={path}
         className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
-        onClick={handleClick}
       >
-        <Link href={path}>
-          <FontAwesomeIcon
-            icon={icon}
-            fixedWidth={true}
-            size="lg"
-          ></FontAwesomeIcon>
-        </Link>
-      </button>
+        <FontAwesomeIcon
+          icon={icon}
+          fixedWidth={true}
+          size="lg"
+        ></FontAwesomeIcon>
+      </Link>
     );
   } else {
     return (
