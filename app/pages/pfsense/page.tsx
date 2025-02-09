@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   faFlask,
   faLightbulb,
@@ -275,6 +276,26 @@ function PfSense() {
       style: { width: "100%", height: "auto" },
       priority: true,
     },
+    {
+      id: "26",
+      imagePath: "/images/kraus-cloud-netgate-close.JPG",
+      imageAltText: "Kraus Cloud Netgate appliance close up",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "27",
+      imagePath: "/images/kraus-cloud-lab-close.JPG",
+      imageAltText: "Kraus Cloud Lab - Close Up",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
   ];
 
   const toc = (
@@ -437,7 +458,7 @@ function PfSense() {
       <section className="section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="text-accent">
-          pfSense<span className="pl-4">🧪</span>
+          pfSense
         </h1>
         <h2>The head of your home lab</h2>
         <p className="dateStamp text-accent">November 15th, 2024</p>
@@ -445,6 +466,19 @@ function PfSense() {
         <div className="divider border-b border-accent"></div>
         {/* Headline */}
         <div className="headlineWrapper">
+        <Image
+            className={`${styles.labImage}`}
+            src={images[25].imagePath}
+            width={images[25].width}
+            height={images[25].height}
+            sizes={images[25].sizes}
+            style={images[25].style}
+            alt={images[25].imageAltText}
+            priority={images[25].priority}
+            quality={100}
+            decoding="sync"
+            loading="eager"
+          ></Image>
           <p className="headline">
             Our Netgate appliance running pfSense can be referred to as the head
             of our home lab. That might sound strange, but I'm choosing my words
@@ -679,6 +713,7 @@ function PfSense() {
             192.168.2.1. Ensure the interface is enabled and save your changes.
           </p>
           <ToggleImage params={images["8"]}></ToggleImage>
+          <ToggleImage params={images["26"]}></ToggleImage>
         </div>
         {/* Guest Interface */}
         <div>

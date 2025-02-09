@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import CodeBlock from "../../components/codeblock/CodeBlock";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import Callout from "../../components/callout/Callout";
 import Image from "next/image";
@@ -113,7 +112,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "9",
+      id: "10",
       imagePath: "/images/proxmox.png",
       imageAltText: "Virtualization Platform - Proxmox",
       width: 0,
@@ -123,7 +122,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "10",
+      id: "11",
       imagePath: "/images/ubuntu.png",
       imageAltText: "Web Server's Operating System - Ubuntu (Desktop)",
       width: 0,
@@ -133,7 +132,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "11",
+      id: "12",
       imagePath: "/images/red-hat-logo.png",
       imageAltText:
         "Zscaler App Connector Operating System - Red Hat Enterprise Linux",
@@ -144,7 +143,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "12",
+      id: "13",
       imagePath: "/images/pfsense-logo.png",
       imageAltText: "Network Security Solution - pfSense",
       width: 0,
@@ -154,7 +153,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "13",
+      id: "14",
       imagePath: "/images/nextjs-logo.png",
       imageAltText: "React (Front-End) Framework - Next.js",
       width: 0,
@@ -164,7 +163,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "14",
+      id: "15",
       imagePath: "/images/nginx-logo.png",
       imageAltText: "Web Server - NGINX",
       width: 0,
@@ -174,7 +173,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "15",
+      id: "16",
       imagePath: "/images/cisco-switch.jpg",
       imageAltText: "Switch - Cisco 1200",
       width: 0,
@@ -184,7 +183,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "16",
+      id: "17",
       imagePath: "/images/echogear-rack.jpg",
       imageAltText: "Network Rack - ECHOGEAR",
       width: 0,
@@ -194,7 +193,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "17",
+      id: "18",
       imagePath: "/images/ethernet-cables.jpg",
       imageAltText: "Ethernet Cables",
       width: 0,
@@ -204,7 +203,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "18",
+      id: "19",
       imagePath: "/images/cloudflare-logo.png",
       imageAltText: "Cloudflare Logo",
       width: 0,
@@ -214,7 +213,7 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "19",
+      id: "20",
       imagePath: "/images/zscaler-logo.png",
       imageAltText: "Zscaler Logo",
       width: 0,
@@ -224,13 +223,23 @@ function LabContents() {
       priority: true,
     },
     {
-      id: "20",
+      id: "21",
       imagePath: "/images/okta-developer-logo.png",
       imageAltText: "Okta Developer Logo",
       width: 0,
       height: 0,
       sizes: "100vw",
       style: { width: "25%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "22",
+      imagePath: "/images/kraus-cloud-lab.JPG",
+      imageAltText: "Kraus Cloud Home Lab",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
       priority: true,
     },
   ];
@@ -258,7 +267,7 @@ function LabContents() {
       <div>
         {/* Title */}
         <h1 id="top" className="flex text-accent">
-          Gear Up<span className="pl-4">🧪</span>
+          Gear Up
         </h1>
         <h2>Components & Requirements</h2>
         <p className="dateStamp text-accent">October 31st, 2024</p>
@@ -278,6 +287,19 @@ function LabContents() {
           use it in any way you wish. Build yourself a lab. It'll be good for
           you!
         </p>
+        <Image
+            className={`${styles.labImage}`}
+            src={images[21].imagePath}
+            width={images[21].width}
+            height={images[21].height}
+            sizes={images[21].sizes}
+            style={images[21].style}
+            alt={images[21].imageAltText}
+            priority={images[21].priority}
+            quality={100}
+            decoding="sync"
+            loading="eager"
+          ></Image>
         <p className="headline">
           At the conclusion of this lab, you will have built your own personal
           cloud consisting of a mini-server running a few virtual servers, a

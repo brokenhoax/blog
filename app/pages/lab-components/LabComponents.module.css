@@ -1,3 +1,7 @@
 .productImage {
   float: left;
 }
+
+.labImage {
+  padding: 1rem 0rem 1rem 0rem;
+}
