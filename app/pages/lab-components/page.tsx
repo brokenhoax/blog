@@ -279,32 +279,37 @@ function LabContents() {
         <p className="headline">
           The lab environment we're going to build in this Home Lab series is
           something anybody can build in a few weekends. All it takes is a
-          fairly-new computer, an internet connection, about $2K for lab gear
-          and some persistence. Building a home lab is, arguably, the most
-          affordable way to learn tech because bootcamps, certifications, and
-          degrees cost at least as much if not significantly more. Another
-          benefit of building a home lab is that you own the environment and can
-          use it in any way you wish. Build yourself a lab. It'll be good for
-          you!
+          fairly-new computer, an internet connection, about $2-3K for lab gear
+          and some patience. While $2-3K might sound pretty steep, building a
+          home lab is, arguably, the most affordable way to learn tech because
+          bootcamps, certifications, and degrees cost at least as much if not
+          significantly more and with a home lab you're getting hands-on
+          experience. Another benefit of building a home lab is that you own the
+          environment and can use it in any way you wish. You could build your
+          own online shop and run your own small business. You can use your lab
+          to build your own production studio and run a legitimate YouTube
+          channel. There are a ton of awesome things you can do once you have
+          the right mix of tech in your home lab. Build yourself a lab. It'll be
+          good for you!
         </p>
         <Image
-            className={`${styles.labImage}`}
-            src={images[21].imagePath}
-            width={images[21].width}
-            height={images[21].height}
-            sizes={images[21].sizes}
-            style={images[21].style}
-            alt={images[21].imageAltText}
-            priority={images[21].priority}
-            quality={100}
-            decoding="sync"
-            loading="eager"
-          ></Image>
+          className={`${styles.labImage}`}
+          src={images[21].imagePath}
+          width={images[21].width}
+          height={images[21].height}
+          sizes={images[21].sizes}
+          style={images[21].style}
+          alt={images[21].imageAltText}
+          priority={images[21].priority}
+          quality={100}
+          decoding="sync"
+          loading="eager"
+        ></Image>
         <p className="headline">
           At the conclusion of this lab, you will have built your own personal
           cloud consisting of a mini-server running a few virtual servers, a
           security appliance to help ensure your network is locked down, and a
-          network switch virtualized in to four separate virtual networks. It's
+          network switch virtualized into four separate virtual networks. It's
           not much of a cloud if you don't have a presence on the web, so this
           lab will also include guidance on how to build a NextJS web app and
           deploy it on your own NGINX web server. Start thinking of a name for
@@ -333,11 +338,11 @@ function LabContents() {
         <p>
           Above you'll find our Home Lab network diagram. Typical home internet
           setups include the first two components closest to the internet: a
-          modem and a router. Oftentimes, those devices are collapsed into one
-          single modem/router appliance by your internet provider, but
-          everybody's situtation is different. Either way, the lion's share of
-          work we'll be working on will be our Netgate appliance and everything
-          connected downstream from it.
+          modem and a router. Oftentimes, those devices are combined into one
+          single modem/router appliance and provided by your internet provider,
+          but everybody's situtation is different. Either way, the lion's share
+          of work we'll be working on will be our Netgate appliance and
+          everything connected downstream from it.
         </p>
         <p>
           Building a home lab is a lot of fun for you, but if you share an
@@ -345,8 +350,8 @@ function LabContents() {
           <span className="italic"> behind</span> your shared Wi-Fi. Why? You
           will break your lab many times over as you build it out. That's why I
           chose to place my lab behind my router. With this design, I should
-          never disrupt the home Wi-Fi because my router sits at the front of my
-          lab and the router is all my family needs to get online. If I break
+          never disrupt the home Wi-Fi because my router sits in front of my lab
+          and the router is all my family needs to get online. If I break
           something in my lab, the home Wi-Fi keeps humming along. That said,
           you can also connect your Netgate appliance directly to your modem or
           ethernet internet handoff and place your wireless router behind your
@@ -624,11 +629,11 @@ function LabContents() {
               our lab expands.
             </p>
           </KcLink>
-          {/* Switch - HP 2910al */}
+          {/* Switch - Cisco Catalyst 1200 Series */}
           <KcLink
             elementId="lab-components-switch"
             webLink="https://amzn.to/4hDGBjv"
-            productDescription="Switch — HP 2910al"
+            productDescription="Switch — Cisco Catalyst 1200"
             hideLink={false}
           >
             <p>

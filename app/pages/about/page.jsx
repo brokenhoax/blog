@@ -106,7 +106,7 @@ function About() {
           viewBox="0 0 585 423"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={`${styles.logo} fill-accent`}
+          className={`${styles.logo} fill-accent text-transparent bg-clip-text motion-preset-blur-right`}
         >
           <path
             fillRule="evenodd"

@@ -460,13 +460,13 @@ function PfSense() {
         <h1 id="top" className="text-accent">
           pfSense
         </h1>
-        <h2>The head of your home lab</h2>
+        <h2>Secure your network</h2>
         <p className="dateStamp text-accent">November 15th, 2024</p>
         {/* Divider */}
         <div className="divider border-b border-accent"></div>
         {/* Headline */}
         <div className="headlineWrapper">
-        <Image
+          <Image
             className={`${styles.labImage}`}
             src={images[25].imagePath}
             width={images[25].width}
@@ -480,12 +480,10 @@ function PfSense() {
             loading="eager"
           ></Image>
           <p className="headline">
-            Our Netgate appliance running pfSense can be referred to as the head
-            of our home lab. That might sound strange, but I'm choosing my words
-            carefully. Not only does pfSense give us network security (layer
-            3/4, port/protocol), but it also provides us with advanced routing
-            capabilities and will serve as our home lab's core router. It also
-            boasts a lot of other functionality that we'll be leveraging
+            pfSense running on a Netgate 4200 appliance not only provides our
+            lab with network security, but it also provides us with advanced
+            routing capabilities and will serve as our home lab's core router.
+            It also boasts a lot of other functionality that we'll be leveraging
             throughout this series and beyond. The best part, pfSense is
             completely free and open source! This post is a bit on the longer
             side, but hang in there because it's chock-full of good stuff that

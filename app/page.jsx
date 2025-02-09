@@ -33,7 +33,7 @@ function Home() {
       },
       icon: "fas fa-mug-hot",
       mugs: 4,
-      tagline: "The head of your home lab.",
+      tagline: "Secure your network.",
       path: "/pages/pfsense",
       imagePath: "/images/fire.jpg",
       imageAltText: "Flame",
@@ -119,10 +119,15 @@ function Home() {
         <link rel="manifest" href="/favicons/site.webmanifest"></link>
       </Head>
       <h1
-        className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-preset-blur-right`}
+        className={`${styles.postsMessage} text-white text-transparent bg-clip-text motion-preset-blur-right`}
       >
-        Latest posts...
+        Latest posts
       </h1>
+      <h2
+        className={`${styles.postsDescription} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-preset-blur-right`}
+      >
+        Welcome to Kraus Cloud—an educational tech blog...
+      </h2>
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
           <li
@@ -130,15 +135,15 @@ function Home() {
             className={`${styles.postsContainer}  
 `}
           >
-            <Link href={post.path}>
+            <Link href={post.path} className="group">
               {/* Hover Background */}
               <div
-                className={`${styles.postBackground} bg-subtle border-t border-accent`}
+                className={`${styles.postBackground} bg-subtle bg-gradient-to-bl from-primary to-accent/75`}
               ></div>
               {/* Post Detail */}
               <div
                 id={`post${index}`}
-                className={`${styles.postWrapper} hover:text-white`}
+                className={`${styles.postWrapper} group-hover:text-white`}
               >
                 {/* Post Image */}
                 <div
