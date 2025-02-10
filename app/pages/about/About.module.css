@@ -1,3 +1,17 @@
+.parallax {
+  /* The image used */
+  background-image: url("../../../public/images/kraus.jpeg");
+
+  /* Set a specific height */
+  min-height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .socialLinksWrapper {
   display: flex;
   justify-items: space-between;
@@ -21,32 +35,39 @@
 }
 
 .aboutKrausCloud {
+  display: flex;
+  align-items: center;
   padding: 1rem 0rem 0.5rem 0rem;
 }
 
-.writerWrapper {
-  display: flex;
-}
-
 .logoWrapper {
-  margin-left: auto;
-  margin-right: auto;
   padding: 4rem 0rem 2rem 0rem;
+  width: 100%;
 }
 
-.imageWrapper {
-  width: 100%;
+.krausCloudWrapper {
+  padding: 0rem 0rem 0rem 1rem;
 }
 
 .disclaimer {
   padding-top: 0.5rem;
 }
 
-.headshot {
-  padding: 1rem 1rem 0 0;
-  margin-bottom: 0;
-  width: "100%";
-  height: "auto";
+.writerWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.headshotWrapper {
+  width: auto;
+}
+
+.textWrapper {
+  height: 100%;
+}
+
+.imageWrapper {
+  width: 100%;
 }
 
 .socialIcon {
@@ -65,7 +86,7 @@
   flex-direction: row;
   gap: 1rem;
   width: 100%;
-  padding: 1rem 0 1rem 0;
+  padding: 0 0 1rem 0;
 }
 
 .socialTracker {
@@ -150,17 +171,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .headshot {
-    display: flex;
-    padding: 1rem 0.75rem 0 0;
-    margin-bottom: 0;
-    width: "100%";
-    height: "auto";
-  }
-
   .logo {
-    float: left;
-    padding-right: 16px;
+    margin: auto;
+    width: 50%;
   }
 
   .logoWrapper {
@@ -173,10 +186,23 @@
   }
 
   .aboutKrausCloud {
-    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .socialIconsWrapper {
     flex-direction: column;
   }
 }
+
+/* Extra large devices (large laptops and desktops, 1920px and up) */
+
+/* @media only screen and (min-width: 1920px) {
+  .headshotWrapper {
+    width: fit-content;
+  }
+
+  .textWrapper {
+    width: max-content;
+  }
+} */
