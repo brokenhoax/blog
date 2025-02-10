@@ -3,3 +3,9 @@
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   margin-left: 0.75rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .kcLinkBtn {
+    outline-width: 1px;
+  }
+}

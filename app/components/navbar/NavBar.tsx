@@ -25,52 +25,47 @@ function NavBar() {
 
   if (!toggle) {
     return (
-      <nav>
-        <button
-          className={`${styles.navWrapper} group`}
-          onClick={setNavbarstatus}
-        >
-          <div
-            className={`${styles.navButton} opacity-50 group-hover:opacity-100 text-accent motion-preset-pop bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
-          >
-            <span className={`${styles.navButtonContols}`}>
-              <FontAwesomeIcon
-                icon={faBars}
-                size="lg"
-                className={`group-hover:opacity-100`}
-                fixedWidth={true}
-              />
-            </span>
-          </div>
-        </button>
-      </nav>
-    );
-  }
-
-  if (toggle) {
-    return (
-      <nav>
+      <nav className={`${styles.navBar}`}>
         <div className={`${styles.navWrapper}`}>
           <div className={`${styles.navMenu} text-accent`}>
-            <div
-              className={`${styles.navMenuControls} motion-preset-slide-left`}
-            >
-              {/* Theme Switcher */}
-              <ThemeSwitcher></ThemeSwitcher>
-              {/* About */}
-              <KcButton
-                icon={faCircleQuestion}
-                type="path"
-                path="/pages/about"
-              ></KcButton>
-              {/* Home */}
-              <KcButton icon={faHome} type="path" path="/"></KcButton>
+            <div className={`${styles.navMenuControls} motion-preset-pop`}>
               {/* Menu Button */}
               <KcButton
                 icon={faBars}
                 onToggle={setNavbarstatus}
                 type="toggle"
               ></KcButton>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
+  if (toggle) {
+    return (
+      <nav className={`${styles.navBar}`}>
+        <div className={`${styles.navWrapper}`}>
+          <div className={`${styles.navMenu} text-accent`}>
+            <div
+              className={`${styles.navMenuControls} motion-preset-slide-down`}
+            >
+              {/* Menu Button */}
+              <KcButton
+                icon={faBars}
+                onToggle={setNavbarstatus}
+                type="toggle"
+              ></KcButton>
+              {/* Home */}
+              <KcButton icon={faHome} type="path" path="/"></KcButton>
+              {/* About */}
+              <KcButton
+                icon={faCircleQuestion}
+                type="path"
+                path="/pages/about"
+              ></KcButton>
+              {/* Theme Switcher */}
+              <ThemeSwitcher></ThemeSwitcher>
             </div>
           </div>
         </div>
