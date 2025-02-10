@@ -404,7 +404,7 @@ function FigmaSlider() {
           testing their effect. So, change one or two constraints, grab the
           variant frame and shrink and grow it to see what happens. Viola! Our
           slider prototype is now ready to be demonstrated. Pat yourself on the
-          back, grab another cup of coffee, and let's go! 🎉
+          back, grab another cup of coffee, and let's go!
         </p>
       </div>
     </section>

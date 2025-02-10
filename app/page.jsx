@@ -121,24 +121,20 @@ function Home() {
       <h1
         className={`${styles.postsMessage} text-white text-transparent bg-clip-text motion-preset-blur-right`}
       >
-        Latest posts
+        Welcome to Kraus Cloud
       </h1>
       <h2
         className={`${styles.postsDescription} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-preset-blur-right`}
       >
-        Welcome to Kraus Cloud—an educational tech blog...
+        An educational tech blog
       </h2>
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
-          <li
-            key={index}
-            className={`${styles.postsContainer}  
-`}
-          >
+          <li key={index} className={`${styles.postsContainer}`}>
             <Link href={post.path} className="group">
               {/* Hover Background */}
               <div
-                className={`${styles.postBackground} bg-subtle bg-gradient-to-bl from-primary to-accent/75`}
+                className={`${styles.postBackground} bg-subtle bg-gradient-to-bl from-primary to-accent/75 shadow-md`}
               ></div>
               {/* Post Detail */}
               <div
