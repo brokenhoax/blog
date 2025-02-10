@@ -1,7 +1,3 @@
-.navBar {
-  margin-right: -6rem;
-}
-
 .navWrapper {
   display: flex;
   justify-content: end;
@@ -13,7 +9,7 @@
   position: fixed;
   display: flex;
   justify-items: space-between;
-  margin-top: 4rem;
+  margin-top: 2rem;
   z-index: 100;
   border-radius: 0.5rem;
 }
@@ -66,7 +62,28 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 
+@media only screen and (max-width: 1024px) {
+  .navMenu {
+    position: fixed;
+    padding-top: 0;
+    bottom: 0.5rem;
+    right: 2rem;
+  }
+
+  .navMenuControls {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 1024px) {
+  .navBar {
+    margin-right: -6rem;
+  }
+
   .navWrapper {
     width: 75%;
   }

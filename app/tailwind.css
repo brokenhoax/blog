@@ -964,8 +964,8 @@ video {
   animation: var(--motion-all-loop-and-enter-animations);
 }
 
-.motion-preset-slide-left {
-  --motion-origin-translate-x: 25%;
+.motion-preset-slide-down {
+  --motion-origin-translate-y: -25%;
   --motion-origin-opacity: 0;
   --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
   --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
@@ -4650,7 +4650,7 @@ ul {
 
 @media only screen and (min-width: 1920px) {
   .section {
-    width: 50%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     height: 100%;

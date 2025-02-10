@@ -10,6 +10,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  margin-top: 1rem;
+  border-radius: 10px;
 }
 
 .socialLinksWrapper {
@@ -192,6 +195,10 @@
 
   .socialIconsWrapper {
     flex-direction: column;
+  }
+
+  .parallax {
+    background-attachment: scroll; /* Allow scrolling background on mobile */
   }
 }
 

@@ -173,14 +173,14 @@ function About() {
         ></Callout>
       </div>
       <div className={`${styles.subHeaderWrapper}`}>
+        {/* Divider */}
+        <div className="divider border-b border-accent"></div>
         {/* Image */}
         <div className={`${styles.parallax}`}></div>
         {/* About the Writer */}
         <div className={`${styles.writerWrapper}`}>
           <div>
             <div>
-              {/* Divider */}
-              <div className="divider border-b border-accent"></div>
               <h2 className={`${styles.subHeader}`}>About the Writer</h2>
               <div className={`${styles.textWrapper}`}>
                 <p>
