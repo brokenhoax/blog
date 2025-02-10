@@ -89,16 +89,12 @@ function Home() {
     },
   ];
 
-  // const ref = useRef(null);
-
-  // useEffect(() => {
-  //   // let highlightedPost = document.getElementById("post1");
-  //   // highlightedPost.currentTarget.className += " active";
-  // }, []);
+  const today = new Date();
+  const todayDate = today.toDateString();
 
   return (
     <section className="section">
-      <Head>
+      {/* <Head>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -117,17 +113,22 @@ function Home() {
           href="/favicons/favicon-16x16.png"
         ></link>
         <link rel="manifest" href="/favicons/site.webmanifest"></link>
-      </Head>
+      </Head> */}
       <h1
-        className={`${styles.postsMessage} text-white text-transparent bg-clip-text motion-preset-blur-right`}
+        className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text`}
       >
         Welcome to Kraus Cloud
       </h1>
-      <h2
-        className={`${styles.postsDescription} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text motion-preset-blur-right`}
-      >
-        An educational tech blog
-      </h2>
+      <div>
+        <h2 className={`${styles.postsDescription}`}>
+          An educational tech blog
+        </h2>
+        <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
+          {todayDate}
+        </p>
+      </div>
+      {/* Divider */}
+      <div className="divider border-b border-accent"></div>
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
           <li key={index} className={`${styles.postsContainer}`}>

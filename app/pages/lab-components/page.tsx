@@ -239,7 +239,12 @@ function LabContents() {
       width: 0,
       height: 0,
       sizes: "100vw",
-      style: { width: "100%", height: "auto" },
+      style: {
+        width: "100%",
+        height: "auto",
+        marginTop: "1rem",
+        marginBottom: ".5rem",
+      },
       priority: true,
     },
   ];
@@ -292,19 +297,20 @@ function LabContents() {
           the right mix of tech in your home lab. Build yourself a lab. It'll be
           good for you!
         </p>
-        <Image
-          className={`${styles.labImage}`}
-          src={images[21].imagePath}
-          width={images[21].width}
-          height={images[21].height}
-          sizes={images[21].sizes}
-          style={images[21].style}
-          alt={images[21].imageAltText}
-          priority={images[21].priority}
-          quality={100}
-          decoding="sync"
-          loading="eager"
-        ></Image>
+        <div className={`${styles.labImage}`}>
+          <Image
+            src={images[21].imagePath}
+            width={images[21].width}
+            height={images[21].height}
+            sizes={images[21].sizes}
+            style={images[21].style}
+            alt={images[21].imageAltText}
+            priority={images[21].priority}
+            quality={100}
+            decoding="sync"
+            loading="eager"
+          ></Image>
+        </div>
         <p className="headline">
           At the conclusion of this lab, you will have built your own personal
           cloud consisting of a mini-server running a few virtual servers, a

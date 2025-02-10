@@ -118,11 +118,17 @@ function About() {
     }
   }
 
+  const today = new Date();
+  const todayDate = today.toDateString();
+
   return (
     <section className={`section motion-preset-focus`}>
       {/* Title */}
       <h1 className="text-accent">About</h1>
       <h2>About Kraus Cloud</h2>
+      <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
+        {todayDate}
+      </p>
       {/* Divider */}
       <div className="divider border-b border-accent"></div>
       {/* About Kraus Cloud */}
@@ -271,7 +277,7 @@ function About() {
                       fixedWidth={true}
                     ></FontAwesomeIcon>
                   </div>
-                  {socialTrackerMessage(xReviewed, "x")}
+                  {socialTrackerMessage(xReviewed, "X")}
                 </Link>
                 {/* Bluesky */}
                 <Link
@@ -291,7 +297,7 @@ function About() {
                       fixedWidth={true}
                     ></FontAwesomeIcon>
                   </div>
-                  {socialTrackerMessage(blueSkyReviewed, "bluesky")}
+                  {socialTrackerMessage(blueSkyReviewed, "Bluesky")}
                 </Link>
               </div>
             </div>
