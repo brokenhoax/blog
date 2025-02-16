@@ -285,22 +285,6 @@ function LabContents() {
         </div>
         {/* Headline */}
         <div className="headlineWrapper">
-          <p className="headline">
-            The lab environment we're going to build in this Home Lab series is
-            something anybody can build in a few weekends. All it takes is a
-            fairly-new computer, an internet connection, about $2-3K for lab
-            gear and some patience. While $2-3K might sound pretty steep,
-            building a home lab is, arguably, the most affordable way to learn
-            tech because bootcamps, certifications, and degrees cost at least as
-            much if not significantly more and with a home lab you're getting
-            hands-on experience. Another benefit of building a home lab is that
-            you own the environment and can use it in any way you wish. You
-            could build your own online shop and run your own small business.
-            You can use your lab to build your own production studio and run a
-            legitimate YouTube channel. There are a ton of awesome things you
-            can do once you have the right mix of tech in your home lab. Build
-            yourself a lab. It'll be good for you!
-          </p>
           <div className={`${styles.labImage}`}>
             <Image
               src={images[21].imagePath}
@@ -316,15 +300,16 @@ function LabContents() {
             ></Image>
           </div>
           <p className="headline">
-            At the conclusion of this lab, you will have built your own personal
-            cloud consisting of a mini-server running a few virtual servers, a
-            security appliance to help ensure your network is locked down, and a
-            network switch virtualized into four separate virtual networks. It's
-            not much of a cloud if you don't have a presence on the web, so this
-            lab will also include guidance on how to build a NextJS web app and
-            deploy it on your own NGINX web server. Start thinking of a name for
-            your cloud and review the rundown of required components listed
-            below. Let's gear up and go!
+            By the end of this lab, you will have built your own personal cloud
+            consisting of a virtualization server, a security appliance to help
+            ensure your network is locked down, a network switch virtualized
+            into four separate virtual networks and an endless number of
+            possibitlies for how to use your home lab. It's not much of a cloud
+            if you don't have a presence on the web, so this lab will also
+            include guidance on how to build a NextJS web app and deploy it on
+            your own NGINX web server. Start thinking of a name for your cloud
+            and review the rundown of required components listed below. Let's
+            gear up and go!
           </p>
         </div>
         {/* Table of Contents */}
@@ -382,6 +367,23 @@ function LabContents() {
               </Link>
             </span>
           </h3>
+          {/* Words of Encouragement */}
+          <p className="headline">
+            The lab environment we're going to build in this Home Lab series is
+            something anybody can build in a few weekends. All it takes is a
+            fairly-new computer, an internet connection, about $2-3K for lab
+            gear and some patience. While $2-3K might sound pretty steep,
+            building a home lab is, arguably, the most affordable way to learn
+            tech because bootcamps, certifications, and degrees cost at least as
+            much if not significantly more and with a home lab you're getting
+            hands-on experience. Another benefit of building a home lab is that
+            you own the environment and can use it in any way you wish. You
+            could build your own online shop and run your own small business.
+            You can use your lab to build your own production studio and run a
+            legitimate YouTube channel. There are a ton of awesome things you
+            can do once you have the right mix of tech in your home lab. Build
+            yourself a lab. It'll be good for you!
+          </p>
           <p>
             The following hardware requirements must be met or exceeded to
             complete the lab:
@@ -531,31 +533,6 @@ function LabContents() {
                   experience. Whatever you decide, if you do purchase your own
                   modem, just make sure it supports DOCSIS 3.1 or greater.
                 </p>
-                {/* <p>
-                The good news is, you likely already have this base covered by
-                whatever your Internet Service Provider (ISP) has provided you
-                and by "provided" I mean rented. Typically, your ISP will
-                provide you with a single appliance that's both a modem and a
-                router. It's also very possible that your ISP has provided two
-                separate appliances—a modem and a router. Finally, it's also
-                possible that your ISP has provided you with an ethernet handoff
-                and, therefore, you don't need a modem at all. No matter the
-                case, you will <span className="italic">still</span> need a
-                router, that is, if you want to connect more than one device to
-                your network and I know you do!
-              </p> */}
-                {/* <Callout
-                text="I don't like renting hardware from my ISP, so I always opt to
-                        bring my own modem and wireless router. This gives me full control
-                        over all hardware on my premise and if you want full control of
-                        your lab, then perhaps you should pick up your own gear, too. Of
-                        course, bringing your own modem does require some extra hoop
-                        jumping to register it with your ISP, but it will save you a few
-                        bucks a month and give you some more hands-on experience. Whatever
-                        you decide, if you do decide to purchase your own modem, just make
-                        sure it supports DOCSIS 3.1 or greater."
-                icon={faBullhorn}
-              ></Callout> */}
               </div>
             </KcLink>
             {/* Home Router */}
