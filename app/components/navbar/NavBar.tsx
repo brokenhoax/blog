@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import KcButton from "../kcbutton/KcButton";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 import { useNavbar } from "../../context/NavbarContext";
@@ -14,22 +14,82 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NavBar.module.css";
 
 function NavBar() {
-  const [toggle, setToggle] = useState<boolean>(false);
   const { isExpanded, toggleExpanded } = useNavbar();
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    // Function to update window size
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Set initial window size
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty dependency array ensures this runs only once after mount
 
   function setNavbarstatus() {
-    if (toggle) {
-      setToggle(false);
+    if (isExpanded) {
       toggleExpanded();
-      console.log(isExpanded);
     } else {
-      setToggle(true);
       toggleExpanded();
-      console.log(isExpanded);
     }
   }
 
-  if (!toggle) {
+  // window width
+  let navMenuElements: React.ReactElement;
+  if (windowSize.width < 600) {
+    navMenuElements = (
+      <div className={`${styles.navMenuControls} motion-preset-slide-down`}>
+        {/* Theme Switcher */}
+        <ThemeSwitcher></ThemeSwitcher>
+        {/* About */}
+        <KcButton
+          icon={faCircleQuestion}
+          type="path"
+          path="/pages/about"
+        ></KcButton>
+        <KcButton icon={faHome} type="path" path="/"></KcButton>
+        <KcButton
+          icon={faBars}
+          onToggle={setNavbarstatus}
+          type="toggle"
+        ></KcButton>
+      </div>
+    );
+  } else {
+    navMenuElements = (
+      <div className={`${styles.navMenuControls} motion-preset-slide-down`}>
+        <KcButton
+          icon={faBars}
+          onToggle={setNavbarstatus}
+          type="toggle"
+        ></KcButton>
+        <KcButton icon={faHome} type="path" path="/"></KcButton>
+        {/* About */}
+        <KcButton
+          icon={faCircleQuestion}
+          type="path"
+          path="/pages/about"
+        ></KcButton>
+        {/* Theme Switcher */}
+        <ThemeSwitcher></ThemeSwitcher>
+      </div>
+    );
+  }
+
+  if (!isExpanded) {
     return (
       <nav className={`${styles.navBar}`}>
         <div className={`${styles.navWrapper}`}>
@@ -48,31 +108,12 @@ function NavBar() {
     );
   }
 
-  if (toggle) {
+  if (isExpanded) {
     return (
       <nav className={`${styles.navBar}`}>
         <div className={`${styles.navWrapper}`}>
           <div className={`${styles.navMenu} text-accent`}>
-            <div
-              className={`${styles.navMenuControls} motion-preset-slide-down`}
-            >
-              {/* Menu Button */}
-              <KcButton
-                icon={faBars}
-                onToggle={setNavbarstatus}
-                type="toggle"
-              ></KcButton>
-              {/* Home */}
-              <KcButton icon={faHome} type="path" path="/"></KcButton>
-              {/* About */}
-              <KcButton
-                icon={faCircleQuestion}
-                type="path"
-                path="/pages/about"
-              ></KcButton>
-              {/* Theme Switcher */}
-              <ThemeSwitcher></ThemeSwitcher>
-            </div>
+            {navMenuElements}
           </div>
         </div>
       </nav>

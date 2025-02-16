@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import KcButton from "../kcbutton/KcButton";
 import { useTheme } from "next-themes";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./ThemeSwitcher.module.css";
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
@@ -36,11 +34,7 @@ const ThemeSwitcher = () => {
   if (!hasMounted) return null;
 
   return (
-    <KcButton 
-      icon={faPalette}
-      onToggle={handleToggle} 
-      type="toggle"
-    ></KcButton>
+    <KcButton icon={faPalette} onToggle={handleToggle} type="toggle"></KcButton>
   );
 };
 
