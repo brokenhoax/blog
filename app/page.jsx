@@ -25,6 +25,22 @@ const font = Ubuntu({
 function Home() {
   const posts = [
     {
+      id: "5",
+      title: "Lab 3 — Switch",
+      date: "2-16-2025",
+      length: {
+        minutes: "40",
+        seconds: "00",
+      },
+      icon: "fas fa-mug-hot",
+      mugs: 4,
+      tagline: "Connect your network.",
+      path: "/pages/switch",
+      imagePath: "/images/spring.jpg",
+      imageAltText: "Spring",
+      priority: true,
+    },
+    {
       id: "4",
       title: "Lab 2 — pfSense",
       date: "11-15-2024",
