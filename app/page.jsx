@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { useRef, useEffect } from "react";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 import Image from "next/image";
-import Head from "next/head";
+// import Head from "next/head";
 import Link from "next/link";
 import styles from "./Home.module.css";
 import { Ubuntu } from "next/font/google";
@@ -99,26 +98,26 @@ function Home() {
       <NavBar></NavBar>
       <section className="section">
         {/* <Head>
-              <link
-                rel="apple-touch-icon"
-                sizes="180x180"
-                href="/favicons/apple-touch-icon.png"
-              ></link>
-              <link
-                rel="icon"
-                type="image/png"
-                sizes="32x32"
-                href="/favicons/favicon-32x32.png"
-              ></link>
-              <link
-                rel="icon"
-                type="image/png"
-                sizes="16x16"
-                href="/favicons/favicon-16x16.png"
-              ></link>
-              <link rel="manifest" href="/favicons/site.webmanifest"></link>
-            </Head> 
-        */}
+                <link
+                  rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/favicons/apple-touch-icon.png"
+                ></link>
+                <link
+                  rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/favicons/favicon-32x32.png"
+                ></link>
+                <link
+                  rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/favicons/favicon-16x16.png"
+                ></link>
+                <link rel="manifest" href="/favicons/site.webmanifest"></link>
+              </Head> 
+          */}
         <h1
           className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text`}
         >
@@ -129,8 +128,8 @@ function Home() {
             An educational tech blog
           </h2>
           {/* <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
-            {todayDate}
-          </p> */}
+              {todayDate}
+            </p> */}
         </div>
         {/* Divider */}
         {/* <div className="divider border-b border-accent"></div> */}
