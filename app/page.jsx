@@ -123,12 +123,12 @@ function Home() {
         <h2 className={`${styles.postsDescription}`}>
           An educational tech blog
         </h2>
-        <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
+        {/* <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
           {todayDate}
-        </p>
+        </p> */}
       </div>
       {/* Divider */}
-      <div className="divider border-b border-accent"></div>
+      {/* <div className="divider border-b border-accent"></div> */}
       <ul className={`${styles.posts}`}>
         {posts.map((post, index) => (
           <li key={index} className={`${styles.postsContainer}`}>

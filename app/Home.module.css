@@ -12,7 +12,7 @@
   gap: 2rem;
   height: max-content;
   z-index: 10;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .posts > li {
@@ -160,10 +160,13 @@
     font-size: 12px;
   }
 
+  .posts {
+    margin-top: 2rem;
+  }
+
   .postsDescription {
     font-size: 0.75rem;
     line-height: 0.5rem;
-    padding-bottom: 2rem;
     font-weight: 400;
     font-style: italic;
   }
