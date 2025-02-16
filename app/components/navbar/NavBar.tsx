@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import KcButton from "../kcbutton/KcButton";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
+import { useNavbar } from "../../context/NavbarContext";
 import {
   faHome,
   faCircleQuestion,
@@ -14,12 +15,17 @@ import styles from "./NavBar.module.css";
 
 function NavBar() {
   const [toggle, setToggle] = useState<boolean>(false);
+  const { isExpanded, toggleExpanded } = useNavbar();
 
   function setNavbarstatus() {
     if (toggle) {
       setToggle(false);
+      toggleExpanded();
+      console.log(isExpanded);
     } else {
       setToggle(true);
+      toggleExpanded();
+      console.log(isExpanded);
     }
   }
 

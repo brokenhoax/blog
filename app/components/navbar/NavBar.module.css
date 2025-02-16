@@ -38,7 +38,7 @@
 
   .navMenu {
     position: fixed;
-    padding-top: 0;
+    padding-bottom: 0.25rem;
     bottom: 0.5rem;
     right: 2rem;
   }

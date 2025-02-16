@@ -1,6 +1,5 @@
 import "./global.css";
-import NavBar from "./components/navbar/NavBar";
-import Footer from "./components/footer/Footer";
+import { NavbarProvider } from "../app/context/NavbarContext";
 import {
   Bitter,
   IBM_Plex_Mono,
@@ -55,6 +54,10 @@ export const metadata = {
   description: "A tech blog.",
 };
 
+export interface NavbarStatus {
+  isExpanded: Boolean;
+}
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -65,10 +68,8 @@ export default function RootLayout({ children }) {
     >
       <body className={`${font.className} bg-primary text-secondary`}>
         <Providers>
-          <NavBar></NavBar>
-          {children}
+          <NavbarProvider>{children}</NavbarProvider>
         </Providers>
-        <Footer></Footer>
       </body>
     </html>
   );
