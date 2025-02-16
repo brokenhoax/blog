@@ -12,6 +12,7 @@ type KcButtonProps = {
   onToggle?: () => void; // Optional toggle handler for the 'toggle' type button
   isToggled?: boolean; // Optional to track toggle state for the 'toggle' type button
   type: "link" | "toggle" | "path"; // Restrict to only 'link' or 'toggle' types
+  styling?: string;
 };
 
 const KcButton = ({
@@ -21,6 +22,7 @@ const KcButton = ({
   onToggle,
   isToggled,
   type,
+  styling,
 }: KcButtonProps) => {
   let test = <></>;
   const handleClick = () => {
@@ -37,7 +39,7 @@ const KcButton = ({
     return (
       <Link
         href={path}
-        className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
+        className={`${styles.kcLinkBtn} ${styling} text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none`}
       >
         <FontAwesomeIcon
           icon={icon}
@@ -49,7 +51,7 @@ const KcButton = ({
   } else {
     return (
       <button
-        className={`${styles.kcLinkBtn} text-accent bg-primary hover:outline-dotted hover:outline-2 hover:outline-accent shadow-md`}
+        className={`${styles.kcLinkBtn} ${styling} text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none`}
         onClick={handleClick}
       >
         <FontAwesomeIcon

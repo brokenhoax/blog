@@ -51,7 +51,7 @@ function NavBar() {
   let navMenuElements: React.ReactElement;
   if (windowSize.width < 600) {
     navMenuElements = (
-      <div className={`${styles.navMenuControls} motion-preset-slide-down`}>
+      <div className={`${styles.navMenuControls}`}>
         {/* Theme Switcher */}
         <ThemeSwitcher></ThemeSwitcher>
         {/* About */}
@@ -59,18 +59,25 @@ function NavBar() {
           icon={faCircleQuestion}
           type="path"
           path="/pages/about"
+          styling="motion-preset-expand"
         ></KcButton>
-        <KcButton icon={faHome} type="path" path="/"></KcButton>
+        <KcButton
+          icon={faHome}
+          type="path"
+          path="/"
+          styling="motion-preset-expand"
+        ></KcButton>
         <KcButton
           icon={faBars}
           onToggle={setNavbarstatus}
           type="toggle"
+          styling="motion-preset-expand"
         ></KcButton>
       </div>
     );
   } else {
     navMenuElements = (
-      <div className={`${styles.navMenuControls} motion-preset-slide-down`}>
+      <div className={`${styles.navMenuControls}`}>
         <KcButton
           icon={faBars}
           onToggle={setNavbarstatus}

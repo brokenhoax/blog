@@ -34,7 +34,12 @@ const ThemeSwitcher = () => {
   if (!hasMounted) return null;
 
   return (
-    <KcButton icon={faPalette} onToggle={handleToggle} type="toggle"></KcButton>
+    <KcButton
+      icon={faPalette}
+      onToggle={handleToggle}
+      type="toggle"
+      styling="motion-preset-expand"
+    ></KcButton>
   );
 };
 
