@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import NavBar from "../../components/navbar/NavBar";
+import Footer from "../../components/footer/Footer";
 import {
   faFlask,
   faLightbulb,
@@ -454,7 +456,8 @@ function PfSense() {
   );
 
   return (
-    <div>
+    <>
+      <NavBar></NavBar>
       <section className="section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="text-accent">
@@ -1473,7 +1476,8 @@ function PfSense() {
           <Callout icon={faThumbsUp} text={calloutContent["8"]}></Callout>
         </div>
       </section>
-    </div>
+      <Footer></Footer>
+    </>
   );
 }
 

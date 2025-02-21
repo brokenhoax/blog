@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useRef, useEffect } from "react";
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 import Image from "next/image";
@@ -9,6 +8,22 @@ import styles from "./Home.module.css";
 
 function Home() {
   const posts = [
+    {
+      id: "5",
+      title: "Lab 3 — Switch",
+      date: "2-16-2025",
+      length: {
+        minutes: "40",
+        seconds: "00",
+      },
+      icon: "fas fa-mug-hot",
+      mugs: 4,
+      tagline: "Connect your network.",
+      path: "/pages/switch",
+      imagePath: "/images/spring.jpg",
+      imageAltText: "Spring",
+      priority: true,
+    },
     {
       id: "4",
       title: "Lab 2 — pfSense",
@@ -92,8 +107,8 @@ function Home() {
             An educational tech blog
           </h2>
           {/* <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
-            {todayDate}
-          </p> */}
+              {todayDate}
+            </p> */}
         </div>
         {/* Divider */}
         {/* <div className="divider border-b border-accent"></div> */}
