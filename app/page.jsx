@@ -20,8 +20,8 @@ function Home() {
       mugs: 4,
       tagline: "Connect your network.",
       path: "/pages/switch",
-      imagePath: "/images/spring.jpg",
-      imageAltText: "Spring",
+      imagePath: "/images/infrared_eye.png",
+      imageAltText: "Infrared eye.",
       priority: true,
     },
     {
