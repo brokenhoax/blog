@@ -29,7 +29,7 @@ function PfSense() {
   const images = [
     {
       id: "1",
-      imagePath: "/images/pfsense_aliases.png",
+      imagePath: "/images/pfsense_aliases.webp",
       imageAltText: "pfSense aliases creation wizard",
       width: 0,
       height: 0,
@@ -39,7 +39,7 @@ function PfSense() {
     },
     {
       id: "2",
-      imagePath: "/images/pfsense_nginx_nat.png",
+      imagePath: "/images/pfsense_nginx_nat.webp",
       imageAltText: "pfSense NGINX NAT policy",
       width: 0,
       height: 0,
@@ -49,7 +49,7 @@ function PfSense() {
     },
     {
       id: "3",
-      imagePath: "/images/pfsense_dns_resolver_nat.png",
+      imagePath: "/images/pfsense_dns_resolver_nat.webp",
       imageAltText: "pfSense DNS Resolver NAT rule",
       width: 0,
       height: 0,
@@ -59,7 +59,7 @@ function PfSense() {
     },
     {
       id: "4",
-      imagePath: "/images/pfsense_dns_resolver_configuration.png",
+      imagePath: "/images/pfsense_dns_resolver_configuration.webp",
       imageAltText: "pfSense DNS Resolver configuration",
       width: 0,
       height: 0,
@@ -69,7 +69,7 @@ function PfSense() {
     },
     {
       id: "5",
-      imagePath: "/images/pfsense_sys_general_setup.png",
+      imagePath: "/images/pfsense_sys_general_setup.webp",
       imageAltText:
         "pfSense DNS Resolver 'Server Settings' used by 'Forwarding Mode'",
       width: 0,
@@ -80,7 +80,7 @@ function PfSense() {
     },
     {
       id: "6",
-      imagePath: "/images/pfsense_dns_host_overrides.png",
+      imagePath: "/images/pfsense_dns_host_overrides.webp",
       imageAltText: "pfSense DNS Resolver 'Host Overrides'",
       width: 0,
       height: 0,
@@ -90,7 +90,7 @@ function PfSense() {
     },
     {
       id: "7",
-      imagePath: "/images/pfsense_interfaces_PORT1WAN.png",
+      imagePath: "/images/pfsense_interfaces_PORT1WAN.webp",
       imageAltText: "pfSense interface for PORT1WAN",
       width: 0,
       height: 0,
@@ -100,7 +100,7 @@ function PfSense() {
     },
     {
       id: "8",
-      imagePath: "/images/pfsense_interfaces_PORT2LAN.png",
+      imagePath: "/images/pfsense_interfaces_PORT2LAN.webp",
       imageAltText: "pfSense interface for PORT2LAN",
       width: 0,
       height: 0,
@@ -110,7 +110,7 @@ function PfSense() {
     },
     {
       id: "9",
-      imagePath: "/images/pfsense_interfaces_PORT3.png",
+      imagePath: "/images/pfsense_interfaces_PORT3.webp",
       imageAltText: "pfSense interface for PORT3",
       width: 0,
       height: 0,
@@ -120,7 +120,7 @@ function PfSense() {
     },
     {
       id: "10",
-      imagePath: "/images/pfsense_interfaces_VLAN_USERS.png",
+      imagePath: "/images/pfsense_interfaces_VLAN_USERS.webp",
       imageAltText: "pfSense interface for VLAN_USERS",
       width: 0,
       height: 0,
@@ -130,7 +130,7 @@ function PfSense() {
     },
     {
       id: "11",
-      imagePath: "/images/pfsense_interfaces_VLAN_SERVICES.png",
+      imagePath: "/images/pfsense_interfaces_VLAN_SERVICES.webp",
       imageAltText: "pfSense interface for VLAN_SERVICES",
       width: 0,
       height: 0,
@@ -140,7 +140,7 @@ function PfSense() {
     },
     {
       id: "12",
-      imagePath: "/images/pfsense_interfaces_VLAN_STORAGE.png",
+      imagePath: "/images/pfsense_interfaces_VLAN_STORAGE.webp",
       imageAltText: "pfSense interface for VLAN_STORAGE",
       width: 0,
       height: 0,
@@ -150,7 +150,7 @@ function PfSense() {
     },
     {
       id: "13",
-      imagePath: "/images/pfsense_interfaces_VLAN_MANAGEMENT.png",
+      imagePath: "/images/pfsense_interfaces_VLAN_MANAGEMENT.webp",
       imageAltText: "pfSense interface for VLAN_MANAGEMENT",
       width: 0,
       height: 0,
@@ -160,7 +160,7 @@ function PfSense() {
     },
     {
       id: "14",
-      imagePath: "/images/pfsense_interfaces_VLAN_DEFAULT.png",
+      imagePath: "/images/pfsense_interfaces_VLAN_DEFAULT.webp",
       imageAltText: "pfSense interface for VLAN_DEFAULT",
       width: 0,
       height: 0,
@@ -170,7 +170,7 @@ function PfSense() {
     },
     {
       id: "15",
-      imagePath: "/images/pfsense_interfaces_PORT4.png",
+      imagePath: "/images/pfsense_interfaces_PORT4.webp",
       imageAltText: "pfSense interface for PORT4",
       width: 0,
       height: 0,
@@ -180,7 +180,7 @@ function PfSense() {
     },
     {
       id: "16",
-      imagePath: "/images/pfsense_rules_PORT1WAN.png",
+      imagePath: "/images/pfsense_rules_PORT1WAN.webp",
       imageAltText: "pfSense rules for PORT1WAN",
       width: 0,
       height: 0,
@@ -190,7 +190,7 @@ function PfSense() {
     },
     {
       id: "17",
-      imagePath: "/images/pfsense_rules_PORT2LAN.png",
+      imagePath: "/images/pfsense_rules_PORT2LAN.webp",
       imageAltText: "pfSense rules for PORT2LAN",
       width: 0,
       height: 0,
@@ -200,7 +200,7 @@ function PfSense() {
     },
     {
       id: "18",
-      imagePath: "/images/pfsense_rules_PORT3.png",
+      imagePath: "/images/pfsense_rules_PORT3.webp",
       imageAltText: "pfSense rules for PORT3",
       width: 0,
       height: 0,
@@ -210,7 +210,7 @@ function PfSense() {
     },
     {
       id: "19",
-      imagePath: "/images/pfsense_rules_PORT4.png",
+      imagePath: "/images/pfsense_rules_PORT4.webp",
       imageAltText: "pfSense rules for PORT4",
       width: 0,
       height: 0,
@@ -220,7 +220,7 @@ function PfSense() {
     },
     {
       id: "20",
-      imagePath: "/images/pfsense_rules_VLAN_USERS.png",
+      imagePath: "/images/pfsense_rules_VLAN_USERS.webp",
       imageAltText: "pfSense rules for VLAN_USERS",
       width: 0,
       height: 0,
@@ -230,7 +230,7 @@ function PfSense() {
     },
     {
       id: "21",
-      imagePath: "/images/pfsense_rules_VLAN_SERVICES.png",
+      imagePath: "/images/pfsense_rules_VLAN_SERVICES.webp",
       imageAltText: "pfSense rules for VLAN_SERVICES",
       width: 0,
       height: 0,
@@ -240,7 +240,7 @@ function PfSense() {
     },
     {
       id: "22",
-      imagePath: "/images/pfsense_rules_VLAN_STORAGE.png",
+      imagePath: "/images/pfsense_rules_VLAN_STORAGE.webp",
       imageAltText: "pfSense rules for VLAN_STORAGE",
       width: 0,
       height: 0,
@@ -250,7 +250,7 @@ function PfSense() {
     },
     {
       id: "23",
-      imagePath: "/images/pfsense_rules_VLAN_MANAGEMENT.png",
+      imagePath: "/images/pfsense_rules_VLAN_MANAGEMENT.webp",
       imageAltText: "pfSense rules for VLAN_MANAGEMENT",
       width: 0,
       height: 0,
@@ -260,7 +260,7 @@ function PfSense() {
     },
     {
       id: "24",
-      imagePath: "/images/pfsense_rules_VLAN_DEFAULT.png",
+      imagePath: "/images/pfsense_rules_VLAN_DEFAULT.webp",
       imageAltText: "pfSense rules for VLAN_DEFAULT",
       width: 0,
       height: 0,
@@ -270,7 +270,7 @@ function PfSense() {
     },
     {
       id: "25",
-      imagePath: "/images/network_diagram.png",
+      imagePath: "/images/network_diagram.webp",
       imageAltText: "Network Diagram",
       width: 0,
       height: 0,
@@ -280,7 +280,7 @@ function PfSense() {
     },
     {
       id: "26",
-      imagePath: "/images/kraus-cloud-netgate-close.JPG",
+      imagePath: "/images/kraus-cloud-netgate-close.webp",
       imageAltText: "Kraus Cloud Netgate appliance close up",
       width: 0,
       height: 0,
@@ -290,7 +290,7 @@ function PfSense() {
     },
     {
       id: "27",
-      imagePath: "/images/kraus-cloud-lab-close.JPG",
+      imagePath: "/images/kraus-cloud-lab-close.webp",
       imageAltText: "Kraus Cloud Lab - Close Up",
       width: 0,
       height: 0,

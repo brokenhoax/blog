@@ -10,7 +10,7 @@ function FigmaSlider() {
   const images = [
     {
       id: "1",
-      imagePath: "/images/slider_handle.png",
+      imagePath: "/images/slider_handle.webp",
       imageAltText: "Figma slider handle",
       width: 0,
       height: 0,
@@ -20,7 +20,7 @@ function FigmaSlider() {
     },
     {
       id: "2",
-      imagePath: "/images/slider_handle.png",
+      imagePath: "/images/slider_handle.webp",
       imageAltText: "Figma slider handle",
       width: 0,
       height: 0,
@@ -30,7 +30,7 @@ function FigmaSlider() {
     },
     {
       id: "3",
-      imagePath: "/images/slider_bar.png",
+      imagePath: "/images/slider_bar.webp",
       imageAltText: "Slider bar",
       width: 0,
       height: 0,
@@ -40,7 +40,7 @@ function FigmaSlider() {
     },
     {
       id: "4",
-      imagePath: "/images/interactions.png",
+      imagePath: "/images/interactions.webp",
       imageAltText: "Figma slider interactions",
       width: 0,
       height: 0,
@@ -50,7 +50,7 @@ function FigmaSlider() {
     },
     {
       id: "5",
-      imagePath: "/images/constraints_zero.png",
+      imagePath: "/images/constraints_zero.webp",
       imageAltText: "Figma empty slider constraints",
       width: 0,
       height: 0,
@@ -60,7 +60,7 @@ function FigmaSlider() {
     },
     {
       id: "6",
-      imagePath: "/images/constraints_half.png",
+      imagePath: "/images/constraints_half.webp",
       imageAltText: "Figma half slider constraints",
       width: 0,
       height: 0,
@@ -70,7 +70,7 @@ function FigmaSlider() {
     },
     {
       id: "7",
-      imagePath: "/images/constraints_full.png",
+      imagePath: "/images/constraints_full.webp",
       imageAltText: "Figma full slider constraints",
       width: 0,
       height: 0,
@@ -90,7 +90,7 @@ function FigmaSlider() {
     },
     {
       id: "7",
-      imagePath: "/images/constraints.png",
+      imagePath: "/images/constraints.webp",
       imageAltText: "Constraints close up",
       width: 0,
       height: 0,

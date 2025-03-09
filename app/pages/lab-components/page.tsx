@@ -25,7 +25,7 @@ function LabContents() {
   const images = [
     {
       id: "1",
-      imagePath: "/images/network_diagram.png",
+      imagePath: "/images/network_diagram.webp",
       imageAltText: "Network Diagram",
       width: 0,
       height: 0,
@@ -35,7 +35,7 @@ function LabContents() {
     },
     {
       id: "2",
-      imagePath: "/images/motorola_modem.jpg",
+      imagePath: "/images/motorola_modem.webp",
       imageAltText: "Modem — Motorola",
       width: 0,
       height: 0,
@@ -45,7 +45,7 @@ function LabContents() {
     },
     {
       id: "3",
-      imagePath: "/images/netgate.jpg",
+      imagePath: "/images/netgate.webp",
       imageAltText: "Security Appliance — Netgate 4200",
       width: 0,
       height: 0,
@@ -55,7 +55,7 @@ function LabContents() {
     },
     {
       id: "4",
-      imagePath: "/images/ms01.jpg",
+      imagePath: "/images/ms01.webp",
       imageAltText: "Server - Minisforum MS-01",
       width: 0,
       height: 0,
@@ -65,7 +65,7 @@ function LabContents() {
     },
     {
       id: "5",
-      imagePath: "/images/amplifi-router.jpg",
+      imagePath: "/images/amplifi-router.webp",
       imageAltText: "Router - Amplifi",
       width: 0,
       height: 0,
@@ -75,7 +75,7 @@ function LabContents() {
     },
     {
       id: "6",
-      imagePath: "/images/anker-ethernet-adapter.jpg",
+      imagePath: "/images/anker-ethernet-adapter.webp",
       imageAltText: "Ethernet Adapter - USB-C",
       width: 0,
       height: 0,
@@ -85,7 +85,7 @@ function LabContents() {
     },
     {
       id: "7",
-      imagePath: "/images/oikwan-serial-adapter.jpg",
+      imagePath: "/images/oikwan-serial-adapter.webp",
       imageAltText: "Serial Adapter - Oikwan",
       width: 0,
       height: 0,
@@ -95,7 +95,7 @@ function LabContents() {
     },
     {
       id: "8",
-      imagePath: "/images/comptia-network-plus.jpg",
+      imagePath: "/images/comptia-network-plus.webp",
       imageAltText: "Certification Book - Network+",
       width: 0,
       height: 0,
@@ -105,7 +105,7 @@ function LabContents() {
     },
     {
       id: "9",
-      imagePath: "/images/sandisk-flash-drive.jpg",
+      imagePath: "/images/sandisk-flash-drive.webp",
       imageAltText: "Flash Drive - Sandisk 8GB",
       width: 0,
       height: 0,
@@ -115,7 +115,7 @@ function LabContents() {
     },
     {
       id: "10",
-      imagePath: "/images/proxmox.png",
+      imagePath: "/images/proxmox.webp",
       imageAltText: "Virtualization Platform - Proxmox",
       width: 0,
       height: 0,
@@ -125,7 +125,7 @@ function LabContents() {
     },
     {
       id: "11",
-      imagePath: "/images/ubuntu.png",
+      imagePath: "/images/ubuntu.webp",
       imageAltText: "Web Server's Operating System - Ubuntu (Desktop)",
       width: 0,
       height: 0,
@@ -135,7 +135,7 @@ function LabContents() {
     },
     {
       id: "12",
-      imagePath: "/images/red-hat-logo.png",
+      imagePath: "/images/red-hat-logo.webp",
       imageAltText:
         "Zscaler App Connector Operating System - Red Hat Enterprise Linux",
       width: 0,
@@ -146,7 +146,7 @@ function LabContents() {
     },
     {
       id: "13",
-      imagePath: "/images/pfsense-logo.png",
+      imagePath: "/images/pfsense-logo.webp",
       imageAltText: "Network Security Solution - pfSense",
       width: 0,
       height: 0,
@@ -156,7 +156,7 @@ function LabContents() {
     },
     {
       id: "14",
-      imagePath: "/images/nextjs-logo.png",
+      imagePath: "/images/nextjs-logo.webp",
       imageAltText: "React (Front-End) Framework - Next.js",
       width: 0,
       height: 0,
@@ -166,7 +166,7 @@ function LabContents() {
     },
     {
       id: "15",
-      imagePath: "/images/nginx-logo.png",
+      imagePath: "/images/nginx-logo.webp",
       imageAltText: "Web Server - NGINX",
       width: 0,
       height: 0,
@@ -176,7 +176,7 @@ function LabContents() {
     },
     {
       id: "16",
-      imagePath: "/images/cisco-switch.jpg",
+      imagePath: "/images/cisco-switch.webp",
       imageAltText: "Switch - Cisco 1200",
       width: 0,
       height: 0,
@@ -186,7 +186,7 @@ function LabContents() {
     },
     {
       id: "17",
-      imagePath: "/images/echogear-rack.jpg",
+      imagePath: "/images/echogear-rack.webp",
       imageAltText: "Network Rack - ECHOGEAR",
       width: 0,
       height: 0,
@@ -196,7 +196,7 @@ function LabContents() {
     },
     {
       id: "18",
-      imagePath: "/images/ethernet-cables.jpg",
+      imagePath: "/images/ethernet-cables.webp",
       imageAltText: "Ethernet Cables",
       width: 0,
       height: 0,
@@ -206,7 +206,7 @@ function LabContents() {
     },
     {
       id: "19",
-      imagePath: "/images/cloudflare-logo.png",
+      imagePath: "/images/cloudflare-logo.webp",
       imageAltText: "Cloudflare Logo",
       width: 0,
       height: 0,
@@ -216,7 +216,7 @@ function LabContents() {
     },
     {
       id: "20",
-      imagePath: "/images/zscaler-logo.png",
+      imagePath: "/images/zscaler-logo.webp",
       imageAltText: "Zscaler Logo",
       width: 0,
       height: 0,
@@ -226,7 +226,7 @@ function LabContents() {
     },
     {
       id: "21",
-      imagePath: "/images/okta-developer-logo.png",
+      imagePath: "/images/okta-developer-logo.webp",
       imageAltText: "Okta Developer Logo",
       width: 0,
       height: 0,
@@ -236,7 +236,7 @@ function LabContents() {
     },
     {
       id: "22",
-      imagePath: "/images/kraus-cloud-lab.JPG",
+      imagePath: "/images/kraus-cloud-lab.webp",
       imageAltText: "Kraus Cloud Home Lab",
       width: 0,
       height: 0,
