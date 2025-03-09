@@ -63,7 +63,6 @@ function About() {
   }, []);
 
   const socialTrackerMessage = (reviewStatus, param) => {
-    console.log(reviewStatus);
     if (reviewStatus) {
       return (
         <div className={`${styles.socialTrackerMessageReviewed} bg-subtle`}>
@@ -80,7 +79,6 @@ function About() {
   };
 
   function trackSocial(param) {
-    console.log(param);
     if (param === "github") {
       krausGitHubReviewed = localStorage.getItem("krausGitHubReviewed");
       if (krausGitHubReviewed === "true") {
