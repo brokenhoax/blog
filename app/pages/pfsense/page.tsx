@@ -470,7 +470,6 @@ function PfSense() {
         {/* Headline */}
         <div className="headlineWrapper">
           <Image
-            className={`${styles.labImage}`}
             src={images[25].imagePath}
             width={images[25].width}
             height={images[25].height}

@@ -243,9 +243,7 @@ function LabContents() {
       sizes: "100vw",
       style: {
         width: "100%",
-        height: "auto",
-        marginTop: "1rem",
-        marginBottom: ".5rem",
+        height: "auto"
       },
       priority: true,
     },
@@ -285,20 +283,18 @@ function LabContents() {
         </div>
         {/* Headline */}
         <div className="headlineWrapper">
-          <div className={`${styles.labImage}`}>
-            <Image
-              src={images[21].imagePath}
-              width={images[21].width}
-              height={images[21].height}
-              sizes={images[21].sizes}
-              style={images[21].style}
-              alt={images[21].imageAltText}
-              priority={images[21].priority}
-              quality={100}
-              decoding="sync"
-              loading="eager"
-            ></Image>
-          </div>
+          <Image
+            src={images[21].imagePath}
+            width={images[21].width}
+            height={images[21].height}
+            sizes={images[21].sizes}
+            style={images[21].style}
+            alt={images[21].imageAltText}
+            priority={images[21].priority}
+            quality={100}
+            decoding="sync"
+            loading="eager"
+          ></Image>
           <p className="headline">
             By the end of this lab, you will have built your own personal cloud
             consisting of a virtualization server, a security appliance to help
@@ -368,7 +364,7 @@ function LabContents() {
             </span>
           </h3>
           {/* Words of Encouragement */}
-          <p className="headline">
+          <p>
             The lab environment we're going to build in this Home Lab series is
             something anybody can build in a few weekends. All it takes is a
             fairly-new computer, an internet connection, about $2-3K for lab

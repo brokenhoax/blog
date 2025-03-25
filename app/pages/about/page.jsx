@@ -18,7 +18,7 @@ import styles from "./About.module.css";
 
 const headshot = {
   id: "1",
-  imagePath: "/images/kraus.jpeg",
+  imagePath: "/images/kraus.webp",
   imageAltText: "Andrew Kraus",
   width: 0,
   height: 0,

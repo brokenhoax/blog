@@ -58,22 +58,6 @@ function Home() {
     },
     {
       id: "2",
-      title: "Ready Set Go",
-      date: "6-3-2021",
-      length: {
-        minutes: "10",
-        seconds: "00",
-      },
-      icon: "fas fa-mug-hot",
-      mugs: 2,
-      tagline: "Publish your app with GitHub Pages.",
-      path: "/pages/ready-set-go",
-      imagePath: "/images/code.webp",
-      imageAltText: "Code",
-      priority: true,
-    },
-    {
-      id: "1",
       title: "Figma Slider",
       date: "7-14-2022",
       length: {
@@ -86,6 +70,22 @@ function Home() {
       path: "/pages/figma-slider",
       imagePath: "/images/spring.webp",
       imageAltText: "Spring",
+      priority: true,
+    },
+    {
+      id: "1",
+      title: "Ready Set Go",
+      date: "6-3-2021",
+      length: {
+        minutes: "10",
+        seconds: "00",
+      },
+      icon: "fas fa-mug-hot",
+      mugs: 2,
+      tagline: "Publish your app with GitHub Pages.",
+      path: "/pages/ready-set-go",
+      imagePath: "/images/code.webp",
+      imageAltText: "Code",
       priority: true,
     },
   ];
