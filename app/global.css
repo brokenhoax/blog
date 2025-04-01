@@ -52,7 +52,7 @@ h3 {
 h4 {
   font-size: 24px;
   font-weight: 600;
-  padding: 2rem 0rem 0.5rem 0rem;
+  padding: 1rem 0rem 0.5rem 0rem;
 }
 
 p {
@@ -159,8 +159,12 @@ ul {
 
 .path {
   width: fit-content;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-left: 0.25rem;
+  padding: 0.5rem;
   border-radius: 10px;
+  text-wrap: nowrap;
+  font-weight: 500;
+  line-height: 2.5rem;
 }
 
 /* Responsive Design */
@@ -220,6 +224,11 @@ ul {
 
   pre > code {
     font-size: 14px;
+  }
+
+  .path {
+    font-size: 14px;
+    line-height: 2rem;
   }
 }
 
