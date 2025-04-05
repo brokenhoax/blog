@@ -26,7 +26,7 @@ function Switch() {
     config
   `,
     `
-    # Enter VLAN “Context Configuration”
+    # Enter VLAN Configuration context
     
     vlan 10
   `,
@@ -46,13 +46,72 @@ function Switch() {
     setup
   `,
     `
-      # log in as manager
-      u/n: manager
-      p/w: <password>
+    const KRAUS_CLOUD_VLANS = {
+      vlan_1: {
+        name: "default"
+        subnet: "192.168.50.0/24",
+        netgate_virtual_interface_ip: "192.168.50.1".
+        switch_physical_interface_ip: "192.168.50.254",
+        switch_interfaces: "10"
+      },
+      vlan_10: {
+        name: "services"
+        subnet: "192.168.10.0/24",
+        netgate_virtual_interface_ip: "192.168.10.1".
+        switch_physical_interface_ip: "192.168.10.254",
+        switch_interfaces: "1-3"
+      },
+        name: "users"
+        vlan_20: {
+        subnet: "192.168.20.0/24",
+        netgate_virtual_interface_ip: "192.168.20.1".
+        switch_physical_interface_ip: "192.168.20.254",
+        switch_interfaces: "4-6"
+      },
+        name: "storage"
+        vlan_10: {
+        subnet: "192.168.30.0/24",
+        netgate_virtual_interface_ip: "192.168.30.1".
+        switch_physical_interface_ip: "192.168.30.254",
+        switch_interfaces: "7"
+      },
+        name: "management"
+        vlan_10: {
+        subnet: "192.168.40.0/24",
+        netgate_interface_ip: "192.168.40.1".
+        switch_physical_interface_ip: "192.168.40.254",
+        switch_interfaces: "8"
+      }
+    }
 
-      # log in as operator
-      u/n: operator
-      p/w: <password>
+  `,
+    ` 
+    # Enter any context
+    enable
+
+    # Show time and date
+    display clock
+    show time
+
+  `,
+    `
+    time 11:30:00 11/17/2022
+    time 1:50:00 3/22/2024
+  `,
+    `
+    # View sntp settings
+    show sntp
+
+    # Sync time
+    timesync sntp
+
+    # View time
+    show time
+    display clock
+  `,
+  `
+    # Show logs
+    show logging -a
 
 `,
   ];
@@ -117,6 +176,96 @@ function Switch() {
       style: { width: "100%", height: "auto" },
       priority: true,
     },
+    {
+      id: "6",
+      imagePath: "/images/kraus-cloud-switch-vlan-names.webp",
+      imageAltText: "Switch CLI VLAN Names Page",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "7",
+      imagePath: "/images/kraus-cloud-switch-port-trunk-settings.webp",
+      imageAltText: "Switch CLI Port Trunk Settings",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "8",
+      imagePath: "/images/kraus-cloud-switch-vlan-port-assignment.webp",
+      imageAltText: "Switch CLI VLAN Port Assignment",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "9",
+      imagePath: "/images/pfsense_interfaces_VLAN_DEFAULT.webp",
+      imageAltText: "pfSense interface for VLAN_DEFAULT",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "9",
+      imagePath: "/images/kraus-cloud-switch-internet-protocol-service.webp",
+      imageAltText: "Switch CLI Internet (IP) Service",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "10",
+      imagePath: "/images/kraus-cloud-switch-setup-page-sntp.webp",
+      imageAltText: "Switch CLI Switch Setup Page w/ SNTP Updates",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "11",
+      imagePath: "/images/pfsense_rules_VLAN_DEFAULT_NTP.webp",
+      imageAltText: "pfSense Firewall NTP Rules for Default VLAN",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "12",
+      imagePath: "/images/pfSense_interfaces_DHCP_Server_(VLAN_DEFAULT).webp",
+      imageAltText: "pfSense Interface VLAN Default DHCP Settings",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "12",
+      imagePath: "/images/kraus-cloud-switch-show-logs-command.webp",
+      imageAltText: "Switch CLI Show Logs Command — SNTP Logs",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
   ];
   const toc = (
     <ol className="orderedList">
@@ -151,7 +300,7 @@ function Switch() {
         </Link>
       </li>
       <li className="hover:text-accent">
-        <Link scroll={true} href="/pages/switch#basic-make-trunk-interface">
+        <Link scroll={true} href="/pages/switch#make-trunk-interface">
           Make Trunk Interface
         </Link>
       </li>
@@ -343,10 +492,10 @@ function Switch() {
             command line is that there are different “contexts” that you can
             enter to configure various aspects of the switch. For instance, when
             you first land in the command line after connecting to your switch,
-            you'll notice that the prompt ends with a greater-than symbol
-            `&gt;`. The mode or context you are in by default is called
-            “Operator” mode and you can tell what context you're in by viewing
-            the prompt.
+            you'll notice that the prompt ends with a greater-than symbol &nbsp;
+            <span className="text-accent bg-subtle path">`&gt;`</span>. The mode
+            or context you are in by default is called “Operator” mode and you
+            can tell what context you're in by viewing the prompt.
           </p>
           <p>
             To have more privileges and do more things on your switch, you have
@@ -382,15 +531,17 @@ function Switch() {
           </h3>
           <p>
             Most of our switch configuration will be done using the command line
-            menu. Type `menu` into the command line to enter the command line
-            menu. You can arrow up and down to move from one menu item to
-            another, hitting “enter” to access each item. Alternatively, you can
-            simply type in the corresponding menu number to access each item
-            with a single keystroke. Take a few minutes to browse and get a good
-            idea of what options are available to you through the menu, Keep an
+            menu. Type <span className="text-accent bg-subtle path">menu</span>{" "}
+            into the command line to enter the command line menu. You can arrow
+            up and down to move from one menu item to another, hitting “enter”
+            to access each item. Alternatively, you can simply type in the
+            corresponding menu number to access each item with a single
+            keystroke. Take a few minutes to browse and get a good idea of what
+            options are available to you through the menu and be sure to keep an
             eye out for navigation tips provided at the bottom of the screen.
           </p>
           <CodeBlock props={htmlContent[4]} type="powershell"></CodeBlock>
+          <ToggleImage params={images["4"]}></ToggleImage>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
@@ -408,14 +559,15 @@ function Switch() {
           <p>
             Now that we've gained access to our switch and know our way around a
             bit, the first thing we should do is configure our “Switch Setup”.
-            Using the `setup` command to enter the “Switch Setup” screen which
-            is where you can configure the manager password amongst other
-            critical settings. Of course, a best practice is to update the
-            default passwords or set passwords in the event that there are none
-            set by default. The HP 2915 has the concept of a “Manager” and
-            “Operator” role, each with their own set of credentials and
-            privileges. We'll first update the Manager Password and confirm it
-            for good measure.
+            Using the &nbsp;
+            <span className="text-accent bg-subtle path">setup</span>&nbsp;
+            command to enter the “Switch Setup” screen which is where you can
+            configure the manager password amongst other critical settings. Of
+            course, a best practice is to update the default passwords or set
+            passwords in the event that there are none set by default. The HP
+            2915 has the concept of a “Manager” and “Operator” role, each with
+            their own set of credentials and privileges. We'll first update the
+            Manager Password and confirm it for good measure.
           </p>
           <Callout
             icon={faTriangleExclamation}
@@ -432,29 +584,322 @@ function Switch() {
           </p>
           <Callout
             icon={faCircleInfo}
-            text="What the documentation doesn’t tell you is that the “Manager” and “Operator” usernames are simply “manager” and “operator”. Sort of a big miss, if you ask me…"
+            text="What the documentation doesn't tell you is that the “Manager” and “Operator” usernames are simply “manager” and “operator”. Sort of a big miss, if you ask me…"
           ></Callout>
-          <CodeBlock props={htmlContent[6]} type="powershell"></CodeBlock>
+          <CodeBlock props={htmlContent[5]} type="powershell"></CodeBlock>
           <h4>IP Settings</h4>
           <p>
             There are other IP protocol related settings we'll need to configure
-            in the Switch Setup. Most notably are the switch's
+            in the Switch Setup. Most notably are the switch's &nbsp;
             <span className="text-accent bg-subtle path">IP Config</span>,
-            <span className="text-accent bg-subtle path">IP Address</span>, and
-            <span className="text-accent bg-subtle path">
-              Default Gateway
-            </span>{" "}
-            which we'll be setting to
-            <span className="text-accent bg-subtle path">DHCP</span>,
+            &nbsp;<span className="text-accent bg-subtle path">IP Address</span>
+            , and &nbsp;
+            <span className="text-accent bg-subtle path">Default Gateway</span>
+            &nbsp; which we'll be setting to &nbsp;
+            <span className="text-accent bg-subtle path">DHCP</span>, &nbsp;
             <span className="text-accent bg-subtle path">192.168.50.10</span>,
-            and
-            <span className="text-accent bg-subtle path">192.168.2.1</span>{" "}
-            respectively. In this step, we're telling the switch to get its IP
-            address from a DHCP server we're explicitly setting the switch's
-            default gateway and we're choosing a time synchronization method.
+            and &nbsp;
+            <span className="text-accent bg-subtle path">192.168.2.1</span>
+            &nbsp; respectively. In this step, we're telling the switch to get
+            its IP address from a DHCP server we're explicitly setting the
+            switch's default gateway and we're choosing a time synchronization
+            method.
           </p>
-          <ToggleImage params={images["4"]}></ToggleImage>
-          {/* <ToggleImage params={images["5"]}></ToggleImage> */}
+          <ToggleImage params={images["5"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Create VLANs */}
+        <div>
+          <h3 id="create-vlans" className="text-accent">
+            Create VLANs
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            With our basic switch setup in place, we're ready to start
+            configuring our switch's ethernet interfaces. We'll start by
+            creating VLANs which are used to (virtually) divide our network up
+            into multiple virtual networks. VLANs are useful for both
+            performance and security reasons.
+          </p>
+          <p>
+            Performance gains from implementing VLANs are due to the fact that
+            traffic such as broadcasts are isolated to their own VLAN and if
+            VLANs are assigned to individual ports, then broadcasts destined for
+            users/devices that are part of one VLAN won't need to be broadcast
+            to users/devices that are part of a different VLAN. In short, you
+            have less congestion on the network when you use VLANs.``
+          </p>
+          <p>
+            Security gains result from the fact that we can, for instance, keep
+            our more valuable users or resources (e.g., our crown jewels) in one
+            VLAN and our less valuable (and, perhaps, more risky) users or
+            resources (e.g., our guest users) in a different VLAN. Then, we can
+            use VLANs as constructs within our security policies in order to
+            apply more granular security controls on traffic flowing between
+            VLANs. For instance, to exaggerate the point, we don't care about
+            our Guest VLAN as much as we do, say, our Management VLAN. Perhaps,
+            all we care to do is allow guests to jump on the Wi-Fi and get out
+            to the Internet. The routing and firewall policies that we need to
+            put in place for our Guest VLAN is pretty straight forward—they
+            can't do anything else but reach the internet. Our Management VLAN,
+            on the other hand, would have firewall and routing policies that
+            allow an Administrator access to various network resources for
+            management purposes as well as access to the internet. Obviously,
+            the routing and firewall policies needed to support our
+            Administrators/Management VLAN are greater in number and much more
+            complex, due to the level of sophistication to support the use case.
+          </p>
+          <p>
+            That said, in our lab we will create four (4) VLANs. One for our
+            “Services” which will be our servers and applications that we want
+            to serve up from our cloud. We'll have another VLAN for our “Users”
+            which, as you can imagine, is a catch all for all users types. You
+            could imagine that in your typical organization you'd have multiple
+            VLANs for various types of users and those typically align to
+            various departments across an organization. Feel free to add more
+            VLANs for different user types if you want, but I'm keeping it to
+            one user VLANs for simplicities sake. Our third VLAN will be for
+            “Storage”. This VLAN is reserved for our lab's Network Attached
+            Storage (NAS) appliance which we'll be adding in a subsequent lab
+            post. Finally, our fourth VLAN will be our “Management” VLAN. This
+            VLAN will be used to allow and only allow management access to the
+            devices within our Cloud for management purposes. That said, let's
+            create our VLANS referencing the code block shared below. To create
+            VLANs on our switch, we'll enter the &nbsp;
+            <span className="text-accent bg-subtle path">menu</span>&nbsp;
+            command and navigate to:
+          </p>
+          <div className="text-white bg-subtle path">
+            &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>&nbsp;LAN
+            Menu&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN Names&nbsp;
+          </div>
+          <ToggleImage params={images["6"]}></ToggleImage>
+          <CodeBlock props={htmlContent[6]} type="json"></CodeBlock>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Make Trunk Interface */}
+        <div>
+          <h3 id="make-trunk-interface" className="text-accent">
+            Make Trunk Interface
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            Our “Trunk” interface is the interface from which we will send all
+            of our switch's traffic to our Netgate security appliance. We'll
+            make a physical connection between our Netgate appliance and our
+            network switch using this trunk interface 9/10 and we will assign
+            VLANs as “tagged” when transmitted over this interface. More on that
+            in the next section.
+          </p>
+          <ToggleImage params={images["7"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Assign VLANs to Interfaces */}
+        <div>
+          <h3 id="assign-vlans-to-interfaces" className="text-accent">
+            Assign VLANs to Interfaces
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            With our VLANs and trunk interface created, it's time to assign our
+            VLANs to the physical interfaces on our switch and also ensure our
+            VLANs are properly assigned to our trunk interface. The “VLAN Port
+            Assignment” menu page makes configuration fairly straightforward;
+            however, there are a handful of different VLAN interface assignment
+            types to familiarize yourself with before you begin assigning VLANs
+            to interfaces. See below for the abbreviated description of the
+            three we'll be using in our lab:
+          </p>
+          <p>
+            An "untagged" type interface assignment is used with access
+            interfaces to allow a device to connect to the VLAN. Each VLAN
+            marked “untagged” in the below screenshot is assigned to the
+            corresponding interface.
+          </p>
+          <p>
+            A "tagged" type interface assignment is used with trunk interfaces
+            in order to send one or more VLAN's traffic to/from your switch.
+            Traffic passed through these interfaces are tagged with their
+            assigned VLAN IDs.
+          </p>
+          <p>
+            A forbid type interface assignment is used to prevent the specified
+            VLAN from being assigned to the corresponding interface. This keeps
+            our interfaces nice and isolated to only their assigned VLAN as
+            we're implementing a 1:1 VLAN-to-interface design.
+          </p>
+          <h3>Default VLAN</h3>
+          <p>
+            The Default VLAN has to be assigned to at least one interface and,
+            so, we'll assign it to an unused interface (i.e., 10/10) by marking
+            the Default VLAN as untagged.
+          </p>
+          <h3>Trunk Interface</h3>
+          <p>
+            Our trunk interface is interface 9/10 which we created in the
+            previous step titled
+            <Link
+              scroll={true}
+              href="/pages/switch#make-trunk-interface"
+              className={`text-accent`}
+            >
+              &nbsp;"Make Trunk Interface"
+            </Link>
+            . We'll tag all of our VLANs to our trunk interface except for our
+            Management VLAN because, for added security, we want to prevent our
+            switch's Management VLAN traffic from leaving the switch.
+          </p>
+          <ToggleImage params={images["7"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Simple Network Time Protocol (SNTP) */}
+        <div>
+          <h3 id="sntp" className="text-accent">
+            Simple Network Time Protocol (SNTP)
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            When introducing a new system into your lab environment it's
+            important to ensure that the system's clock is synchronized with all
+            the other systems within your lab. In our last lab, you might recall
+            configuring your Netgate appliance to be our Network Time Protocol
+            (NTP) server. So, we have an NTP server. Let's use it to keep our
+            switch's time in sync.
+          </p>
+          <p>
+            To get our bearings, let's enter “Manger” context and display our
+            systems clock and/or the current time using the following commands.
+          </p>
+          <h4>Show Time</h4>
+          <CodeBlock props={htmlContent[7]} type="powershell"></CodeBlock>
+          <p>
+            We can set the time and date manually with the following commands,
+            but we don't want to do this because a better option is to use
+            Network Time Protocol (NTP).
+          </p>
+          <CodeBlock props={htmlContent[8]} type="bash"></CodeBlock>
+          <h4>Configure SNTP Settings on Switch</h4>
+          <p>
+            In “Lab 2 — pfSense”, we configured our VLAN interfaces but, for
+            good measure, let''s confirm that our “VLAN_DEFAULT” interface is
+            enabled and set to:&nbsp;
+            <span className={`text-accent bg-subtle path`}>192.168.50.1</span>
+          </p>
+          <ToggleImage params={images["9"]}></ToggleImage>
+          <p>
+            We haven't configured our VLANs within our switch yet, so the
+            “Internet (IP) Service” screen with found in the “Switch
+            Configuration” menu on your switch will look different than the
+            screenshot I'm sharing here. For now, we're just going to focus on
+            setting “IP Routing” to &nbsp;
+            <span className="text-accent bg-subtle path">Disabled</span>,
+            &nbsp;ensuring our “Default Gateway” is set to &nbsp;
+            <span className="text-accent bg-subtle path">192.168.2.1</span>
+            &nbsp;and, finally, ensuring that our DEFAULT_VLAN has an “IP
+            Config” of&nbsp;
+            <span className="text-accent bg-subtle path">192.168.2.1</span>
+            &nbsp;and a &nbsp;
+            <span className="text-accent bg-subtle path">192.168.50.10/24</span>
+            &nbsp;IP address and subnet mask. Save your changes, if any were
+            required, and exit.
+          </p>
+          <ToggleImage params={images["10"]}></ToggleImage>
+          <p>
+            Going back to the “Switch Setup” menu screen, we're need to check
+            that our “IP Config” setting is set to&nbsp;
+            <span className="text-accent bg-subtle path">DHCP/Bootp</span>.
+            Also, “Time Sync Method” should be set to &nbsp;
+            <span className="text-accent bg-subtle path">SNTP</span>. “SNTP
+            Mode” should be set to&nbsp;
+            <span className="text-accent bg-subtle path">Unicast</span> and you
+            can leave the default polling interval of&nbsp;
+            <span className="text-accent bg-subtle path">720</span>. Save your
+            changes, if any were required, and exit.
+          </p>
+          <ToggleImage params={images["11"]}></ToggleImage>
+          <h4>Create NTP Firewall Rules in pfSense</h4>
+          <p>
+            We now have our switch properly configured to support SNTP, but we
+            still haven't allowed NTP traffic to pass to/from our switch to/from
+            our Netgate appliance (which is acting as our NTP server). We'll
+            need two new firewall rules to allow NTP traffic to pass—one from
+            our switch (
+            <span className="text-accent bg-subtle path">192.168.50.10</span>)
+            to our Netgate appliance (
+            <span className="text-accent bg-subtle path">192.168.50.1</span>)
+            over the Default VLAN since, according to our switches
+            documentation, NTP traffic is passed over the Default VLAN of our
+            switch. We'll create those rules within pfSense at:
+          </p>
+          <div className="text-white bg-subtle path">
+            &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Firewall&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN_DEFAULT&nbsp;
+          </div>
+          <ToggleImage params={images["12"]}></ToggleImage>
+          <h4>Enable DHCP for Default VLAN in pfSense</h4>
+          <p>
+            We're going to treat our Default VLAN interface a little differently
+            than all of the other interfaces in that we're going to enable DHCP
+            support for this interface. This isn't a requirement, but it does
+            allow us to explicitly define the NTP server issued via DHCP. First,
+            let's ensure our “DHCP Backend” within pfSense is the newer &nbsp;
+            <span className="text-accent bg-subtle path">KIA</span> &nbsp; DHCP
+            setting. Second, ensure that the “Enable” checkbox is checked. We've
+            already defined our Subnet for VLAN_DEFAULT as &nbsp;
+            <span className="text-accent bg-subtle path">192.168.50.0/24</span>,
+            but we're going to carve out nine addresses that we'll reserve for
+            static assignment in a future lab by setting our “Address Pool
+            Range” to
+            <span className="text-accent bg-subtle path">192.168.50.10</span>
+            &nbsp; to &nbsp;
+            <span className="text-accent bg-subtle path">192.168.50.243</span>.
+            Finally, towards the bottom of this menu is our “NTP Server 1”
+            setting which we'll set to &nbsp;
+            <span className="text-accent bg-subtle path">192.168.50.1</span>
+            &nbsp; which is the IP address of our VLAN_DEFUALT interface.
+          </p>
+          <ToggleImage params={images["13"]}></ToggleImage>
+          <h4>Sync Your Time Using NTP</h4>
+          <p>
+            Both your switch and your Netgate appliance should be in the proper
+            configuration in order to support SNTP on your HP 2915. Run the
+            following series of commands to view your SNTP settings, sync your
+            switch's time with your NTP server's time, and confirm that the
+            switches time has been properly updated. If your time isn't updating
+            properly, try a reboot command <span>boot</span> and double-check
+            your configurations.
+          </p>
+          <CodeBlock props={htmlContent[9]} type="bash"></CodeBlock>
+          <h4>Confirm SNTP Settings In Logs</h4>
+          <p>
+            For good measure, you can also use your switch's logs to confirm
+            that SNTP has updated your system time and date:
+          </p>
+          <CodeBlock props={htmlContent[10]} type="bash"></CodeBlock>
+          <ToggleImage params={images["14"]}></ToggleImage>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
