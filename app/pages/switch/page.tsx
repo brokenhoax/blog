@@ -92,7 +92,6 @@ function Switch() {
     # Show time and date
     display clock
     show time
-
   `,
     `
     time 11:30:00 11/17/2022
@@ -109,10 +108,14 @@ function Switch() {
     show time
     display clock
   `,
-  `
+    `
     # Show logs
     show logging -a
 
+  `,
+    `
+    [no] management-vlan < vlan-id | vlan-name >
+  
 `,
   ];
   const images = [
@@ -266,6 +269,26 @@ function Switch() {
       style: { width: "100%", height: "auto" },
       priority: true,
     },
+    {
+      id: "13",
+      imagePath: "/images/kraus-cloud-switch-fw-close.webp",
+      imageAltText: "Kraus Cloud Lab — Switch & Security Appliance Connection",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "13",
+      imagePath: "/images/kraus-cloud-switch-startup-configuration.webp",
+      imageAltText: "Kraus Cloud Lab — Startup Configuration",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
   ];
   const toc = (
     <ol className="orderedList">
@@ -315,7 +338,7 @@ function Switch() {
         </Link>
       </li>
       <li className="hover:text-accent">
-        <Link scroll={true} href="/pages/switch#netgate">
+        <Link scroll={true} href="/pages/switch#connect-uplink">
           Connect Switch to Security Appliance (Netgate)
         </Link>
       </li>
@@ -356,6 +379,25 @@ function Switch() {
       </li>
     </ol>
   );
+
+  // For Each Codeblock, replace strings
+  // Loop htmlContent on component load
+  function encodeHTML(str: string) {
+    return str.replace(/[&<>"']/g, function (tag) {
+      return (
+        {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        }[tag] || tag
+      );
+    });
+  }
+
+  let code = '<tag attribute="value">...</tag>';
+  let encodedCode = encodeHTML(code);
   return (
     <>
       <NavBar></NavBar>
@@ -420,27 +462,31 @@ function Switch() {
             </span>
           </h3>
           <p>
-            Hands-on networking experience is priceless because, these days, an
-            understanding of networking is encouraged if not outright required
-            in the tech industry. The network touches everything and if you want
-            to build more complex systems in the future then you'll need to know
-            how to interconnect them.
+            Hands-on networking experience is still extremely valuable in 2025.
+            A solid understanding of networking is encouraged if not outright
+            required in many disciplines within the tech industry. The network
+            touches everything and if you need to work with, build and/or
+            maintain systems in the future then you'll need to know how they
+            communicate.
           </p>
           <p>
-            That said, the only piece of legacy hardware I'm using in this lab
-            series is my HP 2915al switch. The HP 2915al is a little over 14
-            years old at this point but, the concepts in this lab are still very
-            relevant. Plus, our configuration requirements are minimal and
-            pretty much any small switch (8-10 interfaces) will do for our lab
-            so it won't be difficult to find a substitute.
+            As for the hardware, the only piece of legacy hardware I'm using in
+            this lab series is my HP 2915al switch. The HP 2915al is a little
+            over 14 years old at this point but, the concepts in this lab are
+            still very relevant and applicable to any modern switch you choose
+            for your lab.
           </p>
           <p>
-            If you're looking for a recommendation, I've suggested the Cisco
-            Catalyst 1200 series switch in the first post in the series titled
-            “Gear Up”. Finally, keep in mind that while the below instructions
-            and commands will not be compatible with a Cisco 1200 series switch,
-            it will be a worthy challenge to similarly configure a different
-            switch. Let's get networking!
+            Our configuration requirements are minimal and pretty much any small
+            switch (8-10 interfaces) will do for our lab so it won't be
+            difficult to find a substitute to the HP 2915al. If you're looking
+            for a recommendation, I've suggested the Cisco Catalyst 1200 series
+            switch in the first post in the series titled “Gear Up”. Finally,
+            keep in mind that while the below instructions and commands will not
+            be compatible with a Cisco 1200 series switch, it will be a worthy
+            challenge to similarly configure a different switch and, at the end
+            of the day, wha's important is learning the concepts. Let's get
+            networking!
           </p>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
@@ -900,6 +946,122 @@ function Switch() {
           </p>
           <CodeBlock props={htmlContent[10]} type="bash"></CodeBlock>
           <ToggleImage params={images["14"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Connect Switch to Security Appliance (Netgate) */}
+        <div>
+          <h3 id="connect-uplink" className="text-accent">
+            Connect Switch to Security Appliance (Netgate)
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            Next, we just need to make a physical connection between interface
+            3/4 on our Netgate appliance and interface 9/10 on our switch. Your
+            switch should now be properly connected to the network. This is good
+            time to connect your PC to one of the User VLAN ports, making sure
+            to update your PC's IP address and default gateway so that it's in
+            the same subnet as the User VLAN.
+          </p>
+          <p>
+            At this point, you should be able to get out to the internet and
+            ping other users in the users VLAN. Review your pfSense firewall
+            rules and test your policies to ensure they're implemented
+            correctly. If everything is working as expected, congratulations!
+          </p>
+          <p>
+            If everything's <span className="italic">not</span> working as
+            expected, don't worry! Consider it a great learning opportunity and
+            take your troubleshooting one step at a time. Be sure to review you
+            switch and firewall configurations, check your logs and don't forget
+            to check your physical connections as well. If you're still stuck,
+            familiarize yourself with the following tools to help you
+            troubleshoot:
+          </p>
+          <ol>
+            <li>
+              • &nbsp;<span className="text-accent bg-subtle path">ping</span>
+            </li>
+            <li>
+              • &nbsp;
+              <span className="text-accent bg-subtle path">nslookup</span>
+            </li>
+            <li>
+              • &nbsp;
+              <span className="text-accent bg-subtle path">ipconfig</span>
+            </li>
+            <li>
+              • &nbsp;
+              <span className="text-accent bg-subtle path">traceroute</span>
+            </li>
+          </ol>
+          <ToggleImage params={images["15"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Set Management VLAN */}
+        <div>
+          <h3 id="management-vlan" className="text-accent">
+            Set Management VLAN
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            For added security, you can configure your switch so that it can
+            only be managed through a single VLAN and, if that VLAN is only tied
+            to a single interface on the switch, then you can lock down
+            management access to a single ethernet interface. The 2915 switch's
+            documentation refers to this as the “Management VLAN” which explains
+            why we named VLAN 40 just that—the “Management VLAN”. So, as you
+            probably guessed, we'll be setting ethernet interface 8/10 as our
+            Management interface and it will be the only switch interface that
+            we can use to manage the switch. The more you can do to make it
+            difficult for an attacker to compromise your network, the better, so
+            let's get to it!
+          </p>
+          <p>
+            You cannot set the Management VLAN using the menu; however, the
+            command to set/unset the management VLAN is pretty straight forward.
+            For the less familiar, you can use the below command to set
+            <span className="text-accent bg-subtle path">
+              management-vlan
+            </span>{" "}
+            or unset{" "}
+            <span className="text-accent bg-subtle path">
+              no management-vlan
+            </span>{" "}
+            the management VLAN and you can do so by specifying either the VLAN
+            ID (e.g., 40) or VLAN Name (e.g.,{" "}
+            <span className="text-accent bg-subtle path">Management_VLAN</span>)
+          </p>
+          <CodeBlock props={htmlContent[11]} type="bash"></CodeBlock>
+          <p>
+            You can issue the{" "}
+            <span className="text-accent bg-subtle path">show config</span>{" "}
+            command to confirm that your commands were saved:
+          </p>
+          <ToggleImage params={images["16"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* TBD */}
+        <div>
+          <h3 id="choose-your-hardware" className="text-accent">
+            TBD
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>tbd</p>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
