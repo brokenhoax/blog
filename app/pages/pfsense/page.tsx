@@ -618,7 +618,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> PORT1WAN
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;PORT1WAN
           </div>
           <p>
             Port 1/4 is our "WAN" interface and now is the time, if you haven't
@@ -654,7 +655,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> PORT2LAN
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;PORT2LAN
           </div>
           <p>
             Port 2/4 is reserved for our "LAN" interface and should be
@@ -693,7 +695,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> PORT3
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;PORT3
           </div>
           <p>
             Port 3/4 is our "Lab" network interface and it's arguably the most
@@ -726,7 +729,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> PORT4
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;PORT4
           </div>
           <p>
             Port 4/4 is reserved for our "Guest" network interface. If you want,
@@ -756,7 +760,8 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> VLANs
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;VLANs
           </div>
           <p>
             In a later lab, we'll map our VLANs to physical interfaces on our
@@ -782,7 +787,7 @@ function PfSense() {
           <ul className="unorderedList">
             <li key="1">
               VLAN 01 <span className="text-accent">—</span>{" "}
-              <span className="text-accent">192.168.5.1</span>
+              <span className="text-accent">192.168.50.1</span>
               <span>
                 <span className="text-accent">—</span> Default VLAN
               </span>
@@ -830,8 +835,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> VLAN_DEFAULT
-            (igc1.1)
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;VLAN_DEFAULT (igc1.1)
           </div>
           <p>
             The default VLAN on our HP switch is VLAN 1 which is common across
@@ -857,8 +862,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> VLAN_SERVICES
-            (igc1.10)
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;VLAN_SERVICES (igc1.10)
           </div>
           <p>
             The Services VLAN, which we can also refer to as "VLAN 10", is where
@@ -883,8 +888,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> VLAN_USERS
-            (igc1.20)
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;VLAN_USERS (igc1.20)
           </div>
           <p>
             VLAN 20 is our users VLAN so we'll definitely want to enable this
@@ -906,8 +911,8 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span> VLAN_STORAGE
-            (igc1.30)
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;VLAN_STORAGE (igc1.30)
           </div>
           <p>
             We have a similar configuration for our Storage VLAN, VLAN 30. We'll
@@ -927,7 +932,7 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Interfaces <span className="text-accent">{">"}</span>{" "}
+            Interfaces&nbsp;<span className="text-accent">{">"}</span>&nbsp;
             VLAN_MANAGEMENT (igc1.40)
           </div>
           <p>
@@ -951,7 +956,8 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Firewall <span className="text-accent">{">"}</span> Aliases
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Aliases
           </div>
           <p>
             pfSense aliases make it easier to configure our firewall. Instead of
@@ -1007,8 +1013,9 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Firewall <span className="text-accent">{">"}</span> NAT{" "}
-            <span className="text-accent">{">"}</span> Port Forward
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;NAT&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;Port Forward
           </div>
           <p>
             As is typical of a web server, our Nginx web server will be
@@ -1040,8 +1047,9 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Firewall <span className="text-accent">{">"}</span> NAT{" "}
-            <span className="text-accent">{">"}</span> Port Forward
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;NAT&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;Port Forward
           </div>
           <p>
             Another amazing capability built in to pfSense is its ability to act
@@ -1080,8 +1088,9 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Services <span className="text-accent">{">"}</span> DNS Resolver{" "}
-            <span className="text-accent">{">"}</span> General Settings
+            Services&nbsp;<span className="text-accent">{">"}</span>&nbsp;DNS
+            Resolver&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;General Settings
           </div>
           <p>
             As was mentioned earlier, having a DNS resolver gives us more
@@ -1130,7 +1139,7 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules
+            Firewall<span className="text-accent">&nbsp;{">"}</span>&nbsp;Rules
           </div>
           <p>
             Phew! We are three quarters of the way through this lab and we're
@@ -1156,8 +1165,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> PORT1WAN
+            Firewall&nbsp;<span className="text-accent"> {">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;PORT1WAN
           </div>
           <p>
             For port 1/4, our WAN port, we want to ensure that our
@@ -1187,8 +1197,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> PORT2LAN
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;PORT2LAN
           </div>
           <p>
             For interface 2/4, we will need a minimum of the first two rules in
@@ -1237,8 +1248,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> PORT3
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;PORT3
           </div>
           <p>
             At this point, there are no rules to configure on interface 3/4. The
@@ -1259,8 +1271,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> PORT4
+            Firewall&nbsp;<span className="text-accent"> {">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;PORT4
           </div>
           <p>
             For now, this port is disabled, so, you shouldn't even see an option
@@ -1287,7 +1300,7 @@ function PfSense() {
             </span>
           </h3>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules
+            Firewall&nbsp;<span className="text-accent">{">"}</span>&nbsp;Rules
           </div>
           <p>
             Let's do a quick VLAN recap. We've created our VLANs, assigned our
@@ -1311,8 +1324,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> VLAN_DEFAULT
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN_DEFAULT
           </div>
           <p>
             No firewall rules need to be configured for the Default VLAN, but
@@ -1341,8 +1355,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> VLAN_SERVICES
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN_SERVICES
           </div>
           <p>
             Just as before, we've already configured the DNS redirect rule when
@@ -1368,8 +1383,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> VLAN_USERS
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN_USERS
           </div>
           <p>
             Our first rule for the Users VLAN is to redirect all DNS traffic to
@@ -1395,8 +1411,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> VLAN_STORAGE
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN_STORAGE
           </div>
           <p>
             We won't be configuring our Storage VLAN in this lab; however, if
@@ -1420,8 +1437,9 @@ function PfSense() {
             </span>
           </h4>
           <div className="text-white bg-subtle path">
-            Firewall<span className="text-accent"> {">"}</span> Rules{" "}
-            <span className="text-accent">{">"}</span> VLAN_MANAGEMENT
+            Firewall&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Rules&nbsp;
+            <span className="text-accent">{">"}</span>&nbsp;VLAN_MANAGEMENT
           </div>
           <p>
             Again, our first rule for our Management VLAN was created when we
