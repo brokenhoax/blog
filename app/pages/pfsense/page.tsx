@@ -1489,7 +1489,6 @@ function PfSense() {
             storage (NAS), and even wireless access points to scale our network
             wirelessly.
           </p>
-
           <Callout icon={faThumbsUp} text={calloutContent["8"]}></Callout>
         </div>
       </section>
