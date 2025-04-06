@@ -7,10 +7,12 @@ import ToggleImage from "../../components/toggleImage/ToggleImage";
 import TableOfContents from "../../components/toc/TableOfContents";
 import Callout from "../../components/callout/Callout";
 import CodeBlock from "../../components/codeblock/CodeBlock";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBullhorn,
   faTriangleExclamation,
   faCircleInfo,
+  faOtter,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Switch() {
@@ -476,9 +478,9 @@ function Switch() {
       );
     });
   }
-
   let code = '<tag attribute="value">...</tag>';
   let encodedCode = encodeHTML(code);
+
   return (
     <>
       <NavBar></NavBar>
@@ -526,6 +528,11 @@ function Switch() {
             network and security foundation for your lab in place and a decent
             amount of networking and network security experience as a cherry on
             top.
+            <FontAwesomeIcon
+              icon={faOtter}
+              className={`text-white`}
+              fixedWidth
+            ></FontAwesomeIcon>
           </p>
         </div>
         {/* Post Image */}
@@ -561,13 +568,13 @@ function Switch() {
             Our configuration requirements are minimal and pretty much any small
             switch (8-10 interfaces) will do for our lab so it won't be
             difficult to find a substitute to the HP 2915al. If you're looking
-            for a recommendation, I've suggested the Cisco Catalyst 1200 series
-            switch in the first post in the series titled “Gear Up”. Finally,
-            keep in mind that while the below instructions and commands will not
-            be compatible with a Cisco 1200 series switch, it will be a worthy
-            challenge to similarly configure a different switch and, at the end
-            of the day, wha's important is learning the concepts. Let's get
-            networking!
+            for a recommendation, I've suggested the{" "}
+            <a href="">Cisco Catalyst 1200 series switch</a> in the first post
+            in the series titled “Gear Up”. Finally, keep in mind that while the
+            below instructions and commands will not be compatible with a Cisco
+            1200 series switch, it will be a worthy challenge to similarly
+            configure a different switch and, at the end of the day, wha's
+            important is learning the concepts. Let's get networking!
           </p>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
@@ -1360,8 +1367,6 @@ function Switch() {
           <CodeBlock props={htmlContent[30]} type="bash"></CodeBlock>
           <h4>Save Configuration</h4>
           <CodeBlock props={htmlContent[31]} type="bash"></CodeBlock>
-          {/* Divider */}
-          <div className="divider border-b border-accent"></div>
         </div>
       </section>
       <Footer></Footer>
