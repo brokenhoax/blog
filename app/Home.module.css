@@ -2,6 +2,10 @@
   padding-top: 6rem;
 }
 
+.logo {
+  width: 16%;
+}
+
 .postMain {
   padding-left: 32px;
 }
@@ -108,12 +112,11 @@
 }
 
 .postDateLengthSpacer {
-  padding: 0 0.5rem 0 0.5rem;
   position: relative;
 }
 
 .postsDescription {
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
   font-size: 1.25rem;
 }
