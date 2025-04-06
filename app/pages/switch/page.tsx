@@ -83,7 +83,6 @@ function Switch() {
         switch_interfaces: "8"
       }
     }
-
   `,
     ` 
     # Enter any context
@@ -111,12 +110,25 @@ function Switch() {
     `
     # Show logs
     show logging -a
-
   `,
     `
     [no] management-vlan < vlan-id | vlan-name >
-  
-`,
+  `,
+    `
+    # Open SSH config
+    vim ~/.ssh/config
+
+    # Add the following
+    Host *
+        KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
+  `,
+    `
+    # ssh manager@<management-vlan-interface-ip-address>
+    ssh manager@192.168.40.254
+  `,
+    `
+    erase startup-config
+    `,
   ];
   const images = [
     {
@@ -289,6 +301,17 @@ function Switch() {
       style: { width: "100%", height: "auto" },
       priority: true,
     },
+    {
+      id: "14",
+      imagePath: "/images/kraus-cloud-switch-web-ui-backup.webp",
+      imageAltText:
+        "Kraus Cloud Lab — Switch Web UI — Download Configuration File",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
   ];
   const toc = (
     <ol className="orderedList">
@@ -324,7 +347,7 @@ function Switch() {
       </li>
       <li className="hover:text-accent">
         <Link scroll={true} href="/pages/switch#make-trunk-interface">
-          Make Trunk Interface
+          Make Uplink "Trunk" Interface
         </Link>
       </li>
       <li className="hover:text-accent">
@@ -339,7 +362,7 @@ function Switch() {
       </li>
       <li className="hover:text-accent">
         <Link scroll={true} href="/pages/switch#connect-uplink">
-          Connect Switch to Security Appliance (Netgate)
+          Connect Switch to (Netgate) Security Appliance
         </Link>
       </li>
       <li className="hover:text-accent">
@@ -409,7 +432,7 @@ function Switch() {
         {/* Subtitle */}
         <div>
           <h2>Connect your network</h2>
-          <p className="dateStamp text-accent">February 16th, 2025</p>
+          <p className="dateStamp text-accent">April 5th, 2025</p>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
@@ -472,7 +495,7 @@ function Switch() {
           <p>
             As for the hardware, the only piece of legacy hardware I'm using in
             this lab series is my HP 2915al switch. The HP 2915al is a little
-            over 14 years old at this point but, the concepts in this lab are
+            over 14 years old at this point, but the concepts in this lab are
             still very relevant and applicable to any modern switch you choose
             for your lab.
           </p>
@@ -601,7 +624,7 @@ function Switch() {
               </Link>
             </span>
           </h3>
-          <h4>Manager Password Setup</h4>
+          <h4 className="-mt-4">Manager Password Setup</h4>
           <p>
             Now that we've gained access to our switch and know our way around a
             bit, the first thing we should do is configure our “Switch Setup”.
@@ -730,10 +753,10 @@ function Switch() {
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
-        {/* Make Trunk Interface */}
+        {/* Make Uplink (Trunk) Interface */}
         <div>
-          <h3 id="make-trunk-interface" className="text-accent">
-            Make Trunk Interface
+          <h3 id="make-uplink-trunk-interface" className="text-accent">
+            Make Uplink "Trunk" Interface
             <span>
               <Link scroll={true} href="/pages/switch#top">
                 <span className={`topScroller text-subtle`}>#</span>
@@ -742,12 +765,21 @@ function Switch() {
           </h3>
           <p>
             Our “Trunk” interface is the interface from which we will send all
-            of our switch's traffic to our Netgate security appliance. We'll
-            make a physical connection between our Netgate appliance and our
-            network switch using this trunk interface 9/10 and we will assign
-            VLANs as “tagged” when transmitted over this interface. More on that
-            in the next section.
+            of our switch's traffic to our Netgate security appliance. To
+            configure a trunk interface on our switch, navigate to "Port/Trunk
+            Settings" menu page and set the interface as type{" "}
+            <span className="text-accent bg-subtle path">trunk</span>. In
+            subsequent steps, we'll make a physical connection between our
+            Netgate appliance and our network switch using this trunk interface
+            9/10 and we'll also assign VLANs as “tagged” when transmitted over
+            this interface. More on that in the next section.
           </p>
+          <div className="text-white bg-subtle path">
+            &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>
+            &nbsp;Switch Configuration&nbsp;
+            <span className="text-accent">{">"}</span>
+            &nbsp;Port/Trunk Settings&nbsp;
+          </div>
           <ToggleImage params={images["7"]}></ToggleImage>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
@@ -802,16 +834,16 @@ function Switch() {
             previous step titled
             <Link
               scroll={true}
-              href="/pages/switch#make-trunk-interface"
+              href="/pages/switch#make-uplink-trunk-interface"
               className={`text-accent`}
             >
-              &nbsp;"Make Trunk Interface"
+              &nbsp;"Make Uplink 'Trunk' Interface"
             </Link>
             . We'll tag all of our VLANs to our trunk interface except for our
             Management VLAN because, for added security, we want to prevent our
             switch's Management VLAN traffic from leaving the switch.
           </p>
-          <ToggleImage params={images["7"]}></ToggleImage>
+          <ToggleImage params={images["8"]}></ToggleImage>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
@@ -837,7 +869,7 @@ function Switch() {
             To get our bearings, let's enter “Manger” context and display our
             systems clock and/or the current time using the following commands.
           </p>
-          <h4>Show Time</h4>
+          <h4>Display Time</h4>
           <CodeBlock props={htmlContent[7]} type="powershell"></CodeBlock>
           <p>
             We can set the time and date manually with the following commands,
@@ -864,7 +896,7 @@ function Switch() {
             <span className="text-accent bg-subtle path">192.168.2.1</span>
             &nbsp;and, finally, ensuring that our DEFAULT_VLAN has an “IP
             Config” of&nbsp;
-            <span className="text-accent bg-subtle path">192.168.2.1</span>
+            <span className="text-accent bg-subtle path">DHCP/Bootp</span>
             &nbsp;and a &nbsp;
             <span className="text-accent bg-subtle path">192.168.50.10/24</span>
             &nbsp;IP address and subnet mask. Save your changes, if any were
@@ -892,7 +924,7 @@ function Switch() {
             need two new firewall rules to allow NTP traffic to pass—one from
             our switch (
             <span className="text-accent bg-subtle path">192.168.50.10</span>)
-            to our Netgate appliance (
+            to our 'Netgate appliance's Default VLAN Interface IP address (
             <span className="text-accent bg-subtle path">192.168.50.1</span>)
             over the Default VLAN since, according to our switches
             documentation, NTP traffic is passed over the Default VLAN of our
@@ -928,7 +960,7 @@ function Switch() {
             &nbsp; which is the IP address of our VLAN_DEFUALT interface.
           </p>
           <ToggleImage params={images["13"]}></ToggleImage>
-          <h4>Sync Your Time Using NTP</h4>
+          <h4>Synchronize Your Time Using NTP</h4>
           <p>
             Both your switch and your Netgate appliance should be in the proper
             configuration in order to support SNTP on your HP 2915. Run the
@@ -949,10 +981,10 @@ function Switch() {
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
-        {/* Connect Switch to Security Appliance (Netgate) */}
+        {/* Connect Switch to (Netgate) Security Appliance */}
         <div>
           <h3 id="connect-uplink" className="text-accent">
-            Connect Switch to Security Appliance (Netgate)
+            Connect Switch to (Netgate) Security Appliance
             <span>
               <Link scroll={true} href="/pages/switch#top">
                 <span className={`topScroller text-subtle`}>#</span>
@@ -1005,7 +1037,7 @@ function Switch() {
         </div>
         {/* Set Management VLAN */}
         <div>
-          <h3 id="management-vlan" className="text-accent">
+          <h3 id="set-management-vlan" className="text-accent">
             Set Management VLAN
             <span>
               <Link scroll={true} href="/pages/switch#top">
@@ -1051,24 +1083,192 @@ function Switch() {
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
-        {/* TBD */}
+        {/* Connect Via Ethernet Cable (SSH) */}
         <div>
-          <h3 id="choose-your-hardware" className="text-accent">
-            TBD
+          <h3 id="ssh" className="text-accent">
+            Connect Via Ethernet Cable (SSH)
             <span>
               <Link scroll={true} href="/pages/switch#top">
                 <span className={`topScroller text-subtle`}>#</span>
               </Link>
             </span>
           </h3>
-          <p>tbd</p>
+          <p>
+            Secure Shell (SSH) protocol is, as it's name implies, a secure way
+            to gain shell access on our switch over the network. Since we've
+            assigned our management VLAN, VLAN 40, we will need to make a
+            physical connection from our Lab PC to interface 8/8 on our switch
+            in order to make an SSH connection and we also need to make sure our
+            Lab PC's IP address is within the VLAN 40 subnet of 192.168.40.1/24.
+          </p>
+          <Callout
+            icon={faBullhorn}
+            text="Considering this switch is ancient, it appears that my much newer operating system (Windows 10) requires a “newer key exchange method” (i.e., modern encryption algorithms) than what is supported by the HP 2915. Therefore, to establish a SSH session in my lab, I had to add support for those legacy encryption algorithms by issuing the following commands in Git Bash."
+          ></Callout>
+          <CodeBlock props={htmlContent[12]} type="bash"></CodeBlock>
+          <p>
+            Now that's out of the way, we can make an SSH connection to our
+            switch by entering the following command. Specifying the user will
+            prompt you for the associated password.
+          </p>
+          <CodeBlock props={htmlContent[13]} type="bash"></CodeBlock>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
-        {/* TBD */}
+        {/* Disable IP Routing */}
         <div>
-          <h3 id="choose-your-hardware" className="text-accent">
-            TBD
+          <h3 id="disable-ip-routing" className="text-accent">
+            Disable IP Routing
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            The HP 2915 is capable of routing IPv4 traffic between port-based
+            VLANs so long as the “IP Routing” setting is enabled; however, for
+            security's sake, we're sending all of our switch's traffic to our
+            Netgate appliance for routing and policy enforcement. Ensure “IP
+            Routing” is set to “Disabled” and save your changes.
+          </p>
+          <div className="text-white bg-subtle path">
+            &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>&nbsp;IP
+            Configuration
+          </div>
+          <ToggleImage params={images["10"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Factory Reset */}
+        <div>
+          <h3 id="factory-reset" className="text-accent">
+            Factory Reset
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            There might come a time when you need to completely reset your
+            switch's configuration. This is referred to as a “Factory Reset”.
+            Perhaps, you forget our Manager password and lock yourself out of
+            the switch. I've been there more times than I'd like to admit, so
+            it's a good idea to get comfortable with how to factory reset a
+            switch. See below for the directions which I've copied from the "HP
+            2915-8G-PoE Installation and Getting Started Guide".
+          </p>
+          <p>
+            You can restore the factory default configuration either on the
+            switch itself, or through the switch console. To execute the factory
+            default reset on the switch, perform these steps:
+          </p>
+          <ol className="orderedList">
+            <li>
+              Using pointed objects, simultaneously press both the Reset and
+              Clear buttons on the front of the switch. The power and fault
+              lights come on.
+            </li>
+            <li>
+              Continue to press the Clear button while releasing the Reset
+              button.
+            </li>
+            <li>
+              When the Self Test LED begins to flash, release the Clear button.
+              The switch will then complete its self test and begin operating
+              with its configuration restored to the factory default settings.
+            </li>
+          </ol>
+          <p>
+            To restore the factory default configuration using the console,
+            execute the erase startup-config command from the console command
+            prompt:
+          </p>
+          <CodeBlock props={htmlContent[14]} type="bash"></CodeBlock>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Backup Configuration */}
+        <div>
+          <h3 id="backup-configuration" className="text-accent">
+            Backup Configuration
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            HP made backing up your switch's configuration very easy. My
+            preferred way is through the Administrative Web User Interface (UI).
+            To access your switch's Web UI, first ensure that your Lab PC is
+            connected to your switch's Management interface and that your Lab
+            PC's IP address (i.e.,{" "}
+            <span className="text-accent bg-subtle path">192.168.40.254</span>)
+            is within the Management VLAN subnet (i.e.,
+            <span className="text-accent bg-subtle path">192.168.40.0/24</span>
+            ). Then, simply type in your switch's IP address into your browser's
+            navigation bar hit "Enter". Log in with your "Management"
+            credentials and navigate to the below path within the UI. Once
+            there, simply select the configuration file you want to back up and
+            click “Download”. Save your backup configuration file somewhere safe
+            and use it to reinstall your configuration when need be:
+          </p>
+          <div className="flex flex-col">
+            <div className="text-white bg-subtle path">
+              &nbsp;Switch&nbsp;<span className="text-accent">{">"}</span>
+              &nbsp;System&nbsp;<span className="text-accent">{">"}</span>
+              &nbsp;Updates/Downloads&nbsp;
+            </div>
+            <div className="text-white bg-subtle path">
+              <span className="text-accent">{">"}</span>
+              &nbsp;Configuration Files and Software Images&nbsp;
+            </div>
+            <div className="text-white bg-subtle path">
+              <span className="text-accent">{">"}</span>
+              &nbsp;Configuration File
+            </div>
+          </div>
+          <ToggleImage params={images["17"]}></ToggleImage>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Next Steps */}
+        <div>
+          <h3 id="next-steps" className="text-accent">
+            Next Steps
+            <span>
+              <Link scroll={true} href="/pages/switch#top">
+                <span className={`topScroller text-subtle`}>#</span>
+              </Link>
+            </span>
+          </h3>
+          <p>
+            Congratulations! You've configured your switch and secured it with a
+            password-protected management role. You've also locked management
+            access down to a single physical interface and restricted inter-VLAN
+            routing. Each switch interface is assigned to a single VLAN and each
+            VLAN serves a different purpose. Furthermore, all routing takes
+            place within our pfSense Netgate appliance and we're securing our
+            network traffic with pfSense not only north/south (to and from the
+            Internet) but also east/west as well (i.e., traffic between VLANs).
+          </p>
+          <p>
+            At this point, your switch is adequately configured to support your
+            lab's requirements and we've kept things pretty simple. We now have
+            the core components of our Cloud, but if we want our lab to&nbsp;
+            <span className="italic">do</span> anything, then we'll have to add
+            a server and a few virtual machines (VMs). The really fun stuff is
+            coming up next. Let's get to it!
+          </p>
+          {/* Divider */}
+          <div className="divider border-b border-accent"></div>
+        </div>
+        {/* Useful Commands */}
+        <div>
+          <h3 id="useful-commands" className="text-accent">
+            Useful Commands
             <span>
               <Link scroll={true} href="/pages/switch#top">
                 <span className={`topScroller text-subtle`}>#</span>
