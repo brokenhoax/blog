@@ -129,6 +129,64 @@ function Switch() {
     `
     erase startup-config
     `,
+    `
+    # log in as manager
+    u/n: manager
+    p/w: <password>
+
+    # log in as operator
+    u/n: operator
+    p/w: <password>
+  `,
+    `
+    ?
+    `,
+    `
+    hostname <new-name>
+    `,
+    `
+    show history
+    `,
+    `
+    [no] ip route 0.0.0.0/0 192.168.2.1
+    `,
+    `
+    interface 1-10 disable
+    `,
+    `
+    interface 1-4 enable
+    `,
+    `
+    interface 1,2 enable
+    `,
+    `
+    show interface brief
+    `,
+    `
+    vlan 1
+    no ip address 192.168.50.10 255.255.255.0
+    `,
+    `
+    no vlan <vlan_id>
+    `,
+    `
+    show mac-address
+    `,
+    `
+    show ip
+    `,
+    `
+    show arp
+    `,
+    `
+    show lldp info remote-device
+    `,
+    `
+    show ip route
+    `,
+    `
+    write memory
+    `,
   ];
   const images = [
     {
@@ -562,7 +620,7 @@ function Switch() {
             enter to configure various aspects of the switch. For instance, when
             you first land in the command line after connecting to your switch,
             you'll notice that the prompt ends with a greater-than symbol &nbsp;
-            <span className="text-accent bg-subtle path">`&gt;`</span>. The mode
+            <span className="text-accent bg-subtle path">&gt;</span>. The mode
             or context you are in by default is called “Operator” mode and you
             can tell what context you're in by viewing the prompt.
           </p>
@@ -655,7 +713,7 @@ function Switch() {
             icon={faCircleInfo}
             text="What the documentation doesn't tell you is that the “Manager” and “Operator” usernames are simply “manager” and “operator”. Sort of a big miss, if you ask me…"
           ></Callout>
-          <CodeBlock props={htmlContent[5]} type="powershell"></CodeBlock>
+          <CodeBlock props={htmlContent[15]} type="powershell"></CodeBlock>
           <h4>IP Settings</h4>
           <p>
             There are other IP protocol related settings we'll need to configure
@@ -1275,7 +1333,33 @@ function Switch() {
               </Link>
             </span>
           </h3>
-          <p>tbd</p>
+          <h4 className="-mt-4">Get Help</h4>
+          <CodeBlock props={htmlContent[16]} type="bash"></CodeBlock>
+          <h4>Rename the Switch</h4>
+          <CodeBlock props={htmlContent[17]} type="bash"></CodeBlock>
+          <h4>Show History</h4>
+          <CodeBlock props={htmlContent[18]} type="bash"></CodeBlock>
+          <h4>Set Default Route</h4>
+          <CodeBlock props={htmlContent[19]} type="bash"></CodeBlock>
+          <h4>Configure Interfaces</h4>
+          <CodeBlock props={htmlContent[20]} type="bash"></CodeBlock>
+          <CodeBlock props={htmlContent[21]} type="bash"></CodeBlock>
+          <CodeBlock props={htmlContent[22]} type="bash"></CodeBlock>
+          <CodeBlock props={htmlContent[23]} type="bash"></CodeBlock>
+          <CodeBlock props={htmlContent[24]} type="bash"></CodeBlock>
+          <CodeBlock props={htmlContent[25]} type="bash"></CodeBlock>
+          <h4>Show MAC Address</h4>
+          <CodeBlock props={htmlContent[26]} type="bash"></CodeBlock>
+          <h4>Show IP Service</h4>
+          <CodeBlock props={htmlContent[27]} type="bash"></CodeBlock>
+          <h4>Show ARP Table</h4>
+          <CodeBlock props={htmlContent[28]} type="bash"></CodeBlock>
+          <h4>Show LLDP Remote Device Information</h4>
+          <CodeBlock props={htmlContent[29]} type="bash"></CodeBlock>
+          <h4>Show IP Route Entries</h4>
+          <CodeBlock props={htmlContent[30]} type="bash"></CodeBlock>
+          <h4>Save Configuration</h4>
+          <CodeBlock props={htmlContent[31]} type="bash"></CodeBlock>
           {/* Divider */}
           <div className="divider border-b border-accent"></div>
         </div>
