@@ -4,8 +4,10 @@ import DOMPurify from "isomorphic-dompurify";
 function CodeBlock({ props, type }: { props: string; type: string }) {
   // Sanitize our inputs for better security
   const sanitizedCode = DOMPurify.sanitize(props);
-  // Will have to add other languages to the array for future support
-  const highlightedCode = hljs.highlight(sanitizedCode, {
+  // Do not sanitize code
+  const unsanitizedCode = props;
+  // Pass in either sanitized or unsanitized code
+  const highlightedCode = hljs.highlight(unsanitizedCode, {
     language: type,
   }).value;
 
