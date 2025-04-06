@@ -49,7 +49,7 @@ function NavBar() {
 
   // window width
   let navMenuElements: React.ReactElement;
-  if (windowSize.width < 600) {
+  if (windowSize.width < 1025) {
     navMenuElements = (
       <div className={`${styles.navMenuControls}`}>
         {/* Theme Switcher */}

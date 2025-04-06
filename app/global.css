@@ -63,7 +63,7 @@ p {
 
 ol,
 ul {
-  line-height: 2rem;
+  line-height: 1rem;
 }
 
 .section {
@@ -143,6 +143,7 @@ ul {
 
 .dateStamp {
   font-style: italic;
+  font-size: 1rem;
 }
 
 .divider {
@@ -231,6 +232,11 @@ ul {
   .path {
     font-size: 14px;
     line-height: 2rem;
+  }
+
+  .dateStamp {
+    font-size: 0.75rem;
+    margin-top: .5rem;
   }
 }
 

@@ -12,7 +12,7 @@ import {
   faBullhorn,
   faTriangleExclamation,
   faCircleInfo,
-  faOtter,
+  faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Switch() {
@@ -529,7 +529,7 @@ function Switch() {
             amount of networking and network security experience as a cherry on
             top.
             <FontAwesomeIcon
-              icon={faOtter}
+              icon={faThumbsUp}
               className={`text-white`}
               fixedWidth
             ></FontAwesomeIcon>

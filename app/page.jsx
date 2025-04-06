@@ -97,7 +97,8 @@ function Home() {
     <div>
       <NavBar></NavBar>
       <section className="section">
-        <div className="flex items-center justify-between py-2 text-right">
+        {/* Title */}
+        <div className="flex items-center justify-between text-right blogTitle">
           {/* Logo */}
           <svg
             width="100%"
@@ -113,14 +114,17 @@ function Home() {
             />
           </svg>
           <div className="flex flex-col justify-end">
+                      {/* Company Name */}
             <h1
               className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text`}
             >
               Kraus Cloud
             </h1>
+            {/* Blog Description */}
             <div className={`${styles.postsDescription}`}>
               An educational tech blog
             </div>
+            {/* Date */}
             <div className="dateStamp bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text text-right">
               {todayDate}
             </div>
@@ -176,7 +180,7 @@ function Home() {
                           |
                         </span>
                         {/* Minutes */}
-                        <div>{post.length.minutes} mins</div>
+                        <div className={`${styles.postLength} text-accent italic`}>{post.length.minutes} mins</div>
                       </div>
                     </div>
                   </div>

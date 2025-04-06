@@ -1,9 +1,10 @@
 .homepage {
-  padding-top: 6rem;
+  padding-top: 2rem;
 }
 
 .logo {
-  width: 16%;
+  width: 12%;
+  margin-left: 1rem;
 }
 
 .postMain {
@@ -57,6 +58,7 @@
 
 .postLength {
   font-weight: 600;
+  padding-left: .5rem;
 }
 
 .postIndex {
@@ -111,6 +113,10 @@
   font-size: 14px;
 }
 
+.postDate {
+  padding-right: .5rem;
+}
+
 .postDateLengthSpacer {
   position: relative;
 }
@@ -118,12 +124,12 @@
 .postsDescription {
   font-weight: 300;
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .postsMessage {
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -133,7 +139,7 @@
 
   .postBackground {
     top: 16px;
-    height: 92px;
+    height: 100%;
     width: 100%;
     opacity: 30%;
   }
@@ -152,6 +158,8 @@
   .postTagline {
     margin-top: -12px;
     font-size: 14px;
+    line-height: 1rem;
+    padding: .5rem 0rem .5rem 0rem;
   }
 
   .postTitle {
@@ -176,8 +184,14 @@
   }
 
   .postsMessage {
-    padding-right: 1rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    padding: .5rem 0rem .5rem 0rem;
+  }
+
+
+
+  .logo {
+    width: 20%;
   }
 }
 

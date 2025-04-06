@@ -3095,6 +3095,10 @@ video {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-start {
   text-align: start;
 }
@@ -3860,7 +3864,7 @@ video {
   --nextui-danger-900: 340 84.91% 10.39%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 172.26999999999998 100% 25.88%;
+  --nextui-accent: 211.11 100% 5.29%;
   --nextui-subtle: 240 4.88% 83.92%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
@@ -4462,7 +4466,7 @@ p {
 
 ol,
 ul {
-  line-height: 2rem;
+  line-height: 1rem;
 }
 
 .section {
@@ -4542,6 +4546,7 @@ ul {
 
 .dateStamp {
   font-style: italic;
+  font-size: 1rem;
 }
 
 .divider {
@@ -4631,6 +4636,11 @@ ul {
   .path {
     font-size: 14px;
     line-height: 2rem;
+  }
+
+  .dateStamp {
+    font-size: 0.75rem;
+    margin-top: .5rem;
   }
 }
 
