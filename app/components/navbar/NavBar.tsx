@@ -49,7 +49,7 @@ function NavBar() {
 
   // window width
   let navMenuElements: React.ReactElement;
-  if (windowSize.width < 1025) {
+  if (windowSize.width < 1024) {
     navMenuElements = (
       <div className={`${styles.navMenuControls}`}>
         {/* Theme Switcher */}
@@ -99,16 +99,14 @@ function NavBar() {
   if (!isExpanded) {
     return (
       <nav className={`${styles.navBar}`}>
-        <div className={`${styles.navWrapper}`}>
-          <div className={`${styles.navMenu} text-accent`}>
-            <div className={`${styles.navMenuControls} motion-preset-pop`}>
-              {/* Menu Button */}
-              <KcButton
-                icon={faBars}
-                onToggle={setNavbarstatus}
-                type="toggle"
-              ></KcButton>
-            </div>
+        <div className={`${styles.navMenu} text-accent`}>
+          <div className={`${styles.navMenuControls} motion-preset-pop`}>
+            {/* Menu Button */}
+            <KcButton
+              icon={faBars}
+              onToggle={setNavbarstatus}
+              type="toggle"
+            ></KcButton>
           </div>
         </div>
       </nav>
@@ -118,11 +116,7 @@ function NavBar() {
   if (isExpanded) {
     return (
       <nav className={`${styles.navBar}`}>
-        <div className={`${styles.navWrapper}`}>
-          <div className={`${styles.navMenu} text-accent`}>
-            {navMenuElements}
-          </div>
-        </div>
+        <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
       </nav>
     );
   }

@@ -527,12 +527,14 @@ function Switch() {
             also provides a lot hands-on experience. By the end, you'll have the
             network and security foundation for your lab in place and a decent
             amount of networking and network security experience as a cherry on
-            top.
-            <FontAwesomeIcon
-              icon={faThumbsUp}
-              className={`text-white`}
-              fixedWidth
-            ></FontAwesomeIcon>
+            top.&nbsp;
+            <span>
+              <FontAwesomeIcon
+                icon={faThumbsUp}
+                className={`text-white`}
+                fixedWidth
+              ></FontAwesomeIcon>
+            </span>
           </p>
         </div>
         {/* Post Image */}
