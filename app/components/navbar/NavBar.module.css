@@ -1,4 +1,10 @@
-.navBar {
+.navBarClosed {
+  display: flex;
+  justify-content: end;
+  align-content: center;
+}
+
+.navBarOpen {
   display: flex;
   justify-content: end;
   align-content: center;
@@ -8,7 +14,7 @@
   position: fixed;
   display: flex;
   justify-items: space-between;
-  margin-top: 12rem;
+  margin-top: 13rem;
   z-index: 100;
   border-radius: 0.5rem;
 }
@@ -23,19 +29,15 @@
 
 /* Extra small devices (phones, 600px and down) */
 
-@media only screen and (max-width: 430px) {
-  .navMenu {
-    position: fixed;
-    display: flex;
-    bottom: 0.5rem;
-    padding-right: 4px;
+@media only screen and (max-width: 600px) {
+  .navBarClosed {
+    visibility: hidden;
   }
 
-  .navMenuControls {
+  .navBarOpen {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 0.25rem;
+    justify-content: end;
+    align-content: center;
   }
 }
 
@@ -47,7 +49,6 @@
     position: fixed;
     display: flex;
     bottom: 0.5rem;
-    padding-right: 4px;
   }
 
   .navMenuControls {
@@ -56,13 +57,29 @@
     width: 100%;
     gap: 0.25rem;
   }
+
+  .navBarClosed {
+    visibility: hidden;
+  }
+  
+  .navBarOpen {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
 }
 
 /* Medium devices (landscape tablets, 1024px and up) */
 
 @media only screen and (min-width: 1024px) {
-  .navBar {
-    width: 92%;
+  .navBarOpen {
+    width: 91%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navBarClosed {
+    width: 91%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -71,8 +88,14 @@
 /* Large devices (laptops/desktops, 1440px and up) */
 
 @media only screen and (min-width: 1440px) {
-  .navBar {
-    width: 60%;
+  .navBarOpen {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navBarClosed {
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -82,9 +105,17 @@
 /* Extra large devices (large laptops and desktops, 1920px and up) */
 
 @media only screen and (min-width: 1920px) {
-  .navBar {
-    width: 47%;
-    margin-left: auto;
-    margin-right: auto;
+  .navBarOpen {
+    width: 48%;
+    display: flex;
+    justify-content: end;
+    align-content: center;
+  }
+
+  .navBarClosed {
+    width: 48%;
+    display: flex;
+    justify-content: end;
+    align-content: center;
   }
 }

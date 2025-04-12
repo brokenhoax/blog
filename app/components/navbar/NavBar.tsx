@@ -98,7 +98,7 @@ function NavBar() {
 
   if (!isExpanded) {
     return (
-      <nav className={`${styles.navBar}`}>
+      <nav className={`${styles.navBarClosed}`}>
         <div className={`${styles.navMenu} text-accent`}>
           <div className={`${styles.navMenuControls} motion-preset-pop`}>
             {/* Menu Button */}
@@ -115,7 +115,7 @@ function NavBar() {
 
   if (isExpanded) {
     return (
-      <nav className={`${styles.navBar}`}>
+      <nav className={`${styles.navBarOpen}`}>
         <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
       </nav>
     );

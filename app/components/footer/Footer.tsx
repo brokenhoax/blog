@@ -4,11 +4,12 @@ import styles from "./Footer.module.css";
 import { useNavbar } from "../../context/NavbarContext";
 
 function Footer() {
-  const { isExpanded } = useNavbar(); // Consume the Navbar context
+  const { isExpanded, toggleExpanded } = useNavbar(); // Consume the Navbar context
   if (!isExpanded) {
     return (
-      <div
+      <button
         className={`${styles.footerWrapper} bg-primary border-t border-t-subtle`}
+        onClick={toggleExpanded}
       >
         <div className={`${styles.footer}`}>
           <svg
@@ -25,7 +26,7 @@ function Footer() {
             />
           </svg>
         </div>
-      </div>
+      </button>
     );
   }
 
