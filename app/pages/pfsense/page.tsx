@@ -456,8 +456,8 @@ function PfSense() {
   );
 
   return (
-    <>
-      <NavBar></NavBar>
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
       <section className="section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="text-accent">
@@ -1492,8 +1492,13 @@ function PfSense() {
           <Callout icon={faThumbsUp} text={calloutContent["8"]}></Callout>
         </div>
       </section>
-      <Footer></Footer>
-    </>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className={`footer`}>
+        <Footer></Footer>
+      </div>
+    </div>
   );
 }
 

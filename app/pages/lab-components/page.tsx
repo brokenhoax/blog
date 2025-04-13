@@ -243,7 +243,7 @@ function LabContents() {
       sizes: "100vw",
       style: {
         width: "100%",
-        height: "auto"
+        height: "auto",
       },
       priority: true,
     },
@@ -267,8 +267,8 @@ function LabContents() {
     </ol>
   );
   return (
-    <>
-      <NavBar></NavBar>
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
       <section className="section motion-preset-focus">
         {/* Header */}
         <div>
@@ -1431,8 +1431,13 @@ function LabContents() {
           </div>
         </div>
       </section>
-      <Footer></Footer>
-    </>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className={`footer`}>
+        <Footer></Footer>
+      </div>
+    </div>
   );
 }
 

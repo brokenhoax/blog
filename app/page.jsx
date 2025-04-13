@@ -5,6 +5,7 @@ import Footer from "./components/footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Home.module.css";
+import "./global.css";
 
 function Home() {
   const posts = [
@@ -94,9 +95,9 @@ function Home() {
   const todayDate = today.toDateString();
 
   return (
-    <div>
-      <NavBar></NavBar>
-      <section className={`section ${styles.homePage}`}>
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
+      <section className={"main section"}>
         {/* Title */}
         <div className="flex items-center justify-between text-right">
           {/* Logo */}
@@ -114,7 +115,7 @@ function Home() {
             />
           </svg>
           <div className="flex flex-col justify-end">
-                      {/* Company Name */}
+            {/* Company Name */}
             <h1
               className={`${styles.postsMessage} bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text`}
             >
@@ -177,7 +178,11 @@ function Home() {
                           |
                         </span>
                         {/* Minutes */}
-                        <div className={`${styles.postLength} text-accent italic`}>{post.length.minutes} mins</div>
+                        <div
+                          className={`${styles.postLength} text-accent italic`}
+                        >
+                          {post.length.minutes} mins
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -187,7 +192,12 @@ function Home() {
           ))}
         </ul>
       </section>
-      <Footer></Footer>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className={`footer`}>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }

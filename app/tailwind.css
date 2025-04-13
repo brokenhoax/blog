@@ -4469,10 +4469,22 @@ ul {
   line-height: 1rem;
 }
 
+.main {
+  grid-area: main;
+}
+
 .section {
   display: flex;
   flex-direction: column;
-  padding: 4rem 0 8rem 0;
+  padding: 2rem 0 8rem 0;
+}
+
+.leftSidebar {
+  grid-area: leftSidebar;
+}
+
+.rightSidebar {
+  grid-area: rightSidebar;
 }
 
 .codeWrapper {
@@ -4579,6 +4591,27 @@ ul {
 
 /* Responsive Design */
 
+/* Grid Container */
+
+.item-c {
+  grid-area: sidebar;
+}
+
+.item-d {
+  grid-area: footer;
+}
+
+/* .gridContainer {
+  display: grid;
+  grid-template-columns: 30vw 40vw 30vw;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "leftSidebar main rightSidebar"
+    "footer footer footer";
+} */
+
+/* Media Queries */
+
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
@@ -4604,12 +4637,12 @@ ul {
   }
 
   p {
-    line-height: 2rem;
+    line-height: 1.75rem;
   }
 
   h1 {
-    font-size: 28px;
-    padding: 1rem 0 1rem 0;
+    font-size: 32px;
+    padding: 0.5rem 0 0.5rem 0;
   }
 
   h2 {
@@ -4620,7 +4653,7 @@ ul {
   h3 {
     font-size: 22px;
     line-height: 2.25rem;
-    padding: 1rem 0 0.5rem 0;
+    padding: 1rem 0 0 0;
   }
 
   h4 {
@@ -4642,8 +4675,9 @@ ul {
   }
 
   .dateStamp {
-    font-size: 0.75rem;
-    margin-top: .5rem;
+    margin: 0;
+    line-height: 0.5rem;
+    font-size: 16px;
   }
 }
 
@@ -4703,8 +4737,17 @@ ul {
 /* Extra large devices (large laptops and desktops, 1920px and up) */
 
 @media only screen and (min-width: 1920px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 30vw 40vw 30vw;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+
   .section {
-    width: 40%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     height: 100%;

@@ -1,13 +1,9 @@
 .navBarClosed {
-  display: flex;
-  justify-content: end;
-  align-content: center;
+  width: 100%;
 }
 
 .navBarOpen {
-  display: flex;
-  justify-content: end;
-  align-content: middle;
+  width: 100%;
 }
 
 .navMenu {
@@ -23,6 +19,7 @@
   display: flex;
   flex-direction: column;
   align-content: middle;
+  justify-content: start;
   gap: 1rem;
 }
 
@@ -31,7 +28,7 @@
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
-  .navBarClosed {
+  /* .navBarClosed {
     padding-right: 2rem;
   }
 
@@ -39,14 +36,13 @@
     display: flex;
     justify-content: end;
     align-content: center;
-  }
+  } */
 }
-
 
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 1023px) {
-  .navMenu {
+  /* .navMenu {
     position: fixed;
     display: flex;
     bottom: 0.5rem;
@@ -61,18 +57,18 @@
   .navBarClosed {
     padding-right: 2rem;
   }
-  
+
   .navBarOpen {
     display: flex;
     justify-content: center;
     align-content: center;
-  }
+  } */
 }
 
 /* Medium devices (landscape tablets, 1024px and up) */
 
 @media only screen and (min-width: 1024px) {
-  .navBarOpen {
+  /* .navBarOpen {
     width: 91%;
     margin-left: auto;
     margin-right: auto;
@@ -82,13 +78,13 @@
     width: 91%;
     margin-left: auto;
     margin-right: auto;
-  }
+  } */
 }
 
 /* Large devices (laptops/desktops, 1440px and up) */
 
 @media only screen and (min-width: 1440px) {
-  .navBarOpen {
+  /* .navBarOpen {
     width: 65%;
     margin-left: auto;
     margin-right: auto;
@@ -98,24 +94,17 @@
     width: 65%;
     margin-left: auto;
     margin-right: auto;
-  }
+  } */
 }
-
 
 /* Extra large devices (large laptops and desktops, 1920px and up) */
 
 @media only screen and (min-width: 1920px) {
-  .navBarOpen {
-    width: 48%;
+  /* .navBarOpen {
     display: flex;
-    justify-content: end;
-    align-content: center;
   }
 
   .navBarClosed {
-    width: 48%;
     display: flex;
-    justify-content: end;
-    align-content: center;
-  }
+  } */
 }

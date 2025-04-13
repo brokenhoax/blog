@@ -482,8 +482,8 @@ function Switch() {
   let encodedCode = encodeHTML(code);
 
   return (
-    <>
-      <NavBar></NavBar>
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
       <section className="section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="text-accent">
@@ -1371,8 +1371,13 @@ function Switch() {
           <CodeBlock props={htmlContent[31]} type="bash"></CodeBlock>
         </div>
       </section>
-      <Footer></Footer>
-    </>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className={`footer`}>
+        <Footer></Footer>
+      </div>
+    </div>
   );
 }
 

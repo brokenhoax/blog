@@ -129,9 +129,9 @@ function FigmaSlider() {
     </ol>
   );
   return (
-    <>
-      <NavBar></NavBar>
-      <section className="section motion-preset-focus">
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
+      <section className="main section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="text-accent">
           Figma Slider
@@ -413,8 +413,13 @@ function FigmaSlider() {
           </p>
         </div>
       </section>
-      <Footer></Footer>
-    </>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className={`footer`}>
+        <Footer></Footer>
+      </div>
+    </div>
   );
 }
 

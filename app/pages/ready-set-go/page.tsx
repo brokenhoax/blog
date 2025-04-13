@@ -86,8 +86,8 @@ function ReadySetGo() {
   );
 
   return (
-    <>
-      <NavBar></NavBar>
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
       <section className="section motion-preset-focus">
         {/* Title */}
         <h1 id="top" className="text-accent">
@@ -318,8 +318,13 @@ function ReadySetGo() {
           <CodeBlock props={htmlContent[3]} type="bash"></CodeBlock>
         </div>
       </section>
-      <Footer></Footer>
-    </>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className="footer">
+        <Footer></Footer>
+      </div>
+    </div>
   );
 }
 
