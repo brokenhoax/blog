@@ -1,5 +1,5 @@
-.homepage {
-  padding-top: 2rem;
+.homePage {
+  margin-top: 1.25rem;
 }
 
 .logo {
@@ -173,7 +173,7 @@
   }
 
   .posts {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .postsDescription {

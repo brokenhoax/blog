@@ -96,9 +96,9 @@ function Home() {
   return (
     <div>
       <NavBar></NavBar>
-      <section className="section">
+      <section className={`section ${styles.homePage}`}>
         {/* Title */}
-        <div className="flex items-center justify-between text-right blogTitle">
+        <div className="flex items-center justify-between text-right">
           {/* Logo */}
           <svg
             width="100%"
@@ -152,6 +152,7 @@ function Home() {
                       sizes="100px"
                       alt={post.imageAltText}
                       className={`${styles.postImage}`}
+                      priority={post.priority}
                     ></Image>
                   </div>
                   {/* Post Body */}

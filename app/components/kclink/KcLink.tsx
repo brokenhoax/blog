@@ -24,7 +24,7 @@ const KcLink = ({
   elementId,
   children,
 }: KcProps) => {
-  const [toggled, setToggled] = useState(true);
+  const [toggled, setToggled] = useState(false);
 
   function handleClick() {
     setToggled(!toggled);

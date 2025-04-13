@@ -4454,7 +4454,7 @@ h3 {
 
 h4 {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 2rem 0rem 0rem 0rem;
 }
 
@@ -4527,16 +4527,19 @@ ul {
 .orderedList {
   padding-left: 2.5rem;
   list-style-type: decimal;
+  line-height: 2rem;
 }
 
 .unorderedList {
   list-style-type: disc;
   padding: 0rem 0rem 0rem 2rem;
+  line-height: 2rem;
 }
 
 .secondOrderedList {
   padding-left: 1rem;
   list-style-type: lower-alpha;
+  line-height: 2rem;
 }
 
 .topScroller {
@@ -4654,8 +4657,21 @@ ul {
     font-size: 20px;
   }
 
+  h1 {
+    font-size: 48px;
+  }
+
   h2 {
+    font-size: 32px;
     line-height: 1.7rem;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  h4 {
+    font-size: 24px;
   }
 
   p {
@@ -4670,7 +4686,7 @@ ul {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
