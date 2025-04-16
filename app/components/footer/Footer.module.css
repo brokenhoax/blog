@@ -2,22 +2,56 @@
   grid-area: footer;
   position: fixed;
   display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2.5rem;
   width: 100vw;
-  height: 8vh;
+  height: 10vh;
   z-index: 10;
 }
 
 .footerWrapper {
   position: fixed;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100vw;
-  height: 8vh;
+  justify-content: end;
+  align-items: center;
   z-index: 10;
 }
 
 .logo {
   margin: auto;
   width: 2.5rem;
+}
+
+.navMenuControls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  width: 100vw;
+  height: 10vh;
+  gap: 1rem;
+}
+
+/* Small devices (landscape tablets, 600px and below) */
+
+@media only screen and (max-height: 600) {
+  .footer {
+    min-height: 20vh;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .footer {
+    min-height: 15vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    padding-right: 1rem;
+  }
+  .navMenuControls {
+    padding-right: 0;
+  }
 }

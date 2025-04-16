@@ -4398,16 +4398,6 @@ video {
   display: block;
 }
 
-.motion-opacity-in-0 {
-  --motion-origin-opacity: 0.001;
-  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
-.motion-duration-2000 {
-  --motion-duration: 2000ms;
-}
-
 .\[--picker-height\:224px\] {
   --picker-height: 224px;
 }
@@ -4602,16 +4592,10 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
-  }
-
-  .section {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .divider {
@@ -4677,16 +4661,10 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
-  }
-
-  .section {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   h1 {
@@ -4711,22 +4689,40 @@ ul {
   }
 }
 
+/* Handle navbar shrinkage for low heighth screens */
+
+@media only screen and (max-height: 600px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-rows: 80vh 20vh;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-rows: 85vh 15vh;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+}
+
 /* Medium devices (landscape tablets, 1024px and up) */
 
 @media only screen and (min-width: 1024px) {
   .gridContainer {
     display: grid;
     grid-template-columns: 15vw 70vw 15vw;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
-  }
-
-  .section {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -4736,16 +4732,10 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 20vw 60vw 20vw;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
-  }
-
-  .section {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -4755,16 +4745,10 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 30vw 40vw 30vw;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
-  }
-
-  .section {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 

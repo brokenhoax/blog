@@ -1,80 +1,18 @@
 .navMenu {
   position: fixed;
   display: flex;
-  margin-top: 11rem;
+  margin-top: 10rem;
   width: 100vw;
-  height: 8vh;
   z-index: 40;
   padding-left: 0.5rem;
+  height: 10vh;
 }
 
 .navMenuControls {
   display: flex;
   flex-direction: column;
-  align-content: middle;
+  align-content: center;
   justify-content: start;
   gap: 1.5rem;
   z-index: 40;
-}
-
-/* Responsive Design */
-
-/* Medium devices (landscape tablets, 600px and below) */
-
-@media only screen and (max-width: 600px) {
-  .navMenu {
-    display: flex;
-    align-content: end;
-    margin-top: 0rem;
-  }
-
-  .navMenuControls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    min-width: 400px;
-    padding-right: 1.5rem;
-    gap: 1rem;
-  }
-}
-
-/* Medium devices (landscape tablets, 600px and below) */
-
-@media only screen and (max-width: 600px) {
-  .navMenu {
-    display: flex;
-    align-content: end;
-    margin-top: 0rem;
-    gap: 2rem;
-  }
-
-  .navMenuControls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    width: 100%;
-    padding-right: 1.5rem;
-  }
-}
-
-/* Medium devices (landscape tablets, 1023px and below) */
-
-@media only screen and (max-width: 1023px) {
-  .navMenu {
-    display: flex;
-    align-content: end;
-    margin-top: 0rem;
-    gap: 2rem;
-  }
-
-  .navMenuControls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    width: 100%;
-    padding-right: 1.5rem;
-  }
 }

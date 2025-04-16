@@ -95,26 +95,27 @@ function NavBar() {
       </div>
     );
   }
+  if (windowSize.width >= 1024) {
+    if (!isExpanded) {
+      return (
+        <nav className={`${styles.navMenu} text-accent}`}>
+          <div className={`${styles.navMenuControls} motion-preset-pop`}>
+            {/* Menu Button */}
+            <KcButton
+              icon={faBars}
+              onToggle={setNavbarstatus}
+              type="toggle"
+            ></KcButton>
+          </div>
+        </nav>
+      );
+    }
 
-  if (!isExpanded) {
-    return (
-      <nav className={`${styles.navMenu} text-accent}`}>
-        <div className={`${styles.navMenuControls} motion-preset-pop`}>
-          {/* Menu Button */}
-          <KcButton
-            icon={faBars}
-            onToggle={setNavbarstatus}
-            type="toggle"
-          ></KcButton>
-        </div>
-      </nav>
-    );
-  }
-
-  if (isExpanded) {
-    return (
-      <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
-    );
+    if (isExpanded) {
+      return (
+        <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
+      );
+    }
   }
 }
 

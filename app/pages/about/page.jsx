@@ -121,10 +121,9 @@ function About() {
   const todayDate = today.toDateString();
 
   return (
-    
-  <div className="gridContainer">
-    <div className="leftSidebar"></div>
-    <section className={`section motion-preset-focus`}>
+    <div className="gridContainer">
+      <div className="leftSidebar"></div>
+      <section className={`section motion-preset-focus`}>
         {/* Title */}
         <h1 className="text-accent">About</h1>
         <h2>About Kraus Cloud</h2>
@@ -307,14 +306,14 @@ function About() {
             </div>
           </div>
         </div>
-    </section>
-    <div className={`rightSidebar`}>
-      <NavBar></NavBar>
+      </section>
+      <div className={`rightSidebar`}>
+        <NavBar></NavBar>
+      </div>
+      <div className={`bg-primary text-accent border-t border-t-subtle`}>
+        <Footer></Footer>
+      </div>
     </div>
-    <div className={`footer`}>
-      <Footer></Footer>
-    </div>
-  </div>
   );
 }
 

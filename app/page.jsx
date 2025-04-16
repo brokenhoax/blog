@@ -195,8 +195,7 @@ function Home() {
       <div className={`rightSidebar`}>
         <NavBar></NavBar>
       </div>
-      <div className={`footer bg-primary`}>
-        <NavBar></NavBar>
+      <div className={`bg-primary text-accent border-t border-t-subtle`}>
         <Footer></Footer>
       </div>
     </div>

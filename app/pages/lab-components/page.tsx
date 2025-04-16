@@ -1436,9 +1436,8 @@ function LabContents() {
       <div className={`rightSidebar`}>
         <NavBar></NavBar>
       </div>
-      <div className={`footer`}>
+      <div>
         <Footer></Footer>
-        <NavBar></NavBar>
       </div>
     </div>
   );

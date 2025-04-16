@@ -1497,9 +1497,8 @@ function PfSense() {
       <div className={`rightSidebar`}>
         <NavBar></NavBar>
       </div>
-      <div className={`footer bg-primary`}>
+      <div>
         <Footer></Footer>
-        <NavBar></NavBar>
       </div>
     </div>
   );
