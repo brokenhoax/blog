@@ -3,7 +3,7 @@
 }
 
 .logo {
-  width: 12%;
+  width: 5rem;
   margin-left: 1rem;
 }
 
@@ -18,6 +18,7 @@
   height: max-content;
   z-index: 10;
   margin-top: 2rem;
+  padding-bottom: 8rem;
 }
 
 .posts > li {
@@ -58,7 +59,7 @@
 
 .postLength {
   font-weight: 600;
-  padding-left: .5rem;
+  padding-left: 0.5rem;
 }
 
 .postIndex {
@@ -114,7 +115,7 @@
 }
 
 .postDate {
-  padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 
 .postDateLengthSpacer {
@@ -159,7 +160,7 @@
     margin-top: -12px;
     font-size: 14px;
     line-height: 1rem;
-    padding: .5rem 0rem .5rem 0rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
   }
 
   .postTitle {
@@ -185,32 +186,10 @@
 
   .postsMessage {
     font-size: 1rem;
-    padding: .5rem 0rem .5rem 0rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
   }
-
-
 
   .logo {
     width: 20%;
   }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-
-@media only screen and (min-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-
-@media only screen and (min-width: 1024px) {
-}
-
-/* Large devices (laptops/desktops, 1440px and up) */
-
-@media only screen and (min-width: 1439px) {
-}
-
-/* Extra large devices (large laptops and desktops, 1920px and up) */
-
-@media only screen and (min-width: 1920px) {
 }

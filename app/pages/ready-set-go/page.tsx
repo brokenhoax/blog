@@ -323,6 +323,7 @@ function ReadySetGo() {
       </div>
       <div className="footer">
         <Footer></Footer>
+        <NavBar></NavBar>
       </div>
     </div>
   );

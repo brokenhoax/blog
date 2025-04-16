@@ -283,18 +283,6 @@ function LabContents() {
         </div>
         {/* Headline */}
         <div className="headlineWrapper">
-          <Image
-            src={images[21].imagePath}
-            width={images[21].width}
-            height={images[21].height}
-            sizes={images[21].sizes}
-            style={images[21].style}
-            alt={images[21].imageAltText}
-            priority={images[21].priority}
-            quality={100}
-            decoding="sync"
-            loading="eager"
-          ></Image>
           <p className="headline">
             By the end of this lab, you will have built your own personal cloud
             consisting of a virtualization server, a security appliance to help
@@ -307,6 +295,20 @@ function LabContents() {
             and review the rundown of required components listed below. Let's
             gear up and go!
           </p>
+          <div className="pt-4">
+            <Image
+              src={images[21].imagePath}
+              width={images[21].width}
+              height={images[21].height}
+              sizes={images[21].sizes}
+              style={images[21].style}
+              alt={images[21].imageAltText}
+              priority={images[21].priority}
+              quality={100}
+              decoding="sync"
+              loading="eager"
+            ></Image>
+          </div>
         </div>
         {/* Table of Contents */}
         <TableOfContents params={toc} length="5"></TableOfContents>
@@ -1436,6 +1438,7 @@ function LabContents() {
       </div>
       <div className={`footer`}>
         <Footer></Footer>
+        <NavBar></NavBar>
       </div>
     </div>
   );

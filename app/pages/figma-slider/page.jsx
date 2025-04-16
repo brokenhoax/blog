@@ -417,6 +417,7 @@ function FigmaSlider() {
         <NavBar></NavBar>
       </div>
       <div className={`footer`}>
+        <NavBar></NavBar>
         <Footer></Footer>
       </div>
     </div>

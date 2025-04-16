@@ -1,18 +1,11 @@
-.navBarClosed {
-  width: 100%;
-}
-
-.navBarOpen {
-  width: 100%;
-}
-
 .navMenu {
   position: fixed;
   display: flex;
-  justify-items: space-between;
   margin-top: 11rem;
-  z-index: 100;
-  border-radius: 0.5rem;
+  width: 100vw;
+  height: 8vh;
+  z-index: 40;
+  padding-left: 0.5rem;
 }
 
 .navMenuControls {
@@ -20,91 +13,68 @@
   flex-direction: column;
   align-content: middle;
   justify-content: start;
-  gap: 1rem;
+  gap: 1.5rem;
+  z-index: 40;
 }
 
 /* Responsive Design */
 
-/* Extra small devices (phones, 600px and down) */
+/* Medium devices (landscape tablets, 600px and below) */
 
 @media only screen and (max-width: 600px) {
-  /* .navBarClosed {
-    padding-right: 2rem;
-  }
-
-  .navBarOpen {
+  .navMenu {
     display: flex;
-    justify-content: end;
-    align-content: center;
-  } */
-}
-
-/* Extra small devices (phones, 600px and down) */
-
-@media only screen and (max-width: 1023px) {
-  /* .navMenu {
-    position: fixed;
-    display: flex;
-    bottom: 0.5rem;
+    align-content: end;
+    margin-top: 0rem;
   }
 
   .navMenuControls {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    min-width: 400px;
+    padding-right: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 600px and below) */
+
+@media only screen and (max-width: 600px) {
+  .navMenu {
+    display: flex;
+    align-content: end;
+    margin-top: 0rem;
+    gap: 2rem;
+  }
+
+  .navMenuControls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
     width: 100%;
+    padding-right: 1.5rem;
   }
-
-  .navBarClosed {
-    padding-right: 2rem;
-  }
-
-  .navBarOpen {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  } */
 }
 
-/* Medium devices (landscape tablets, 1024px and up) */
+/* Medium devices (landscape tablets, 1023px and below) */
 
-@media only screen and (min-width: 1024px) {
-  /* .navBarOpen {
-    width: 91%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .navBarClosed {
-    width: 91%;
-    margin-left: auto;
-    margin-right: auto;
-  } */
-}
-
-/* Large devices (laptops/desktops, 1440px and up) */
-
-@media only screen and (min-width: 1440px) {
-  /* .navBarOpen {
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .navBarClosed {
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-  } */
-}
-
-/* Extra large devices (large laptops and desktops, 1920px and up) */
-
-@media only screen and (min-width: 1920px) {
-  /* .navBarOpen {
+@media only screen and (max-width: 1023px) {
+  .navMenu {
     display: flex;
+    align-content: end;
+    margin-top: 0rem;
+    gap: 2rem;
   }
 
-  .navBarClosed {
+  .navMenuControls {
     display: flex;
-  } */
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    padding-right: 1.5rem;
+  }
 }

@@ -123,12 +123,12 @@ function Home() {
             </h1>
             {/* Blog Description */}
             <div className={`${styles.postsDescription}`}>
-              An educational tech blog
+              Build your own cloud...
             </div>
           </div>
         </div>
         {/* Divider */}
-        <div className="divider border-b border-accent pb-2"></div>
+        <div className="divider border-b border-accent pb-2 opacity-50"></div>
         <ul className={`${styles.posts}`}>
           {posts.map((post, index) => (
             <li key={index} className={`${styles.postsContainer}`}>
@@ -195,7 +195,8 @@ function Home() {
       <div className={`rightSidebar`}>
         <NavBar></NavBar>
       </div>
-      <div className={`footer`}>
+      <div className={`footer bg-primary`}>
+        <NavBar></NavBar>
         <Footer></Footer>
       </div>
     </div>

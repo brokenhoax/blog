@@ -188,36 +188,22 @@ ul {
 
 /* Responsive Design */
 
-/* Grid Container */
-
-.item-c {
-  grid-area: sidebar;
-}
-.item-d {
-  grid-area: footer;
-}
-
-/* .gridContainer {
-  display: grid;
-  grid-template-columns: 30vw 40vw 30vw;
-  grid-template-rows: auto;
-  grid-template-areas: 
-    "leftSidebar main rightSidebar"
-    "footer footer footer";
-} */
-
-/* Media Queries */
-
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-rows: 92vh 8vh;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+
   .section {
-    width: 92%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 1rem;
-    font-size: 18px;
-    line-height: 1rem;
   }
 
   .divider {
@@ -280,11 +266,19 @@ ul {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-rows: 92vh 8vh;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+
   .section {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 20px;
   }
 
   h1 {
@@ -312,19 +306,36 @@ ul {
 /* Medium devices (landscape tablets, 1024px and up) */
 
 @media only screen and (min-width: 1024px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-rows: 92vh 8vh;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+
   .section {
-    width: 75%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 22px;
   }
 }
 
 /* Large devices (laptops/desktops, 1440px and up) */
 
 @media only screen and (min-width: 1440px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-rows: 92vh 8vh;
+    grid-template-areas:
+      "leftSidebar main rightSidebar"
+      "footer footer footer";
+  }
+
   .section {
-    width: 55%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -336,7 +347,7 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 30vw 40vw 30vw;
-    grid-template-rows: auto;
+    grid-template-rows: 92vh 8vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
@@ -346,7 +357,6 @@ ul {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
   }
 }
 

@@ -469,18 +469,6 @@ function PfSense() {
         <div className="divider border-b border-accent"></div>
         {/* Headline */}
         <div className="headlineWrapper">
-          <Image
-            src={images[25].imagePath}
-            width={images[25].width}
-            height={images[25].height}
-            sizes={images[25].sizes}
-            style={images[25].style}
-            alt={images[25].imageAltText}
-            priority={images[25].priority}
-            quality={100}
-            decoding="sync"
-            loading="eager"
-          ></Image>
           <p className="headline">
             pfSense running on a Netgate 4200 appliance not only provides our
             lab with network security, but it also provides us with advanced
@@ -491,6 +479,20 @@ function PfSense() {
             side, but hang in there because it's chock-full of good stuff that
             truly is at the foundation of our home lab.
           </p>
+          <div className="pt-4">
+            <Image
+              src={images[25].imagePath}
+              width={images[25].width}
+              height={images[25].height}
+              sizes={images[25].sizes}
+              style={images[25].style}
+              alt={images[25].imageAltText}
+              priority={images[25].priority}
+              quality={100}
+              decoding="sync"
+              loading="eager"
+            ></Image>
+          </div>
         </div>
         {/* Table of Contents */}
         <TableOfContents params={toc} length="11"></TableOfContents>
@@ -1495,8 +1497,9 @@ function PfSense() {
       <div className={`rightSidebar`}>
         <NavBar></NavBar>
       </div>
-      <div className={`footer`}>
+      <div className={`footer bg-primary`}>
         <Footer></Footer>
+        <NavBar></NavBar>
       </div>
     </div>
   );

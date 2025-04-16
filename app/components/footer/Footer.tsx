@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import styles from "./Footer.module.css";
 import { useNavbar } from "../../context/NavbarContext";
 
@@ -11,9 +10,9 @@ function Footer() {
         className={`${styles.footerWrapper} bg-primary border-t border-t-subtle`}
         onClick={toggleExpanded}
       >
-        <div className={`${styles.footer}`}>
+        <div className={`${styles.logo}`}>
           <svg
-            width="50"
+            width="100%"
             viewBox="0 0 585 423"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -32,9 +31,12 @@ function Footer() {
 
   if (isExpanded) {
     return (
-      <div
+      <button
         className={`${styles.footerWrapper} bg-primary border-t border-t-subtle`}
-      ></div>
+        onClick={toggleExpanded}
+      >
+        <div className={`${styles.logo}`}></div>
+      </button>
     );
   }
 }

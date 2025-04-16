@@ -498,18 +498,6 @@ function Switch() {
         </div>
         {/* Headline */}
         <div className="headlineWrapper">
-          <Image
-            src={images[0].imagePath}
-            width={images[0].width}
-            height={images[0].height}
-            sizes={images[0].sizes}
-            style={images[0].style}
-            alt={images[0].imageAltText}
-            priority={images[0].priority}
-            quality={100}
-            decoding="sync"
-            loading="eager"
-          ></Image>
           <p className="headline">
             Our Netgate security appliance comes with four wired ethernet
             interfaces, but one is already in use as our uplink and the other
@@ -536,6 +524,20 @@ function Switch() {
               ></FontAwesomeIcon>
             </span>
           </p>
+          <div className="pt-6">
+            <Image
+              src={images[0].imagePath}
+              width={images[0].width}
+              height={images[0].height}
+              sizes={images[0].sizes}
+              style={images[0].style}
+              alt={images[0].imageAltText}
+              priority={images[0].priority}
+              quality={100}
+              decoding="sync"
+              loading="eager"
+            ></Image>
+          </div>
         </div>
         {/* Post Image */}
         <div className="imageWrapper"></div>
@@ -1376,6 +1378,7 @@ function Switch() {
       </div>
       <div className={`footer`}>
         <Footer></Footer>
+        <NavBar></NavBar>
       </div>
     </div>
   );

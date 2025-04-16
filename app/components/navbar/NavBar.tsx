@@ -98,16 +98,14 @@ function NavBar() {
 
   if (!isExpanded) {
     return (
-      <nav className={`${styles.navBarClosed}`}>
-        <div className={`${styles.navMenu} text-accent`}>
-          <div className={`${styles.navMenuControls} motion-preset-pop`}>
-            {/* Menu Button */}
-            <KcButton
-              icon={faBars}
-              onToggle={setNavbarstatus}
-              type="toggle"
-            ></KcButton>
-          </div>
+      <nav className={`${styles.navMenu} text-accent}`}>
+        <div className={`${styles.navMenuControls} motion-preset-pop`}>
+          {/* Menu Button */}
+          <KcButton
+            icon={faBars}
+            onToggle={setNavbarstatus}
+            type="toggle"
+          ></KcButton>
         </div>
       </nav>
     );
@@ -115,9 +113,7 @@ function NavBar() {
 
   if (isExpanded) {
     return (
-      <nav className={`${styles.navBarOpen}`}>
-        <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
-      </nav>
+      <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
     );
   }
 }

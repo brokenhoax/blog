@@ -1,24 +1,23 @@
-.footerWrapper {
-  position: fixed;
-  height: 4rem;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 90;
-}
-
 .footer {
   grid-area: footer;
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 8vh;
+  z-index: 10;
+}
+
+.footerWrapper {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 100%;
+  width: 100vw;
+  height: 8vh;
+  z-index: 10;
 }
 
-/* Extra small devices (phones, 600px and down) */
-
-@media only screen and (max-width: 600px) {
-  .logo {
-    width: 36px;
-  }
+.logo {
+  margin: auto;
+  width: 2.5rem;
 }
