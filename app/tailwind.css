@@ -4398,6 +4398,16 @@ video {
   display: block;
 }
 
+.motion-opacity-in-0 {
+  --motion-origin-opacity: 0.001;
+  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
+  animation: var(--motion-all-loop-and-enter-animations);
+}
+
+.motion-duration-2000 {
+  --motion-duration: 2000ms;
+}
+
 .\[--picker-height\:224px\] {
   --picker-height: 224px;
 }

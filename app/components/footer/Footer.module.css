@@ -4,7 +4,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  padding-right: 2.5rem;
+  padding: 0rem 2.5rem 0rem 2.5rem;
   width: 100vw;
   height: 10vh;
   z-index: 10;
@@ -15,12 +15,29 @@
   display: flex;
   justify-content: end;
   align-items: center;
+  width: 100vw;
+  height: 10vh;
   z-index: 10;
 }
 
-.logo {
+.logoWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  justify-content: end;
+  align-items: center;
+  width: 90vw;
+  z-index: 10;
+}
+
+.navBarLogo {
   margin: auto;
   width: 2.5rem;
+}
+
+.logo {
+  width: 3rem;
+  margin: auto;
 }
 
 .navMenuControls {
@@ -28,7 +45,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  width: 100vw;
+  width: auto;
   height: 10vh;
   gap: 1rem;
 }

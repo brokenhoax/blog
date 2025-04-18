@@ -1,5 +1,9 @@
-.homePage {
-  margin-top: 1.25rem;
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .logo {
@@ -123,7 +127,7 @@
 }
 
 .postsDescription {
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   font-size: 1rem;
 }
@@ -134,8 +138,12 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .homepage {
-    padding-top: 2rem;
+  .titleWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
   }
 
   .postBackground {
@@ -179,7 +187,6 @@
 
   .postsDescription {
     font-size: 0.75rem;
-    line-height: 0.5rem;
     font-weight: 400;
     font-style: italic;
   }

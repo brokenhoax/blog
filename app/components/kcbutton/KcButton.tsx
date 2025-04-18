@@ -41,11 +41,7 @@ const KcButton = ({
         href={path}
         className={`${styles.kcLinkBtn} ${styling} text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none`}
       >
-        <FontAwesomeIcon
-          icon={icon}
-          fixedWidth={true}
-          size="lg"
-        ></FontAwesomeIcon>
+        <FontAwesomeIcon icon={icon} fixedWidth={true}></FontAwesomeIcon>
       </Link>
     );
   } else {
@@ -54,11 +50,7 @@ const KcButton = ({
         className={`${styles.kcLinkBtn} ${styling} text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none`}
         onClick={handleClick}
       >
-        <FontAwesomeIcon
-          icon={icon}
-          fixedWidth={true}
-          size="lg"
-        ></FontAwesomeIcon>
+        <FontAwesomeIcon icon={icon} fixedWidth={true}></FontAwesomeIcon>
       </button>
     );
   }
