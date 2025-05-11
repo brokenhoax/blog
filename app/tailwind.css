@@ -4601,7 +4601,7 @@ ul {
 @media only screen and (max-width: 600px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-columns: 5% 90% 5%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
@@ -4670,7 +4670,7 @@ ul {
 @media only screen and (min-width: 600px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-columns: 5% 90% 5%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
@@ -4704,7 +4704,7 @@ ul {
 @media only screen and (max-height: 600px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-columns: 5% 90% 5%;
     grid-template-rows: 80vh 20vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
@@ -4715,7 +4715,7 @@ ul {
 @media only screen and (max-height: 700px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-columns: 5% 90% 5%;
     grid-template-rows: 85vh 15vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
@@ -4728,7 +4728,7 @@ ul {
 @media only screen and (min-width: 1024px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-columns: 15% 70% 15%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
@@ -4741,7 +4741,7 @@ ul {
 @media only screen and (min-width: 1440px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-columns: 20% 60% 20%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
@@ -4754,7 +4754,7 @@ ul {
 @media only screen and (min-width: 1920px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 30vw 40vw 30vw;
+    grid-template-columns: 30% 40% 30%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"

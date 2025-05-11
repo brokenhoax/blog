@@ -23,7 +23,7 @@ function Home() {
       path: "/pages/switch",
       imagePath: "/images/infrared-eye.webp",
       imageAltText: "Infrared eye.",
-      priority: true,
+      priority: false,
     },
     {
       id: "4",
@@ -39,7 +39,7 @@ function Home() {
       path: "/pages/pfsense",
       imagePath: "/images/fire.webp",
       imageAltText: "Flame",
-      priority: true,
+      priority: false,
     },
     {
       id: "3",
@@ -55,7 +55,7 @@ function Home() {
       path: "/pages/lab-components",
       imagePath: "/images/sparkle.webp",
       imageAltText: "Sparkle",
-      priority: true,
+      priority: false,
     },
     {
       id: "2",
@@ -71,7 +71,7 @@ function Home() {
       path: "/pages/figma-slider",
       imagePath: "/images/spring.webp",
       imageAltText: "Spring",
-      priority: true,
+      priority: false,
     },
     {
       id: "1",
@@ -87,7 +87,7 @@ function Home() {
       path: "/pages/ready-set-go",
       imagePath: "/images/code.webp",
       imageAltText: "Code",
-      priority: true,
+      priority: false,
     },
   ];
 
