@@ -985,7 +985,7 @@ function PfSense() {
               simply create aliases which reference those IP addresses and FQDNs
               and later use them as we configure policy in pfSense. For
               instance, what if you need to change an IP address assigned to a
-              resource that you have 10+ policies written for within pfSesnse.
+              resource that you have 10+ policies written for within pfSense.
               With aliases, this task would require only one corresponding
               update to the firewall-the alias. Without aliases, you'd have to
               locate and change that IP address in your policies across pfSense.
@@ -1400,7 +1400,7 @@ function PfSense() {
               server to send a response back, that is, to serve up our website.
               These three rules will allow our Nginx web server access out to
               the internet via the Port1WAN interface so long as the destination
-              port is port 53 (DNS), port 80 (HTTP), or port 443 (HTTPS).
+              port is port 80 (HTTP) or port 443 (HTTPS).
             </p>
             <ToggleImage params={images["20"]}></ToggleImage>
           </div>
