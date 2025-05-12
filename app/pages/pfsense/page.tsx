@@ -472,13 +472,13 @@ function PfSense() {
           <div className="headlineWrapper">
             <p className="headline">
               pfSense running on a Netgate 4200 appliance not only provides our
-              lab with network security, but it also provides us with advanced
-              routing capabilities and will serve as our home lab's core router.
-              It also boasts a lot of other functionality that we'll be
-              leveraging throughout this series and beyond. The best part,
-              pfSense is completely free and open source! This post is a bit on
-              the longer side, but hang in there because it's chock-full of good
-              stuff that truly is at the foundation of our home lab.
+              lab with network security, but it will also serve as our lab's
+              core router. pfSense also boasts a lot of other functionality that
+              we'll be leveraging throughout this series and beyond. The best
+              part, pfSense is completely free and open source! This post is a
+              bit on the longer side, but hang in there because it's chock-full
+              of good stuff that's at the foundation of our home lab and core to
+              learning networking and cybersecurity.
             </p>
             <div className="pt-4">
               <Image
@@ -516,7 +516,7 @@ function PfSense() {
               extra ethernet interfaces.
             </p>
             <p>
-              You could save even more by running pfSense in a virtual machine
+              You could save even more by running pfSense as a virtual machine
               on your Proxmox server, but part of the home lab experience is
               working with hardware. Plus, those extra ethernet interfaces on
               the Netgate appliance I'm suggesting (i.e., the Netgate 4200) will
@@ -603,9 +603,9 @@ function PfSense() {
               not the interface will receive its IP address via Dynamic Host
               Configuration Protocol (DHCP) or if we will set the interface's IP
               address statically. For this exercise, we will always give our
-              interfaces a static IP address. We then may or may not need to
-              assign an upstream IPv4 gateway. That should pretty much cover it.
-              Let's configure our first physical interface!
+              physical interfaces a static IP address. We then may or may not
+              need to assign an Upstream Gateway. That should pretty much cover
+              it. Let's configure our first physical interface!
             </p>
             <Callout icon={faLightbulb} text={calloutContent[4]}></Callout>
             <Callout icon={faFlask} text={calloutContent[5]}></Callout>
@@ -625,26 +625,35 @@ function PfSense() {
               &nbsp;PORT1WAN
             </div>
             <p>
-              Port 1/4 is our "WAN" interface and now is the time, if you
+              Interface 1/4 is our "WAN" interface and now is the time, if you
               haven't already, to physically connect it to an open interface on
               your internet modem or router in order to provide Internet access
               to our firewall and anything else downstream from it. By default,
-              Port 1/4 should be configured to receive it's IP address
+              Interface 1/4 should be configured to receive it's IP address
               assignment via Dynamic Host Configuration Protocol (DHCP);
               however, I suggest you set a static IP address on this interface
-              if you can.
+              if you can because static IP addresses make it easier to write
+              network and security polices and to troubleshoot issues in your
+              lab.
             </p>
             <p>
-              On my Amplifi home router, I have the ability to reserve a portion
-              of the IP addresses issued from the router's DHCP pool for static
-              IP address assignment. In my lab, I have configured my Amplifi
-              router to reserve 192.168.132.1 through 192.168.132.99 for static
-              IP address assignement, leaving 192.168.132.100 through
+              Thankfully, on my Amplifi home router, I have the ability to
+              reserve a portion of the IP addresses issued from the router's
+              DHCP pool for static IP address assignment. I have configured my
+              Amplifi router to reserve 192.168.132.1 through 192.168.132.99 for
+              static IP address assignement, leaving 192.168.132.100 through
               192.168.132.254 for DHCP to use on other devices—connected either
-              wirelessly or hardwired to the Amplifi router. If your network
-              requirements are different, then feel free to deviate from this
-              guide to suit your needs. I will be setting a static IP address of
-              192.168.132.7 for my PORT1WAN interface.
+              wirelessly or hardwired to the Amplifi router. I will be setting a
+              static IP address of 192.168.132.7 for my PORT1WAN interface. If
+              your network requirements are different, then feel free to deviate
+              from this guide to suit your needs.
+            </p>
+            <p>
+              One extra step for this interface is to configure an Upstream
+              Gateway since this is the only interface on our Netgate appliance
+              that is connecting our network to the internet. That's simple
+              enough to do. Just select "PORT1WAN" as our Upstream Gateway and
+              save your changes.
             </p>
             <ToggleImage params={images["6"]}></ToggleImage>
           </div>
@@ -663,11 +672,11 @@ function PfSense() {
               &nbsp;PORT2LAN
             </div>
             <p>
-              Port 2/4 is reserved for our "LAN" interface and should be
+              Interface 2/4 is reserved for our "LAN" interface and should be
               configured out of the box with a static IP address of 192.168.1.1.
               For our lab purposes, this interface is our Netgate appliance's
               primary management interface and we will hardwire our computer to
-              this port in order to manage our Netgate appliance. In a
+              this interface in order to manage our Netgate appliance. In a
               subsequent lab, we will configure secure remote management using
               Zscaler Private Access (ZPA).
             </p>
@@ -703,15 +712,15 @@ function PfSense() {
               &nbsp;PORT3
             </div>
             <p>
-              Port 3/4 is our "Lab" network interface and it's arguably the most
-              interesting network interface on our Netgate appliance. In a
+              Interface 3/4 is our "Lab" network interface and it's arguably the
+              most interesting network interface on our Netgate appliance. In a
               subequent post, we will physically connect our switch to this
               interface and that switch will connect the majority of our lab
               components to our lab. Furthermore, we will be configuring our lab
               switch with four Virtual Local Area Networks (VLANs) in order to
-              virtually segment our physical switch into different virtual
-              networks. What's more is that we will use pfSense to allow or deny
-              traffic between those VLANs.
+              segment our physical switch into different virtual networks.
+              What's more is that we will use pfSense to allow or deny traffic
+              between those VLANs.
             </p>
             <p>
               We will give this interface a static IP address and, so, we'll
@@ -738,17 +747,17 @@ function PfSense() {
               &nbsp;PORT4
             </div>
             <p>
-              Port 4/4 is reserved for our "Guest" network interface. If you
-              want, you could plug a wireless router into this interface,
+              Interface 4/4 is reserved for our "Guest" network interface. If
+              you want, you could plug a wireless router into this interface,
               placing it behind your Netgate security appliance so that you
-              could protect your guest WiFi users/devices with pfSense. If
+              could protect your guest Wi-Fi users/devices with pfSense. If
               you're considering this, then don't forget to consider the
               security implications and how you might want to use pfSense to
-              restrict traffic from this interface to our lab environment and
+              restrict traffic from this interface to the rest of our lab and
               vice versa. This is an optional step that is outside of the scope
               of this lab, but it should be simple enough to implement using the
-              concepts you'll learn here and as we build out our home lab. For
-              now, we'll leave this interface disabled.
+              concepts you'll learn here. For now, we'll leave this interface
+              disabled.
             </p>
             <ToggleImage params={images["14"]}></ToggleImage>
           </div>
@@ -769,25 +778,27 @@ function PfSense() {
               &nbsp;VLANs
             </div>
             <p>
-              In a later lab, we'll map our VLANs to physical interfaces on our
-              lab's switch. Then, we'll physically connect our switch to Port 3
-              on our Netgate appliance and we'll configure what's called a
-              "trunk" port. Our trunk port will include all of our VLANs and
-              it's effectively how we get our VLAN traffic passed between our
-              pfSense firewall and our switch. We'll use our pfSense firewall to
-              create routing and firewall rules to allow only the appropriate
-              communications between VLANs. These communications are considered
-              east/west traffic (as opposed to north/south traffic from/to our
-              LAN to/from the Internet.)
+              Our next step is to create our VLANs in pfSense. Then, in a
+              subsequent lab, we'll map those VLANs to our switch's physical
+              interfaces and we'll make a physical connection between Interface
+              3/4 on our Netgate appliance to Interface 9/10 on our switch.
+              We'll then configure what's called a "trunk" interface on both our
+              switch and our firewall. Our trunk interface will include all of
+              our VLANs and is, effectively, how we get our VLAN traffic passed
+              between our pfSense firewall and our switch. Once our switch and
+              firewall are physically connected with our VLANs and trunk
+              interfaces in place, we'll be able to use pfSense to create
+              routing and firewall rules to allow or deny communications between
+              VLANs.
             </p>
             <p>
               So, all traffic from our switch goes up to our pfSense firewall
-              where policy is applied and devices connected to the switch cannot
-              communicate to one another without passing through the pfSense
-              firewall. That said, now is a good time to configure our VLAN
-              interfaces within pfSense. Feel free to use the IP addressing
-              shared below if you'd like to keep your lab consistent with this
-              guide:
+              where policy is applied. Devices connected to the switch that are
+              on different VLANs (i.e., subnets) cannot communicate to one
+              another without passing through the pfSense firewall. That said,
+              now is a good time to configure our VLAN interfaces within
+              pfSense. Feel free to use the IP addressing shared below if you'd
+              like to keep your lab consistent with this guide:
             </p>
             {/* VLAN / IP Mappings */}
             <ul className="unorderedList">
@@ -849,12 +860,11 @@ function PfSense() {
               networking manufacturers, but be sure to consult your switch's
               documentation. We configure the default VLAN interface by giving
               it a static IP addresses and checking the "enable interface"
-              checkbox. In a later lab, when configuring our switch, we'll
-              configure the opposite end of this connection when configuring the
-              VLAN interfaces on our switch. In short, here we are creating
-              VLANs, assigning VLANs to virtual interfaces, and giving those
-              virtual interfaces an IP addresses so that they are reachable on
-              the network.
+              checkbox. In a later lab, we'll configure the opposite end of this
+              connection when configuring the VLAN interfaces on our switch. In
+              short, here we are creating VLANs, assigning VLANs to virtual
+              interfaces, and giving those virtual interfaces an IP addresses so
+              that they are reachable on the network.
             </p>
             <ToggleImage params={images["13"]}></ToggleImage>
           </div>
@@ -874,13 +884,14 @@ function PfSense() {
             </div>
             <p>
               The Services VLAN, which we can also refer to as "VLAN 10", is
-              where our servers live. Let's enable this interface. Next, we'll
-              decide on a subnet to reserve for the services VLAN. How about
-              192.168.10.0/24 for our Services VLAN IP addressing scheme? Next,
-              let's take one of those IP addresses from the 192.168.10.0/24
-              network and assign it to our VLAN interface. For consistency's
-              sake and to stay with convention, we'll use 192.168.10.1 for our
-              Services VLAN inteface IP address assignment.
+              where our services will live and those services will be running on
+              our MS-01 server. Let's enable this virtual interface. Next, we'll
+              decide on a subnet to reserve for the Services VLAN. How about
+              192.168.10.0/24? Next, let's take one of those IP addresses from
+              the 192.168.10.0/24 network and assign it to our Services VLAN's
+              interface. For consistency's sake, and to stay with convention,
+              we'll use 192.168.10.1 for our Services VLAN's virtual inteface IP
+              address.
             </p>
             <ToggleImage params={images["10"]}></ToggleImage>
           </div>
@@ -899,11 +910,11 @@ function PfSense() {
               &nbsp;VLAN_USERS (igc1.20)
             </div>
             <p>
-              VLAN 20 is our users VLAN so we'll definitely want to enable this
+              VLAN 20 is our Users VLAN so we'll definitely want to enable this
               VLAN interface. We've reserved 192.168.20.0/24 for the Users VLAN.
-              Therefore, we'll assign the Users VLAN (VLAN 20's) virtual
-              interface an IP address of 192.168.20.1. Not much else to
-              configure here, so, we'll save our changes and continue.
+              Therefore, we'll assign the VLAN 20's virtual interface an IP
+              address of 192.168.20.1. Not much else to configure here, so,
+              we'll save our changes and continue.
             </p>
             <ToggleImage params={images["9"]}></ToggleImage>
           </div>
@@ -947,7 +958,8 @@ function PfSense() {
               And, as you could have guessed, we'll be configuring our
               management VLAN, VLAN 40, as we have the others. The subnet we'll
               reserve is 192.168.40.0/24 and we'll give this VLAN interface a
-              predictable IP address of 192.168.40.1.
+              predictable IP address of 192.168.40.1. Don't forget to save your
+              changes!
             </p>
             <ToggleImage params={images["12"]}></ToggleImage>
           </div>
@@ -971,22 +983,21 @@ function PfSense() {
               pfSense aliases make it easier to configure our firewall. Instead
               of having to remember and type out IP addresses and FQDNs, we can
               simply create aliases which reference those IP addresses and FQDNs
-              which we can later select from dropdown menus as we configure
-              pfSense. For instance, what if you need to change an IP address
-              assigned to a resource that you have 10+ policies written for
-              within pfSesnse. With aliases, updating an IP address requires
-              only one corresponding update to the firewall-the alias. Without
-              aliases, you'd have to locate and change that IP address in your
-              policies across pfSense. This is obviously very prone to human
-              error. Imagine how difficult managing your pfSense policies would
-              be without aliases!
+              and later use them as we configure policy in pfSense. For
+              instance, what if you need to change an IP address assigned to a
+              resource that you have 10+ policies written for within pfSesnse.
+              With aliases, this task would require only one corresponding
+              update to the firewall-the alias. Without aliases, you'd have to
+              locate and change that IP address in your policies across pfSense.
+              This is obviously very prone to human error. Imagine how difficult
+              managing your pfSense policies would be without aliases!
             </p>
             <p>
               That said, and in preparation for deploying our Nginx web server,
               we'll configure an alias for our Nginx web server. We'll use this
               later when configuring policies to allow access to our website
-              from outside our network (i.e., from the Internet). Don't forget
-              to save your changes.
+              from outside our network (i.e., from the Internet). Save your
+              changes and see below for example:
             </p>
             <p className="label">Example Alias Configuration</p>
             <ul className="unorderedList">
@@ -1029,18 +1040,19 @@ function PfSense() {
             </div>
             <p>
               As is typical of a web server, our Nginx web server will be
-              listening on port 80 and port 443, so we'll want to forward port
-              80 and port 443 to our Nginx web server. Using our new alias for
-              our Nginx web server, we'll create a port-forwarding NAT policy to
-              forward those ports. While we're creating that NAT policy, we're
-              going to make sure to select "Add associated filter rule" under
-              the "Filter rule association" field. Once we save our NAT policy,
-              we should notice that pfSense created a firewall rule fore to
-              allow that associated traffic to pass. Keep in mind that we'll
-              also need to forward those ports on our home router (in my case,
-              my Amplifi home router) so that we're not blocking those
-              connections further upstream in our network. Please refer to the
-              "Amplifi" blog post to review those steps.
+              listening on port 80 and port 443. So, we'll want to forward all
+              web traffic destined for our website (i.e., destined to our public
+              IP address on port 80 and port 443) to our Nginx web server. Using
+              our new alias for our Nginx web server, we'll create a
+              port-forwarding NAT policy to forward those ports. While we're
+              creating that NAT policy, we're going to make sure to select "Add
+              associated filter rule" under the "Filter rule association" field.
+              Doing so, and after we save our NAT policy, we should notice that
+              pfSense created a firewall rule to allow that associated traffic
+              to pass. Keep in mind that we'll also need to forward those ports
+              on our home router (in my case, my Amplifi home router) so that
+              we're not blocking those ports further upstream in our network.
+              Please refer to the "Amplifi" blog post to review those steps.
             </p>
             <ToggleImage params={images["1"]}></ToggleImage>
           </div>
@@ -1066,15 +1078,15 @@ function PfSense() {
               act as both a DNS Forwarder or DNS Resolver. Having a DNS resolver
               give us more control over DNS by providing the ability to serve
               resources using easy-to-remember Fully Qualified Domain Names
-              (FQDNs) instead of IP addresses. For example, which is easier to
-              recall? The FQDN{" "}
+              (FQDNs) instead of the more computer-friendly IP addresses. For
+              example, which is easier to recall? The FQDN{" "}
               <span className="text-accent">fw.krauscloud.com</span> or the IP
               address <span className="text-accent">192.168.1.2</span>?
             </p>
             <p>
               With that in mind, we want to forward all DNS traffic on all
-              interfaces (both physical and virtual) to our loopback address in
-              order to use our Netgate appliance for DNS resolution.
+              interfaces (both physical and virtual) to our firewall's loopback
+              address in order to use our Netgate appliance as a DNS resolver.
             </p>
             <p>
               Once in place, these NAT port-forwarding rules will redirect all
@@ -1117,11 +1129,11 @@ function PfSense() {
             <p>
               With that in mind, you'll need to register your own domain because
               "krauscloud.com" is my domain. If you're looking for a registrar,
-              I suggest Cloudflare for a few reasons one of which is that is who
-              is used in a subsequent lab. Another important benefit of using
-              Cloudflare is that they offer an free API as well as an
+              I suggest Cloudflare for a few reasons one of which is that
+              Cloudflare is used in this lab series. Another important benefit
+              of using Cloudflare is that they offer an free API as well as an
               integration with pfSense, both of which we will use when
-              configuring Dynamic DNS to host our website locally.
+              configuring Dynamic DNS to host our website from our cloud.
             </p>
             <p>
               Lastly, there is no need to add all of these host overrides at
@@ -1188,10 +1200,10 @@ function PfSense() {
             <p>
               For port 1/4, our WAN port, we want to ensure that our
               auto-generated rules were created when we configured our NAT
-              policy for our Nginx web server earlier in this lab. If you don't
-              see them listed, then you'll need to configure them manually.
-              Also, if youd don't see them then be sure to double-check that you
-              didn't skip the section titled,{" "}
+              policy earlier in this lab. If you don't see them listed, then
+              you'll need to configure them manually. Also, if youd don't see
+              them then be sure to double-check that you didn't skip the section
+              titled,{" "}
               <a
                 href="http://krauscloud.com/pages/pfsense#nat-nginx"
                 className="text-accent"
@@ -1220,12 +1232,13 @@ function PfSense() {
             <p>
               For interface 2/4, we will need a minimum of the first two rules
               in place. The first rule should already be created for you and
-              we'll call this the “Anti-Lockout Rule”. This rule helps to ensure
-              that you do not get locked out of your pfSense firewall should you
-              make a misconfiguration. In the event that you make a
-              misconfiguration, and you likely will, you should be able to make
-              a wired connection to interface 2/4 to access the administrator
-              portal to correct your mistake.
+              we'll call this the “Anti-Lockout Rule”. This rule is set by
+              default within pfSense and it helps to ensure that you do not get
+              locked out of your pfSense firewall should you make a
+              misconfiguration. In the event that you make a misconfiguration,
+              and you likely will, you should be able to make a wired connection
+              to interface 2/4 to access the administrator portal and to correct
+              your mistake.
             </p>
             <p>
               The second rule is to redirect DNS traffic to the firewall itself
@@ -1271,8 +1284,9 @@ function PfSense() {
             <p>
               At this point, there are no rules to configure on interface 3/4.
               The only rule required on this interface is the one that was
-              created when we configured port forwarding on all interfaces for
-              DNS Resolution (i.e., by selecting 'Add Associated Filter Rule').
+              created when we configured port forwarding on our physical
+              interfaces to support DNS resolution (i.e., by selecting 'Add
+              Associated Filter Rule').
             </p>
             <ToggleImage params={images["17"]}></ToggleImage>
           </div>
@@ -1321,13 +1335,14 @@ function PfSense() {
             </div>
             <p>
               Let's do a quick VLAN recap. We've created our VLANs, assigned our
-              VLANs to virtual interfaces, and issued those interfaces static IP
-              addresses. Now, just as we have with our physical ports, we are
-              going to configure firewall rules to either allow or block traffic
-              between our VLANs based on our requirements. For example, we will
-              eventually need to provide our lab PC (which is in our "Users VLAN
-              20") network access to resources such as our pfSense firewall and
-              Proxmox server—both of which are part of our "Services VLAN 10".
+              VLANs to virtual interfaces, and issued those virtual interfaces
+              static IP addresses. Now, just as we have with our physical
+              interfaces, we are going to configure firewall rules to either
+              allow or block traffic between our VLANs based on our lab
+              requirements. For example, we will eventually need to provide our
+              lab PC (which is in our "Users VLAN 20") network access to
+              resources such as our pfSense firewall and Proxmox server—both of
+              which are part of our "Services VLAN 10".
             </p>
           </div>
           {/* VLAN 1 — Default VLAN — Firewall Rules */}
@@ -1383,9 +1398,9 @@ function PfSense() {
               our Nginx Web Server out of our network. In other words, when
               someone requests access to our website, we need to allow our web
               server to send a response back, that is, to serve up our website.
-              These three allow rules will allow our Nginx web server access to
-              any destination from any port so long as the destination port is
-              port 53 (DNS), port 80 (HTTP), or port 443 (HTTPS).
+              These three rules will allow our Nginx web server access out to
+              the internet via the Port1WAN interface so long as the destination
+              port is port 53 (DNS), port 80 (HTTP), or port 443 (HTTPS).
             </p>
             <ToggleImage params={images["20"]}></ToggleImage>
           </div>
@@ -1407,7 +1422,7 @@ function PfSense() {
             <p>
               Our first rule for the Users VLAN is to redirect all DNS traffic
               to the firewall for resolution. Since we've already configured
-              that rule when creating the NAT redirect policy, that should
+              that rule when creating the NAT DNS redirect policy, that should
               already be created for us. Our second rule can be skipped for now,
               but it will come in handy when we implement a Zscaler Branch
               Connector in a future lab. The remaining four rules allow access
@@ -1462,26 +1477,23 @@ function PfSense() {
             <p>
               Again, our first rule for our Management VLAN was created when we
               set up our NAT redirect policy to support using pfSense as our DNS
-              resolver.Next, we need to think about how we will use this
+              resolver. Next, we need to think about how we will use this
               Management VLAN. To be clear, the Management VLAN will be used to
               manage our network Switch and not our Firewall. You may recall
-              that interface 2/4 is, effectively, our Management interface for
-              our Netgate appliance. Just plug directly into that interface,
-              make sure to assign your PC an available IP address within the
-              subnet 192.168.1.0/24, and you can reach the pfSense administrator
-              portal. That's great for our Netgate appliance, but how do we do
-              the same for our switch?
+              that interface 2/4 is, effectively, our physical Management
+              interface for our Netgate appliance. Just plug directly into that
+              interface, make sure to assign your PC an available IP address
+              within the subnet 192.168.1.0/24, and you can reach the pfSense
+              administrator portal. That's great for our Netgate appliance, but
+              how do we do the same for our switch?
             </p>
             <p>
-              We could just plug directly into our switch's management interface
-              (8/10), but that would require us to physically disconnect and
-              reconnect our wired connection. That will get old quick, so,
-              instead we'll add our switch's Management VLAN to our trunk port
-              and pass that traffic up to our pfSense firewall. Then, we'll
-              write a policy in pfSense to allow traffic from our Lab PC to our
-              Management VLAN interface. Once those rules are in place, then
-              visiting 192.168.40.1 in my browser from my Lab PC should serve up
-              our switch's administrator portal.
+              To keep things secure, we're going to require a physical
+              connection to interface 8/10 on our switch in order to manage our
+              switch. We accomplish this during the security hardening phase of
+              the switch lab. After all, there is no good reason to allow access
+              to our switch from outside of our home lab. That said, we don't
+              have any firewall rules to set on this virtual interface.
             </p>
             <ToggleImage params={images["22"]}></ToggleImage>
           </div>
@@ -1502,7 +1514,7 @@ function PfSense() {
               for your home lab!! The only problem is, you don't have anything
               connected to it yet... We'll need more ethernet interfaces to
               connect more things to our home lab, so, in the next post, we'll
-              add in a network switch and give it some VLANs! Once our switch is
+              add in a network switch and give it some VLANs. Once our switch is
               in place, we can start connecting things like servers, network
               attached storage (NAS), and even wireless access points to scale
               our network wirelessly.

@@ -1407,7 +1407,7 @@ function Switch() {
       <div className={`rightSidebar`}>
         <NavBar></NavBar>
       </div>
-      <div className="footer">
+      <div>
         <Footer></Footer>
       </div>
     </div>
