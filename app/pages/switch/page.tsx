@@ -506,10 +506,9 @@ function Switch() {
               more interfaces so we'll be connecting an 8-port (interface)
               gigabit ethernet switch to our lab in this post. In fact, we'll be
               doing a lot more than just connecting our switch to another
-              device. We'll be dividing up eight (8) of the ten (10) interfaces
-              into four (4) separate Virtual Local Area Networks (VLANs) and
-              also applying multiple configurations to improve our lab's
-              security posture while we're at it.
+              device. We'll be dividing our ten (10) interfaces into four (5)
+              separate Virtual Local Area Networks (VLANs) while also applying
+              multiple changes to improve our lab's security posture.
             </p>
             <p className="headline">
               This post covers a ton of critical Networking 101 fundamentals and

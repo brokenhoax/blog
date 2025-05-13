@@ -1,28 +1,30 @@
+.divider {
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
 .titleWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0rem 2rem 0rem;
 }
 
 .logo {
-  width: 5rem;
-  margin-left: 1rem;
+  width: 4rem;
+  padding: 0rem 0.25rem 0rem 0.25rem;
 }
 
 .postMain {
-  padding-left: 32px;
+  padding-left: 1rem;
 }
 
 .posts {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   height: max-content;
   z-index: 10;
-  margin-top: 2rem;
-  padding-bottom: 8rem;
+  padding-bottom: 10rem;
 }
 
 .posts > li {
@@ -32,11 +34,8 @@
 .postWrapper {
   display: flex;
   align-items: center;
-  flex: 1 1 0%;
-  position: relative;
-  width: 100%;
   z-index: 20;
-  padding-left: 1rem;
+  padding: 1rem 0rem 1rem 1rem;
 }
 
 .postTitle {
@@ -49,8 +48,9 @@
 }
 
 .postLink {
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
-  padding-top: 1.25rem;
   line-height: 2rem;
 }
 
@@ -75,17 +75,14 @@
 .postsContainer {
   position: relative;
   display: flex;
+  width: 100%;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
-.postBackground {
-  z-index: 10;
-  position: absolute;
-  top: 12px;
-  height: 128px;
+.postsLinkContainer {
   width: 100%;
-  opacity: 30%;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .postsContainer:hover .postBackground {
@@ -95,21 +92,10 @@
   color: white;
 }
 
-.postsContainer:hover .postLevel,
-.postsContainer:hover .postTitle,
-.postsContainer:hover .postTagline,
-.postsContainer:hover .postDate {
-  color: white;
-}
-
 .postImageContainer {
   position: relative;
   width: 125px;
   height: 125px;
-}
-
-.postImage {
-  border-radius: 0.5rem;
 }
 
 .postLevel {
@@ -137,6 +123,12 @@
   font-size: 1.5rem;
 }
 
+.postsTextPreview {
+  padding: 0rem 1rem 1rem 1rem;
+  line-height: 1.5rem;
+  font-size: 18px;
+}
+
 @media only screen and (max-width: 600px) {
   .titleWrapper {
     display: flex;
@@ -160,7 +152,6 @@
   }
 
   .postLink {
-    padding-top: 1rem;
     line-height: 2rem;
   }
 
@@ -194,6 +185,11 @@
   .postsMessage {
     font-size: 1rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
+  }
+
+  .postsTextPreview {
+    line-height: 1.25rem;
+    font-size: 14px;
   }
 
   .logo {

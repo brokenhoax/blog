@@ -15,8 +15,8 @@ import {} from "@fortawesome/free-regular-svg-icons";
 function Footer() {
   const { isExpanded, toggleExpanded } = useNavbar(); // Consume the Navbar context
   const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0,
+    width: 1440,
+    height: 900,
   });
 
   useEffect(() => {

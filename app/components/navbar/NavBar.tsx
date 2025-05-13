@@ -95,6 +95,7 @@ function NavBar() {
       </div>
     );
   }
+
   if (windowSize.width >= 1024) {
     if (!isExpanded) {
       return (

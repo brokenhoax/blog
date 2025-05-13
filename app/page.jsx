@@ -24,6 +24,16 @@ function Home() {
       imagePath: "/images/infrared-eye.webp",
       imageAltText: "Infrared eye.",
       priority: false,
+      previewText: `Our Netgate security appliance comes with four wired ethernet
+      interfaces, but one is already in use as our uplink and the other
+      three aren't enough to meet our lab's needs. We're going to need
+      more interfaces so we'll be connecting an 8-port (interface)
+      gigabit ethernet switch to our lab in this post. In fact, we'll be
+      doing a lot more than just connecting our switch to another
+      device. We'll be dividing our ten (10) interfaces into four (5)
+      separate Virtual Local Area Networks (VLANs) while also applying
+      multiple changes to improve our lab's security posture while we're
+      at it.`,
     },
     {
       id: "4",
@@ -40,6 +50,14 @@ function Home() {
       imagePath: "/images/fire.webp",
       imageAltText: "Flame",
       priority: false,
+      previewText: `pfSense running on a Netgate 4200 appliance not only provides our
+      lab with network security, but it will also serve as our lab's
+      core router. pfSense also boasts a lot of other functionality that
+      we'll be leveraging throughout this series and beyond. The best
+      part, pfSense is completely free and open source! This post is a
+      bit on the longer side, but hang in there because it's chock-full
+      of good stuff that's at the foundation of our home lab and core to
+      learning networking and cybersecurity.`,
     },
     {
       id: "3",
@@ -56,6 +74,14 @@ function Home() {
       imagePath: "/images/sparkle.webp",
       imageAltText: "Sparkle",
       priority: false,
+      previewText: `pfSense running on a Netgate 4200 appliance not only provides our
+      lab with network security, but it will also serve as our lab's
+      core router. pfSense also boasts a lot of other functionality that
+      we'll be leveraging throughout this series and beyond. The best
+      part, pfSense is completely free and open source! This post is a
+      bit on the longer side, but hang in there because it's chock-full
+      of good stuff that's at the foundation of our home lab and core to
+      learning networking and cybersecurity.`,
     },
     {
       id: "2",
@@ -72,6 +98,13 @@ function Home() {
       imagePath: "/images/spring.webp",
       imageAltText: "Spring",
       priority: false,
+      previewText: `I'm building a mockup in Figma for a new feature at work and I've
+      been asked to include a range slider that allows a user to change
+      "synonym sensitivity" on a scale from 1 to 100. I figured building a
+      slider in Figma would be a worthy challenge and one worth sharing.
+      What's more, this tutorial will expose you to highly useful Figma
+      concepts such as components/variants, constraints, interactions, and
+      basic styling. Let's jump in!`,
     },
     {
       id: "1",
@@ -88,6 +121,7 @@ function Home() {
       imagePath: "/images/code.webp",
       imageAltText: "Code",
       priority: false,
+      previewText: `So, you've dabbled with create-react-app and you're ready to build and share something amazing with the world. Now what? This post will walk you through creating a GitHub repository to manage and back up your application as well as using GitHub Pages to publish your app to the web.`,
     },
   ];
 
@@ -102,7 +136,7 @@ function Home() {
         <div className={`${styles.titleWrapper}`}>
           {/* Logo */}
           <svg
-            width="100%"
+            width="100"
             viewBox="0 0 585 423"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -122,12 +156,16 @@ function Home() {
         {/* <div className="divider border-b border-accent pb-2 opacity-50"></div> */}
         <ul className={`${styles.posts}`}>
           {posts.map((post, index) => (
-            <li key={index} className={`${styles.postsContainer}`}>
-              <Link href={post.path} className="group">
-                {/* Hover Background */}
-                <div
-                  className={`${styles.postBackground} bg-subtle bg-gradient-to-bl from-primary to-accent/75 shadow-md`}
-                ></div>
+            <li
+              key={index}
+              className={`${styles.postsContainer} outline-2 hover:outline-dotted outline-accent rounded-md`}
+            >
+              <Link
+                href={post.path}
+                className={`group ${styles.postsLinkContainer} bg-subtle`}
+              >
+                {/* Divider */}
+                {/* <div className="border-b border-accent opacity-50"></div> */}
                 {/* Post Detail */}
                 <div
                   id={`post${index}`}
@@ -177,6 +215,10 @@ function Home() {
                       </div>
                     </div>
                   </div>
+                </div>
+                {/* Post Text Preview */}
+                <div className={`${styles.postsTextPreview}`}>
+                  {post.previewText}
                 </div>
               </Link>
             </li>
