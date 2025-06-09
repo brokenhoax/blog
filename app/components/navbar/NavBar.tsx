@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import KcButton from "../kcbutton/KcButton";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 import { useNavbar } from "../../context/NavbarContext";
+import { usePathname } from 'next/navigation'
 import {
   faHome,
   faCircleQuestion,
@@ -37,6 +38,27 @@ function NavBar() {
 
     // Clean up the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
+
+  }, []); // Empty dependency array ensures this runs only once after mount
+
+  useEffect(() => {
+    // Function to update window size
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Set initial window size
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+
   }, []); // Empty dependency array ensures this runs only once after mount
 
   function setNavbarstatus() {
@@ -99,7 +121,7 @@ function NavBar() {
   if (windowSize.width >= 1024) {
     if (!isExpanded) {
       return (
-        <nav className={`${styles.navMenu} text-accent}`}>
+        <nav className={`${styles.navMenu} text-accent`}>
           <div className={`${styles.navMenuControls} motion-preset-pop`}>
             {/* Menu Button */}
             <KcButton
