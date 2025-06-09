@@ -15,9 +15,9 @@ module.exports = {
       themes: {
         dark: {
           colors: {
-            accent: "#4783de",
-            subtle: "#011627",
-            primary: "#000000",
+            accent: "#FF7844",
+            subtle: "#53354A",
+            primary: "#1B1F3A",
             secondary: "#FFFFFF",
             white: "#FFFFFF",
             tertiary: "#000000",
@@ -38,10 +38,10 @@ module.exports = {
         },
         light: {
           colors: {
-            accent: "#000d1b",
-            subtle: "#d4d4d8",
-            primary: "#e4e4e7",
-            secondary: "#000000",
+            accent: "#ECEFCA",
+            subtle: "#547792",
+            primary: "#213448",
+            secondary: "#FFFFFF",
           },
           layout: {
             disabledOpacity: "0.3",

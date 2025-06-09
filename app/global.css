@@ -320,7 +320,7 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 90vh 10vh;
+    grid-template-rows: 92vh 8vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
@@ -333,7 +333,7 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 90vh 10vh;
+    grid-template-rows: 94vh 4vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
@@ -346,7 +346,7 @@ ul {
   .gridContainer {
     display: grid;
     grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 90vh 10vh;
+    grid-template-rows: 96vh 4vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
