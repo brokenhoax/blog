@@ -49,13 +49,6 @@ function Switch() {
   `,
     `
     const KRAUS_CLOUD_VLANS = {
-      vlan_1: {
-        name: "default"
-        subnet: "192.168.50.0/24",
-        netgate_virtual_interface_ip: "192.168.50.1".
-        switch_physical_interface_ip: "192.168.50.254",
-        switch_interfaces: "10"
-      },
       vlan_10: {
         name: "services"
         subnet: "192.168.10.0/24",
@@ -71,26 +64,33 @@ function Switch() {
         switch_interfaces: "4-6"
       },
         name: "storage"
-        vlan_10: {
+        vlan_30: {
         subnet: "192.168.30.0/24",
         netgate_virtual_interface_ip: "192.168.30.1".
         switch_physical_interface_ip: "192.168.30.254",
         switch_interfaces: "7"
       },
         name: "management"
-        vlan_10: {
+        vlan_40: {
         subnet: "192.168.40.0/24",
         netgate_interface_ip: "192.168.40.1".
         switch_physical_interface_ip: "192.168.40.254",
         switch_interfaces: "8"
       }
+        vlan_50: {
+        name: "default"
+        subnet: "192.168.50.0/24",
+        netgate_virtual_interface_ip: "192.168.50.1".
+        switch_physical_interface_ip: "192.168.50.254",
+        switch_interfaces: "9"
+      },
     }
   `,
     ` 
     # Enter any context
     enable
 
-    # Show time and date
+    # Two commands to display the time
     display clock
     show time
   `,
@@ -189,6 +189,16 @@ function Switch() {
     `
     write memory
     `,
+    `
+    # Operator Mode
+    HP-2915-8G-PoE>
+
+    # Manager Mode
+    HP-2915-8G-PoE#
+
+    # Global Configuration Mode
+    HP-2915-8G-PoE(config)#
+    `,
   ];
   const images = [
     {
@@ -243,7 +253,7 @@ function Switch() {
     },
     {
       id: "5",
-      imagePath: "/images/kraus-cloud-switch-setup-page.webp",
+      imagePath: "/images/kraus-cloud-switch-setup-page.png",
       imageAltText: "Switch CLI Switch Setup Page",
       width: 0,
       height: 0,
@@ -406,8 +416,8 @@ function Switch() {
         </Link>
       </li>
       <li className="hover:text-accent">
-        <Link scroll={true} href="/pages/switch#make-trunk-interface">
-          Make Uplink "Trunk" Interface
+        <Link scroll={true} href="/pages/switch#create-trunk-interface">
+          Create Uplink "Trunk" Interface
         </Link>
       </li>
       <li className="hover:text-accent">
@@ -504,25 +514,19 @@ function Switch() {
               interfaces, but one is already in use as our uplink and the other
               three aren't enough to meet our lab's needs. We're going to need
               more interfaces so we'll be connecting an 8-port (interface)
-              gigabit ethernet switch to our lab in this post. In fact, we'll be
-              doing a lot more than just connecting our switch to another
-              device. We'll be dividing our ten (10) interfaces into four (5)
-              separate Virtual Local Area Networks (VLANs) while also applying
-              multiple changes to improve our lab's security posture.
+              gigabit ethernet switch to our firewall in this post. In fact,
+              we'll be doing a lot more than just connecting our switch to
+              another device. Other objectives include dividing our ten (10)
+              physical interfaces into five (5) separate Virtual Local Area
+              Networks (VLANs), disabling inter-VLAN routing, hardening our
+              switch, and backing up our configuration.
             </p>
             <p className="headline">
               This post covers a ton of critical Networking 101 fundamentals and
               also provides a lot hands-on experience. By the end, you'll have
               the network and security foundation for your lab in place and a
-              decent amount of networking and network security experience as a
-              cherry on top.&nbsp;
-              <span>
-                <FontAwesomeIcon
-                  icon={faThumbsUp}
-                  className={`text-white`}
-                  fixedWidth
-                ></FontAwesomeIcon>
-              </span>
+              decent amount of networking and network security experience to go
+              along with it.
             </p>
             <div className="pt-6">
               <Image
@@ -558,27 +562,22 @@ function Switch() {
               2025. A solid understanding of networking is encouraged if not
               outright required in many disciplines within the tech industry.
               The network touches everything and if you need to work with, build
-              and/or maintain systems in the future then you'll need to know how
-              they communicate.
+              and/or maintain systems/applications/services in the future then
+              you'll need to know how things communicate over a network.
             </p>
             <p>
-              As for the hardware, the only piece of legacy hardware I'm using
-              in this lab series is my HP 2915al switch. The HP 2915al is a
-              little over 14 years old at this point, but the concepts in this
-              lab are still very relevant and applicable to any modern switch
-              you choose for your lab.
-            </p>
-            <p>
-              Our configuration requirements are minimal and pretty much any
-              small switch (8-10 interfaces) will do for our lab so it won't be
-              difficult to find a substitute to the HP 2915al. If you're looking
-              for a recommendation, I've suggested the{" "}
+              As for the hardware, I'll be using my legacy HP 2915al switch in
+              this lab. The HP 2915al is a little over 14 years old at this
+              point. Obviously, I don't suggest you search for a 14 year old
+              switch to follow along, but don't worry. The concepts in this lab
+              are still very relevant and applicable to any modern switch you
+              choose for your lab. That said, our configuration requirements are
+              minimal and pretty much any small switch (8-10 interfaces) will
+              do. If you're looking for a recommendation, I've suggested the{" "}
               <a href="">Cisco Catalyst 1200 series switch</a> in the first post
-              in the series titled “Gear Up”. Finally, keep in mind that while
-              the below instructions and commands will not be compatible with a
-              Cisco 1200 series switch, it will be a worthy challenge to
-              similarly configure a different switch and, at the end of the day,
-              wha's important is learning the concepts. Let's get networking!
+              in the series titled “Gear Up”. Finally, keep in mind that a major
+              part of building a home lab is to challenge yourself. Grab your
+              console cable and let's get networking!
             </p>
             {/* Divider */}
             <div className="divider border-b border-accent"></div>
@@ -593,21 +592,23 @@ function Switch() {
                 </Link>
               </span>
             </h3>
+            <Callout
+              icon={faBullhorn}
+              text="Your switch might not have a console port or might have a different (and, likely, easier) method for connecting to your switch and accessing its command line. Follow your switches 'Getting Started' documentation for specifics, but follow along to see how I connect to my switch using a serial connection."
+            ></Callout>
             <p>
-              Assuming our switch is powered on and we have a console connection
-              established between our PC and our HP 2915 switch, we'll want to
-              launch PuTTY and establish a serial connection.
+              Assuming our switch is powered on and we've made our physical
+              connection (i.e., our PC and our switch are connected using our
+              serial cable and USB ethernet adapter), we'll now launch and
+              configure PuTTY to establish a serial connection.
             </p>
             <p>
               With PuTTY open, under “Session”, select “Serial” for the
               “Connection type”, confirm your “Serial line” using Windows Device
-              Manger, and click “Open”.
-            </p>
-            <p>
-              If a blank Putty terminal window opens, that's a good thing! Just
-              left-click the blank terminal, hit “enter” on your keyboard a few
-              times to help kick in the Serial connection and you should see a
-              prompt load.
+              Manger (COM5 in my case), and click “Open”. If a blank Putty
+              terminal window opens, that's a good thing! Just left-click the
+              blank terminal, hit “enter” on your keyboard a few times to help
+              kick in the Serial connection and you should see a prompt load.
             </p>
             <ToggleImage params={images["1"]}></ToggleImage>
             <ToggleImage params={images["2"]}></ToggleImage>
@@ -631,22 +632,28 @@ function Switch() {
               can enter to configure various aspects of the switch. For
               instance, when you first land in the command line after connecting
               to your switch, you'll notice that the prompt ends with a
-              greater-than symbol &nbsp;
-              <span className="text-accent bg-subtle path">&gt;</span>. The mode
-              or context you are in by default is called “Operator” mode and you
-              can tell what context you're in by viewing the prompt.
+              greater-than symbol. The mode or context you are in by default is
+              called “Operator” mode and you can tell what context you're in by
+              viewing the prompt.
             </p>
+            <CodeBlock props={htmlContent[32]} type="bash"></CodeBlock>
             <p>
               To have more privileges and do more things on your switch, you
-              have to enter the “Manager” context by typing “enable”; however,
-              to make configuration changes, you have to enter “Global
-              Configuration” context by typing “config”. There are also
-              non-global configuration “Context Configuration”(s) such as VLAN
-              context configuration and interface context configuration. To exit
-              a context type “exit”. To move from any level back to the
-              “Manager” level, type “end”. Practice Tip: Try entering these
-              contexts and typing “?” to see what commands are available to you
-              as you change context.
+              have to enable different administrator contexts on the switch. You
+              enable the “Manager” context by typing{" "}
+              <span className="text-accent bg-subtle path">enable</span>;
+              however, to make configuration changes, you have to enable the
+              “Global Configuration” context by typing{" "}
+              <span className="text-accent bg-subtle path">config</span>. There
+              are also "Non-Global Configuration" contexts such as VLAN context
+              configuration and Interface context configuration. To exit a
+              context use the{" "}
+              <span className="text-accent bg-subtle path">exit</span> command.
+              To move from any level back to the “Manager” level, type{" "}
+              <span className="text-accent bg-subtle path">end</span>. Practice
+              Tip: Try entering different contexts and typing{" "}
+              <span className="text-accent bg-subtle path">?</span> to see what
+              commands are available to you as you change context.
             </p>
             <Callout
               icon={faBullhorn}
@@ -701,15 +708,16 @@ function Switch() {
             <p>
               Now that we've gained access to our switch and know our way around
               a bit, the first thing we should do is configure our “Switch
-              Setup”. Using the &nbsp;
+              Setup”. Use the &nbsp;
               <span className="text-accent bg-subtle path">setup</span>&nbsp;
-              command to enter the “Switch Setup” screen which is where you can
-              configure the manager password amongst other critical settings. Of
-              course, a best practice is to update the default passwords or set
-              passwords in the event that there are none set by default. The HP
-              2915 has the concept of a “Manager” and “Operator” role, each with
-              their own set of credentials and privileges. We'll first update
-              the Manager Password and confirm it for good measure.
+              command to enter the “Switch Setup” screen in order to configure
+              the manager password and other critical settings. It's a security
+              best practice, as a first step when configuring any device, to
+              update the default passwords or set passwords in the event that
+              there are none set by default. The HP 2915 has the concept of a
+              “Manager” and “Operator” role, each with their own set of
+              credentials and privileges. We'll first update the Manager
+              Password and confirm it for good measure.
             </p>
             <Callout
               icon={faTriangleExclamation}
@@ -720,9 +728,16 @@ function Switch() {
             <p>
               An optional step might be to set an “Operator” password which, as
               the name suggests, has fewer system privileges. To configure an
-              operator password, we have to navigate to the CLI menu using the
-              menu command. Then, we select "3. Console Passwords…" followed by
-              "1. Set Operator Password."
+              operator password, we have to navigate to the CLI menu using the{" "}
+              <span className="text-accent bg-subtle path">menu</span> command.
+              Then, we select{" "}
+              <span className="text-accent bg-subtle path">
+                "3. Console Passwords…"
+              </span>{" "}
+              followed by{" "}
+              <span className="text-accent bg-subtle path">
+                "1. Set Operator Password."
+              </span>
             </p>
             <Callout
               icon={faCircleInfo}
@@ -746,10 +761,11 @@ function Switch() {
               <span className="text-accent bg-subtle path">192.168.50.10</span>,
               and &nbsp;
               <span className="text-accent bg-subtle path">192.168.2.1</span>
-              &nbsp; respectively. In this step, we're telling the switch to get
-              its IP address from a DHCP server we're explicitly setting the
-              switch's default gateway and we're choosing a time synchronization
-              method.
+              &nbsp; respectively. In this step, we're telling the switch to
+              support DHCP, we're setting a static IP address for the switch,
+              and we're setting the switch's default gateway. For now, don't
+              worry about the Network Time Protocol (NTP)-related settings. We
+              will be configuring our switch to support NTP later in this lab.
             </p>
             <ToggleImage params={images["5"]}></ToggleImage>
             {/* Divider */}
@@ -767,59 +783,66 @@ function Switch() {
             </h3>
             <p>
               With our basic switch setup in place, we're ready to start
-              configuring our switch's ethernet interfaces. We'll start by
-              creating VLANs which are used to (virtually) divide our network up
-              into multiple virtual networks. VLANs are useful for both
-              performance and security reasons.
+              configuring our switch's ethernet interfaces. We'll begin be
+              assigning interface one (1) through eight (8) each to a single
+              VLAN, but before we can do that we'll have to create the VLANs on
+              our switch.
             </p>
+            <h4>Performance Benefits</h4>
             <p>
-              Performance gains from implementing VLANs are due to the fact that
-              traffic such as broadcasts are isolated to their own VLAN and if
-              VLANs are assigned to individual ports, then broadcasts destined
-              for users/devices that are part of one VLAN won't need to be
-              broadcast to users/devices that are part of a different VLAN. In
-              short, you have less congestion on the network when you use
-              VLANs.``
+              VLANs are useful for both performance and security reasons.
+              Performance gains that result from implementing VLANs are due to
+              the fact that unnecessary traffic (such as broadcasts) are
+              isolated to their own VLAN. Therefore, broadcasts destined for
+              users/devices that are part of one VLAN won't need to be broadcast
+              to users/devices that are part of a different VLAN. In short, you
+              have less congestion on the network when you use VLANs.
             </p>
+            <h4>Security Benefits</h4>
             <p>
-              Security gains result from the fact that we can, for instance,
+              Security gains that result from implementing VLANs are that we can
               keep our more valuable users or resources (e.g., our crown jewels)
               in one VLAN and our less valuable (and, perhaps, more risky) users
-              or resources (e.g., our guest users) in a different VLAN. Then, we
-              can use VLANs as constructs within our security policies in order
-              to apply more granular security controls on traffic flowing
-              between VLANs. For instance, to exaggerate the point, we don't
-              care about our Guest VLAN as much as we do, say, our Management
-              VLAN. Perhaps, all we care to do is allow guests to jump on the
-              Wi-Fi and get out to the Internet. The routing and firewall
-              policies that we need to put in place for our Guest VLAN is pretty
-              straight forward—they can't do anything else but reach the
-              internet. Our Management VLAN, on the other hand, would have
-              firewall and routing policies that allow an Administrator access
-              to various network resources for management purposes as well as
-              access to the internet. Obviously, the routing and firewall
-              policies needed to support our Administrators/Management VLAN are
-              greater in number and much more complex, due to the level of
-              sophistication to support the use case.
+              or resources (e.g., our guest users) in a separate VLAN. Then, we
+              can use VLANs within the security policies we set on our Netgate
+              security appliance to enforce the appropriate security policies on
+              traffic flowing between VLANs. For instance, perhaps we don't
+              trust our Guest VLAN as much as we do, say, our Management VLAN.
+              Perhaps, all we want to allow guests to do on our network is to
+              jump on the Wi-Fi and get out to the Internet. If that's the case,
+              the routing and firewall policies that we need to put in place for
+              our Guest VLAN are pretty straight forward—they can only reach the
+              Internet, block everything else. Our Management VLAN, on the other
+              hand, would require firewall and routing policies that allow only
+              users connected to the Management VLAN access to the device in
+              order to manage it while blocking access to and from anything
+              else. Another bonus of VLANs, should your switch support it, is to
+              restrict management access to a single VLAN. This feature is
+              supported on the HP 2915 so we'll take advantage of it and add
+              another layer of security in our home lab.
             </p>
+            <h4>VLAN Assignments</h4>
             <p>
-              That said, in our lab we will create four (4) VLANs. One for our
-              “Services” which will be our servers and applications that we want
-              to serve up from our cloud. We'll have another VLAN for our
-              “Users” which, as you can imagine, is a catch all for all users
-              types. You could imagine that in your typical organization you'd
-              have multiple VLANs for various types of users and those typically
-              align to various departments across an organization. Feel free to
-              add more VLANs for different user types if you want, but I'm
-              keeping it to one user VLANs for simplicities sake. Our third VLAN
-              will be for “Storage”. This VLAN is reserved for our lab's Network
-              Attached Storage (NAS) appliance which we'll be adding in a
-              subsequent lab post. Finally, our fourth VLAN will be our
-              “Management” VLAN. This VLAN will be used to allow and only allow
-              management access to the devices within our Cloud for management
-              purposes. That said, let's create our VLANS referencing the code
-              block shared below. To create VLANs on our switch, we'll enter the
-              &nbsp;
+              That said, we're provided with a default VLAN, VLAN 1. This is
+              common with switch vendors but check your documentation. We don't
+              have to worry about the Default VLAN for now, but we are going to
+              need to create four (4) VLANs to support our lab's requirements.
+              One VLAN will be used for our “Services” which will be the
+              applications and resources that we want to serve up from our
+              cloud. We'll have another VLAN for our “Users” which, as you can
+              imagine, is a catch all for all user types. In your typical
+              organization, you'd likely have multiple VLANs for various types
+              of users and those typically align to various departments across
+              an organization. Feel free to add more VLANs for different user
+              types if you want, but I'm keeping it to one user VLAN for
+              simplicity's sake. Our third VLAN will be for “Storage”. This VLAN
+              is reserved for our lab's Network Attached Storage (NAS) appliance
+              which we'll be adding in a subsequent lab post. Our fourth and
+              final VLAN will be our “Management” VLAN. This VLAN will be used
+              to allow access to our switch for management purposes (e.g.,
+              making configuration changes, applying updates, etc.). That said,
+              let's create our VLANS referencing the code block shared below. To
+              create VLANs on our switch, we'll enter the &nbsp;
               <span className="text-accent bg-subtle path">menu</span>&nbsp;
               command and navigate to:
             </p>
@@ -833,16 +856,22 @@ function Switch() {
             {/* Divider */}
             <div className="divider border-b border-accent"></div>
           </div>
-          {/* Make Uplink (Trunk) Interface */}
+          {/* Create Uplink (Trunk) Interface */}
           <div>
-            <h3 id="make-uplink-trunk-interface" className="text-accent">
-              Make Uplink "Trunk" Interface
+            <h3 id="create-trunk-interface" className="text-accent">
+              Create Uplink "Trunk" Interface
               <span>
                 <Link scroll={true} href="/pages/switch#top">
                   <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
+            <div className="text-white bg-subtle path">
+              &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>
+              &nbsp;Switch Configuration&nbsp;
+              <span className="text-accent">{">"}</span>
+              &nbsp;Port/Trunk Settings&nbsp;
+            </div>
             <p>
               Our “Trunk” interface is the interface from which we will send all
               of our switch's traffic to our Netgate security appliance. To
@@ -851,15 +880,10 @@ function Switch() {
               <span className="text-accent bg-subtle path">trunk</span>. In
               subsequent steps, we'll make a physical connection between our
               Netgate appliance and our network switch using this trunk
-              interface 9/10 and we'll also assign VLANs as “tagged” when
-              transmitted over this interface. More on that in the next section.
+              interface (i.e., interface 9/10) and we'll also assign VLANs as
+              “tagged” when transmitted over this interface. More on that in the
+              next section.
             </p>
-            <div className="text-white bg-subtle path">
-              &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>
-              &nbsp;Switch Configuration&nbsp;
-              <span className="text-accent">{">"}</span>
-              &nbsp;Port/Trunk Settings&nbsp;
-            </div>
             <ToggleImage params={images["7"]}></ToggleImage>
             {/* Divider */}
             <div className="divider border-b border-accent"></div>
@@ -874,6 +898,14 @@ function Switch() {
                 </Link>
               </span>
             </h3>
+            <div className="text-white bg-subtle path">
+              &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>
+              &nbsp;Switch Configuration&nbsp;
+              <span className="text-accent">{">"}</span>
+              &nbsp;VLANs&nbsp;
+              <span className="text-accent">{">"}</span>
+              &nbsp;VLAN Port Assignment&nbsp;
+            </div>
             <p>
               With our VLANs and trunk interface created, it's time to assign
               our VLANs to the physical interfaces on our switch and also ensure
@@ -882,8 +914,9 @@ function Switch() {
               straightforward; however, there are a handful of different VLAN
               interface assignment types to familiarize yourself with before you
               begin assigning VLANs to interfaces. See below for the abbreviated
-              description of the three we'll be using in our lab:
+              description of the three we'll be using in our lab.
             </p>
+            <h3>VLAN Port Assignment Types</h3>
             <p>
               An "untagged" type interface assignment is used with access
               interfaces to allow a device to connect to the VLAN. Each VLAN
@@ -910,18 +943,20 @@ function Switch() {
             </p>
             <h3>Trunk Interface</h3>
             <p>
-              Our trunk interface is interface 9/10 which we created in the
+              Our trunk interface, interface 9/10 which we created in the
               previous step titled
               <Link
                 scroll={true}
                 href="/pages/switch#make-uplink-trunk-interface"
                 className={`text-accent`}
               >
-                &nbsp;"Make Uplink 'Trunk' Interface"
+                &nbsp;"Create Uplink 'Trunk' Interface"
               </Link>
-              . We'll tag all of our VLANs to our trunk interface except for our
-              Management VLAN because, for added security, we want to prevent
-              our switch's Management VLAN traffic from leaving the switch.
+              , is ready to be tagged with all VLANs that we want to send
+              upstream from our switch. We'll tag all of our VLANs to our trunk
+              interface except for our Management VLAN because, for added
+              security, we want to prevent our switch's Management VLAN traffic
+              from leaving the switch.
             </p>
             <ToggleImage params={images["8"]}></ToggleImage>
             {/* Divider */}
@@ -940,38 +975,38 @@ function Switch() {
             <p>
               When introducing a new system into your lab environment it's
               important to ensure that the system's clock is synchronized with
-              all the other systems within your lab. In our last lab, you might
-              recall configuring your Netgate appliance to be our Network Time
-              Protocol (NTP) server. So, we have an NTP server. Let's use it to
-              keep our switch's time in sync.
+              all the other systems within your lab. In our last lab, we
+              configured out Netgate appliance to be our Network Time Protocol
+              (NTP) server. So, we have an NTP server. Let's use it to keep our
+              switch's time in sync with the rest of our lab.
             </p>
             <p>
-              To get our bearings, let's enter “Manger” context and display our
+              To get our bearings, let's enter “Manager” context and display our
               systems clock and/or the current time using the following
-              commands.
+              commands:
             </p>
-            <h4>Display Time</h4>
+            <h4>Show Time</h4>
             <CodeBlock props={htmlContent[7]} type="powershell"></CodeBlock>
             <p>
               We can set the time and date manually with the following commands,
               but we don't want to do this because a better option is to use
-              Network Time Protocol (NTP).
+              Network Time Protocol (NTP) which is supported by the switch.
             </p>
             <CodeBlock props={htmlContent[8]} type="bash"></CodeBlock>
             <h4>Configure SNTP Settings on Switch</h4>
             <p>
               In “Lab 2 — pfSense”, we configured our VLAN interfaces but, for
-              good measure, let''s confirm that our “VLAN_DEFAULT” interface is
-              enabled and set to:&nbsp;
+              good measure, let''s confirm that our “VLAN_DEFAULT” interface on
+              our Netgate appliance is enabled and set to:&nbsp;
               <span className={`text-accent bg-subtle path`}>192.168.50.1</span>
             </p>
             <ToggleImage params={images["9"]}></ToggleImage>
             <p>
               We haven't configured our VLANs within our switch yet, so the
-              “Internet (IP) Service” screen with found in the “Switch
-              Configuration” menu on your switch will look different than the
-              screenshot I'm sharing here. For now, we're just going to focus on
-              setting “IP Routing” to &nbsp;
+              “Internet (IP) Service” screen found in the “Switch Configuration”
+              menu on your switch will look different than the screenshot I'm
+              sharing here. For now, we're just going to focus on setting “IP
+              Routing” to &nbsp;
               <span className="text-accent bg-subtle path">Disabled</span>,
               &nbsp;ensuring our “Default Gateway” is set to &nbsp;
               <span className="text-accent bg-subtle path">192.168.2.1</span>
@@ -1002,15 +1037,27 @@ function Switch() {
             <h4>Create NTP Firewall Rules in pfSense</h4>
             <p>
               We now have our switch properly configured to support SNTP, but we
-              still haven't allowed NTP traffic to pass to/from our switch
-              to/from our Netgate appliance (which is acting as our NTP server).
-              We'll need two new firewall rules to allow NTP traffic to pass—one
-              from our switch (
-              <span className="text-accent bg-subtle path">192.168.50.10</span>)
-              to our 'Netgate appliance's Default VLAN Interface IP address (
-              <span className="text-accent bg-subtle path">192.168.50.1</span>)
-              over the Default VLAN since, according to our switches
-              documentation, NTP traffic is passed over the Default VLAN of our
+              still haven't allowed NTP traffic to pass between our switch and
+              our Netgate appliance acting as our NTP server. We'll need two new
+              firewall rules on our Default VLAN interface within pfSense. One
+              rule will allow NTP (i.e., port 123) traffic to pass from our
+              switch{" "}
+              <span className="text-nowrap">
+                (
+                <span className="text-accent bg-subtle path">
+                  192.168.50.10
+                </span>
+                )
+              </span>{" "}
+              to our Netgate appliance's Default VLAN Interface IP address{" "}
+              <span className="text-nowrap">
+                (
+                <span className="text-accent bg-subtle path">192.168.50.1</span>
+                )
+              </span>{" "}
+              . Our second firewall rule will be exactly the same as the first,
+              but we'll flip the source and destination to allow NTP traffic to
+              pass from our Netgate appliance's Default VLAN Interface to our
               switch. We'll create those rules within pfSense at:
             </p>
             <div className="text-white bg-subtle path">
@@ -1028,10 +1075,9 @@ function Switch() {
               requirement, but it does allow us to explicitly define the NTP
               server issued via DHCP. First, let's ensure our “DHCP Backend”
               within pfSense is the newer &nbsp;
-              <span className="text-accent bg-subtle path">KIA</span> &nbsp;
-              DHCP setting. Second, ensure that the “Enable” checkbox is
-              checked. We've already defined our Subnet for VLAN_DEFAULT as
-              &nbsp;
+              <span className="text-accent bg-subtle path">KIA</span>&nbsp; DHCP
+              setting. Second, ensure that the “Enable” checkbox is checked.
+              We've already defined our Subnet for VLAN_DEFAULT as &nbsp;
               <span className="text-accent bg-subtle path">
                 192.168.50.0/24
               </span>
@@ -1054,7 +1100,8 @@ function Switch() {
               the following series of commands to view your SNTP settings, sync
               your switch's time with your NTP server's time, and confirm that
               the switches time has been properly updated. If your time isn't
-              updating properly, try a reboot command <span>boot</span> and
+              updating properly, try a reboot command{" "}
+              <span className="text-accent bg-subtle path">boot</span> and
               double-check your configurations.
             </p>
             <CodeBlock props={htmlContent[9]} type="bash"></CodeBlock>
@@ -1079,18 +1126,26 @@ function Switch() {
               </span>
             </h3>
             <p>
-              Next, we just need to make a physical connection between interface
-              3/4 on our Netgate appliance and interface 9/10 on our switch.
-              Your switch should now be properly connected to the network. This
-              is good time to connect your PC to one of the User VLAN ports,
-              making sure to update your PC's IP address and default gateway so
-              that it's in the same subnet as the User VLAN.
+              Next, we need to make a physical ethernet connection between
+              interface 3/4 on our Netgate appliance and interface 9/10 on our
+              switch. Remember, interface 9/10 on our switch is our trunk
+              interface and it will carry all of our switch's VLAN traffic to
+              and from our Netgate security appliance. Also remember that the
+              Netgate security appliance is also acting as our core router. If a
+              user on the User VLAN needs to connect to a service on our
+              Services VLAN, then you must have the proper firewall rules in
+              place to allow that traffic to be routed between the two different
+              VLANs. Once this physical connection is made your switch will be
+              connected to the rest of the lab.
             </p>
             <p>
-              At this point, you should be able to get out to the internet and
-              ping other users in the users VLAN. Review your pfSense firewall
-              rules and test your policies to ensure they're implemented
-              correctly. If everything is working as expected, congratulations!
+              This is good time to connect your PC to one of the User VLAN
+              interfaces, making sure to update your PC's IP address and default
+              gateway so that it's in the same subnet as the User VLAN. At this
+              point, you should be able to get out to the internet and ping
+              other users in the Users VLAN. Review your pfSense firewall rules
+              and test your policies to ensure they're implemented correctly. If
+              everything is working as expected, congratulations!
             </p>
             <p>
               If everything's <span className="italic">not</span> working as
@@ -1136,33 +1191,26 @@ function Switch() {
               For added security, you can configure your switch so that it can
               only be managed through a single VLAN and, if that VLAN is only
               tied to a single interface on the switch, then you can lock down
-              management access to a single ethernet interface. The 2915
-              switch's documentation refers to this as the “Management VLAN”
-              which explains why we named VLAN 40 just that—the “Management
-              VLAN”. So, as you probably guessed, we'll be setting ethernet
-              interface 8/10 as our Management interface and it will be the only
-              switch interface that we can use to manage the switch. The more
-              you can do to make it difficult for an attacker to compromise your
-              network, the better, so let's get to it!
+              management access to a single ethernet interface on your switch.
+              The 2915 switch's documentation refers to this as the “Management
+              VLAN” which explains why we named VLAN 40 just that—the
+              “Management VLAN”. So, as you probably guessed, we'll be setting
+              ethernet interface 8/10 as our Management interface and it will be
+              the only switch interface that we can use to manage the switch.
+              The more you can do to make it difficult for an attacker to
+              compromise your network, the better, so let's get to it!
             </p>
             <p>
               You cannot set the Management VLAN using the menu; however, the
-              command to set/unset the management VLAN is pretty straight
-              forward. For the less familiar, you can use the below command to
-              set
-              <span className="text-accent bg-subtle path">
-                management-vlan
-              </span>{" "}
-              or unset{" "}
-              <span className="text-accent bg-subtle path">
-                no management-vlan
-              </span>{" "}
-              the management VLAN and you can do so by specifying either the
-              VLAN ID (e.g., 40) or VLAN Name (e.g.,{" "}
+              command to set/unset the Management VLAN is pretty straight
+              forward. Using the below command you can set or unset the
+              Management VLAN. Notice that you can specify either the VLAN ID
+              (e.g., <span className="text-accent bg-subtle path">40</span>) or
+              VLAN Name (e.g.,{" "}
               <span className="text-accent bg-subtle path">
                 Management_VLAN
               </span>
-              )
+              ) to set the Management VLAN.
             </p>
             <CodeBlock props={htmlContent[11]} type="bash"></CodeBlock>
             <p>
@@ -1186,16 +1234,16 @@ function Switch() {
             </h3>
             <p>
               Secure Shell (SSH) protocol is, as it's name implies, a secure way
-              to gain shell access on our switch over the network. Since we've
-              assigned our management VLAN, VLAN 40, we will need to make a
-              physical connection from our Lab PC to interface 8/8 on our switch
-              in order to make an SSH connection and we also need to make sure
-              our Lab PC's IP address is within the VLAN 40 subnet of
-              192.168.40.1/24.
+              to gain shell access to our switch over the network. Since we've
+              assigned our management VLAN, VLAN 40, to interface 8/8 on our
+              switch, we will need to make a physical connection from our Lab PC
+              to said interface in order to make an SSH connection. We also need
+              to make sure our Lab PC's IP address is within the VLAN 40 subnet
+              of 192.168.40.1/24.
             </p>
             <Callout
               icon={faBullhorn}
-              text="Considering this switch is ancient, it appears that my much newer operating system (Windows 10) requires a “newer key exchange method” (i.e., modern encryption algorithms) than what is supported by the HP 2915. Therefore, to establish a SSH session in my lab, I had to add support for those legacy encryption algorithms by issuing the following commands in Git Bash."
+              text="Considering this switch is ancient, it appears that my much newer operating system (Windows 10) requires a “newer key exchange method” (i.e., modern encryption algorithms) than what is supported by the HP 2915. Therefore, to establish a SSH session in my lab, I had to add support for those legacy encryption algorithms by issuing the following commands in my terminal."
             ></Callout>
             <CodeBlock props={htmlContent[12]} type="bash"></CodeBlock>
             <p>
@@ -1245,12 +1293,13 @@ function Switch() {
             <p>
               There might come a time when you need to completely reset your
               switch's configuration. This is referred to as a “Factory Reset”.
-              Perhaps, you forget our Manager password and lock yourself out of
+              Perhaps, you forget your Manager password and lock yourself out of
               the switch. I've been there more times than I'd like to admit, so
               it's a good idea to get comfortable with how to factory reset a
               switch. See below for the directions which I've copied from the
-              "HP 2915-8G-PoE Installation and Getting Started Guide".
+              "HP 2915-8G-PoE Installation and Getting Started Guide":
             </p>
+            <h4>Option 1 —Factory Reset via Reset & Clear Buttons</h4>
             <p>
               You can restore the factory default configuration either on the
               switch itself, or through the switch console. To execute the
@@ -1273,6 +1322,7 @@ function Switch() {
                 settings.
               </li>
             </ol>
+            <h4>Option 2 — Factor Reset via Console</h4>
             <p>
               To restore the factory default configuration using the console,
               execute the erase startup-config command from the console command
@@ -1296,20 +1346,23 @@ function Switch() {
               HP made backing up your switch's configuration very easy. My
               preferred way is through the Administrative Web User Interface
               (UI). To access your switch's Web UI, first ensure that your Lab
-              PC is connected to your switch's Management interface and that
-              your Lab PC's IP address (i.e.,{" "}
-              <span className="text-accent bg-subtle path">192.168.40.254</span>
-              ) is within the Management VLAN subnet (i.e.,
+              PC is connected to your switch's Management interface 8/10 and
+              that your Lab PC's IP address (e.g.,{" "}
+              <span className="text-accent bg-subtle path">192.168.40.8</span>)
+              is within the Management VLAN subnet (i.e.,{" "}
               <span className="text-accent bg-subtle path">
                 192.168.40.0/24
               </span>
-              ). Then, simply type in your switch's IP address into your
-              browser's navigation bar hit "Enter". Log in with your
-              "Management" credentials and navigate to the below path within the
-              UI. Once there, simply select the configuration file you want to
-              back up and click “Download”. Save your backup configuration file
-              somewhere safe and use it to reinstall your configuration when
-              need be:
+              ) and that your Lab PC's default gateway is set to{" "}
+              <span className="text-accent bg-subtle path">192.168.40.254</span>
+              . Then, simply type in your switch's Management VLAN IP address(
+              <span className="text-accent bg-subtle path">192.168.40.254</span>
+              ) into your browser's navigation bar and hit "Enter". Log in with
+              your Management credentials and navigate to the below path within
+              the UI. Once there, simply select the configuration file you want
+              to back up and click “Download”. Save your backup configuration
+              file somewhere safe and use it to reinstall your configuration
+              when need be:
             </p>
             <div className="flex flex-col">
               <div className="text-white bg-subtle path">
@@ -1344,12 +1397,12 @@ function Switch() {
               Congratulations! You've configured your switch and secured it with
               a password-protected management role. You've also locked
               management access down to a single physical interface and
-              restricted inter-VLAN routing. Each switch interface is assigned
-              to a single VLAN and each VLAN serves a different purpose.
-              Furthermore, all routing takes place within our pfSense Netgate
-              appliance and we're securing our network traffic with pfSense not
+              restricted inter-VLAN routing. Furthermore, each switch interface
+              is assigned to a single VLAN and each VLAN serves a different
+              purpose. With all routing taking place within our pfSense Netgate
+              appliance we are securing our network traffic with pfSense not
               only north/south (to and from the Internet) but also east/west as
-              well (i.e., traffic between VLANs).
+              well (i.e., inter-VLAN traffic).
             </p>
             <p>
               At this point, your switch is adequately configured to support
