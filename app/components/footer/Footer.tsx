@@ -98,9 +98,7 @@ function Footer() {
   if (windowSize.width < 1024) {
     if (!isExpanded) {
       return (
-        <nav
-          className={`${styles.footer} bg-primary text-accent border-t border-t-subtle`}
-        >
+        <nav className={`${styles.footer} bg-primary text-accent`}>
           <div className={`${styles.navBarLogo}`}>
             <svg
               width="100%"
@@ -132,9 +130,7 @@ function Footer() {
 
     if (isExpanded) {
       return (
-        <nav
-          className={`${styles.footer} bg-primary text-accent border-t border-t-subtle`}
-        >
+        <nav className={`${styles.footer} bg-primary text-accent`}>
           <div className={`${styles.footerWrapper} motion-preset-pop`}>
             {/* Menu Button */}
             {navMenuElements}
@@ -145,9 +141,7 @@ function Footer() {
   }
   if (windowSize.width >= 1024 && isExpanded) {
     return (
-      <div
-        className={`${styles.footer} bg-primary text-accent border-t border-t-subtle`}
-      >
+      <div className={`${styles.footer} bg-primary text-accent`}>
         <div className={`${styles.logo}`}>
           <svg
             width="100%"
