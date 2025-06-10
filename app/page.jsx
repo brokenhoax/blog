@@ -129,100 +129,111 @@ function Home() {
   const todayDate = today.toDateString();
 
   return (
-    <div className="gridContainer">
-      <div className="leftSidebar"></div>
-      <section className={"main section"}>
-        {/* Title */}
-        {/* Title */}
-        {/* Logo */}
-        <h1 id="top" className="text-accent">
-          Kraus Cloud
-        </h1>
-        {/* Subtitle */}
-        <div>
-          <h2>Build your own cloud</h2>
-          <p className="dateStamp text-accent">{todayDate}</p>
+    <div>      {/* Video Component */}
+      <div className={`videoContainer`}>
+        <video
+          src={(require = "/klouds.mp4")}
+          className={`backgroundVideo`}
+          autoPlay
+          muted
+          loop
+        ></video>
+      </div>
+      <div className="gridContainer">
+        <div className="leftSidebar"></div>
+        <section className={"main section"}>
+          {/* Title */}
+          {/* Title */}
+          {/* Logo */}
+          <h1 id="top" className="text-accent">
+            Kraus Cloud
+          </h1>
+          {/* Subtitle */}
+          <div>
+            <h2>Build your own cloud</h2>
+            <p className="dateStamp text-accent">{todayDate}</p>
+            {/* Divider */}
+            <div className="divider border-b border-accent"></div>
+          </div>
           {/* Divider */}
-          <div className="divider border-b border-accent"></div>
-        </div>
-        {/* Divider */}
-        {/* <div className="divider border-b border-accent pb-2 opacity-50"></div> */}
-        <ul className={`${styles.posts}`}>
-          {posts.map((post, index) => (
-            <li
-              key={index}
-              className={`${styles.postsContainer} outline-2 hover:outline-dotted outline-accent rounded-md`}
-            >
-              <Link
-                href={post.path}
-                className={`group ${styles.postsLinkContainer} bg-subtle`}
+          {/* <div className="divider border-b border-accent pb-2 opacity-50"></div> */}
+          <ul className={`${styles.posts}`}>
+            {posts.map((post, index) => (
+              <li
+                key={index}
+                className={`${styles.postsContainer} outline-2 hover:outline-dotted outline-accent rounded-md`}
               >
-                {/* Divider */}
-                {/* <div className="border-b border-accent opacity-50"></div> */}
-                {/* Post Detail */}
-                <div
-                  id={`post${index}`}
-                  className={`${styles.postWrapper} group-hover:text-white`}
+                <Link
+                  href={post.path}
+                  className={`group ${styles.postsLinkContainer} bg-subtle`}
                 >
-                  {/* Post Image */}
+                  {/* Divider */}
+                  {/* <div className="border-b border-accent opacity-50"></div> */}
+                  {/* Post Detail */}
                   <div
-                    className={`${styles.postImageContainer} hover:motion-preset-shake`}
+                    id={`post${index}`}
+                    className={`${styles.postWrapper} group-hover:text-white`}
                   >
-                    <Image
-                      src={post.imagePath}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="100px"
-                      alt={post.imageAltText}
-                      className={`${styles.postImage}`}
-                      priority={post.priority}
-                    ></Image>
-                  </div>
-                  {/* Post Body */}
-                  <div href={post.path} className={`${styles.postMain}`}>
-                    <div className={`${styles.postLink}`}>
-                      {/* Title */}
-                      <div className={`${styles.postTitle} text-secondary`}>
-                        {post.title}
-                      </div>
-                      {/* Tagline */}
-                      <div
-                        className={`${styles.postTagline} text-accent italic`}
-                      >
-                        {post.tagline}
-                      </div>
-                      <div className={`${styles.postLevel}`}>
-                        {/* Date */}
-                        <div className={`${styles.postDate}`}>{post.date}</div>
-                        <span
-                          className={`${styles.postDateLengthSpacer} text-accent`}
-                        >
-                          |
-                        </span>
-                        {/* Minutes */}
+                    {/* Post Image */}
+                    <div
+                      className={`${styles.postImageContainer} hover:motion-preset-shake`}
+                    >
+                      <Image
+                        src={post.imagePath}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="100px"
+                        alt={post.imageAltText}
+                        className={`${styles.postImage}`}
+                        priority={post.priority}
+                      ></Image>
+                    </div>
+                    {/* Post Body */}
+                    <div href={post.path} className={`${styles.postMain}`}>
+                      <div className={`${styles.postLink}`}>
+                        {/* Title */}
+                        <div className={`${styles.postTitle} text-secondary`}>
+                          {post.title}
+                        </div>
+                        {/* Tagline */}
                         <div
-                          className={`${styles.postLength} text-accent italic`}
+                          className={`${styles.postTagline} text-accent italic`}
                         >
-                          {post.length.minutes} mins
+                          {post.tagline}
+                        </div>
+                        <div className={`${styles.postLevel}`}>
+                          {/* Date */}
+                          <div className={`${styles.postDate}`}>{post.date}</div>
+                          <span
+                            className={`${styles.postDateLengthSpacer} text-accent`}
+                          >
+                            |
+                          </span>
+                          {/* Minutes */}
+                          <div
+                            className={`${styles.postLength} text-accent italic`}
+                          >
+                            {post.length.minutes} mins
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                {/* Post Text Preview */}
-                <div className={`${styles.postsTextPreview}`}>
-                  {post.previewText}
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <div className={`rightSidebar`}>
-        <NavBar></NavBar>
-      </div>
-      <div>
-        <Footer></Footer>
+                  {/* Post Text Preview */}
+                  <div className={`${styles.postsTextPreview}`}>
+                    {post.previewText}
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <div className={`rightSidebar`}>
+          <NavBar></NavBar>
+        </div>
+        <div>
+          <Footer></Footer>
+        </div>
       </div>
     </div>
   );

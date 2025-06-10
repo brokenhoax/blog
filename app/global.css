@@ -78,11 +78,11 @@ ul {
 
 .leftSidebar {
   grid-area: leftSidebar;
+
 }
 
 .rightSidebar {
   grid-area: rightSidebar;
-  width: 100%;
 }
 
 .codeWrapper {
@@ -184,6 +184,30 @@ ul {
   text-wrap: nowrap;
   font-weight: 500;
   line-height: 2rem;
+}
+  
+/* Video Overlay */
+.videoContainer {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.backgroundVideo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the container */
+  z-index: 10; /* Places the video behind other content */
+  opacity: 0.1;
+}
+
+.overlayContent {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1; /* Places content above the video */
 }
 
 /* Responsive Design */
