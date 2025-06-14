@@ -74,14 +74,16 @@ function Home() {
       imagePath: "/images/sparkle.webp",
       imageAltText: "Sparkle",
       priority: false,
-      previewText: `pfSense running on a Netgate 4200 appliance not only provides our
-      lab with network security, but it will also serve as our lab's
-      core router. pfSense also boasts a lot of other functionality that
-      we'll be leveraging throughout this series and beyond. The best
-      part, pfSense is completely free and open source! This post is a
-      bit on the longer side, but hang in there because it's chock-full
-      of good stuff that's at the foundation of our home lab and core to
-      learning networking and cybersecurity.`,
+      previewText: `By the end of this lab, you will have built your own personal
+      cloud consisting of a virtualization server to run your applications, a security appliance
+      to help ensure your network is locked down, a network switch
+      virtualized into four separate virtual networks, and an endless
+      number of possibitlies for how to use your home lab. It's not much
+      of a cloud if you don't have a presence on the web, so this lab
+      will also include guidance on how to build a NextJS web app and
+      deploy it on your own NGINX web server. Start thinking of a name
+      for your cloud and review the rundown of required components
+      listed below. Let's gear up and go!`,
     },
     {
       id: "2",
@@ -125,8 +127,73 @@ function Home() {
     },
   ];
 
-  const today = new Date();
-  const todayDate = today.toDateString();
+  function formatDate(date) {
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const day = date.getDate();
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+
+    // Determine the appropriate suffix for the day
+    const daySuffix = getDaySuffix(day);
+
+    return `${month} ${day}${daySuffix}, ${year}`;
+}
+
+function getDaySuffix(day) {
+    if (day >= 11 && day <= 13) {
+        return "th"; // Special case for 11th, 12th, 13th
+    }
+    switch (day % 10) {
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
+    }
+}
+
+  function formatDate(date) {
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const day = date.getDate();
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+
+    // Determine the appropriate suffix for the day
+    const daySuffix = getDaySuffix(day);
+
+    return `${month} ${day}${daySuffix}, ${year}`;
+}
+
+function getDaySuffix(day) {
+    if (day >= 11 && day <= 13) {
+        return "th"; // Special case for 11th, 12th, 13th
+    }
+    switch (day % 10) {
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
+    }
+}
+
+// Example usage
+const date = new Date();
+const todayDate = formatDate(date)
 
   return (
     <div>      {/* Video Component */}
@@ -135,6 +202,7 @@ function Home() {
           src={(require = "/klouds.mp4")}
           className={`backgroundVideo`}
           autoPlay
+          playsInline
           muted
           loop
         ></video>
@@ -165,7 +233,7 @@ function Home() {
               >
                 <Link
                   href={post.path}
-                  className={`group ${styles.postsLinkContainer} bg-subtle`}
+                  className={`group ${styles.postsLinkContainer}`}
                 >
                   {/* Divider */}
                   {/* <div className="border-b border-accent opacity-50"></div> */}

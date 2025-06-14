@@ -128,6 +128,7 @@ function About() {
           src={(require = "/klouds.mp4")}
           className={`backgroundVideo`}
           autoPlay
+          playsinline
           muted
           loop
         ></video>
@@ -198,7 +199,7 @@ function About() {
               {/* Divider */}
               <div className="divider border-b border-accent"></div>
               {/* Image */}
-              <div className={`${styles.parallax}`}></div>
+              {/* <div className={`${styles.parallax}`}></div> */}
               {/* About the Writer */}
               <div className={`${styles.writerWrapper}`}>
                 <h2 className={`${styles.subHeader}`}>About the Writer</h2>
@@ -275,7 +276,7 @@ function About() {
                 <div className={`${styles.socialIconsWrapper}`}>
                   {/* X */}
                   <Link
-                    href="https://www.linkedin.com/in/andrewkraus/"
+                    href="https://x.com/krauscloud"
                     target="_blank"
                     className={`${styles.socialTracker} ${
                       xReviewed ? "text-accent" : "text-secondary"
@@ -295,7 +296,7 @@ function About() {
                   </Link>
                   {/* Bluesky */}
                   <Link
-                    href="https://github.com/brokenhoax"
+                    href="https://bsky.app/profile/krauscloud.bsky.social"
                     target="_blank"
                     className={`${styles.socialTracker} ${
                       blueSkyReviewed ? "text-accent" : "text-secondary"

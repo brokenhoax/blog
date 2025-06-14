@@ -286,9 +286,9 @@ function LabContents() {
           <div className="headlineWrapper">
             <p className="headline">
               By the end of this lab, you will have built your own personal
-              cloud consisting of a virtualization server, a security appliance
+              cloud consisting of a virtualization server to run your applications, a security appliance
               to help ensure your network is locked down, a network switch
-              virtualized into four separate virtual networks and an endless
+              virtualized into four separate virtual networks, and an endless
               number of possibitlies for how to use your home lab. It's not much
               of a cloud if you don't have a presence on the web, so this lab
               will also include guidance on how to build a NextJS web app and
