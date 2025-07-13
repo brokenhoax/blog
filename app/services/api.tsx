@@ -1,6 +1,6 @@
 const KRAUS_CLOUD_PUBLIC_API_BASE_URL =
   process.env.KRAUS_CLOUD_PUBLIC_API_BASE_URL ||
-  "https://api.krauscloud.com:8000/api";
+  "https://api.krauscloud.local:8000/api";
 
 export const getPosts = async () => {
   try {
