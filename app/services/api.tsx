@@ -1,10 +1,6 @@
-const KRAUS_CLOUD_PUBLIC_API_BASE_URL =
-  process.env.KRAUS_CLOUD_PUBLIC_API_BASE_URL ||
-  "https://api.krauscloud.local:8000/api";
-
 export const getPosts = async () => {
   try {
-    const response = await fetch(`${KRAUS_CLOUD_PUBLIC_API_BASE_URL}/posts`, {
+    const response = await fetch("/api/posts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
