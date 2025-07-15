@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { useEffect, useState } from "react";
 import NavBar from "./components/navbar/NavBar";
@@ -98,7 +99,6 @@ function Home() {
       <div className="gridContainer">
         <div className="leftSidebar"></div>
         <section className={"main section"}>
-          {/* Title */}
           {/* Title */}
           {/* Logo */}
           <h1 id="top" className="text-accent">

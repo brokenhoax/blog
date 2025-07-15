@@ -5,27 +5,26 @@ import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
 import Link from "next/link";
 import Callout from "../../components/callout/Callout";
-import { faBullhorn, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 import {
   faBluesky,
   faGithub,
   faLinkedin,
-  faSquareTwitter,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./About.module.css";
 
-const headshot = {
-  id: "1",
-  imagePath: "/images/kraus.webp",
-  imageAltText: "Andrew Kraus",
-  width: 0,
-  height: 0,
-  sizes: "100%",
-  style: { width: "100%", height: "auto" },
-  priority: true,
-};
+// const headshot = {
+//   id: "1",
+//   imagePath: "/images/kraus.webp",
+//   imageAltText: "Andrew Kraus",
+//   width: 0,
+//   height: 0,
+//   sizes: "100%",
+//   style: { width: "100%", height: "auto" },
+//   priority: true,
+// };
 
 function About() {
   let krausGitHubReviewed = null;
@@ -128,7 +127,7 @@ function About() {
           src={(require = "/klouds.mp4")}
           className={`backgroundVideo`}
           autoPlay
-          playsinline
+          playsInline
           muted
           loop
         ></video>
@@ -322,9 +321,7 @@ function About() {
         <div className={`rightSidebar`}>
           <NavBar></NavBar>
         </div>
-        <div
-          className={`footer`}
-        >
+        <div className={`footer`}>
           <Footer></Footer>
         </div>
       </div>
