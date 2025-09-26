@@ -286,15 +286,15 @@ function LabContents() {
           <div className="headlineWrapper">
             <p className="headline">
               By the end of this lab, you will have built your own personal
-              cloud consisting of a virtualization server to run your applications, a security appliance
-              to help ensure your network is locked down, a network switch
-              virtualized into four separate virtual networks, and an endless
-              number of possibitlies for how to use your home lab. It's not much
-              of a cloud if you don't have a presence on the web, so this lab
-              will also include guidance on how to build a NextJS web app and
-              deploy it on your own NGINX web server. Start thinking of a name
-              for your cloud and review the rundown of required components
-              listed below. Let's gear up and go!
+              cloud consisting of a virtualization server to run your
+              applications, a security appliance to help ensure your network is
+              locked down, a network switch virtualized into four separate
+              virtual networks, and an endless number of possibitlies for how to
+              use your home lab. It's not much of a cloud if you don't have a
+              presence on the web, so this lab will also include guidance on how
+              to build a NextJS web app and deploy it on your own NGINX web
+              server. Start thinking of a name for your cloud and review the
+              rundown of required components listed below. Let's gear up and go!
             </p>
             <div className="pt-4">
               <Image
@@ -492,7 +492,7 @@ function LabContents() {
               {/* Cable Modem */}
               <KcLink
                 elementId="lab-components-modem"
-                webLink="https://amzn.to/4j7B0Ur"
+                webLink="https://amzn.to/42eKGpj"
                 productDescription="Cable Modem — Motorola"
                 hideLink={false}
               >
@@ -538,7 +538,7 @@ function LabContents() {
               {/* Home Router */}
               <KcLink
                 elementId="lab-components-router"
-                webLink="https://amzn.to/422v1Kn"
+                webLink="https://amzn.to/4gGo7Qd"
                 productDescription="Router — Amplifi"
                 hideLink={false}
               >
@@ -585,7 +585,7 @@ function LabContents() {
               {/* Netgate — 4200 appliance */}
               <KcLink
                 elementId="lab-components-firewall"
-                webLink="https://amzn.to/3W8sRVT"
+                webLink="https://amzn.to/4nG5U8l"
                 productDescription="Netgate — 4200 appliance"
                 hideLink={false}
               >
@@ -620,7 +620,7 @@ function LabContents() {
               {/* Switch - Cisco Catalyst 1200 Series */}
               <KcLink
                 elementId="lab-components-switch"
-                webLink="https://amzn.to/4hDGBjv"
+                webLink="https://amzn.to/4pEOHNK"
                 productDescription="Switch — Cisco Catalyst 1200"
                 hideLink={false}
               >
@@ -668,7 +668,7 @@ function LabContents() {
               {/* Minisforum — MS-01 Server */}
               <KcLink
                 elementId="lab-components-server"
-                webLink="https://amzn.to/3PnHqB3"
+                webLink="https://amzn.to/3Kn8n8L"
                 productDescription="Minisforum — MS-01 Server"
                 hideLink={false}
               >
@@ -704,7 +704,7 @@ function LabContents() {
               {/* Network Rack */}
               <KcLink
                 elementId="lab-components-rack"
-                webLink="https://amzn.to/3CAbMxl"
+                webLink="https://amzn.to/42yGW2b"
                 productDescription="ECHOGEAR - Network Rack"
                 hideLink={false}
               >
@@ -739,7 +739,7 @@ function LabContents() {
               {/* Ethernet Cables */}
               <KcLink
                 elementId="lab-components-cables"
-                webLink="https://amzn.to/3WI1jXD"
+                webLink="https://amzn.to/46oy6Gz"
                 productDescription="Ethernet Cables"
                 hideLink={false}
               >
@@ -771,7 +771,7 @@ function LabContents() {
               {/* Ethernet Adapter - USB C to RJ-45 (F) */}
               <KcLink
                 elementId="lab-components-ethernet-adapter"
-                webLink="https://amzn.to/402G0kp"
+                webLink="https://amzn.to/48364S2"
                 productDescription="Ethernet Adapter - USB C to RJ-45 (F)"
                 hideLink={false}
               >
@@ -801,7 +801,7 @@ function LabContents() {
               {/* Console - USB C to RJ-45 (M) Serial */}
               <KcLink
                 elementId="lab-components-serial-cable"
-                webLink="https://amzn.to/4gFo1rt"
+                webLink="https://amzn.to/4nTOeFV"
                 productDescription="Console - USB C to RJ-45 (M) Serial"
                 hideLink={false}
               >
@@ -830,7 +830,7 @@ function LabContents() {
               {/* SanDisk — 32GB Flash Drive */}
               <KcLink
                 elementId="lab-components-flash-drive"
-                webLink="https://amzn.to/3PpwUJG"
+                webLink="https://amzn.to/4mzrf1y"
                 productDescription="SanDisk — 32GB Flash Drive"
                 hideLink={false}
               >
@@ -858,7 +858,7 @@ function LabContents() {
               </KcLink>
               {/* Network+ Exam Guide */}
               <KcLink
-                webLink="https://amzn.to/3PogAc8"
+                webLink="https://amzn.to/46JdKqt"
                 productDescription="Exam Guide - Network+"
                 elementId="lab-components-network-plus"
                 hideLink={false}
