@@ -23,7 +23,6 @@
 .logoWrapper {
   position: fixed;
   display: flex;
-  justify-content: center;
   justify-content: end;
   align-items: center;
   width: 90vw;
@@ -54,7 +53,7 @@
 
 /* Small devices (landscape tablets, 600px and below) */
 
-@media only screen and (max-height: 600) {
+@media only screen and (max-height: 600px) {
   .footer {
     min-height: 20vh;
   }
@@ -104,11 +103,7 @@
   }
 
   .logo {
-    width: 2.25rem;
+    width: 1.5rem;
     margin: auto;
   }
 }
-
-
-
-

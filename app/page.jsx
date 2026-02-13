@@ -88,7 +88,7 @@ function Home() {
       {/* Video Component */}
       <div className={`videoContainer`}>
         <video
-          src={(require = "/klouds.mp4")}
+          src={"/klouds.mp4"}
           className={`backgroundVideo`}
           autoPlay
           playsInline
