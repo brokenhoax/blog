@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import styles from "./KcButton.module.css";
+import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 
@@ -24,6 +25,9 @@ const KcButton = ({
   type,
   styling,
 }: KcButtonProps) => {
+  const pathname = usePathname();
+  console.log(pathname);
+  console.log(path);
   let test = <></>;
   const handleClick = () => {
     if (type === "link" && url) {
@@ -35,11 +39,20 @@ const KcButton = ({
       onToggle();
     }
   };
-  if (type === "path" && path) {
+  if (type === "path" && path !== pathname && path) {
     return (
       <Link
         href={path}
         className={`${styles.kcLinkBtn} ${styling} text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none`}
+      >
+        <FontAwesomeIcon icon={icon} fixedWidth={true}></FontAwesomeIcon>
+      </Link>
+    );
+  } else if (type === "path" && path === pathname && path) {
+    return (
+      <Link
+        href={path}
+        className={`${styles.kcLinkBtn} ${styling} text-accent bg-primary rounded-lg border-2 border-accent  hover:border-accent shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none`}
       >
         <FontAwesomeIcon icon={icon} fixedWidth={true}></FontAwesomeIcon>
       </Link>

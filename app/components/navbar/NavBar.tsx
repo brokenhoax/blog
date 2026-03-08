@@ -4,17 +4,18 @@ import React, { useEffect, useState } from "react";
 import KcButton from "../kcbutton/KcButton";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 import { useNavbar } from "../../context/NavbarContext";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import {
   faHome,
   faCircleQuestion,
   faBars,
+  faRobot,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NavBar.module.css";
 
-function NavBar() {
+function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
   const { isExpanded, toggleExpanded } = useNavbar();
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -38,7 +39,6 @@ function NavBar() {
 
     // Clean up the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
-
   }, []); // Empty dependency array ensures this runs only once after mount
 
   useEffect(() => {
@@ -58,7 +58,6 @@ function NavBar() {
 
     // Clean up the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
-
   }, []); // Empty dependency array ensures this runs only once after mount
 
   function setNavbarstatus() {
@@ -76,6 +75,13 @@ function NavBar() {
       <div className={`${styles.navMenuControls}`}>
         {/* Theme Switcher */}
         <ThemeSwitcher></ThemeSwitcher>
+        {/* Chat */}
+        <KcButton
+          icon={faRobot}
+          type="path"
+          path="/pages/chat"
+          styling="motion-preset-expand"
+        ></KcButton>
         {/* About */}
         <KcButton
           icon={faCircleQuestion}
@@ -112,6 +118,13 @@ function NavBar() {
           type="path"
           path="/pages/about"
         ></KcButton>
+        {/* Chat */}
+        <KcButton
+          icon={faRobot}
+          type="path"
+          path="/pages/chat"
+          styling="motion-preset-expand"
+        ></KcButton>
         {/* Theme Switcher */}
         <ThemeSwitcher></ThemeSwitcher>
       </div>
@@ -121,7 +134,7 @@ function NavBar() {
   if (windowSize.width >= 1024) {
     if (!isExpanded) {
       return (
-        <nav className={`${styles.navMenu} text-accent`}>
+        <nav className={`${styles.navMenu} ${marginTop}`}>
           <div className={`${styles.navMenuControls} motion-preset-pop`}>
             {/* Menu Button */}
             <KcButton
@@ -136,7 +149,9 @@ function NavBar() {
 
     if (isExpanded) {
       return (
-        <div className={`${styles.navMenu} text-accent`}>{navMenuElements}</div>
+        <div className={`${styles.navMenu}  ${marginTop} text-accent`}>
+          {navMenuElements}
+        </div>
       );
     }
   }

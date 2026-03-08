@@ -1,7 +1,6 @@
 .navMenu {
   position: fixed;
   display: flex;
-  margin-top: 11rem;
   width: 100vw;
   z-index: 40;
   padding-left: 0.5rem;
@@ -15,4 +14,3 @@
   gap: 1.5rem;
   z-index: 40;
 }
- 

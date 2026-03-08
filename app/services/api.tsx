@@ -18,3 +18,23 @@ export const getPosts = async () => {
     return [];
   }
 };
+
+export const sendPrompt = async (prompt: string) => {
+  const raw = JSON.stringify({
+    sessionId: "1",
+    message: prompt,
+  });
+
+  const response = await fetch(`${API_URL}/api/chat-stream`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: raw,
+  });
+
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+
+  // IMPORTANT: return the raw Response, not JSON
+  return response;
+};

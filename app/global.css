@@ -78,7 +78,6 @@ ul {
 
 .leftSidebar {
   grid-area: leftSidebar;
-
 }
 
 .rightSidebar {
@@ -185,7 +184,7 @@ ul {
   font-weight: 500;
   line-height: 2rem;
 }
-  
+
 /* Video Overlay */
 .videoContainer {
   position: fixed;

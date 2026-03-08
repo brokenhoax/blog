@@ -9,6 +9,7 @@ import {
   faHome,
   faCircleQuestion,
   faBars,
+  faRobot,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
 
@@ -53,6 +54,13 @@ function Footer() {
       <div className={`${styles.navMenuControls}`}>
         {/* Theme Switcher */}
         <ThemeSwitcher></ThemeSwitcher>
+        {/* Chat */}
+        <KcButton
+          icon={faRobot}
+          type="path"
+          path="/pages/chat"
+          styling="motion-preset-expand"
+        ></KcButton>
         {/* About */}
         <KcButton
           icon={faCircleQuestion}
