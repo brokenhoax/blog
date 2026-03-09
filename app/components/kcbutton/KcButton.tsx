@@ -26,9 +26,6 @@ const KcButton = ({
   styling,
 }: KcButtonProps) => {
   const pathname = usePathname();
-  console.log(pathname);
-  console.log(path);
-  let test = <></>;
   const handleClick = () => {
     if (type === "link" && url) {
       window.open(url, "_blank");
