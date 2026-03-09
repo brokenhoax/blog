@@ -1,8 +1,8 @@
 {
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production next start",
     "build:css": "npx tailwindcss -i ./app/global.css -o ./app/tailwind.css",
     "watch:css": "npx tailwindcss -i ./app/global.css -o ./app/tailwind.css --watch"
   },
