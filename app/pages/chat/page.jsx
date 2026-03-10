@@ -130,6 +130,9 @@ function Chat() {
         <div className="rightSidebar">
           <NavBar marginTop="mt-[5rem]" />
         </div>
+        <div className={`footer`}>
+          <Footer></Footer>
+        </div>
       </div>
     </div>
   );
