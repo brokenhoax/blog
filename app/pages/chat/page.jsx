@@ -69,7 +69,7 @@ function Chat() {
       <div className="gridContainer">
         <div className="leftSidebar"></div>
         <div className="main">
-          <section className="h-full section motion-preset-focus">
+          <section className="h-4/5 section motion-preset-focus">
             <h2>Department of Motor Vehicles</h2>
             <div className="divider border-b border-accent"></div>
             <div
