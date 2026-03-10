@@ -70,7 +70,7 @@ function Chat() {
       <div className="gridContainer">
         <div className="leftSidebar"></div>
 
-        <div className="">
+        <div className="main">
           <section className="h-full section motion-preset-focus">
             <h2>Department of Motor Vehicles</h2>
             <div className="divider border-b border-accent"></div>
@@ -129,10 +129,6 @@ function Chat() {
 
         <div className="rightSidebar">
           <NavBar marginTop="mt-[5rem]" />
-        </div>
-
-        <div className="footer">
-          <Footer />
         </div>
       </div>
     </div>
