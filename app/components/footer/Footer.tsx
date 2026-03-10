@@ -54,34 +54,36 @@ function Footer() {
       <div
         className={`${styles.navMenuControls} pb-[env(safe-area-inset-bottom)]`}
       >
-        {/* Theme Switcher */}
-        <ThemeSwitcher></ThemeSwitcher>
-        {/* Chat */}
-        <KcButton
-          icon={faRobot}
-          type="path"
-          path="/pages/chat"
-          styling="motion-preset-expand"
-        ></KcButton>
-        {/* About */}
-        <KcButton
-          icon={faCircleQuestion}
-          type="path"
-          path="/pages/about"
-          styling="motion-preset-expand"
-        ></KcButton>
-        <KcButton
-          icon={faHome}
-          type="path"
-          path="/"
-          styling="motion-preset-expand"
-        ></KcButton>
-        <KcButton
-          icon={faBars}
-          onToggle={setNavbarstatus}
-          type="toggle"
-          styling="motion-preset-expand"
-        ></KcButton>
+        <div className={`${styles.footer__inner}`}>
+          {/* Theme Switcher */}
+          <ThemeSwitcher></ThemeSwitcher>
+          {/* Chat */}
+          <KcButton
+            icon={faRobot}
+            type="path"
+            path="/pages/chat"
+            styling="motion-preset-expand"
+          ></KcButton>
+          {/* About */}
+          <KcButton
+            icon={faCircleQuestion}
+            type="path"
+            path="/pages/about"
+            styling="motion-preset-expand"
+          ></KcButton>
+          <KcButton
+            icon={faHome}
+            type="path"
+            path="/"
+            styling="motion-preset-expand"
+          ></KcButton>
+          <KcButton
+            icon={faBars}
+            onToggle={setNavbarstatus}
+            type="toggle"
+            styling="motion-preset-expand"
+          ></KcButton>
+        </div>
       </div>
     );
   } else {
