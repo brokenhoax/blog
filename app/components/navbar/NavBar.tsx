@@ -68,7 +68,7 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
     }
   }
 
-  // window width
+  // Sort navbar elements based on window size
   let navMenuElements: React.ReactElement;
   if (windowSize.width < 1024) {
     navMenuElements = (
@@ -89,12 +89,14 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
           path="/pages/about"
           styling="motion-preset-expand"
         ></KcButton>
+        {/* Home */}
         <KcButton
           icon={faHome}
           type="path"
           path="/"
           styling="motion-preset-expand"
         ></KcButton>
+        {/* About */}
         <KcButton
           icon={faBars}
           onToggle={setNavbarstatus}
@@ -106,11 +108,13 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
   } else {
     navMenuElements = (
       <div className={`${styles.navMenuControls}`}>
+        {/* Menu */}
         <KcButton
           icon={faBars}
           onToggle={setNavbarstatus}
           type="toggle"
         ></KcButton>
+        {/* Home */}
         <KcButton icon={faHome} type="path" path="/"></KcButton>
         {/* About */}
         <KcButton
@@ -131,6 +135,7 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
     );
   }
 
+  // Show navbar on larger screens
   if (windowSize.width >= 1024) {
     if (!isExpanded) {
       return (
@@ -146,7 +151,6 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
         </nav>
       );
     }
-
     if (isExpanded) {
       return (
         <div className={`${styles.navMenu}  ${marginTop} text-accent`}>
@@ -154,6 +158,30 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
         </div>
       );
     }
+  }
+
+  // Show navbar on smaller screens
+  if (windowSize.width < 1024 && isExpanded) {
+    return (
+      <nav
+        className={`fixed flex items-end min-h-full pb-12 -ml-10 motion-preset-pop`}
+      >
+        {navMenuElements}
+      </nav>
+    );
+  } else if (windowSize.width < 1024 && !isExpanded) {
+    return (
+      <nav
+        className={`fixed flex items-end min-h-full pb-12 -ml-10 motion-preset-pop`}
+      >
+        {/* Menu Button */}
+        <KcButton
+          icon={faBars}
+          onToggle={setNavbarstatus}
+          type="toggle"
+        ></KcButton>
+      </nav>
+    );
   }
 }
 
