@@ -51,7 +51,9 @@ function Footer() {
   let navMenuElements: React.ReactElement;
   if (windowSize.width < 1024) {
     navMenuElements = (
-      <div className={`${styles.navMenuControls}`}>
+      <div
+        className={`${styles.navMenuControls} pb-[env(safe-area-inset-bottom)]`}
+      >
         {/* Theme Switcher */}
         <ThemeSwitcher></ThemeSwitcher>
         {/* Chat */}

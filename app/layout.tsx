@@ -52,6 +52,7 @@ const font = Ubuntu({
 export const metadata = {
   title: "Kraus Cloud Blog",
   description: "A tech blog.",
+  viewport: "width=device-width, initial-scale=1.0 viewport-fit=cover",
 };
 
 export interface NavbarStatus {
