@@ -1,4 +1,5 @@
 import "./global.css";
+import type { Viewport } from "next";
 import { NavbarProvider } from "../app/context/NavbarContext";
 import {
   Bitter,
@@ -52,12 +53,17 @@ const font = Ubuntu({
 export const metadata = {
   title: "Kraus Cloud Blog",
   description: "A tech blog.",
-  viewport: "width=device-width, initial-scale=1.0 viewport-fit=cover",
 };
 
 export interface NavbarStatus {
   isExpanded: Boolean;
 }
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  viewportFit: "cover",
+};
 
 export default function RootLayout({ children }) {
   return (
