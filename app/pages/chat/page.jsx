@@ -66,10 +66,8 @@ function Chat() {
           loop
         ></video>
       </div>
-
       <div className="gridContainer">
         <div className="leftSidebar"></div>
-
         <div className="main">
           <section className="h-full section motion-preset-focus">
             <h2>Department of Motor Vehicles</h2>
@@ -126,7 +124,6 @@ function Chat() {
             </div>
           </section>
         </div>
-
         <div className="rightSidebar">
           <NavBar marginTop="mt-[5rem]" />
         </div>
