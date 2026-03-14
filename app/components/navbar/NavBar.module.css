@@ -3,7 +3,6 @@
   position: fixed;
   display: flex;
   width: 100vw;
-  z-index: 40;
   padding-left: 0.5rem;
 }
 
@@ -13,5 +12,4 @@
   align-content: center;
   justify-content: start;
   gap: 1.5rem;
-  z-index: 40;
 }

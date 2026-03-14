@@ -78,10 +78,12 @@ ul {
 
 .leftSidebar {
   grid-area: leftSidebar;
+  z-index: 40;
 }
 
 .rightSidebar {
   grid-area: rightSidebar;
+  z-index: 40;
 }
 
 .codeWrapper {
