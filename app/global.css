@@ -213,15 +213,18 @@ ul {
 /* Responsive Design */
 
 /* Extra small devices (phones, 600px and down) */
-
 @media only screen and (max-width: 600px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 100%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
-      "leftSidebar main rightSidebar"
-      "footer footer footer";
+      "main"
+      "footer";
+  }
+
+  .main {
+    padding: 0rem 1rem 0rem 1rem;
   }
 
   .divider {
@@ -282,15 +285,14 @@ ul {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-
 @media only screen and (min-width: 600px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 100%;
     grid-template-rows: 90vh 10vh;
     grid-template-areas:
-      "leftSidebar main rightSidebar"
-      "footer footer footer";
+      "main"
+      "footer";
   }
 
   h1 {
@@ -319,27 +321,26 @@ ul {
 @media only screen and (max-height: 600px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 100%;
     grid-template-rows: 80vh 20vh;
     grid-template-areas:
-      "leftSidebar main rightSidebar"
-      "footer footer footer";
+      "main"
+      "footer";
   }
 }
 
 @media only screen and (max-height: 700px) {
   .gridContainer {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 100%;
     grid-template-rows: 85vh 15vh;
     grid-template-areas:
-      "leftSidebar main rightSidebar"
-      "footer footer footer";
+      "main"
+      "footer";
   }
 }
 
 /* Medium devices (landscape tablets, 1024px and up) */
-
 @media only screen and (min-width: 1024px) {
   .gridContainer {
     display: grid;
@@ -352,7 +353,6 @@ ul {
 }
 
 /* Large devices (laptops/desktops, 1440px and up) */
-
 @media only screen and (min-width: 1440px) {
   .gridContainer {
     display: grid;
@@ -365,7 +365,6 @@ ul {
 }
 
 /* Extra large devices (large laptops and desktops, 1920px and up) */
-
 @media only screen and (min-width: 1920px) {
   .gridContainer {
     display: grid;

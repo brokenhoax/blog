@@ -98,7 +98,7 @@ function Home() {
       </div>
       <div className="gridContainer">
         <div className="leftSidebar"></div>
-        <section className={"main section"}>
+        <section className={"relative main section"}>
           {/* Title */}
           {/* Logo */}
           <h1 id="top" className="text-accent">
@@ -185,6 +185,8 @@ function Home() {
               </li>
             ))}
           </ul>
+          {/* Mobile Navbar */}
+          <NavBar></NavBar>
         </section>
         <div className={`rightSidebar`}>
           <NavBar></NavBar>
