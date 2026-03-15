@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import KcButton from "../kcbutton/KcButton";
 import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 import { useNavbar } from "../../context/NavbarContext";
-import { usePathname } from "next/navigation";
 import {
   faHome,
   faCircleQuestion,
@@ -12,7 +11,6 @@ import {
   faRobot,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NavBar.module.css";
 
 function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
@@ -164,7 +162,7 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
   if (windowSize.width < 1024 && isExpanded) {
     return (
       <nav
-        className={`z-100 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
+        className={`z-50 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
       >
         {navMenuElements}
       </nav>
@@ -172,7 +170,7 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
   } else if (windowSize.width < 1024 && !isExpanded) {
     return (
       <nav
-        className={`z-100 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
+        className={`z-50 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
       >
         {/* Menu Button */}
         <KcButton

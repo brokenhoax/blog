@@ -111,8 +111,6 @@ function Home() {
             {/* Divider */}
             <div className="divider border-b border-accent"></div>
           </div>
-          {/* Divider */}
-          {/* <div className="divider border-b border-accent pb-2 opacity-50"></div> */}
           <ul className={`${styles.posts}`}>
             {posts.map((post, index) => (
               <li
