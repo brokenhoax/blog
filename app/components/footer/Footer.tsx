@@ -52,7 +52,7 @@ function Footer() {
       <nav className={`footer ${styles.footer} bg-primary text-accent`}>
         <div className={`${styles.footerLogo}`}>
           <svg
-            width="60% h-full"
+            width="50"
             viewBox="0 0 585 423"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

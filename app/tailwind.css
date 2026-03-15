@@ -5202,12 +5202,10 @@ ul {
 
 .leftSidebar {
   grid-area: leftSidebar;
-  z-index: 40;
 }
 
 .rightSidebar {
   grid-area: rightSidebar;
-  z-index: 40;
 }
 
 .codeWrapper {
@@ -5319,6 +5317,7 @@ ul {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .backgroundVideo {
