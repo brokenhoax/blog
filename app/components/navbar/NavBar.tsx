@@ -164,7 +164,7 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
   if (windowSize.width < 1024 && isExpanded) {
     return (
       <nav
-        className={`fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
+        className={`z-100 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
       >
         {navMenuElements}
       </nav>
@@ -172,7 +172,7 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
   } else if (windowSize.width < 1024 && !isExpanded) {
     return (
       <nav
-        className={`fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
+        className={`z-100 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
       >
         {/* Menu Button */}
         <KcButton
