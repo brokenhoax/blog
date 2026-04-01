@@ -111,6 +111,7 @@ function Home() {
             {/* Divider */}
             <div className="divider border-b border-accent"></div>
           </div>
+          {/* Posts */}
           <ul className={`${styles.posts}`}>
             {posts.map((post, index) => (
               <li
@@ -183,8 +184,6 @@ function Home() {
               </li>
             ))}
           </ul>
-          {/* Mobile Navbar */}
-          <NavBar></NavBar>
         </section>
         <div className={`rightSidebar`}>
           <NavBar></NavBar>
