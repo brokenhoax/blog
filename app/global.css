@@ -224,7 +224,7 @@ ul {
   }
 
   .main {
-    padding: 0rem 1rem 0rem 1rem;
+    padding: 0rem 0.5rem 0rem 0.5rem;
   }
 
   .divider {
@@ -240,7 +240,8 @@ ul {
   }
 
   p {
-    line-height: 1.75rem;
+    line-height: 1.25rem;
+    font-size: 16px;
   }
 
   h1 {
@@ -295,6 +296,10 @@ ul {
       "footer";
   }
 
+  .main {
+    padding: 0rem 1rem 0rem 1rem;
+  }
+
   h1 {
     font-size: 48px;
   }
@@ -314,6 +319,10 @@ ul {
 
   p {
     line-height: 2rem;
+  }
+
+  .imageHeader {
+    font-size: 10px;
   }
 }
 
