@@ -63,7 +63,11 @@ p {
 
 ol,
 ul {
-  line-height: 1rem;
+  line-height: 1.75rem;
+}
+
+li {
+  font-weight: 300;
 }
 
 .main {
@@ -134,14 +138,14 @@ ul {
 }
 
 .orderedList {
-  padding-left: 2.5rem;
+  padding: 0.5rem 0rem 0rem 2rem;
   list-style-type: decimal;
   line-height: 2rem;
 }
 
 .unorderedList {
   list-style-type: disc;
-  padding: 0rem 0rem 0rem 2rem;
+  padding: 0.5rem 0rem 0rem 2rem;
   line-height: 2rem;
 }
 
@@ -232,7 +236,7 @@ ul {
   }
 
   .headline {
-    line-height: 1.6rem;
+    line-height: 1.25rem;
   }
 
   .headlineWrapper {
@@ -266,7 +270,8 @@ ul {
   }
 
   li {
-    line-height: 1.75rem;
+    line-height: 1.25rem;
+    font-size: 16px;
   }
 
   pre > code {
@@ -319,10 +324,6 @@ ul {
 
   p {
     line-height: 2rem;
-  }
-
-  .imageHeader {
-    font-size: 10px;
   }
 }
 

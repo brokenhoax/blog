@@ -4573,7 +4573,7 @@ video {
   --nextui-danger-900: 340 84.91% 10.39%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 64.86000000000001 53.62% 86.47%;
+  --nextui-accent: 16.680000000000007 100% 63.33%;
   --nextui-subtle: 206.13 26.96% 45.1%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
@@ -5183,7 +5183,11 @@ p {
 
 ol,
 ul {
-  line-height: 1rem;
+  line-height: 1.75rem;
+}
+
+li {
+  font-weight: 300;
 }
 
 .main {
@@ -5254,14 +5258,14 @@ ul {
 }
 
 .orderedList {
-  padding-left: 2.5rem;
+  padding: 0.5rem 0rem 0rem 2rem;
   list-style-type: decimal;
   line-height: 2rem;
 }
 
 .unorderedList {
   list-style-type: disc;
-  padding: 0rem 0rem 0rem 2rem;
+  padding: 0.5rem 0rem 0rem 2rem;
   line-height: 2rem;
 }
 
@@ -5359,7 +5363,7 @@ ul {
   }
 
   .headline {
-    line-height: 1.6rem;
+    line-height: 1.25rem;
   }
 
   .headlineWrapper {
@@ -5393,7 +5397,8 @@ ul {
   }
 
   li {
-    line-height: 1.75rem;
+    line-height: 1.25rem;
+    font-size: 16px;
   }
 
   pre > code {
@@ -5447,10 +5452,6 @@ ul {
 
   p {
     line-height: 2rem;
-  }
-
-  .imageHeader {
-    font-size: 10px;
   }
 }
 

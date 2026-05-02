@@ -25,5 +25,6 @@
 @media only screen and (max-width: 600px) {
   .imageHeader {
     font-size: 14px;
+    font-weight: 700;
   }
 }
