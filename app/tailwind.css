@@ -5258,14 +5258,14 @@ li {
 }
 
 .orderedList {
-  padding: 0.5rem 0rem 0rem 2rem;
+  padding: 0rem 0rem 0rem 2rem;
   list-style-type: decimal;
   line-height: 2rem;
 }
 
 .unorderedList {
   list-style-type: disc;
-  padding: 0.5rem 0rem 0rem 2rem;
+  padding: 0rem 0rem 0rem 2rem;
   line-height: 2rem;
 }
 
