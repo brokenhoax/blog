@@ -168,7 +168,7 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "10",
+      id: "11",
       imagePath: "/images/zpa-pse-service-edge-groups.webp",
       imageAltText: "Zscaler Private Service Edge Groups",
       width: 0,
@@ -178,7 +178,7 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "11",
+      id: "12",
       imagePath: "/images/zpa-pse-redirection-policy.webp",
       imageAltText: "Zscaler Redirection Policy",
       width: 0,
@@ -188,7 +188,7 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "12",
+      id: "13",
       imagePath: "/images/zpa-pse-connected.webp",
       imageAltText: "Zscaler Connected in ZPA Admin Portal",
       width: 0,
@@ -198,7 +198,7 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "12",
+      id: "14",
       imagePath: "/images/zpa-pse-zcc-connected.webp",
       imageAltText: "ZCC Connected to PSE",
       width: 0,
@@ -208,7 +208,7 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "13",
+      id: "15",
       imagePath:
         "/images/zpa-pse-windows-defender-zcc-to-pse-rule-general-tab.webp",
       imageAltText: "Windows Defender Firewall - General Tab",
@@ -219,7 +219,7 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "14",
+      id: "16",
       imagePath:
         "/images/zpa-pse-windows-defender-zcc-to-pse-rule-protocols-tab.webp",
       imageAltText: "Windows Defender Firewall - Protocols Tab",
@@ -230,10 +230,20 @@ function ZpaPrivateServiceEdge() {
       priority: true,
     },
     {
-      id: "15",
+      id: "17",
       imagePath:
         "/images/zpa-pse-windows-defender-zcc-to-pse-rule-scope-tab.webp",
       imageAltText: "Windows Defender Firewall - Scope Tab",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
+    {
+      id: "18",
+      imagePath: "/images/zpa-pse-whiteboard.webp",
+      imageAltText: "ZPA PSE Whiteboard",
       width: 0,
       height: 0,
       sizes: "100vw",
@@ -355,6 +365,20 @@ function ZpaPrivateServiceEdge() {
               Zero Trust Network Access (ZTNA) while removing the need to
               hairpin local traffic to Zscaler for policy enforcement.
             </p>
+            <div className="pt-4">
+              <Image
+                src={images[17].imagePath}
+                width={images[17].width}
+                height={images[17].height}
+                sizes={images[17].sizes}
+                style={images[17].style}
+                alt={images[17].imageAltText}
+                priority={images[17].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+            </div>
           </div>
           {/* Post Image */}
           <div className="imageWrapper"></div>
