@@ -36,9 +36,9 @@ function ToggleImage({ params }) {
         onClick={() => handleClick()}
         className={`${styles.imageCollapsed} text-accent bg-subtle`}
       >
-        <div className={`${styles.imageHeader} text-accent`}>
+        <div className={`${styles.imageHeader} text-accent truncate`}>
           <FontAwesomeIcon icon={faImage} fixedWidth={true}></FontAwesomeIcon>
-          <div>{params.imageAltText}</div>
+          <div className={`truncate`}>{params.imageAltText}</div>
         </div>
         <KcButton
           icon={faCaretLeft}
@@ -56,13 +56,11 @@ function ToggleImage({ params }) {
         {/* Image Header */}
         <span
           onClick={() => handleClick()}
-          className={`${styles.imageCollapsed} bg-subtle`}
+          className={`${styles.imageCollapsed} text-accent bg-subtle`}
         >
-          <div className={`${styles.imageHeader} text-accent`}>
-            <FontAwesomeIcon icon={faImage} fixedWidth></FontAwesomeIcon>
-            <div className={`${styles.toggleText}`}>
-              {params.imageAltText}
-            </div>
+          <div className={`${styles.imageHeader} text-accent truncate`}>
+            <FontAwesomeIcon icon={faImage} fixedWidth={true}></FontAwesomeIcon>
+            <div className={`truncate`}>{params.imageAltText}</div>
           </div>
           <KcButton
             icon={faCaretDown}

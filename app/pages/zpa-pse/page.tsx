@@ -340,7 +340,7 @@ function ZpaPrivateServiceEdge() {
           </h1>
           {/* Subtitle */}
           <div>
-            <h2>Extend the Zero Trust Exchange to Your Locations</h2>
+            <h2>Performant ZTNA</h2>
             <p className="dateStamp text-accent">May 1st, 2026</p>
             {/* Divider */}
             <div className="divider border-b border-accent"></div>

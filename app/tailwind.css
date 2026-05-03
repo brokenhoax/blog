@@ -2828,6 +2828,10 @@ video {
   text-overflow: ellipsis;
 }
 
+.text-clip {
+  text-overflow: clip;
+}
+
 .whitespace-normal {
   white-space: normal;
 }
