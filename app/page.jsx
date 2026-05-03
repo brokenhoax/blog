@@ -114,10 +114,7 @@ function Home() {
           {/* Posts */}
           <ul className={`${styles.posts}`}>
             {posts.map((post, index) => (
-              <li
-                key={index}
-                className={`${styles.postsContainer} outline-2 hover:outline-dotted outline-accent rounded-md`}
-              >
+              <li key={index} className={`${styles.postsContainer} rounded-md`}>
                 <Link
                   href={post.path}
                   className={`group ${styles.postsLinkContainer}`}

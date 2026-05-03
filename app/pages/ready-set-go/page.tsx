@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
 import CodeBlock from "../../components/codeblock/CodeBlock";
@@ -43,6 +44,19 @@ function ReadySetGo() {
 
   😎
   `,
+  ];
+
+  const images = [
+    {
+      id: "1",
+      imagePath: "/images/blog-post-github-pages.webp",
+      imageAltText: "GitHub Cat Firing Cannon Code to GitHub Pages",
+      width: 0,
+      height: 0,
+      sizes: "100vw",
+      style: { width: "100%", height: "auto" },
+      priority: true,
+    },
   ];
 
   const toc = (
@@ -89,7 +103,7 @@ function ReadySetGo() {
     <div className="gridContainer">
       <div className="leftSidebar"></div>
       <div className={`main`}>
-        <section className="main section motion-preset-focus">
+        <section className="section motion-preset-focus">
           {/* Title */}
           <h1 id="top" className="text-accent">
             Ready Set Go
@@ -117,6 +131,20 @@ function ReadySetGo() {
               repository to manage and back up your application as well as using
               GitHub Pages to publish your app to the web.
             </p>
+            <div className="pt-4">
+              <Image
+                src={images[0].imagePath}
+                width={images[0].width}
+                height={images[0].height}
+                sizes={images[0].sizes}
+                style={images[0].style}
+                alt={images[0].imageAltText}
+                priority={images[0].priority}
+                quality={100}
+                decoding="sync"
+                loading="eager"
+              ></Image>
+            </div>
           </div>
           {/* Table of Contents */}
           <TableOfContents params={toc} length=""></TableOfContents>

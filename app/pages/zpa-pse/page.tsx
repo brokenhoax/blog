@@ -242,7 +242,7 @@ function ZpaPrivateServiceEdge() {
     },
     {
       id: "18",
-      imagePath: "/images/zpa-pse-whiteboard.webp",
+      imagePath: "/images/blog-post-zpa-pse.webp",
       imageAltText: "ZPA PSE Whiteboard",
       width: 0,
       height: 0,
@@ -254,8 +254,8 @@ function ZpaPrivateServiceEdge() {
   const toc = (
     <ol className="orderedList">
       <li className="hover:text-accent">
-        <Link scroll={true} href="/pages/zpa-pse#about">
-          About
+        <Link scroll={true} href="/pages/zpa-pse#why-pse">
+          Why Use PSEs?
         </Link>
       </li>
       <li className="hover:text-accent">
@@ -266,16 +266,6 @@ function ZpaPrivateServiceEdge() {
       <li className="hover:text-accent">
         <Link scroll={true} href="/pages/zpa-pse#create-rhel-vm">
           Create RHEL Virtual Machine
-        </Link>
-      </li>
-      <li className="hover:text-accent">
-        <Link scroll={true} href="/pages/zpa-pse#upload-rhel-iso">
-          Upload RHEL Image to Proxmox
-        </Link>
-      </li>
-      <li className="hover:text-accent">
-        <Link scroll={true} href="/pages/zpa-pse#create-rhel-vm-proxmox">
-          Create RHEL VM on Proxmox
         </Link>
       </li>
       <li className="hover:text-accent">
@@ -343,7 +333,7 @@ function ZpaPrivateServiceEdge() {
     <div className="gridContainer">
       <div className="leftSidebar"></div>
       <div className={`main`}>
-        <section className="main section motion-preset-focus">
+        <section className="section motion-preset-focus">
           {/* Title */}
           <h1 id="top" className="text-accent">
             Private Service Edges
@@ -360,10 +350,11 @@ function ZpaPrivateServiceEdge() {
             <p className="headline">
               Zscaler Private Service Edges (PSEs) are, simply put, a way to
               extend Zscaler's security cloud (i.e., the “Zero Trust Exchange”)
-              to your premises. PSEs solve multiple use cases. The purpose of
-              this particular blog post is to demonstrate how PSEs help provide
-              Zero Trust Network Access (ZTNA) while removing the need to
-              hairpin local traffic to Zscaler for policy enforcement.
+              to your locations. PSEs solve multiple use cases. We'll explain
+              those use cases later, but the purpose of this particular blog
+              post is to demonstrate how PSEs help provide Zero Trust Network
+              Access while removing the need to hairpin local traffic to Zscaler
+              for policy enforcement.
             </p>
             <div className="pt-4">
               <Image
@@ -384,21 +375,16 @@ function ZpaPrivateServiceEdge() {
           <div className="imageWrapper"></div>
           {/* Table of Contents */}
           <TableOfContents params={toc} length="17"></TableOfContents>
-          {/* About*/}
+          {/* Why Use PSEs?*/}
           <div>
-            <h3 id="about" className="text-accent">
-              About
+            <h3 id="why-use-pse" className="text-accent">
+              Why Use PSEs?
               <span>
                 <Link scroll={true} href="/pages/zpa-pse#top">
                   <span className={`topScroller text-subtle`}>#</span>
                 </Link>
               </span>
             </h3>
-            <p>
-              Private Service Edges can provide performance gains for users
-              accessing local applications and resources, but there are other
-              use cases for Private Service Edges, including:
-            </p>
             <h4 className="-mt-4">Disaster Recovery & Business Continuity</h4>
             <p>
               Many Zscaler customers use PSEs as part of their disaster recovery
@@ -409,9 +395,10 @@ function ZpaPrivateServiceEdge() {
               Zscaler's Chicago datacenters. In the event of a Zscaler Chicago
               datacenter outage, PSEs can be used to provide access to the
               Zscaler services through a customer's own infrastructure closer to
-              the users. Closer to the users could mean better performance when
-              compared to redirecting those users to another, more distant,
-              Zscaler datacenter (e.g., Atlanta or Dallas).
+              the users. Running your own PSEs closer to the users would likely
+              mean better performance when compared to redirecting those users
+              to another, more distant, Zscaler datacenter (e.g., Atlanta or
+              Dallas).
             </p>
             <h4 className="-mt-4">Laws & Regulations</h4>
             <p>
@@ -457,11 +444,18 @@ function ZpaPrivateServiceEdge() {
               communicate with our Private Service Edge. This means ensuring
               that your users can communicate to the Private Service Edge over
               the network on TCP port 443. In my environment, that means
-              ensuring that my User VLAN (i.e., 192.168.20.0/24) can communicate
-              with my PSE which lives in my Services VLAN (i.e.,
-              192.168.10.0.24) and which has a static IP address assigned of
-              192.168.10.15. This requires a single firewall rule on my pfSense
-              firewall:
+              ensuring that my User VLAN (i.e.,{" "}
+              <span className="text-accent bg-subtle path">
+                192.168.20.0/24
+              </span>{" "}
+              ) can communicate with my PSE which lives in my Services VLAN
+              (i.e.,{" "}
+              <span className="text-accent bg-subtle path">
+                192.168.10.0/24
+              </span>{" "}
+              ) and which has a static IP address of{" "}
+              <span className="text-accent bg-subtle path">192.168.10.15</span>.
+              This requires a single rule on my pfSense firewall:
             </p>
             <ToggleImage params={images["0"]}></ToggleImage>
             <h4 className="-mt-4">
@@ -492,21 +486,14 @@ function ZpaPrivateServiceEdge() {
                 </Link>
               </span>
             </h3>
+            <h4 className="-mt-4">Create a Red Hat Developer Account</h4>
             <p>
               Our Private Service Edge will run on a Red Hat Enterprise Linux
               (RHEL) server. If you have RHEL licensing, then you can skip this
               step. If you don't, then the best way I've found to get my hands
-              on RHEL for free is to use the Red Hat Developer program.
+              on RHEL for free is to use the Red Hat Developer program:
             </p>
-            <h4 className="-mt-4">Download an the Latest RHEL Image</h4>
             <p>
-              Another perk of using Red Hat's developer program is that you can
-              keep track of the RHEL servers you're running from the developer
-              portal. Beyond RHEL, you can use Red Hat's developer program to
-              familiarize yourself with other amazing Red Hat technologies like
-              OpenShift and Ansible. For our purposes, you can simply use the
-              below link to register for a developer account and download the
-              latest version of Red Hat Enterprise Linux:{" "}
               <a
                 href="https://developers.redhat.com/"
                 className="text-accent"
@@ -515,21 +502,20 @@ function ZpaPrivateServiceEdge() {
                 {" "}
                 https://developers.redhat.com/{" "}
               </a>
-              .
             </p>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
-          </div>
-          {/* Upload RHEL Image to Proxmox */}
-          <div>
-            <h3 id="upload-rhel-iso" className="text-accent">
-              Upload RHEL Image to Proxmox
-              <span>
-                <Link scroll={true} href="/pages/zpa-pse#top">
-                  <span className={`topScroller text-subtle`}>#</span>
-                </Link>
-              </span>
-            </h3>
+            <h4 className="-mt-4">Download the Latest RHEL Image</h4>
+            <p>
+              Another perk of using Red Hat's developer program is that you can
+              keep track of the RHEL servers you're running from the developer
+              portal. Beyond RHEL, you can use Red Hat's developer program to
+              familiarize yourself with other amazing Red Hat technologies like
+              OpenShift and Ansible. For our purposes, you can simply use the
+              above link to register for a developer account and download the
+              latest version of Red Hat Enterprise Linux.
+            </p>
+
+            {/* Upload RHEL Image to Proxmox */}
+            <h4 className="-mt-4">Upload RHEL Image to Proxmox</h4>
             <p>
               Once your RHEL ISO image has downloaded, you can upload it to your
               Proxmox server, or whatever other supported Virtual Environment
@@ -537,27 +523,15 @@ function ZpaPrivateServiceEdge() {
               and have downloaded RHEL 10.1 which was the latest version at the
               time of this post.
             </p>
-            <ToggleImage params={images["2"]}></ToggleImage>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
-          </div>
-          {/* Create the RHEL VM On Proxmox */}
-          <div>
-            <h3 id="create-rhel-vm-proxmox" className="text-accent">
-              Create the RHEL VM On Proxmox
-              <span>
-                <Link scroll={true} href="/pages/zpa-pse#top">
-                  <span className={`topScroller text-subtle`}>#</span>
-                </Link>
-              </span>
-            </h3>
+            {/* Create the RHEL VM On Proxmox */}
+            <h4 className="-mt-4">Create the RHEL VM On Proxmox</h4>
             <p>
               This blog post won't cover how to create a RHEL VM using Proxmox.
               There are a ton of tutorials on the internet that you can review
               if you're curious. Or just ask your friendly neighborhood chatbot
               to step you through it. One thing's for sure, you'll want to make
               sure you provide your PSEs with enough resources per Zscaler's
-              official requirements documentation.
+              official requirements documentation:
             </p>
             <p>
               <a
@@ -568,12 +542,9 @@ function ZpaPrivateServiceEdge() {
                 https://help.zscaler.com/zpa/service-edge-deployment-prerequisites
               </a>
             </p>
-            <p>
-              I've included some screenshots from my lab if you're curious how I
-              configured my RHEL VM:
-            </p>
             <ToggleImage params={images["3"]}></ToggleImage>
             <ToggleImage params={images["4"]}></ToggleImage>
+            <ToggleImage params={images["2"]}></ToggleImage>
             {/* Divider */}
             <div className="divider border-b border-accent"></div>
           </div>
@@ -592,11 +563,8 @@ function ZpaPrivateServiceEdge() {
               ensure that the host-based firewall (i.e., firewalld) that comes
               enabled by default on RHEL allows inbound requests on TCP 443 so
               that the user's Zscaler Client Connector can communicate with the
-              Private Service Edge.
-            </p>
-            <p>
-              From within the RHEL VM's CLI, run the following command to
-              confirm whether the PSE is listening on 443:
+              Private Service Edge. From within the RHEL VM's CLI, run the
+              following command to confirm whether the PSE is listening on 443:
             </p>
             <CodeBlock props={htmlContent[0]} type="bash"></CodeBlock>
             <p>
@@ -631,8 +599,8 @@ function ZpaPrivateServiceEdge() {
             <p>
               Zscaler Private Access (ZPA) Private Service Edges (PSE) can be
               deployed in a variety of ways such as on RHEL, in VMWare, in
-              Google Cloud and AWS, on Docker, etc. As I mentioned earlier, I'm
-              installing the ZPA PSE on a RHEL virtual machine running in
+              Google Cloud, AWS, Azure, on Docker, etc. As I mentioned earlier,
+              I'm installing the ZPA PSE on a RHEL virtual machine running in
               Proxmox. Understandably, I followed the{" "}
               <a
                 href="https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux"
@@ -884,8 +852,6 @@ function ZpaPrivateServiceEdge() {
               Private Service Edge!
             </p>
             <ToggleImage params={images["13"]}></ToggleImage>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
           </div>
         </section>
       </div>

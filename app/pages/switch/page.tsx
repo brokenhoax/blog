@@ -204,7 +204,7 @@ function Switch() {
     {
       id: "1",
       imagePath: "/images/kraus-cloud-switch-close.webp",
-      imageAltText: "Figma slider handle",
+      imageAltText: "Network Switch Close-Up",
       width: 0,
       height: 0,
       sizes: "100vw",
@@ -495,7 +495,7 @@ function Switch() {
     <div className="gridContainer">
       <div className="leftSidebar"></div>
       <div className={`main`}>
-        <section className="main section motion-preset-focus">
+        <section className="section motion-preset-focus">
           {/* Title */}
           <h1 id="top" className="text-accent">
             Switch

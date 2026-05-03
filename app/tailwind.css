@@ -4248,14 +4248,6 @@ video {
   outline-offset: 2px;
 }
 
-.outline-2 {
-  outline-width: 2px;
-}
-
-.outline-accent {
-  outline-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, 1));
-}
-
 .ring-1 {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -5197,7 +5189,7 @@ li {
 .section {
   display: flex;
   flex-direction: column;
-  padding: 2rem 0 8rem 0;
+  padding: 0rem 0rem 8rem 0rem;
 }
 
 .leftSidebar {
@@ -5430,7 +5422,7 @@ li {
   }
 
   .main {
-    padding: 0rem 1rem 0rem 1rem;
+    padding: 2rem 1rem 8rem 1rem;
   }
 
   h1 {
@@ -5485,7 +5477,7 @@ li {
   .gridContainer {
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 94vh 6vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
@@ -5498,7 +5490,7 @@ li {
   .gridContainer {
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 94vh 4vh;
+    grid-template-rows: 94vh 6vh;
     grid-template-areas:
       "leftSidebar main rightSidebar"
       "footer footer footer";
@@ -6888,10 +6880,6 @@ Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
 .hover\:shadow-accent:hover {
   --tw-shadow-color: hsl(var(--nextui-accent) / var(--nextui-accent-opacity, 1));
   --tw-shadow: var(--tw-shadow-colored);
-}
-
-.hover\:outline-dotted:hover {
-  outline-style: dotted;
 }
 
 .hover\:after\:bg-danger\/20:hover::after {
