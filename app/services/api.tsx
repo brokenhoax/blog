@@ -2,7 +2,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getPosts = async () => {
   try {
-    const response = await fetch(`${API_URL}/api/posts`, {
+    const response = await fetch("/api/posts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
