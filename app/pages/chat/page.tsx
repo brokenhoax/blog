@@ -117,7 +117,7 @@ function Chat() {
             <div className="divider border-b border-accent"></div>
             <div className="flex flex-col justify-end min-h-full space-y-2 pb-5">
               {/* Response Area */}
-              <div className="h-full mt-4 p-4 border rounded" ref={messagesRef}>
+              <div className="h-full mt-4 p-4 border rounded overflow-auto" ref={messagesRef}>
                 {chatResponse}
               </div>
               {/* Prompt Area */}
