@@ -1,8 +1,17 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+// ==============================================
+// Posts API
+// ==============================================
+
+let API_URL = "";
+if (process.env.NODE_ENV === "development") {
+  API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/posts`;
+} else {
+  API_URL = "/api/posts"
+}
 
 export const getPosts = async () => {
   try {
-    const response = await fetch("/api/posts", {
+    const response = await fetch(API_URL, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,13 +28,24 @@ export const getPosts = async () => {
   }
 };
 
+// ==============================================
+// Chat API
+// ==============================================
+
+let CHAT_URL = "";
+if (process.env.NODE_ENV === "development") {
+  CHAT_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/chat-stream`;
+} else {
+  CHAT_URL = "/api/chat-stream"
+}
+
 export const sendPrompt = async (prompt: string) => {
   const raw = JSON.stringify({
     sessionId: "1",
     message: prompt,
   });
 
-  const response = await fetch(`${API_URL}/api/chat-stream`, {
+  const response = await fetch(CHAT_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: raw,
