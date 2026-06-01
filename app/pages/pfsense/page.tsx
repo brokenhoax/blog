@@ -12,6 +12,7 @@ import {
 import Callout from "../../components/callout/Callout";
 import TableOfContents from "../../components/toc/TableOfContents";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import styles from "../../components/toc/TableOfContents.module.css";
 
 function PfSense() {
@@ -460,14 +461,11 @@ function PfSense() {
       <div className="leftSidebar"></div>
       <div className={`main`}>
         <section className="section motion-preset-focus">
-          {/* Title */}
-          <h1 id="top" className="text-accent">
-            pfSense
-          </h1>
-          <h2>Secure your network</h2>
-          <p className="dateStamp text-accent">November 15th, 2024</p>
-          {/* Divider */}
-          <div className="divider border-b border-accent"></div>
+          <PageHeader
+            title="pfSense"
+            subtitle="Secure your network"
+            date="November 15th, 2024"
+          />
           {/* Headline */}
           <div className="headlineWrapper">
             <p className="headline">

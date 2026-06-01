@@ -3,6 +3,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import NavBar from "./components/navbar/NavBar";
+import PageHeader from "./components/pageHeader/PageHeader";
 import Footer from "./components/footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -99,18 +100,12 @@ function Home() {
       <div className="gridContainer">
         <div className="leftSidebar"></div>
         <section className={"relative main section"}>
-          {/* Title */}
-          {/* Logo */}
-          <h1 id="top" className="text-accent">
-            Kraus Cloud
-          </h1>
-          {/* Subtitle */}
-          <div>
-            <h2>Build your own cloud</h2>
-            <p className="dateStamp text-accent">{todayDate}</p>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
-          </div>
+          <PageHeader
+            title="Kraus Cloud"
+            subtitle="Build your own cloud"
+            date={todayDate}
+            showDivider={false}
+          />
           {/* Posts */}
           <ul className={`${styles.posts}`}>
             {posts.map((post, index) => (

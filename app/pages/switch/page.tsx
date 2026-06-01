@@ -7,12 +7,11 @@ import ToggleImage from "../../components/toggleImage/ToggleImage";
 import TableOfContents from "../../components/toc/TableOfContents";
 import Callout from "../../components/callout/Callout";
 import CodeBlock from "../../components/codeblock/CodeBlock";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import {
   faBullhorn,
   faTriangleExclamation,
   faCircleInfo,
-  faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Switch() {
@@ -473,40 +472,16 @@ function Switch() {
     </ol>
   );
 
-  // For Each Codeblock, replace strings
-  // Loop htmlContent on component load
-  function encodeHTML(str: string) {
-    return str.replace(/[&<>"']/g, function (tag) {
-      return (
-        {
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;",
-        }[tag] || tag
-      );
-    });
-  }
-  let code = '<tag attribute="value">...</tag>';
-  let encodedCode = encodeHTML(code);
-
   return (
     <div className="gridContainer">
       <div className="leftSidebar"></div>
-      <div className={`main`}>
+      <div className={`main min-w-0`}>
         <section className="section motion-preset-focus">
-          {/* Title */}
-          <h1 id="top" className="text-accent">
-            Switch
-          </h1>
-          {/* Subtitle */}
-          <div>
-            <h2>Connect your network</h2>
-            <p className="dateStamp text-accent">April 5th, 2025</p>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
-          </div>
+          <PageHeader
+            title="Switch"
+            subtitle="Connect your network"
+            date="April 5th, 2025"
+          />
           {/* Headline */}
           <div className="headlineWrapper">
             <p className="headline">
@@ -528,7 +503,7 @@ function Switch() {
               decent amount of networking and network security experience to go
               along with it.
             </p>
-            <div className="pt-6">
+            <div className="pt-4">
               <Image
                 src={images[0].imagePath}
                 width={images[0].width}
@@ -543,8 +518,6 @@ function Switch() {
               ></Image>
             </div>
           </div>
-          {/* Post Image */}
-          <div className="imageWrapper"></div>
           {/* Table of Contents */}
           <TableOfContents params={toc} length="17"></TableOfContents>
           {/* Choose Your Hardware */}
@@ -898,7 +871,7 @@ function Switch() {
                 </Link>
               </span>
             </h3>
-            <div className="text-white bg-subtle path">
+            <div className="text-white bg-subtle path max-w-full overflow-x-auto">
               &nbsp;Menu&nbsp;<span className="text-accent">{">"}</span>
               &nbsp;Switch Configuration&nbsp;
               <span className="text-accent">{">"}</span>

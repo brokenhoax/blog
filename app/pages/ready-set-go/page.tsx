@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavBar from "../../components/navbar/NavBar";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import Footer from "../../components/footer/Footer";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import TableOfContents from "../../components/toc/TableOfContents";
@@ -104,14 +105,11 @@ function ReadySetGo() {
       <div className="leftSidebar"></div>
       <div className={`main`}>
         <section className="section motion-preset-focus">
-          {/* Title */}
-          <h1 id="top" className="text-accent">
-            Ready Set Go
-          </h1>
-          <h2 id="top">Publish your app with GitHub Pages</h2>
-          <p className="dateStamp text-accent">June 8th, 2022</p>
-          {/* Divider */}
-          <div className="divider border-b border-accent"></div>
+          <PageHeader
+            title="Ready Set Go"
+            subtitle="Publish your app with GitHub Pages"
+            date="June 8th, 2022"
+          />
           {/* Headline */}
           <div className="headlineWrapper">
             <p className="headline">

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavBar from "../../components/navbar/NavBar";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import Footer from "../../components/footer/Footer";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import TableOfContents from "../../components/toc/TableOfContents";
@@ -132,17 +133,11 @@ function FigmaSlider() {
     <div className="gridContainer">
       <div className="leftSidebar"></div>
       <section className="main section motion-preset-focus">
-        {/* Title */}
-        <h1 id="top" className="text-accent">
-          Figma Slider
-        </h1>
-        {/* Subtitle */}
-        <div>
-          <h2>Create a slider in Figma</h2>
-          <p className="dateStamp text-accent">June 8th, 2022</p>
-          {/* Divider */}
-          <div className="divider border-b border-accent"></div>
-        </div>
+        <PageHeader
+          title="Figma Slider"
+          subtitle="Create a slider in Figma"
+          date="June 8th, 2022"
+        />
         {/* Headline */}
         <div className="headlineWrapper">
           <p className="headline">

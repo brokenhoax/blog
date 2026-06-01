@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/navbar/NavBar";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import Footer from "../../components/footer/Footer";
 import Link from "next/link";
 import Callout from "../../components/callout/Callout";
@@ -137,14 +138,13 @@ function About() {
         <div className={`leftSidebar`}></div>
         <div className={`main`}>
           <section className={`section motion-preset-focus`}>
-            {/* Title */}
-            <h1 className="text-accent">About</h1>
-            <h2>About Kraus Cloud</h2>
-            <p className="dateStamp  bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text">
-              {todayDate}
-            </p>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
+            <PageHeader
+              title="About"
+              subtitle="About Kraus Cloud"
+              date={todayDate}
+              titleId=""
+              dateClassName="dateStamp bg-gradient-to-r from-accent to-subtle text-transparent bg-clip-text"
+            />
             {/* About Kraus Cloud */}
             <div className={`${styles.aboutKrausCloud}`}>
               {/* Logo */}

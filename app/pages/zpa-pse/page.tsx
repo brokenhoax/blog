@@ -5,6 +5,7 @@ import Callout from "../../components/callout/Callout";
 import CodeBlock from "../../components/codeblock/CodeBlock";
 import Footer from "../../components/footer/Footer";
 import NavBar from "../../components/navbar/NavBar";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import TableOfContents from "../../components/toc/TableOfContents";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 
@@ -334,17 +335,11 @@ function ZpaPrivateServiceEdge() {
       <div className="leftSidebar"></div>
       <div className={`main`}>
         <section className="section motion-preset-focus">
-          {/* Title */}
-          <h1 id="top" className="text-accent">
-            Private Service Edges
-          </h1>
-          {/* Subtitle */}
-          <div>
-            <h2>Performant ZTNA</h2>
-            <p className="dateStamp text-accent">May 1st, 2026</p>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
-          </div>
+          <PageHeader
+            title="Private Service Edges"
+            subtitle="Performant ZTNA"
+            date="May 1st, 2026"
+          />
           {/* Headline */}
           <div className="headlineWrapper">
             <p className="headline">

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import NavBar from "../../components/navbar/NavBar";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import Footer from "../../components/footer/Footer";
 import ToggleImage from "../../components/toggleImage/ToggleImage";
 import Callout from "../../components/callout/Callout";
@@ -271,17 +272,12 @@ function LabContents() {
       <div className="leftSidebar"></div>
       <div className={`main`}>
         <section className="section motion-preset-focus">
-          {/* Header */}
-          <div>
-            {/* Title */}
-            <h1 id="top" className="flex text-accent">
-              Gear Up
-            </h1>
-            <h2>Components & Requirements</h2>
-            <p className="dateStamp text-accent">October 31st, 2024</p>
-            {/* Divider */}
-            <div className="divider border-b border-accent"></div>
-          </div>
+          <PageHeader
+            title="Gear Up"
+            subtitle="Components & Requirements"
+            date="October 31st, 2024"
+            titleClassName="flex"
+          />
           {/* Headline */}
           <div className="headlineWrapper">
             <p className="headline">
@@ -497,7 +493,7 @@ function LabContents() {
                 hideLink={false}
               >
                 <div>
-                  <p className="text-primary">
+                  <p>
                     <Image
                       className={`${styles.productImage}`}
                       src={images[1].imagePath}
@@ -516,7 +512,7 @@ function LabContents() {
                     do we even need a modem? Well, something has to convert that
                     analog broadband signal into digital bits and bytes!
                   </p>
-                  <p className="text-primary">
+                  <p>
                     The good news is, you likely already have this base covered
                     by whatever your Internet Service Provider (ISP) has
                     provided you and by "provided" I mean rented. I don't like
@@ -526,7 +522,7 @@ function LabContents() {
                     of your lab, then perhaps you should pick up your own gear,
                     too.
                   </p>
-                  <p className="text-primary">
+                  <p>
                     Of course, bringing your own modem does require some extra
                     hoop jumping to register it with your ISP, but it will save
                     you a few bucks a month and give you some more hands-on
@@ -556,7 +552,7 @@ function LabContents() {
                     decoding="sync"
                     loading="eager"
                   ></Image>
-                  <p className="text-primary">
+                  <p>
                     When reviewing cable modems, I mentioned that you may have
                     already been provided with a router by your ISP. So long as
                     you have the ability to configure port forwarding on your
@@ -566,7 +562,7 @@ function LabContents() {
                     the gear they rent you and that's a non-starter for home lab
                     enthusiasts like you and me.
                   </p>
-                  <p className="text-primary">
+                  <p>
                     That said, I really like the Amplifi home router that I
                     picked up back in 2019 but, while it's still available on
                     the market, it's a bit long in the tooth and over-priced
@@ -589,7 +585,7 @@ function LabContents() {
                 productDescription="Netgate — 4200 appliance"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[2].imagePath}
@@ -624,7 +620,7 @@ function LabContents() {
                 productDescription="Switch — Cisco Catalyst 1200"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[15].imagePath}
@@ -647,7 +643,7 @@ function LabContents() {
                   less than you'd expect (like the one I'm recommending here, by
                   Cisco, for less than $300).
                 </p>
-                <p className="text-primary">
+                <p>
                   What you'll need is an 8-port (i.e., eight ethernet
                   interfaces) gigabit ethernet switch. The 2915al has an extra
                   two ports for uplink ports, so, technically mine has 10
@@ -672,7 +668,7 @@ function LabContents() {
                 productDescription="Minisforum — MS-01 Server"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[3].imagePath}
@@ -708,7 +704,7 @@ function LabContents() {
                 productDescription="ECHOGEAR - Network Rack"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[16].imagePath}
@@ -743,7 +739,7 @@ function LabContents() {
                 productDescription="Ethernet Cables"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[17].imagePath}
@@ -775,7 +771,7 @@ function LabContents() {
                 productDescription="Ethernet Adapter - USB C to RJ-45 (F)"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[5].imagePath}
@@ -805,7 +801,7 @@ function LabContents() {
                 productDescription="Console - USB C to RJ-45 (M) Serial"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[6].imagePath}
@@ -834,7 +830,7 @@ function LabContents() {
                 productDescription="SanDisk — 32GB Flash Drive"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[8].imagePath}
@@ -863,7 +859,7 @@ function LabContents() {
                 elementId="lab-components-network-plus"
                 hideLink={false}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[7].imagePath}
@@ -973,7 +969,7 @@ function LabContents() {
               hideLink={true}
             >
               <div>
-                <p className="text-primary">
+                <p>
                   Our MS-01 mini-server will come with Windows pre-installed and
                   we'll want to overwrite that with Proxmox Virtual Environment
                   so that we can run our lab VMs on Proxmox. We'll need a boot
@@ -1001,7 +997,7 @@ function LabContents() {
               productDescription="Proxmox"
               hideLink={true}
             >
-              <p className="text-primary">
+              <p>
                 <Image
                   className={`${styles.productImage}`}
                   src={images[9].imagePath}
@@ -1038,7 +1034,7 @@ function LabContents() {
               productDescription="Ubuntu"
               hideLink={true}
             >
-              <p className="text-primary">
+              <p>
                 <Image
                   className={`${styles.productImage}`}
                   src={images[10].imagePath}
@@ -1069,7 +1065,7 @@ function LabContents() {
               productDescription="Red Hat Enterprise Linux"
               hideLink={true}
             >
-              <p className="text-primary">
+              <p>
                 <Image
                   className={`${styles.productImage}`}
                   src={images[11].imagePath}
@@ -1090,7 +1086,7 @@ function LabContents() {
                 applications and is recommended by Zscaler as a supported OS for
                 Zscaler App Connectors.
               </p>
-              <p className="text-primary">
+              <p>
                 I'm sure you're thinking, "All of this sounds very expensive...
                 aren't we building a home lab?" Luckily for us, we can get our
                 hands on a free copy of RHEL through the{" "}
@@ -1112,7 +1108,7 @@ function LabContents() {
               productDescription="pfSense"
               hideLink={true}
             >
-              <p className="text-primary">
+              <p>
                 <Image
                   className={`${styles.productImage}`}
                   src={images[12].imagePath}
@@ -1145,7 +1141,7 @@ function LabContents() {
               productDescription="Next.js"
               hideLink={true}
             >
-              <p className="text-primary">
+              <p>
                 <Image
                   className={`${styles.productImage}`}
                   src={images[13].imagePath}
@@ -1182,7 +1178,7 @@ function LabContents() {
               productDescription="Nginx"
               hideLink={true}
             >
-              <p className="text-primary">
+              <p>
                 <Image
                   className={`${styles.productImage}`}
                   src={images[14].imagePath}
@@ -1305,7 +1301,7 @@ function LabContents() {
                 productDescription="Registered Domain — Cloudflare"
                 hideLink={true}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[18].imagePath}
@@ -1345,7 +1341,7 @@ function LabContents() {
                 productDescription="Identity Provider (IdP) — Okta"
                 hideLink={true}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[20].imagePath}
@@ -1383,7 +1379,7 @@ function LabContents() {
                 productDescription="Remote Access Solution — Zscaler Private Access"
                 hideLink={true}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[19].imagePath}
@@ -1417,7 +1413,7 @@ function LabContents() {
                 productDescription="Internet Security — Zscaler Internet Access"
                 hideLink={true}
               >
-                <p className="text-primary">
+                <p>
                   <Image
                     className={`${styles.productImage}`}
                     src={images[19].imagePath}
