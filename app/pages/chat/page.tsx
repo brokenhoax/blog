@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import NavBar from "../../components/navbar/NavBar";
+import PageHeader from "../../components/pageHeader/PageHeader";
 import Footer from "../../components/footer/Footer";
 import { sendPrompt } from "../../services/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +18,7 @@ function Chat() {
   );
   const [currentStream, setCurrentStream] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
+  const hasMessages = messages.length > 0;
 
   useEffect(() => {
     if (messagesRef.current) {
@@ -25,6 +27,13 @@ function Chat() {
       ).scrollHeight;
     }
   }, [messages, currentStream]);
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  }
 
   async function handleSubmit() {
     if (!prompt.trim()) return;
@@ -67,15 +76,14 @@ function Chat() {
   }
 
   let chatResponse: React.ReactElement;
-  if (messages.length === 0) {
-    chatResponse = (
-      <p className="flex-1 text-white italic text-accent">
-        Ask me anything about the DMV data!
-      </p>
-    );
+  if (!hasMessages) {
+    chatResponse = <></>;
   } else {
     chatResponse = (
-      <div className="messages flex-1 overflow-y-auto">
+      <div
+        className="flex-1 overflow-y-auto min-h-0 flex flex-col justify-start"
+        ref={messagesRef}
+      >
         {messages.map((m, i) => (
           <p
             key={i}
@@ -96,6 +104,46 @@ function Chat() {
     );
   }
 
+  let welcomeMessage: React.ReactElement;
+  if (!hasMessages) {
+    welcomeMessage = (
+      <div className="font-medium text-lg text-center">
+        How may I assist you today?
+      </div>
+    );
+  } else {
+    welcomeMessage = <></>;
+  }
+
+  let promptForm: React.ReactElement;
+  promptForm = (
+    <form
+      className={`relative ${hasMessages ? "mt-auto" : "min-w-full max-w-2xl"}`}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
+      <textarea
+        id="prompt"
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+        onKeyDown={handleKeyDown}
+        className="resize-none w-full mt-4 pt-4 pb-8 px-4 min-h-[130px] rounded border-accent bg-subtle text-secondary placeholder:text-secondary/70 focus:outline-none"
+        placeholder="Type your message here..."
+      ></textarea>
+      <button
+        type="submit"
+        className={`${styles.submitButton} absolute right-2 bottom-4 text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none focus:border-accent focus:shadow-[0_0_8px_2px] focus:shadow-accent`}
+      >
+        <FontAwesomeIcon
+          icon={faPaperPlane}
+          fixedWidth={true}
+        ></FontAwesomeIcon>
+      </button>
+    </form>
+  );
+
   return (
     <div>
       {/* Video Component */}
@@ -112,38 +160,32 @@ function Chat() {
       <div className="gridContainer">
         <div className="leftSidebar"></div>
         <div className="main">
-          <section className="h-screen section motion-preset-focus">
-            <h2>Department of Motor Vehicles</h2>
-            <div className="divider border-b border-accent"></div>
-            <div className="flex flex-col justify-end min-h-full space-y-2 pb-5">
-              {/* Response Area */}
-              <div className="h-full mt-4 p-4 border rounded overflow-auto" ref={messagesRef}>
-                {chatResponse}
-              </div>
-              {/* Prompt Area */}
-              <div className="relative">
-                <textarea
-                  id="prompt"
-                  value={prompt}
-                  onChange={(e) => setPrompt(e.target.value)}
-                  className="static resize-none w-full pt-4 pb-8 px-4 min-h-[130px] rounded border-accent bg-subtle focus:outline-none"
-                  placeholder="Type your message here..."
-                ></textarea>
-                <button
-                  className={`${styles.submitButton} absolute right-2 bottom-4 text-accent bg-primary rounded-lg border-2 border-transparent transition-all duration-300 hover:border-accent hover:shadow-[0_0_8px_2px] hover:shadow-accent focus:outline-none focus:border-accent focus:shadow-[0_0_8px_2px] focus:shadow-accent`}
-                  onClick={handleSubmit}
-                >
-                  <FontAwesomeIcon
-                    icon={faPaperPlane}
-                    fixedWidth={true}
-                  ></FontAwesomeIcon>
-                </button>
-              </div>
+          <div className="h-full min-h-0 motion-preset-focus flex flex-col">
+            <PageHeader
+              title="Kraus Cloud Chatbot"
+              subtitle="Department of Motor Vehicles"
+            />
+            <div className="flex-1 min-h-0 flex flex-col pt-2">
+              {hasMessages ? (
+                <>
+                  {/* Response Area */}
+                  {chatResponse}
+                  {/* Prompt Area */}
+                  {promptForm}
+                </>
+              ) : (
+                <div className="flex-1 flex flex-col items-center justify-center gap-4">
+                  {/* Welcome Message */}
+                  {welcomeMessage}
+                  {/* Prompt Area */}
+                  {promptForm}
+                </div>
+              )}
             </div>
-          </section>
+          </div>
         </div>
         <div className="rightSidebar">
-          <NavBar marginTop="mt-[5rem]" />
+          <NavBar marginTop="mt-[11rem]" />
         </div>
         <div className={`footer`}>
           <Footer></Footer>
