@@ -13,7 +13,7 @@ import {
 import {} from "@fortawesome/free-regular-svg-icons";
 import styles from "./NavBar.module.css";
 
-function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
+function NavBar({ marginTop = "mt-[14rem]" }: { marginTop?: string }) {
   const { isExpanded, toggleExpanded } = useNavbar();
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -158,13 +158,15 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
     }
   }
 
+  const mobileNavBackdrop = styles.navMenuMobileBackdrop;
+
   // Show navbar on smaller screens
   if (windowSize.width < 1024 && isExpanded) {
     return (
       <nav
         className={`z-50 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
       >
-        {navMenuElements}
+        <div className={mobileNavBackdrop}>{navMenuElements}</div>
       </nav>
     );
   } else if (windowSize.width < 1024 && !isExpanded) {
@@ -172,12 +174,13 @@ function NavBar({ marginTop = "mt-[11rem]" }: { marginTop?: string }) {
       <nav
         className={`z-50 fixed bottom-4 right-4 flex justify-end motion-preset-pop`}
       >
-        {/* Menu Button */}
-        <KcButton
-          icon={faBars}
-          onToggle={setNavbarstatus}
-          type="toggle"
-        ></KcButton>
+        <div className={mobileNavBackdrop}>
+          <KcButton
+            icon={faBars}
+            onToggle={setNavbarstatus}
+            type="toggle"
+          ></KcButton>
+        </div>
       </nav>
     );
   }

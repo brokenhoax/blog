@@ -13,3 +13,84 @@
   justify-content: start;
   gap: 1.5rem;
 }
+
+/* Small viewports: hazy cloud-like panel behind floating nav buttons */
+.navMenuMobileBackdrop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  isolation: isolate;
+
+  background: hsl(var(--nextui-primary) / 0.66);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  border: 1px solid hsl(0 0% 100% / 0.22);
+  box-shadow:
+    0 10px 36px hsl(var(--nextui-primary) / 0.35),
+    inset 0 1px 0 hsl(0 0% 100% / 0.18);
+}
+
+.navMenuMobileBackdrop::before,
+.navMenuMobileBackdrop::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(22px);
+  opacity: 0.65;
+  animation: navCloudDrift 14s ease-in-out infinite alternate;
+}
+
+.navMenuMobileBackdrop::before {
+  width: 130%;
+  height: 5rem;
+  top: -25%;
+  left: -15%;
+  background: radial-gradient(
+    ellipse at 35% 50%,
+    hsl(0 0% 100% / 0.58) 0%,
+    hsl(0 0% 100% / 0.18) 42%,
+    transparent 72%
+  );
+}
+
+.navMenuMobileBackdrop::after {
+  width: 115%;
+  height: 4rem;
+  bottom: -20%;
+  right: -18%;
+  animation-delay: -7s;
+  animation-duration: 17s;
+  background: radial-gradient(
+    ellipse at 68% 50%,
+    hsl(0 0% 100% / 0.48) 0%,
+    hsl(0 0% 100% / 0.12) 48%,
+    transparent 76%
+  );
+}
+
+@keyframes navCloudDrift {
+  from {
+    transform: translateX(-4%) translateY(0);
+  }
+  to {
+    transform: translateX(4%) translateY(-3%);
+  }
+}
+
+.navMenuMobileBackdrop .navMenuControls {
+  align-items: center;
+  width: 100%;
+}
+
+/* KcButton uses margin-left for desktop sidebar offset; reset in mobile panel */
+.navMenuMobileBackdrop a,
+.navMenuMobileBackdrop button {
+  margin-left: 0;
+}
