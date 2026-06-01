@@ -34,9 +34,9 @@ function ToggleImage({ params }) {
     return (
       <div
         onClick={() => handleClick()}
-        className={`${styles.imageCollapsed} text-accent bg-subtle`}
+        className={`${styles.imageCollapsed} bg-subtle text-secondary`}
       >
-        <div className={`${styles.imageHeader} text-accent truncate`}>
+        <div className={`${styles.imageHeader} truncate`}>
           <FontAwesomeIcon icon={faImage} fixedWidth={true}></FontAwesomeIcon>
           <div className={`truncate`}>{params.imageAltText}</div>
         </div>
@@ -52,13 +52,13 @@ function ToggleImage({ params }) {
 
   if (toggled) {
     return (
-      <div className={`text-accent`}>
+      <div>
         {/* Image Header */}
         <span
           onClick={() => handleClick()}
-          className={`${styles.imageCollapsed} text-accent bg-subtle`}
+          className={`${styles.imageCollapsed} bg-subtle text-secondary`}
         >
-          <div className={`${styles.imageHeader} text-accent truncate`}>
+          <div className={`${styles.imageHeader} truncate`}>
             <FontAwesomeIcon icon={faImage} fixedWidth={true}></FontAwesomeIcon>
             <div className={`truncate`}>{params.imageAltText}</div>
           </div>
@@ -70,7 +70,7 @@ function ToggleImage({ params }) {
           ></KcButton>
         </span>
         {/* Image */}
-        <div className={`${styles.imageWrapper} text-accent`}>
+        <div className={`${styles.imageWrapper}`}>
           <Image
             onClick={() => handleMaximize()}
             className={`${styles.imageStyles}`}

@@ -40,8 +40,8 @@ const KcLink = ({
     return (
       <div className={`${styles.kcLinkWrapper}`} id={elementId}>
         <div className={`${styles.kcLinkCollapsed} bg-subtle`}>
-          <div className={`${styles.kcLinkDescription} text-accent`}>
-            <div className={`${styles.productDescription} text-accent`}>
+          <div className={`${styles.kcLinkDescription} text-secondary`}>
+            <div className={`${styles.productDescription} text-secondary`}>
               {productDescription}
             </div>
           </div>
@@ -65,8 +65,8 @@ const KcLink = ({
     return (
       <div className={`${styles.kcLinkWrapper}`} id={elementId}>
         <div className={`${styles.kcLinkCollapsed} bg-subtle`}>
-          <div className={`${styles.kcLinkDescription} text-accent`}>
-            <div className={`${styles.productDescription} text-accent`}>
+          <div className={`${styles.kcLinkDescription} text-secondary`}>
+            <div className={`${styles.productDescription} text-secondary`}>
               {productDescription}
             </div>
           </div>
@@ -82,7 +82,7 @@ const KcLink = ({
             ></KcButton>
           </div>
         </div>
-        <div className={`${styles.teaserBody} text-tertiary`}>{children}</div>
+        <div className={styles.teaserBody}>{children}</div>
       </div>
     );
   }

@@ -59,7 +59,7 @@ function TableOfContents({ params, length }) {
           {/* Image Header */}
           <span
             onClick={() => handleClick()}
-            className={`${styles.tocExpanded} bg-subtle`}
+            className={`${styles.tocExpanded} bg-subtle text-secondary`}
           >
             <div className={`${styles.tocHeader}`}>
               <FontAwesomeIcon icon={faList} fixedWidth></FontAwesomeIcon>
