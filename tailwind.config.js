@@ -2,6 +2,20 @@ const { nextui } = require("@nextui-org/react");
 import tailwindcssMotion from "tailwindcss-motion";
 /** @type {import('tailwindcss').Config} */
 
+const sharedLayout = {
+  disabledOpacity: "0.3",
+  radius: {
+    small: "4px",
+    medium: "6px",
+    large: "8px",
+  },
+  borderWidth: {
+    small: "1px",
+    medium: "2px",
+    large: "3px",
+  },
+};
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,49 +27,30 @@ module.exports = {
   plugins: [
     nextui({
       themes: {
+        /* NextUI fallback — matches darkOwl, not in palette cycle */
         dark: {
           colors: {
-            accent: "#FF7844",
-            subtle: "#53354A",
-            primary: "#1B1F3A",
+            accent: "#bad32c",
+            subtle: "#011627",
+            primary: "#09061b",
             secondary: "#FFFFFF",
+            tertiary: "#011627",
             white: "#FFFFFF",
-            tertiary: "#000000",
           },
-          layout: {
-            disabledOpacity: "0.3",
-            radius: {
-              small: "4px",
-              medium: "6px",
-              large: "8px",
-            },
-            borderWidth: {
-              small: "1px",
-              medium: "2px",
-              large: "3px",
-            },
-          },
+          layout: sharedLayout,
         },
+        /* Light gray “cloud” */
         light: {
+          extend: "light",
           colors: {
-            accent: "#FF7844",
-            subtle: "#547792",
-            primary: "#213448",
-            secondary: "#FFFFFF",
+            accent: "#5C7A9E",
+            subtle: "#8B9CB3",
+            primary: "#E8EEF4",
+            secondary: "#243041",
+            tertiary: "#F6F8FB",
+            white: "#FFFFFF",
           },
-          layout: {
-            disabledOpacity: "0.3",
-            radius: {
-              small: "4px",
-              medium: "6px",
-              large: "8px",
-            },
-            borderWidth: {
-              small: "1px",
-              medium: "2px",
-              large: "3px",
-            },
-          },
+          layout: sharedLayout,
         },
         darkOwl: {
           extend: "dark",
@@ -67,67 +62,33 @@ module.exports = {
             tertiary: "#011627",
             white: "#FFFFFF",
           },
-          layout: {
-            disabledOpacity: "0.3",
-            radius: {
-              small: "4px",
-              medium: "6px",
-              large: "8px",
-            },
-            borderWidth: {
-              small: "1px",
-              medium: "2px",
-              large: "3px",
-            },
-          },
+          layout: sharedLayout,
         },
-        lightOwl: {
-          extend: "light",
-          colors: {
-            accent: "#ff1c82",
-            subtle: "#011627",
-            primary: "#0D0D0D",
-            secondary: "#FFFFFF",
-            tertiary: "#011627",
-            white: "#FFFFFF",
-          },
-          layout: {
-            disabledOpacity: "0.3",
-            radius: {
-              small: "4px",
-              medium: "6px",
-              large: "8px",
-            },
-            borderWidth: {
-              small: "1px",
-              medium: "2px",
-              large: "3px",
-            },
-          },
-        },
+        /* Black & white */
         black: {
           extend: "dark",
           colors: {
-            accent: "#bad32c",
-            subtle: "#011627",
+            accent: "#FFFFFF",
+            subtle: "#737373",
             primary: "#000000",
             secondary: "#FFFFFF",
-            tertiary: "#011627",
+            tertiary: "#141414",
             white: "#FFFFFF",
           },
-          layout: {
-            disabledOpacity: "0.3",
-            radius: {
-              small: "4px",
-              medium: "6px",
-              large: "8px",
-            },
-            borderWidth: {
-              small: "1px",
-              medium: "2px",
-              large: "3px",
-            },
+          layout: sharedLayout,
+        },
+        /* Blue / orange (formerly the old “light” theme) */
+        preppy: {
+          extend: "dark",
+          colors: {
+            accent: "#FF7844",
+            subtle: "#547792",
+            primary: "#213448",
+            secondary: "#FFFFFF",
+            tertiary: "#1a2a38",
+            white: "#FFFFFF",
           },
+          layout: sharedLayout,
         },
       },
     }),

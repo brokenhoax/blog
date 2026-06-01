@@ -72,6 +72,7 @@ li {
 
 .main {
   grid-area: main;
+  min-width: 0;
 }
 
 .section {
@@ -156,7 +157,7 @@ li {
 }
 
 .topScroller {
-  -webkit-text-stroke: white 1px;
+  -webkit-text-stroke: 1px hsl(var(--nextui-accent));
   padding-left: 0.5rem;
 }
 
@@ -187,6 +188,28 @@ li {
   text-wrap: nowrap;
   font-weight: 500;
   line-height: 2rem;
+}
+
+/* High-contrast text on subtle chips (theme-aware via secondary) */
+.bg-subtle.path {
+  --tw-text-opacity: 1;
+  color: hsl(
+    var(--nextui-secondary) / var(--nextui-secondary-opacity, var(--tw-text-opacity))
+  );
+}
+
+/* Prompt fields and other inputs on subtle backgrounds */
+textarea.bg-subtle,
+input.bg-subtle {
+  --tw-text-opacity: 1;
+  color: hsl(
+    var(--nextui-secondary) / var(--nextui-secondary-opacity, var(--tw-text-opacity))
+  );
+}
+
+textarea.bg-subtle::placeholder,
+input.bg-subtle::placeholder {
+  color: hsl(var(--nextui-secondary) / 0.7);
 }
 
 /* Video Overlay */
@@ -228,7 +251,7 @@ li {
   }
 
   .main {
-    padding: 0rem 0.5rem 0rem 0.5rem;
+    padding: 1rem 1rem 0rem 1rem;
   }
 
   .divider {
@@ -302,7 +325,7 @@ li {
   }
 
   .main {
-    padding: 2rem 1rem 8rem 1rem;
+    padding: 2rem 1rem 0rem 1rem;
   }
 
   h1 {

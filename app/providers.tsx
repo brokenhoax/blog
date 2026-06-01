@@ -7,7 +7,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <ThemeProvider
       attribute="class"
       defaultTheme="darkOwl"
-      themes={["dark", "light", "darkOwl", "lightOwl"]}
+      themes={["black", "darkOwl", "light", "preppy"]}
       enableSystem
     >
       {children}

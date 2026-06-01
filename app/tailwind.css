@@ -1799,6 +1799,10 @@ video {
   margin-top: 5rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2019,6 +2023,10 @@ video {
   max-height: 100%;
 }
 
+.min-h-0 {
+  min-height: 0px;
+}
+
 .min-h-10 {
   min-height: 2.5rem;
 }
@@ -2073,10 +2081,6 @@ video {
 
 .min-h-\[32px\] {
   min-height: 32px;
-}
-
-.min-h-full {
-  min-height: 100%;
 }
 
 .w-1 {
@@ -2187,6 +2191,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.min-w-0 {
+  min-width: 0px;
 }
 
 .min-w-10 {
@@ -2772,12 +2780,6 @@ video {
   margin-left: calc(0.125rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-}
-
 .self-center {
   align-self: center;
 }
@@ -2826,10 +2828,6 @@ video {
 
 .text-ellipsis {
   text-overflow: ellipsis;
-}
-
-.text-clip {
-  text-overflow: clip;
 }
 
 .whitespace-normal {
@@ -3685,10 +3683,6 @@ video {
   padding-bottom: 1rem;
 }
 
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
-
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -3739,10 +3733,6 @@ video {
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -4531,8 +4521,8 @@ video {
   --nextui-default-900: 240 5.88% 10%;
   --nextui-default-foreground: 0 0% 0%;
   --nextui-default: 240 4.88% 83.92%;
-  --nextui-primary: 210.76999999999998 37.14% 20.59%;
-  --nextui-secondary: 0 0% 100%;
+  --nextui-primary: 210 35.29% 93.33%;
+  --nextui-secondary: 215.16999999999996 28.71% 19.8%;
   --nextui-success-50: 146.66999999999996 64.29% 94.51%;
   --nextui-success-100: 145.71000000000004 61.4% 88.82%;
   --nextui-success-200: 146.2 61.74% 77.45%;
@@ -4569,8 +4559,10 @@ video {
   --nextui-danger-900: 340 84.91% 10.39%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 16.680000000000007 100% 63.33%;
-  --nextui-subtle: 206.13 26.96% 45.1%;
+  --nextui-accent: 212.73000000000002 26.4% 49.02%;
+  --nextui-subtle: 214.5 20.83% 62.35%;
+  --nextui-tertiary: 216 38.46% 97.45%;
+  --nextui-white: 0 0% 100%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
   --nextui-font-size-tiny: 0.75rem;
@@ -4631,7 +4623,7 @@ video {
   --nextui-default-900: 0 0% 98.04%;
   --nextui-default-foreground: 0 0% 100%;
   --nextui-default: 240 5.26% 26.08%;
-  --nextui-primary: 232.26 36.47% 16.67%;
+  --nextui-primary: 248.56999999999994 63.64% 6.47%;
   --nextui-secondary: 0 0% 100%;
   --nextui-success-50: 145.71000000000004 77.78% 8.82%;
   --nextui-success-100: 146.2 79.78% 17.45%;
@@ -4669,10 +4661,10 @@ video {
   --nextui-danger-900: 339.13 92% 95.1%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 16.680000000000007 100% 63.33%;
-  --nextui-subtle: 318 22.06% 26.67%;
+  --nextui-accent: 68.98000000000002 65.49% 50%;
+  --nextui-subtle: 206.84000000000003 95% 7.84%;
+  --nextui-tertiary: 206.84000000000003 95% 7.84%;
   --nextui-white: 0 0% 100%;
-  --nextui-tertiary: 0 0% 0%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
   --nextui-font-size-tiny: 0.75rem;
@@ -4797,108 +4789,6 @@ video {
   --nextui-hover-opacity: .9;
 }
 
-.lightOwl,[data-theme="lightOwl"] {
-  color-scheme: light;
-  --nextui-background: 0 0% 100%;
-  --nextui-foreground-50: 0 0% 98.04%;
-  --nextui-foreground-100: 240 4.76% 95.88%;
-  --nextui-foreground-200: 240 5.88% 90%;
-  --nextui-foreground-300: 240 4.88% 83.92%;
-  --nextui-foreground-400: 240 5.03% 64.9%;
-  --nextui-foreground-500: 240 3.83% 46.08%;
-  --nextui-foreground-600: 240 5.2% 33.92%;
-  --nextui-foreground-700: 240 5.26% 26.08%;
-  --nextui-foreground-800: 240 3.7% 15.88%;
-  --nextui-foreground-900: 240 5.88% 10%;
-  --nextui-foreground: 201.81999999999994 24.44% 8.82%;
-  --nextui-divider: 0 0% 6.67%;
-  --nextui-divider-opacity: 0.15;
-  --nextui-focus: 212.01999999999998 100% 46.67%;
-  --nextui-overlay: 0 0% 0%;
-  --nextui-content1: 0 0% 100%;
-  --nextui-content1-foreground: 201.81999999999994 24.44% 8.82%;
-  --nextui-content2: 240 4.76% 95.88%;
-  --nextui-content2-foreground: 240 3.7% 15.88%;
-  --nextui-content3: 240 5.88% 90%;
-  --nextui-content3-foreground: 240 5.26% 26.08%;
-  --nextui-content4: 240 4.88% 83.92%;
-  --nextui-content4-foreground: 240 5.2% 33.92%;
-  --nextui-default-50: 0 0% 98.04%;
-  --nextui-default-100: 240 4.76% 95.88%;
-  --nextui-default-200: 240 5.88% 90%;
-  --nextui-default-300: 240 4.88% 83.92%;
-  --nextui-default-400: 240 5.03% 64.9%;
-  --nextui-default-500: 240 3.83% 46.08%;
-  --nextui-default-600: 240 5.2% 33.92%;
-  --nextui-default-700: 240 5.26% 26.08%;
-  --nextui-default-800: 240 3.7% 15.88%;
-  --nextui-default-900: 240 5.88% 10%;
-  --nextui-default-foreground: 0 0% 0%;
-  --nextui-default: 240 4.88% 83.92%;
-  --nextui-primary: 0 0% 5.1%;
-  --nextui-secondary: 0 0% 100%;
-  --nextui-success-50: 146.66999999999996 64.29% 94.51%;
-  --nextui-success-100: 145.71000000000004 61.4% 88.82%;
-  --nextui-success-200: 146.2 61.74% 77.45%;
-  --nextui-success-300: 145.78999999999996 62.57% 66.47%;
-  --nextui-success-400: 146.01 62.45% 55.1%;
-  --nextui-success-500: 145.96000000000004 79.46% 43.92%;
-  --nextui-success-600: 146.01 79.89% 35.1%;
-  --nextui-success-700: 145.78999999999996 79.26% 26.47%;
-  --nextui-success-800: 146.2 79.78% 17.45%;
-  --nextui-success-900: 145.71000000000004 77.78% 8.82%;
-  --nextui-success-foreground: 0 0% 0%;
-  --nextui-success: 145.96000000000004 79.46% 43.92%;
-  --nextui-warning-50: 54.55000000000001 91.67% 95.29%;
-  --nextui-warning-100: 37.139999999999986 91.3% 90.98%;
-  --nextui-warning-200: 37.139999999999986 91.3% 81.96%;
-  --nextui-warning-300: 36.95999999999998 91.24% 73.14%;
-  --nextui-warning-400: 37.00999999999999 91.26% 64.12%;
-  --nextui-warning-500: 37.02999999999997 91.27% 55.1%;
-  --nextui-warning-600: 37.00999999999999 74.22% 44.12%;
-  --nextui-warning-700: 36.95999999999998 73.96% 33.14%;
-  --nextui-warning-800: 37.139999999999986 75% 21.96%;
-  --nextui-warning-900: 37.139999999999986 75% 10.98%;
-  --nextui-warning-foreground: 0 0% 0%;
-  --nextui-warning: 37.02999999999997 91.27% 55.1%;
-  --nextui-danger-50: 339.13 92% 95.1%;
-  --nextui-danger-100: 340 91.84% 90.39%;
-  --nextui-danger-200: 339.3299999999999 90% 80.39%;
-  --nextui-danger-300: 339.11 90.6% 70.78%;
-  --nextui-danger-400: 339 90% 60.78%;
-  --nextui-danger-500: 339.20000000000005 90.36% 51.18%;
-  --nextui-danger-600: 339 86.54% 40.78%;
-  --nextui-danger-700: 339.11 85.99% 30.78%;
-  --nextui-danger-800: 339.3299999999999 86.54% 20.39%;
-  --nextui-danger-900: 340 84.91% 10.39%;
-  --nextui-danger-foreground: 0 0% 100%;
-  --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 333.03999999999996 100% 55.49%;
-  --nextui-subtle: 206.84000000000003 95% 7.84%;
-  --nextui-tertiary: 206.84000000000003 95% 7.84%;
-  --nextui-white: 0 0% 100%;
-  --nextui-divider-weight: 1px;
-  --nextui-disabled-opacity: 0.3;
-  --nextui-font-size-tiny: 0.75rem;
-  --nextui-font-size-small: 0.875rem;
-  --nextui-font-size-medium: 1rem;
-  --nextui-font-size-large: 1.125rem;
-  --nextui-line-height-tiny: 1rem;
-  --nextui-line-height-small: 1.25rem;
-  --nextui-line-height-medium: 1.5rem;
-  --nextui-line-height-large: 1.75rem;
-  --nextui-radius-small: 4px;
-  --nextui-radius-medium: 6px;
-  --nextui-radius-large: 8px;
-  --nextui-border-width-small: 1px;
-  --nextui-border-width-medium: 2px;
-  --nextui-border-width-large: 3px;
-  --nextui-box-shadow-small: 0px 0px 5px 0px rgb(0 0 0 / 0.02), 0px 2px 10px 0px rgb(0 0 0 / 0.06), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
-  --nextui-box-shadow-medium: 0px 0px 15px 0px rgb(0 0 0 / 0.03), 0px 2px 30px 0px rgb(0 0 0 / 0.08), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
-  --nextui-box-shadow-large: 0px 0px 30px 0px rgb(0 0 0 / 0.04), 0px 30px 60px 0px rgb(0 0 0 / 0.12), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
-  --nextui-hover-opacity: .8;
-}
-
 .black,[data-theme="black"] {
   color-scheme: dark;
   --nextui-background: 0 0% 0%;
@@ -4975,9 +4865,111 @@ video {
   --nextui-danger-900: 339.13 92% 95.1%;
   --nextui-danger-foreground: 0 0% 100%;
   --nextui-danger: 339.20000000000005 90.36% 51.18%;
-  --nextui-accent: 68.98000000000002 65.49% 50%;
-  --nextui-subtle: 206.84000000000003 95% 7.84%;
-  --nextui-tertiary: 206.84000000000003 95% 7.84%;
+  --nextui-accent: 0 0% 100%;
+  --nextui-subtle: 0 0% 45.1%;
+  --nextui-tertiary: 0 0% 7.84%;
+  --nextui-white: 0 0% 100%;
+  --nextui-divider-weight: 1px;
+  --nextui-disabled-opacity: 0.3;
+  --nextui-font-size-tiny: 0.75rem;
+  --nextui-font-size-small: 0.875rem;
+  --nextui-font-size-medium: 1rem;
+  --nextui-font-size-large: 1.125rem;
+  --nextui-line-height-tiny: 1rem;
+  --nextui-line-height-small: 1.25rem;
+  --nextui-line-height-medium: 1.5rem;
+  --nextui-line-height-large: 1.75rem;
+  --nextui-radius-small: 4px;
+  --nextui-radius-medium: 6px;
+  --nextui-radius-large: 8px;
+  --nextui-border-width-small: 1px;
+  --nextui-border-width-medium: 2px;
+  --nextui-border-width-large: 3px;
+  --nextui-box-shadow-small: 0px 0px 5px 0px rgb(0 0 0 / 0.05), 0px 2px 10px 0px rgb(0 0 0 / 0.2), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
+  --nextui-box-shadow-medium: 0px 0px 15px 0px rgb(0 0 0 / 0.06), 0px 2px 30px 0px rgb(0 0 0 / 0.22), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
+  --nextui-box-shadow-large: 0px 0px 30px 0px rgb(0 0 0 / 0.07), 0px 30px 60px 0px rgb(0 0 0 / 0.26), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
+  --nextui-hover-opacity: .9;
+}
+
+.preppy,[data-theme="preppy"] {
+  color-scheme: dark;
+  --nextui-background: 0 0% 0%;
+  --nextui-foreground-50: 240 5.88% 10%;
+  --nextui-foreground-100: 240 3.7% 15.88%;
+  --nextui-foreground-200: 240 5.26% 26.08%;
+  --nextui-foreground-300: 240 5.2% 33.92%;
+  --nextui-foreground-400: 240 3.83% 46.08%;
+  --nextui-foreground-500: 240 5.03% 64.9%;
+  --nextui-foreground-600: 240 4.88% 83.92%;
+  --nextui-foreground-700: 240 5.88% 90%;
+  --nextui-foreground-800: 240 4.76% 95.88%;
+  --nextui-foreground-900: 0 0% 98.04%;
+  --nextui-foreground: 210 5.56% 92.94%;
+  --nextui-focus: 212.01999999999998 100% 46.67%;
+  --nextui-overlay: 0 0% 0%;
+  --nextui-divider: 0 0% 100%;
+  --nextui-divider-opacity: 0.15;
+  --nextui-content1: 240 5.88% 10%;
+  --nextui-content1-foreground: 0 0% 98.04%;
+  --nextui-content2: 240 3.7% 15.88%;
+  --nextui-content2-foreground: 240 4.76% 95.88%;
+  --nextui-content3: 240 5.26% 26.08%;
+  --nextui-content3-foreground: 240 5.88% 90%;
+  --nextui-content4: 240 5.2% 33.92%;
+  --nextui-content4-foreground: 240 4.88% 83.92%;
+  --nextui-default-50: 240 5.88% 10%;
+  --nextui-default-100: 240 3.7% 15.88%;
+  --nextui-default-200: 240 5.26% 26.08%;
+  --nextui-default-300: 240 5.2% 33.92%;
+  --nextui-default-400: 240 3.83% 46.08%;
+  --nextui-default-500: 240 5.03% 64.9%;
+  --nextui-default-600: 240 4.88% 83.92%;
+  --nextui-default-700: 240 5.88% 90%;
+  --nextui-default-800: 240 4.76% 95.88%;
+  --nextui-default-900: 0 0% 98.04%;
+  --nextui-default-foreground: 0 0% 100%;
+  --nextui-default: 240 5.26% 26.08%;
+  --nextui-primary: 210.76999999999998 37.14% 20.59%;
+  --nextui-secondary: 0 0% 100%;
+  --nextui-success-50: 145.71000000000004 77.78% 8.82%;
+  --nextui-success-100: 146.2 79.78% 17.45%;
+  --nextui-success-200: 145.78999999999996 79.26% 26.47%;
+  --nextui-success-300: 146.01 79.89% 35.1%;
+  --nextui-success-400: 145.96000000000004 79.46% 43.92%;
+  --nextui-success-500: 146.01 62.45% 55.1%;
+  --nextui-success-600: 145.78999999999996 62.57% 66.47%;
+  --nextui-success-700: 146.2 61.74% 77.45%;
+  --nextui-success-800: 145.71000000000004 61.4% 88.82%;
+  --nextui-success-900: 146.66999999999996 64.29% 94.51%;
+  --nextui-success-foreground: 0 0% 0%;
+  --nextui-success: 145.96000000000004 79.46% 43.92%;
+  --nextui-warning-50: 37.139999999999986 75% 10.98%;
+  --nextui-warning-100: 37.139999999999986 75% 21.96%;
+  --nextui-warning-200: 36.95999999999998 73.96% 33.14%;
+  --nextui-warning-300: 37.00999999999999 74.22% 44.12%;
+  --nextui-warning-400: 37.02999999999997 91.27% 55.1%;
+  --nextui-warning-500: 37.00999999999999 91.26% 64.12%;
+  --nextui-warning-600: 36.95999999999998 91.24% 73.14%;
+  --nextui-warning-700: 37.139999999999986 91.3% 81.96%;
+  --nextui-warning-800: 37.139999999999986 91.3% 90.98%;
+  --nextui-warning-900: 54.55000000000001 91.67% 95.29%;
+  --nextui-warning-foreground: 0 0% 0%;
+  --nextui-warning: 37.02999999999997 91.27% 55.1%;
+  --nextui-danger-50: 340 84.91% 10.39%;
+  --nextui-danger-100: 339.3299999999999 86.54% 20.39%;
+  --nextui-danger-200: 339.11 85.99% 30.78%;
+  --nextui-danger-300: 339 86.54% 40.78%;
+  --nextui-danger-400: 339.20000000000005 90.36% 51.18%;
+  --nextui-danger-500: 339 90% 60.78%;
+  --nextui-danger-600: 339.11 90.6% 70.78%;
+  --nextui-danger-700: 339.3299999999999 90% 80.39%;
+  --nextui-danger-800: 340 91.84% 90.39%;
+  --nextui-danger-900: 339.13 92% 95.1%;
+  --nextui-danger-foreground: 0 0% 100%;
+  --nextui-danger: 339.20000000000005 90.36% 51.18%;
+  --nextui-accent: 16.680000000000007 100% 63.33%;
+  --nextui-subtle: 206.13 26.96% 45.1%;
+  --nextui-tertiary: 208 36.59% 16.08%;
   --nextui-white: 0 0% 100%;
   --nextui-divider-weight: 1px;
   --nextui-disabled-opacity: 0.3;
@@ -5188,6 +5180,7 @@ li {
 
 .main {
   grid-area: main;
+  min-width: 0;
 }
 
 .section {
@@ -5272,7 +5265,7 @@ li {
 }
 
 .topScroller {
-  -webkit-text-stroke: white 1px;
+  -webkit-text-stroke: 1px hsl(var(--nextui-accent));
   padding-left: 0.5rem;
 }
 
@@ -5351,7 +5344,7 @@ li {
   }
 
   .main {
-    padding: 0rem 0.5rem 0rem 0.5rem;
+    padding: 1rem 1rem 0rem 1rem;
   }
 
   .divider {
@@ -5426,7 +5419,7 @@ li {
   }
 
   .main {
-    padding: 2rem 1rem 8rem 1rem;
+    padding: 2rem 1rem 0rem 1rem;
   }
 
   h1 {
